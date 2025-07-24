@@ -7490,3 +7490,30 @@ aiohttp.client_exceptions.ClientConnectorError: Cannot connect to host gateway-u
 2025-07-24 16:06:52,915 INFO Shard ID None has connected to Gateway (Session ID: 317e2c528c5e7acdc3a3205b2083c2e1).
 2025-07-24 16:25:36,232 INFO Shard ID None has successfully RESUMED session 317e2c528c5e7acdc3a3205b2083c2e1.
 2025-07-24 16:30:20,505 INFO Shard ID None has successfully RESUMED session 317e2c528c5e7acdc3a3205b2083c2e1.
+2025-07-24 17:55:01,474 INFO logging in using static token
+2025-07-24 17:55:03,550 INFO Shard ID None has connected to Gateway (Session ID: 66321c29b688c6ec4f1c301512597607).
+2025-07-24 17:58:26,795 INFO Shard ID None session has been invalidated.
+2025-07-24 17:58:51,260 INFO logging in using static token
+2025-07-24 17:58:53,142 INFO Shard ID None has connected to Gateway (Session ID: 69a5e055f3d954efefc7f2e867af0ef0).
+2025-07-24 17:59:23,461 INFO Connecting to voice...
+2025-07-24 17:59:23,461 INFO Starting voice handshake... (connection attempt 1)
+2025-07-24 17:59:24,003 INFO Voice handshake complete. Endpoint found: india10018.discord.media
+2025-07-24 17:59:24,325 INFO Voice connection complete.
+2025-07-24 18:04:42,204 INFO The voice handshake is being terminated for Channel ID 1053223116668665859 (Guild ID 1053223116085673985)
+2025-07-24 18:04:47,121 INFO logging in using static token
+2025-07-24 18:04:48,853 INFO Shard ID None has connected to Gateway (Session ID: abae1a26adc018f77008666ba302ae51).
+2025-07-24 18:14:18,689 INFO Connecting to voice...
+2025-07-24 18:14:18,689 INFO Starting voice handshake... (connection attempt 1)
+2025-07-24 18:14:19,246 INFO Voice handshake complete. Endpoint found: india10010.discord.media
+2025-07-24 18:14:19,623 INFO Voice connection complete.
+2025-07-24 18:16:52,761 INFO ffmpeg process 24660 has not terminated. Waiting to terminate...
+2025-07-24 18:16:52,763 INFO ffmpeg process 24660 should have terminated with a return code of 1.
+2025-07-24 18:16:55,926 ERROR Ignoring exception in command None
+discord.ext.commands.errors.CommandNotFound: Command "dc" is not found
+2025-07-24 18:16:59,544 INFO The voice handshake is being terminated for Channel ID 1232312327102009505 (Guild ID 727850028370231298)
+2025-07-24 18:27:19,205 INFO Connecting to voice...
+2025-07-24 18:27:19,205 INFO Starting voice handshake... (connection attempt 1)
+2025-07-24 18:27:19,749 INFO Voice handshake complete. Endpoint found: india10008.discord.media
+2025-07-24 18:27:20,066 INFO Voice connection complete.
+2025-07-24 18:30:10,741 INFO ffmpeg process 17112 successfully terminated with return code of 0.
+2025-07-24 18:35:10,760 INFO The voice handshake is being terminated for Channel ID 1292370406023630858 (Guild ID 727850028370231298)

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sandesh Music Bot Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Sandesh Music Bot</h1>
+            <p class="subtitle">Dashboard</p>
+        </header>
+
+        <div class="stats-card">
+            <h2>Overall Stats</h2>
+            <p><strong>Total Songs Played:</strong> {{ stats.songs_played }}</p>
+        </div>
+
+        <div class="main-content">
+            <div class="card">
+                <h2>Most Played Songs</h2>
+                <ul class="song-list">
+                    {% for song, count in stats.most_played_sorted[:10] %}
+                        <li>
+                            <span class="song-title">{{ song }}</span>
+                            <span class="play-count">{{ count }} plays</span>
+                        </li>
+                    {% else %}
+                        <li>No songs have been played yet.</li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+            <div class="card">
+                <h2>Current Queues</h2>
+                {% for guild, queue in stats.guild_queues.items() %}
+                    <div class="guild-queue">
+                        <h3>Guild ID: {{ guild }}</h3>
+                        {% if queue %}
+                            <ul class="song-list">
+                                {% for song in queue %}
+                                    <li>{{ song }}</li>
+                                {% endfor %}
+                            </ul>
+                            <div class="pagination">
+                                <!-- Pagination controls will be inserted here by JavaScript -->
+                            </div>
+                        {% else %}
+                            <p>The queue is empty.</p>
+                        {% endif %}
+                    </div>
+                {% else %}
+                    <p>No active queues.</p>
+                {% endfor %}
+            </div>
+        </div>
+
+        <footer>
+            <p>Sandesh Bot - A project by Amit Kumar Keshri</p>
+        </footer>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const itemsPerPage = 5;
+
+            document.querySelectorAll('.guild-queue').forEach(guildQueue => {
+                const songList = guildQueue.querySelector('.song-list');
+                if (!songList) return;
+
+                const songs = songList.querySelectorAll('li');
+                const totalSongs = songs.length;
+                const totalPages = Math.ceil(totalSongs / itemsPerPage);
+
+                if (totalPages <= 1) return;
+
+                const paginationContainer = guildQueue.querySelector('.pagination');
+                let currentPage = 1;
+
+                function showPage(page) {
+                    songs.forEach((song, index) => {
+                        const startIndex = (page - 1) * itemsPerPage;
+                        const endIndex = startIndex + itemsPerPage;
+                        song.style.display = (index >= startIndex && index < endIndex) ? 'flex' : 'none';
+                    });
+                    updatePaginationButtons();
+                }
+
+                function updatePaginationButtons() {
+                    paginationContainer.innerHTML = '';
+
+                    const prevButton = document.createElement('button');
+                    prevButton.innerText = 'Prev';
+                    prevButton.disabled = currentPage === 1;
+                    prevButton.addEventListener('click', () => {
+                        if (currentPage > 1) {
+                            currentPage--;
+                            showPage(currentPage);
+                        }
+                    });
+                    paginationContainer.appendChild(prevButton);
+
+                    const pageInfo = document.createElement('span');
+                    pageInfo.innerText = `Page ${currentPage} of ${totalPages}`;
+                    paginationContainer.appendChild(pageInfo);
+
+                    const nextButton = document.createElement('button');
+                    nextButton.innerText = 'Next';
+                    nextButton.disabled = currentPage === totalPages;
+                    nextButton.addEventListener('click', () => {
+                        if (currentPage < totalPages) {
+                            currentPage++;
+                            showPage(currentPage);
+                        }
+                    });
+                    paginationContainer.appendChild(nextButton);
+                }
+
+                showPage(1);
+            });
+        });
+    </script>
+</body>
+</html> 

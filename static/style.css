@@ -1,0 +1,162 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #121212;
+    color: #ffffff;
+    margin: 0;
+    padding: 2rem;
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+header h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin: 0;
+    background: -webkit-linear-gradient(#eee, #333);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+header .subtitle {
+    font-size: 1.2rem;
+    color: #b3b3b3;
+}
+
+.stats-card {
+    background-color: #1e1e1e;
+    padding: 2rem;
+    border-radius: 12px;
+    text-align: center;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.stats-card h2 {
+    margin-top: 0;
+    font-size: 1.8rem;
+    color: #ffffff;
+}
+
+.stats-card p {
+    font-size: 1.2rem;
+    color: #b3b3b3;
+}
+
+.main-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+.card {
+    background-color: #1e1e1e;
+    padding: 1.5rem 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.card h2 {
+    font-size: 1.5rem;
+    border-bottom: 2px solid #282828;
+    padding-bottom: 0.8rem;
+    margin-top: 0;
+}
+
+.song-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.song-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.8rem 0;
+    border-bottom: 1px solid #282828;
+    font-size: 1rem;
+}
+
+.song-list li:last-child {
+    border-bottom: none;
+}
+
+.song-title {
+    font-weight: 600;
+}
+
+.play-count {
+    color: #b3b3b3;
+    font-size: 0.9rem;
+}
+
+.guild-queue h3 {
+    font-size: 1.2rem;
+    color: #ffffff;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.guild-queue:first-child h3 {
+    margin-top: 0;
+}
+
+.more-songs {
+    color: #b3b3b3;
+    font-style: italic;
+    text-align: center;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1.5rem;
+}
+
+.pagination button {
+    background-color: #282828;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    padding: 0.5rem 1rem;
+    margin: 0 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.pagination button:hover:not(:disabled) {
+    background-color: #383838;
+}
+
+.pagination button:disabled {
+    background-color: #1e1e1e;
+    color: #535353;
+    cursor: not-allowed;
+}
+
+.pagination span {
+    color: #b3b3b3;
+}
+
+footer {
+    text-align: center;
+    margin-top: 3rem;
+    color: #b3b3b3;
+}
+
+@media (max-width: 768px) {
+    .main-content {
+        grid-template-columns: 1fr;
+    }
+} 

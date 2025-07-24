@@ -112,6 +112,22 @@ Please refer to the official documentation for `FFmpeg` and `yt-dlp` to install 
     ```
     The dashboard will be available at `http://127.0.0.1:5000`.
 
+## Inviting Your Bot
+
+To add the bot to your server, you need to create an invitation link.
+
+1.  Go back to the [Discord Developer Portal](https://discord.com/developers/applications) and select your application.
+2.  Navigate to the **OAuth2** tab and then select **URL Generator**.
+3.  In the "Scopes" section, check the box for `bot`.
+4.  A new "Bot Permissions" section will appear below. Check the following permissions, which are required for the bot to function correctly:
+    - **Send Messages**
+    - **Embed Links**
+    - **Read Message History**
+    - **Connect**
+    - **Speak**
+5.  Scroll down and copy the **Generated URL**.
+6.  Paste the URL into your web browser, select the server you want to add the bot to, and click "Authorize".
+
 ## Contributing
 
 Contributions are welcome! If you have any ideas, suggestions, or find a bug, please open an issue or submit a pull request. 
