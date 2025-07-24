@@ -27,7 +27,7 @@ Here is a list of available commands. Music control commands can be restricted t
 | `!pause` | | Pauses the current playback. |
 | `!resume` | | Resumes the paused playback. |
 | `!stop` | | Stops playback and clears the queue. |
-| `!skip` | | Skips the current song and plays the next one in the queue. |
+| `!skip` | `!next` | Skips the current song and plays the next one in the queue. |
 | `!queue` | `!q` | Displays the current song queue. |
 | `!remove <number>` | | Removes a song from the queue at the specified position. |
 | `!move <from> <to>` | | Moves a song from one position to another in the queue. |

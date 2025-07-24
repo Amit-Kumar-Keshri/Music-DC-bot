@@ -114,8 +114,15 @@ def set_volume(guild_id, value):
 def format_duration(seconds):
     if not seconds:
         return "?"
-    m, s = divmod(int(seconds), 60)
-    return f"{m}:{s:02d}"
+    try:
+        seconds = int(seconds)
+        m, s = divmod(seconds, 60)
+        h, m = divmod(m, 60)
+        if h > 0:
+            return f"{h}:{m:02d}:{s:02d}"
+        return f"{m}:{s:02d}"
+    except (ValueError, TypeError):
+        return "?"
 
 # Helper to check if a string is a Spotify URL
 def is_spotify_url(url):
@@ -237,7 +244,48 @@ async def play_next(ctx):
             await ctx.send("Gaane khatam, ja rahi hu main. Disconnecting in 5 minutes if nothing is added.")
             asyncio.create_task(auto_disconnect(ctx))
             return
+
         song = queue[0]
+
+        # If it's a lazy-loaded song, resolve it now
+        if song.get('is_lazy'):
+            try:
+                ydl_opts = {
+                    'format': 'bestaudio/best',
+                    'quiet': True,
+                    'source_address': '0.0.0.0',
+                }
+                # For Spotify tracks, the webpage_url is a ytsearch query
+                search_query = song['webpage_url']
+                if not is_http_url(search_query):
+                     ydl_opts['default_search'] = 'ytsearch1'
+
+                with yt_dlp.YoutubeDL(ydl_opts) as ydl:
+                    info = ydl.extract_info(search_query, download=False)
+                    # If search yields a list, take the first result
+                    if 'entries' in info:
+                        info = info['entries'][0]
+                
+                song['url'] = info['url']
+                song['title'] = info.get('title', song.get('title', 'Unknown'))
+                song['duration'] = info.get('duration', song.get('duration'))
+                song['thumbnail'] = info.get('thumbnail')
+                # For lazy-loaded YouTube tracks, the original URL is the webpage_url
+                if not song.get('webpage_url').startswith('ytsearch'):
+                    song['webpage_url'] = info.get('webpage_url', song.get('webpage_url'))
+                song['is_lazy'] = False
+
+            except Exception as e:
+                log_error('lazy_resolve', e)
+                await ctx.send(f"Sorry, I couldn't play `{song.get('title', 'a song')}`. It might be unavailable. Skipping.")
+                await handle_next(ctx) # Skip to next
+                return
+        
+        if not song.get('url'):
+            await ctx.send(f"Could not find a playable URL for `{song.get('title')}`. Skipping.")
+            await handle_next(ctx)
+            return
+
         # Add reconnect options for stable streaming
         ffmpeg_options = {
             'before_options': '-reconnect 1 -reconnect_streamed 1 -reconnect_delay_max 5',
@@ -246,6 +294,7 @@ async def play_next(ctx):
         source = discord.FFmpegPCMAudio(song['url'], **ffmpeg_options)
         volume = get_guild_volume(ctx.guild.id)
         source = discord.PCMVolumeTransformer(source, volume=volume)
+        
         def after_playing(error):
             if error:
                 print(f'Player error: {error}')
@@ -256,17 +305,22 @@ async def play_next(ctx):
             except Exception as e:
                 print(f'Error in after_playing: {e}')
                 log_error('after_playing_future', e)
+                
         ctx.voice_client.play(source, after=after_playing)
+        
         embed = Embed(title="Now Playing", description=f"[{format_duration(song.get('duration'))}] {song['title']}")
-        if 'webpage_url' in song:
+        if song.get('webpage_url') and is_http_url(song.get('webpage_url')):
             embed.url = song['webpage_url']
         if 'thumbnail' in song:
             embed.set_thumbnail(url=song['thumbnail'])
+            
         await ctx.send(embed=embed, view=NowPlayingView(ctx, bot))
+        
         update_stats_on_play(ctx.guild.id, song['title'])
     except Exception as e:
         log_error('play_next', e)
-        await ctx.send(f"Playback error: {e}")
+        await ctx.send(f"Playback error: {e}. Trying next song.")
+        await handle_next(ctx)
 
 def ensure_queue(guild_id):
     if guild_id not in guild_queues:
@@ -298,7 +352,6 @@ async def join(ctx):
 @bot.command(aliases=['p'])
 async def play(ctx, *, query):
     ensure_queue(ctx.guild.id)
-    await ctx.send(f"Fetching audio for: {query}")
     songs = []
 
     if is_spotify_url(query):
@@ -307,67 +360,90 @@ async def play(ctx, *, query):
             return
         
         await ctx.send("Processing Spotify link... this may take a moment.")
-        spotify_tracks = await get_spotify_tracks(query)
-        if not spotify_tracks:
-            await ctx.send("Couldn't find any tracks in that Spotify link.")
+        try:
+            spotify_tracks = await get_spotify_tracks(query)
+            if not spotify_tracks:
+                await ctx.send("Couldn't find any tracks in that Spotify link.")
+                return
+
+            for track_query in spotify_tracks:
+                # Add Spotify tracks lazily by their search query
+                songs.append({
+                    'webpage_url': track_query, # This will be used in a ytsearch
+                    'title': track_query.replace(' official audio', ''),
+                    'is_lazy': True
+                })
+        except Exception as e:
+            log_error('spotify-processing', e)
+            await ctx.send(f"Error processing Spotify link: {e}")
             return
-
-        for track_query in spotify_tracks:
-            try:
-                ydl_opts = {
-                    'format': 'bestaudio/best',
-                    'quiet': True,
-                    'default_search': 'ytsearch1',
-                    'noplaylist': True,
-                }
-                with yt_dlp.YoutubeDL(ydl_opts) as ydl:
-                    info = ydl.extract_info(track_query, download=False)['entries'][0]
-                    if info.get('duration', 0) >= 120:
-                        songs.append({'title': info.get('title', 'Unknown'), 'url': info['url'], 'webpage_url': info.get('webpage_url', query), 'duration': info.get('duration')})
-                        print(f"[Spotify->YouTube] Found: {info.get('title')} -> {info.get('webpage_url')}")
-                    else:
-                        print(f"[Spotify->YouTube] Skipped short track: {info.get('title')}")
-
-            except Exception as e:
-                log_error('spotify-yt-search', e)
-                print(f"Could not find a YouTube match for: {track_query}")
         
         if not songs:
-            await ctx.send("Could not find any playable tracks on YouTube for that Spotify link.")
+            await ctx.send("Could not prepare any tracks from that Spotify link.")
             return
 
     else:
+        await ctx.send(f"Fetching audio for: {query}")
+        info = None
         try:
             ydl_opts = {
-                'format': 'bestaudio[ext=webm][acodec=opus]/bestaudio[ext=m4a]/bestaudio/best',
+                'format': 'bestaudio/best',
                 'quiet': True,
-                'extract_flat': False,
-                'noplaylist': False,
-                'default_search': 'ytsearch',
+                'extract_flat': 'in_playlist',
                 'source_address': '0.0.0.0',
             }
+
+            if is_http_url(query):
+                # It's a URL. Check if it's a playlist.
+                if 'list=' in query:
+                    await ctx.send("YouTube Playlist detected, adding songs to the queue...")
+                    ydl_opts['noplaylist'] = False # It is a playlist, process it.
+                else:
+                    ydl_opts['noplaylist'] = True # It's a single video URL, don't process playlist.
+            else:
+                # It's a search query.
+                ydl_opts['default_search'] = 'ytsearch'
+                ydl_opts['noplaylist'] = True # For search, only get one video.
+
+
             with yt_dlp.YoutubeDL(ydl_opts) as ydl:
                 info = ydl.extract_info(query, download=False)
                 entries = info['entries'] if 'entries' in info else [info]
                 for entry in entries:
                     if entry:
-                        songs.append({'title': entry.get('title', 'Unknown'), 'url': entry['url'], 'webpage_url': entry.get('webpage_url', query), 'duration': entry.get('duration')})
+                        songs.append({
+                            'webpage_url': entry.get('webpage_url') or entry.get('url'),
+                            'title': entry.get('title', 'Unknown'),
+                            'duration': entry.get('duration'),
+                            'is_lazy': True
+                        })
         except Exception as e:
             log_error('play-yt', e)
             await ctx.send(f"Error fetching audio: {e}")
             return
+        
+    if not songs:
+        await ctx.send("Couldn't find anything to add.")
+        return
 
     guild_queues[ctx.guild.id].extend(songs)
+    
     if ctx.voice_client is None:
         if ctx.author.voice:
             await ctx.author.voice.channel.connect()
         else:
             await ctx.send("You are not in a voice channel!")
             return
+            
     if not ctx.voice_client.is_playing():
         await play_next(ctx)
     else:
-        await ctx.send(f"Added to queue: {', '.join(f'[{format_duration(song.get('duration'))}] {song['title']}' for song in songs)}")
+        # Avoid showing a huge list of songs
+        if len(songs) > 1:
+            await ctx.send(f"Added {len(songs)} songs to your queue.")
+        else:
+            await ctx.send(f"Added `{songs[0]['title']}` to your queue.")
+            
     update_stats_on_queue(ctx.guild.id)
 
 @bot.command()
@@ -408,7 +484,7 @@ async def stop(ctx):
         await ctx.send("Nothing is playing or paused.")
     update_stats_on_queue(ctx.guild.id)
 
-@bot.command()
+@bot.command(aliases=['next'])
 async def skip(ctx):
     if ctx.voice_client and ctx.voice_client.is_playing():
         ctx.voice_client.stop()
@@ -456,18 +532,48 @@ async def lyrics(ctx, *, query=None):
 # Update queue command to show duration
 @bot.command(aliases=["q"])
 async def queue(ctx):
-    queue = guild_queues.get(ctx.guild.id, [])
-    if not queue:
-        await ctx.send("The queue is empty.")
+    queue_items = guild_queues.get(ctx.guild.id, [])
+    if not queue_items:
+        embed = Embed(title="The queue is empty", color=discord.Color.orange())
+        await ctx.send(embed=embed)
         return
-    msg = "**Current Queue:**\n"
-    for i, song in enumerate(queue):
+
+    display_limit = 15
+    total_duration_seconds = 0
+    description_lines = []
+
+    for song in queue_items:
+        if song.get('duration'):
+            try:
+                total_duration_seconds += int(song['duration'])
+            except (ValueError, TypeError):
+                pass  # Ignore songs with invalid duration format
+
+    for i, song in enumerate(queue_items[:display_limit]):
         dur = format_duration(song.get('duration'))
+        title = song.get('title', 'Unknown Title')
+        if len(title) > 55:
+            title = title[:52] + '...'
+        
         if i == 0:
-            msg += f"1. Now Playing: [{dur}] {song['title']}\n"
+            description_lines.append(f"**Now Playing:** `[{dur}]` {title}")
         else:
-            msg += f"{i+1}. [{dur}] {song['title']}\n"
-    await ctx.send(msg)
+            description_lines.append(f"**{i+1}.** `[{dur}]` {title}")
+
+    description = "\n".join(description_lines)
+    
+    total_songs = len(queue_items)
+    if total_songs > display_limit:
+        description += f"\n\n... and {total_songs - display_limit} more."
+
+    embed = Embed(title="Current Queue", description=description, color=0x3498db) # Blue color
+    embed.set_author(name=ctx.bot.user.name, icon_url=ctx.bot.user.avatar.url if ctx.bot.user.avatar else None)
+    embed.timestamp = datetime.utcnow()
+
+    total_duration_formatted = format_duration(total_duration_seconds)
+    embed.set_footer(text=f"Total songs: {total_songs} | Total duration: {total_duration_formatted}")
+
+    await ctx.send(embed=embed)
     update_stats_on_queue(ctx.guild.id)
 
 @bot.command()
@@ -532,7 +638,7 @@ async def helpme(ctx):
         "!pause — Pause playback\n"
         "!resume — Resume playback\n"
         "!stop — Stop and clear queue\n"
-        "!skip — Skip to next song\n"
+        "!skip or !next — Skip to next song\n"
         "!queue or !q — Show queue\n"
         "!remove <n> — Remove song at position n (1 = now playing, 2 = next, etc.)\n"
         "!move <from> <to> — Move song from one position to another (1 = now playing)\n"
@@ -551,32 +657,33 @@ async def helpme(ctx):
 async def find(ctx, *, query):
     await ctx.send(f"Searching for: {query}")
 
+    # Use flat extract for speed. It's just a search.
     ydl_opts = {
-        'format': 'bestaudio[ext=webm][acodec=opus]/bestaudio[ext=m4a]/bestaudio/best',
+        'format': 'bestaudio/best',
         'quiet': True,
-        'extract_flat': False,
+        'extract_flat': True,
         'source_address': '0.0.0.0',
     }
 
+    info = None
     # If it's a URL (but not spotify), treat it as a direct source. Otherwise, search youtube.
     if is_http_url(query) and not is_spotify_url(query):
         ydl_opts['noplaylist'] = False
     else:
         ydl_opts['noplaylist'] = True
-        ydl_opts['default_search'] = 'ytsearch5'
+        ydl_opts['default_search'] = 'ytsearch10'
 
     try:
         with yt_dlp.YoutubeDL(ydl_opts) as ydl:
             info = ydl.extract_info(query, download=False)
             
-            if 'entries' in info and info['entries']:
-                entries = info['entries']
-            else:
-                entries = [info]
-
-            if not entries or not entries[0]:
-                await ctx.send("No results found.")
-                return
+            entries = info.get('entries', [])
+            if not entries:
+                if info and 'title' in info: # single video result
+                    entries = [info]
+                else:
+                    await ctx.send("No results found.")
+                    return
 
             msg = "**Select a song by number:**\n"
             display_limit = 10
@@ -602,12 +709,12 @@ async def find(ctx, *, query):
                 
                 ensure_queue(ctx.guild.id)
                 
+                # Add the chosen song lazily
                 song_details = {
                     'title': song_to_add.get('title', 'Unknown'), 
-                    'url': song_to_add.get('url'), 
-                    'webpage_url': song_to_add.get('webpage_url', query), 
+                    'webpage_url': song_to_add.get('url'), # This is the webpage URL from flat extract
                     'duration': song_to_add.get('duration'),
-                    'thumbnail': song_to_add.get('thumbnail')
+                    'is_lazy': True,
                 }
                 guild_queues[ctx.guild.id].append(song_details)
                 
