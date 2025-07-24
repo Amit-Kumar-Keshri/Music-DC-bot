@@ -5,6 +5,13 @@ from dotenv import load_dotenv
 import yt_dlp
 import asyncio
 import requests
+from discord import Embed, ui
+import json
+from discord.ext.commands import has_role, CheckFailure
+import logging
+from datetime import datetime
+from spotipy import Spotify
+from spotipy.oauth2 import SpotifyClientCredentials
 
 load_dotenv()
 TOKEN = os.getenv('DISCORD_TOKEN')
@@ -18,6 +25,69 @@ guild_queues = {}
 
 # Volume control (per guild)
 guild_volumes = {}
+
+# Repeat state per guild
+repeat_flags = {}
+
+# --- Per-guild settings ---
+SETTINGS_FILE = 'guild_settings.json'
+def load_settings():
+    try:
+        with open(SETTINGS_FILE, 'r') as f:
+            return json.load(f)
+    except Exception:
+        return {}
+
+def save_settings(settings):
+    with open(SETTINGS_FILE, 'w') as f:
+        json.dump(settings, f)
+
+guild_settings = load_settings()
+
+def get_guild_prefix(guild_id):
+    return guild_settings.get(str(guild_id), {}).get('prefix', '!')
+
+def set_guild_prefix(guild_id, prefix):
+    if str(guild_id) not in guild_settings:
+        guild_settings[str(guild_id)] = {}
+    guild_settings[str(guild_id)]['prefix'] = prefix
+    save_settings(guild_settings)
+
+def get_guild_volume(guild_id):
+    return guild_settings.get(str(guild_id), {}).get('volume', 0.5)
+
+def set_guild_volume(guild_id, volume):
+    if str(guild_id) not in guild_settings:
+        guild_settings[str(guild_id)] = {}
+    guild_settings[str(guild_id)]['volume'] = volume
+    save_settings(guild_settings)
+
+# --- Custom prefix support ---
+def get_prefix(bot, message):
+    if message.guild:
+        return get_guild_prefix(message.guild.id)
+    return '!'
+
+bot.command_prefix = get_prefix
+
+# --- DJ Role Permission Decorator ---
+def is_dj():
+    async def predicate(ctx):
+        if ctx.author.guild_permissions.administrator:
+            return True
+        dj_role = discord.utils.get(ctx.guild.roles, name="DJ")
+        if dj_role and dj_role in ctx.author.roles:
+            return True
+        raise CheckFailure("You need the DJ role or admin permissions to use this command.")
+    return commands.check(predicate)
+
+# --- Auto-disconnect after idle ---
+IDLE_TIMEOUT = 300  # seconds (5 minutes)
+async def auto_disconnect(ctx):
+    await asyncio.sleep(IDLE_TIMEOUT)
+    if ctx.voice_client and not ctx.voice_client.is_playing():
+        await ctx.voice_client.disconnect()
+        await ctx.send("Disconnected due to inactivity.")
 
 # Helper to get audio source from YouTube Music
 async def get_audio_source(url):
@@ -41,29 +111,162 @@ def get_volume(guild_id):
 def set_volume(guild_id, value):
     guild_volumes[guild_id] = value
 
-# Update play_next to use volume
+def format_duration(seconds):
+    if not seconds:
+        return "?"
+    m, s = divmod(int(seconds), 60)
+    return f"{m}:{s:02d}"
+
+# Helper to check if a string is a Spotify URL
+def is_spotify_url(url):
+    return 'open.spotify.com' in url
+
+def is_http_url(url):
+    return url.startswith('http')
+
+# Helper to get tracks from a Spotify playlist/album/track
+async def get_spotify_tracks(url):
+    tracks = []
+    if not sp:
+        return tracks
+
+    try:
+        if 'track' in url:
+            track = sp.track(url)
+            tracks.append(f"{track['name']} {track['artists'][0]['name']} official audio")
+        elif 'playlist' in url:
+            results = sp.playlist_tracks(url)
+            for item in results['items']:
+                t = item['track']
+                if t:
+                    tracks.append(f"{t['name']} {t['artists'][0]['name']} official audio")
+        elif 'album' in url:
+            results = sp.album_tracks(url)
+            for t in results['items']:
+                tracks.append(f"{t['name']} {t['artists'][0]['name']} official audio")
+    except Exception as e:
+        log_error('spotify_get_tracks', e)
+        print(f"Error fetching from Spotify: {e}")
+
+    return tracks
+
+class NowPlayingView(ui.View):
+    def __init__(self, ctx, bot):
+        super().__init__(timeout=None)
+        self.ctx = ctx
+        self.bot = bot
+
+    @ui.button(label="⏸️ Pause", style=discord.ButtonStyle.secondary, custom_id="pause")
+    async def pause(self, interaction: discord.Interaction, button: ui.Button):
+        if self.ctx.voice_client and self.ctx.voice_client.is_playing():
+            self.ctx.voice_client.pause()
+            await interaction.response.send_message("Paused!", ephemeral=True)
+        else:
+            await interaction.response.send_message("Nothing is playing.", ephemeral=True)
+
+    @ui.button(label="▶️ Resume", style=discord.ButtonStyle.secondary, custom_id="resume")
+    async def resume(self, interaction: discord.Interaction, button: ui.Button):
+        if self.ctx.voice_client and self.ctx.voice_client.is_paused():
+            self.ctx.voice_client.resume()
+            await interaction.response.send_message("Resumed!", ephemeral=True)
+        else:
+            await interaction.response.send_message("Nothing is paused.", ephemeral=True)
+
+    @ui.button(label="⏭️ Skip", style=discord.ButtonStyle.primary, custom_id="skip")
+    async def skip(self, interaction: discord.Interaction, button: ui.Button):
+        if self.ctx.voice_client and self.ctx.voice_client.is_playing():
+            self.ctx.voice_client.stop()
+            await interaction.response.send_message("Skipped!", ephemeral=True)
+        else:
+            await interaction.response.send_message("Nothing is playing.", ephemeral=True)
+
+    @ui.button(label="⏹️ Stop", style=discord.ButtonStyle.danger, custom_id="stop")
+    async def stop(self, interaction: discord.Interaction, button: ui.Button):
+        if self.ctx.voice_client and (self.ctx.voice_client.is_playing() or self.ctx.voice_client.is_paused()):
+            self.ctx.voice_client.stop()
+            guild_queues[self.ctx.guild.id] = []
+            await interaction.response.send_message("Stopped and queue cleared!", ephemeral=True)
+        else:
+            await interaction.response.send_message("Nothing is playing or paused.", ephemeral=True)
+
+    @ui.button(label="🔁 Repeat", style=discord.ButtonStyle.success, custom_id="repeat")
+    async def repeat(self, interaction: discord.Interaction, button: ui.Button):
+        flag = repeat_flags.get(self.ctx.guild.id, False)
+        repeat_flags[self.ctx.guild.id] = not flag
+        await interaction.response.send_message(f"Repeat is now {'ON' if not flag else 'OFF'}.", ephemeral=True)
+
+# Set up error logging
+logging.basicConfig(filename='bot_errors.log', level=logging.ERROR, format='%(asctime)s %(levelname)s %(message)s')
+
+def log_error(context, error):
+    logging.error(f"[{context}] {error}")
+
+# Update play_next to catch and report errors
+import json
+STATS_FILE = 'stats.json'
+
+def load_stats():
+    try:
+        with open(STATS_FILE, 'r') as f:
+            return json.load(f)
+    except Exception:
+        return {'songs_played': 0, 'guild_queues': {}, 'most_played': {}}
+
+def save_stats(stats):
+    with open(STATS_FILE, 'w') as f:
+        json.dump(stats, f)
+
+stats = load_stats()
+
+def update_stats_on_play(guild_id, song_title):
+    stats['songs_played'] = stats.get('songs_played', 0) + 1
+    stats['guild_queues'][str(guild_id)] = [s['title'] for s in guild_queues.get(guild_id, [])]
+    if song_title:
+        stats['most_played'][song_title] = stats['most_played'].get(song_title, 0) + 1
+    save_stats(stats)
+
+def update_stats_on_queue(guild_id):
+    stats['guild_queues'][str(guild_id)] = [s['title'] for s in guild_queues.get(guild_id, [])]
+    save_stats(stats)
+
+# Update play_next to be more robust
 async def play_next(ctx):
-    queue = guild_queues.get(ctx.guild.id, [])
-    if not queue:
-        await ctx.send("Gaane khatam ja rahi hu main.")
-        await ctx.voice_client.disconnect()
-        return
-    song = queue[0]
-    ffmpeg_options = {'options': '-vn -reconnect 1 -reconnect_streamed 1 -reconnect_delay_max 5'}
-    # Use url for high quality direct stream
-    source = discord.FFmpegPCMAudio(song['url'], **ffmpeg_options)
-    volume = get_volume(ctx.guild.id)
-    source = discord.PCMVolumeTransformer(source, volume=volume)
-    def after_playing(error):
-        if error:
-            print(f'Player error: {error}')
-        fut = asyncio.run_coroutine_threadsafe(handle_next(ctx), bot.loop)
-        try:
-            fut.result()
-        except Exception as e:
-            print(f'Error in after_playing: {e}')
-    ctx.voice_client.play(source, after=after_playing)
-    await ctx.send(f"Now playing: {song['title']}")
+    try:
+        queue = guild_queues.get(ctx.guild.id, [])
+        if not queue:
+            await ctx.send("Gaane khatam, ja rahi hu main. Disconnecting in 5 minutes if nothing is added.")
+            asyncio.create_task(auto_disconnect(ctx))
+            return
+        song = queue[0]
+        # Add reconnect options for stable streaming
+        ffmpeg_options = {
+            'before_options': '-reconnect 1 -reconnect_streamed 1 -reconnect_delay_max 5',
+            'options': '-vn'
+        }
+        source = discord.FFmpegPCMAudio(song['url'], **ffmpeg_options)
+        volume = get_guild_volume(ctx.guild.id)
+        source = discord.PCMVolumeTransformer(source, volume=volume)
+        def after_playing(error):
+            if error:
+                print(f'Player error: {error}')
+                log_error('after_playing', error)
+            fut = asyncio.run_coroutine_threadsafe(handle_next(ctx), bot.loop)
+            try:
+                fut.result()
+            except Exception as e:
+                print(f'Error in after_playing: {e}')
+                log_error('after_playing_future', e)
+        ctx.voice_client.play(source, after=after_playing)
+        embed = Embed(title="Now Playing", description=f"[{format_duration(song.get('duration'))}] {song['title']}")
+        if 'webpage_url' in song:
+            embed.url = song['webpage_url']
+        if 'thumbnail' in song:
+            embed.set_thumbnail(url=song['thumbnail'])
+        await ctx.send(embed=embed, view=NowPlayingView(ctx, bot))
+        update_stats_on_play(ctx.guild.id, song['title'])
+    except Exception as e:
+        log_error('play_next', e)
+        await ctx.send(f"Playback error: {e}")
 
 def ensure_queue(guild_id):
     if guild_id not in guild_queues:
@@ -74,8 +277,13 @@ def remove_first_from_queue(guild_id):
         guild_queues[guild_id].pop(0)
 
 async def handle_next(ctx):
-    remove_first_from_queue(ctx.guild.id)
-    await play_next(ctx)
+    # Repeat logic
+    if repeat_flags.get(ctx.guild.id, False):
+        # Don't remove, just replay
+        await play_next(ctx)
+    else:
+        remove_first_from_queue(ctx.guild.id)
+        await play_next(ctx)
 
 @bot.command()
 async def join(ctx):
@@ -86,30 +294,69 @@ async def join(ctx):
     else:
         await ctx.send("You are not in a voice channel!")
 
-# Playlist support in play command
+# Update play command to only support YouTube and direct URLs
 @bot.command(aliases=['p'])
 async def play(ctx, *, query):
     ensure_queue(ctx.guild.id)
     await ctx.send(f"Fetching audio for: {query}")
-    try:
-        ydl_opts = {
-            'format': 'bestaudio[ext=webm][acodec=opus]/bestaudio[ext=m4a]/bestaudio/best',
-            'quiet': True,
-            'extract_flat': False,
-            'noplaylist': False,
-            'default_search': 'ytsearch',  # This enables search by name
-            'source_address': '0.0.0.0',
-        }
-        with yt_dlp.YoutubeDL(ydl_opts) as ydl:
-            info = ydl.extract_info(query, download=False)
-            entries = info['entries'] if 'entries' in info else [info]
-            songs = []
-            for entry in entries:
-                if entry:
-                    songs.append({'title': entry.get('title', 'Unknown'), 'url': entry['url'], 'webpage_url': entry.get('webpage_url', query)})
-    except Exception as e:
-        await ctx.send(f"Error fetching audio: {e}")
-        return
+    songs = []
+
+    if is_spotify_url(query):
+        if not sp:
+            await ctx.send("Spotify support is not configured. Please set credentials in your .env file.")
+            return
+        
+        await ctx.send("Processing Spotify link... this may take a moment.")
+        spotify_tracks = await get_spotify_tracks(query)
+        if not spotify_tracks:
+            await ctx.send("Couldn't find any tracks in that Spotify link.")
+            return
+
+        for track_query in spotify_tracks:
+            try:
+                ydl_opts = {
+                    'format': 'bestaudio/best',
+                    'quiet': True,
+                    'default_search': 'ytsearch1',
+                    'noplaylist': True,
+                }
+                with yt_dlp.YoutubeDL(ydl_opts) as ydl:
+                    info = ydl.extract_info(track_query, download=False)['entries'][0]
+                    if info.get('duration', 0) >= 120:
+                        songs.append({'title': info.get('title', 'Unknown'), 'url': info['url'], 'webpage_url': info.get('webpage_url', query), 'duration': info.get('duration')})
+                        print(f"[Spotify->YouTube] Found: {info.get('title')} -> {info.get('webpage_url')}")
+                    else:
+                        print(f"[Spotify->YouTube] Skipped short track: {info.get('title')}")
+
+            except Exception as e:
+                log_error('spotify-yt-search', e)
+                print(f"Could not find a YouTube match for: {track_query}")
+        
+        if not songs:
+            await ctx.send("Could not find any playable tracks on YouTube for that Spotify link.")
+            return
+
+    else:
+        try:
+            ydl_opts = {
+                'format': 'bestaudio[ext=webm][acodec=opus]/bestaudio[ext=m4a]/bestaudio/best',
+                'quiet': True,
+                'extract_flat': False,
+                'noplaylist': False,
+                'default_search': 'ytsearch',
+                'source_address': '0.0.0.0',
+            }
+            with yt_dlp.YoutubeDL(ydl_opts) as ydl:
+                info = ydl.extract_info(query, download=False)
+                entries = info['entries'] if 'entries' in info else [info]
+                for entry in entries:
+                    if entry:
+                        songs.append({'title': entry.get('title', 'Unknown'), 'url': entry['url'], 'webpage_url': entry.get('webpage_url', query), 'duration': entry.get('duration')})
+        except Exception as e:
+            log_error('play-yt', e)
+            await ctx.send(f"Error fetching audio: {e}")
+            return
+
     guild_queues[ctx.guild.id].extend(songs)
     if ctx.voice_client is None:
         if ctx.author.voice:
@@ -120,7 +367,8 @@ async def play(ctx, *, query):
     if not ctx.voice_client.is_playing():
         await play_next(ctx)
     else:
-        await ctx.send(f"Added to queue: {', '.join(song['title'] for song in songs)}")
+        await ctx.send(f"Added to queue: {', '.join(f'[{format_duration(song.get('duration'))}] {song['title']}' for song in songs)}")
+    update_stats_on_queue(ctx.guild.id)
 
 @bot.command()
 async def leave(ctx):
@@ -130,6 +378,7 @@ async def leave(ctx):
         await ctx.send("Disconnected!")
     else:
         await ctx.send("I'm not in a voice channel!")
+    update_stats_on_queue(ctx.guild.id)
 
 @bot.command()
 async def pause(ctx):
@@ -138,6 +387,7 @@ async def pause(ctx):
         await ctx.send("Playback paused.")
     else:
         await ctx.send("Nothing is playing right now.")
+    update_stats_on_queue(ctx.guild.id)
 
 @bot.command()
 async def resume(ctx):
@@ -146,6 +396,7 @@ async def resume(ctx):
         await ctx.send("Playback resumed.")
     else:
         await ctx.send("Nothing is paused.")
+    update_stats_on_queue(ctx.guild.id)
 
 @bot.command()
 async def stop(ctx):
@@ -155,6 +406,7 @@ async def stop(ctx):
         await ctx.send("Playback stopped and queue cleared.")
     else:
         await ctx.send("Nothing is playing or paused.")
+    update_stats_on_queue(ctx.guild.id)
 
 @bot.command()
 async def skip(ctx):
@@ -163,6 +415,7 @@ async def skip(ctx):
         await ctx.send("Skipped to next song.")
     else:
         await ctx.send("Nothing is playing to skip.")
+    update_stats_on_queue(ctx.guild.id)
 
 @bot.command()
 async def volume(ctx, vol: float):
@@ -173,6 +426,7 @@ async def volume(ctx, vol: float):
     await ctx.send(f"Volume set to {vol}")
     if ctx.voice_client and ctx.voice_client.source:
         ctx.voice_client.source.volume = vol
+    update_stats_on_queue(ctx.guild.id)
 
 # Lyrics command using lyrics.ovh
 @bot.command()
@@ -197,7 +451,9 @@ async def lyrics(ctx, *, query=None):
             await ctx.send("Lyrics not found.")
     except Exception as e:
         await ctx.send(f"Error fetching lyrics: {e}")
+    update_stats_on_queue(ctx.guild.id)
 
+# Update queue command to show duration
 @bot.command(aliases=["q"])
 async def queue(ctx):
     queue = guild_queues.get(ctx.guild.id, [])
@@ -206,11 +462,65 @@ async def queue(ctx):
         return
     msg = "**Current Queue:**\n"
     for i, song in enumerate(queue):
+        dur = format_duration(song.get('duration'))
         if i == 0:
-            msg += f"Now Playing: {song['title']}\n"
+            msg += f"1. Now Playing: [{dur}] {song['title']}\n"
         else:
-            msg += f"{i}. {song['title']} \n"
+            msg += f"{i+1}. [{dur}] {song['title']}\n"
     await ctx.send(msg)
+    update_stats_on_queue(ctx.guild.id)
+
+@bot.command()
+async def shuffle(ctx):
+    queue = guild_queues.get(ctx.guild.id, [])
+    if len(queue) > 1:
+        import random
+        now_playing = queue.pop(0)
+        random.shuffle(queue)
+        queue.insert(0, now_playing)
+        await ctx.send("Queue shuffled!")
+    else:
+        await ctx.send("Not enough songs in the queue to shuffle.")
+    update_stats_on_queue(ctx.guild.id)
+
+@bot.command()
+async def remove(ctx, index: int):
+    queue = guild_queues.get(ctx.guild.id, [])
+    if len(queue) == 0:
+        await ctx.send("Nothing to remove from the queue.")
+        return
+    if index < 1 or index > len(queue):
+        await ctx.send(f"Index must be between 1 and {len(queue)}.")
+        return
+    if index == 1:
+        # Remove currently playing (skip)
+        ctx.voice_client.stop()
+        await ctx.send(f"Skipped: {queue[0]['title']}")
+    else:
+        removed = queue.pop(index-1)
+        await ctx.send(f"Removed: {removed['title']}")
+    update_stats_on_queue(ctx.guild.id)
+
+@bot.command()
+async def move(ctx, from_idx: int, to_idx: int):
+    queue = guild_queues.get(ctx.guild.id, [])
+    if len(queue) <= 1:
+        await ctx.send("Not enough songs in the queue to move.")
+        return
+    if from_idx < 1 or from_idx > len(queue) or to_idx < 1 or to_idx > len(queue):
+        await ctx.send(f"Indexes must be between 1 and {len(queue)}.")
+        return
+    song = queue.pop(from_idx-1)
+    queue.insert(to_idx-1, song)
+    await ctx.send(f"Moved: {song['title']} to position {to_idx}")
+    update_stats_on_queue(ctx.guild.id)
+
+@bot.command()
+async def repeat(ctx):
+    flag = repeat_flags.get(ctx.guild.id, False)
+    repeat_flags[ctx.guild.id] = not flag
+    await ctx.send(f"Repeat is now {'ON' if not flag else 'OFF'}.")
+    update_stats_on_queue(ctx.guild.id)
 
 # Help command
 @bot.command()
@@ -224,11 +534,132 @@ async def helpme(ctx):
         "!stop — Stop and clear queue\n"
         "!skip — Skip to next song\n"
         "!queue or !q — Show queue\n"
+        "!remove <n> — Remove song at position n (1 = now playing, 2 = next, etc.)\n"
+        "!move <from> <to> — Move song from one position to another (1 = now playing)\n"
+        "!shuffle — Shuffle the queue\n"
+        "!repeat — Toggle repeat for current song\n"
         "!volume <0.1-2.0> — Set playback volume\n"
         "!lyrics [song name] — Get lyrics for current or given song\n"
         "!leave — Leave the voice channel\n"
+        "!find or !search <query or URL> - Find songs or list tracks from a URL\n"
         "!helpme — Show this help message"
     )
     await ctx.send(msg)
+
+# --- Song search and selection ---
+@bot.command(aliases=['search'])
+async def find(ctx, *, query):
+    await ctx.send(f"Searching for: {query}")
+
+    ydl_opts = {
+        'format': 'bestaudio[ext=webm][acodec=opus]/bestaudio[ext=m4a]/bestaudio/best',
+        'quiet': True,
+        'extract_flat': False,
+        'source_address': '0.0.0.0',
+    }
+
+    # If it's a URL (but not spotify), treat it as a direct source. Otherwise, search youtube.
+    if is_http_url(query) and not is_spotify_url(query):
+        ydl_opts['noplaylist'] = False
+    else:
+        ydl_opts['noplaylist'] = True
+        ydl_opts['default_search'] = 'ytsearch5'
+
+    try:
+        with yt_dlp.YoutubeDL(ydl_opts) as ydl:
+            info = ydl.extract_info(query, download=False)
+            
+            if 'entries' in info and info['entries']:
+                entries = info['entries']
+            else:
+                entries = [info]
+
+            if not entries or not entries[0]:
+                await ctx.send("No results found.")
+                return
+
+            msg = "**Select a song by number:**\n"
+            display_limit = 10
+            display_count = min(len(entries), display_limit)
+
+            for i, entry in enumerate(entries[:display_count]):
+                dur = format_duration(entry.get('duration'))
+                title = entry.get('title', 'Unknown')
+                msg += f"{i+1}. [{dur}] {title}\n"
+            
+            if len(entries) > display_limit:
+                msg += f"\n... and {len(entries) - display_limit} more."
+
+            await ctx.send(msg)
+
+            def check(m):
+                return m.author == ctx.author and m.channel == ctx.channel and m.content.isdigit() and 1 <= int(m.content) <= display_count
+            
+            try:
+                reply = await bot.wait_for('message', check=check, timeout=30)
+                choice = int(reply.content) - 1
+                song_to_add = entries[choice]
+                
+                ensure_queue(ctx.guild.id)
+                
+                song_details = {
+                    'title': song_to_add.get('title', 'Unknown'), 
+                    'url': song_to_add.get('url'), 
+                    'webpage_url': song_to_add.get('webpage_url', query), 
+                    'duration': song_to_add.get('duration'),
+                    'thumbnail': song_to_add.get('thumbnail')
+                }
+                guild_queues[ctx.guild.id].append(song_details)
+                
+                await ctx.send(f"Added to queue: [{format_duration(song_details.get('duration'))}] {song_details.get('title')}")
+                
+                if ctx.voice_client is None:
+                    if ctx.author.voice:
+                        await ctx.author.voice.channel.connect()
+                    else:
+                        await ctx.send("You are not in a voice channel!")
+                        return
+                
+                if not ctx.voice_client.is_playing():
+                    await play_next(ctx)
+            
+            except asyncio.TimeoutError:
+                await ctx.send("No selection made. Cancelling.")
+    except Exception as e:
+        log_error('find-command', e)
+        print(f"Error in find command: {e}")
+        await ctx.send(f"An error occurred during search. It's possible the URL is unsupported or private.")
+    
+    update_stats_on_queue(ctx.guild.id)
+
+# --- DJ role protection for music commands ---
+for cmd in ['play', 'skip', 'stop', 'remove', 'move', 'shuffle', 'repeat', 'volume']:
+    bot.get_command(cmd).add_check(is_dj())
+
+# --- Commands to set prefix and default volume ---
+@bot.command()
+@has_role('DJ')
+async def setprefix(ctx, prefix: str):
+    set_guild_prefix(ctx.guild.id, prefix)
+    await ctx.send(f"Prefix set to: {prefix}")
+    update_stats_on_queue(ctx.guild.id)
+
+@bot.command()
+@has_role('DJ')
+async def setvolume(ctx, vol: float):
+    if not 0 < vol <= 2:
+        await ctx.send("Volume must be between 0.1 and 2.0")
+        return
+    set_guild_volume(ctx.guild.id, vol)
+    await ctx.send(f"Default volume set to {vol}")
+    update_stats_on_queue(ctx.guild.id)
+
+# Load Spotify credentials from .env
+SPOTIPY_CLIENT_ID = os.getenv('SPOTIPY_CLIENT_ID')
+SPOTIPY_CLIENT_SECRET = os.getenv('SPOTIPY_CLIENT_SECRET')
+
+sp = None
+if SPOTIPY_CLIENT_ID and SPOTIPY_CLIENT_SECRET:
+    sp = Spotify(auth_manager=SpotifyClientCredentials(client_id=SPOTIPY_CLIENT_ID, client_secret=SPOTIPY_CLIENT_SECRET))
 
 bot.run(TOKEN) 

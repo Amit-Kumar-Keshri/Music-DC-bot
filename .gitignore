@@ -1,2 +1,4 @@
 .env
-\
+.cache
+stats.json
+bot_error.log
