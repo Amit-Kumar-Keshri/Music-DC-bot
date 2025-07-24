@@ -70,17 +70,6 @@ def get_prefix(bot, message):
 
 bot.command_prefix = get_prefix
 
-# --- DJ Role Permission Decorator ---
-def is_dj():
-    async def predicate(ctx):
-        if ctx.author.guild_permissions.administrator:
-            return True
-        dj_role = discord.utils.get(ctx.guild.roles, name="DJ")
-        if dj_role and dj_role in ctx.author.roles:
-            return True
-        raise CheckFailure("You need the DJ role or admin permissions to use this command.")
-    return commands.check(predicate)
-
 # --- Auto-disconnect after idle ---
 IDLE_TIMEOUT = 300  # seconds (5 minutes)
 async def auto_disconnect(ctx):
@@ -402,7 +391,7 @@ async def play(ctx, *, query):
                     ydl_opts['noplaylist'] = True # It's a single video URL, don't process playlist.
             else:
                 # It's a search query.
-                ydl_opts['default_search'] = 'ytsearch'
+                ydl_opts['default_search'] = 'ytsearch1'
                 ydl_opts['noplaylist'] = True # For search, only get one video.
 
 
@@ -739,20 +728,16 @@ async def find(ctx, *, query):
     
     update_stats_on_queue(ctx.guild.id)
 
-# --- DJ role protection for music commands ---
-for cmd in ['play', 'skip', 'stop', 'remove', 'move', 'shuffle', 'repeat', 'volume']:
-    bot.get_command(cmd).add_check(is_dj())
-
 # --- Commands to set prefix and default volume ---
 @bot.command()
-@has_role('DJ')
+@commands.has_permissions(administrator=True)
 async def setprefix(ctx, prefix: str):
     set_guild_prefix(ctx.guild.id, prefix)
     await ctx.send(f"Prefix set to: {prefix}")
     update_stats_on_queue(ctx.guild.id)
 
 @bot.command()
-@has_role('DJ')
+@commands.has_permissions(administrator=True)
 async def setvolume(ctx, vol: float):
     if not 0 < vol <= 2:
         await ctx.send("Volume must be between 0.1 and 2.0")

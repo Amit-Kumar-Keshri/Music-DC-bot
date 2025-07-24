@@ -2,4 +2,5 @@ discord.py[voice]
 yt-dlp
 python-dotenv
 Flask
-spotipy 
+spotipy
+gunicorn 
