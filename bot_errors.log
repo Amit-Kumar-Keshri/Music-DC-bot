@@ -7517,3 +7517,9 @@ discord.ext.commands.errors.CommandNotFound: Command "dc" is not found
 2025-07-24 18:27:20,066 INFO Voice connection complete.
 2025-07-24 18:30:10,741 INFO ffmpeg process 17112 successfully terminated with return code of 0.
 2025-07-24 18:35:10,760 INFO The voice handshake is being terminated for Channel ID 1292370406023630858 (Guild ID 727850028370231298)
+2025-07-24 19:00:57,708 INFO Connecting to voice...
+2025-07-24 19:00:57,708 INFO Starting voice handshake... (connection attempt 1)
+2025-07-24 19:00:58,265 INFO Voice handshake complete. Endpoint found: india10008.discord.media
+2025-07-24 19:00:58,584 INFO Voice connection complete.
+2025-07-24 19:04:14,403 INFO ffmpeg process 23592 successfully terminated with return code of 0.
+2025-07-24 19:09:14,423 INFO The voice handshake is being terminated for Channel ID 1292370406023630858 (Guild ID 727850028370231298)
