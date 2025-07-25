@@ -23,6 +23,12 @@ bot = commands.Bot(command_prefix='!', intents=intents)
 # Per-guild music queues
 guild_queues = {}
 
+# Per-guild current song index
+guild_current_index = {}
+
+# Per-guild UI messages
+guild_ui_messages = {}
+
 # Volume control (per guild)
 guild_volumes = {}
 
@@ -151,45 +157,124 @@ class NowPlayingView(ui.View):
         super().__init__(timeout=None)
         self.ctx = ctx
         self.bot = bot
+        self.update_buttons()
 
-    @ui.button(label="⏸️ Pause", style=discord.ButtonStyle.secondary, custom_id="pause")
-    async def pause(self, interaction: discord.Interaction, button: ui.Button):
+    def update_buttons(self):
+        self.clear_items()
+        queue = guild_queues.get(self.ctx.guild.id, [])
+        idx = guild_current_index.get(self.ctx.guild.id, 0)
+        prev_enabled = idx > 0
+        next_enabled = idx < len(queue) - 1
+        previous_button = ui.Button(label="Prev", style=discord.ButtonStyle.grey, custom_id="previous", disabled=not prev_enabled)
+        previous_button.callback = self.prev_song
+        self.add_item(previous_button)
+
         if self.ctx.voice_client and self.ctx.voice_client.is_playing():
-            self.ctx.voice_client.pause()
-            await interaction.response.send_message("Paused!", ephemeral=True)
+            play_pause_button = ui.Button(label="Pause", style=discord.ButtonStyle.blurple, custom_id="pause")
+        else:
+            play_pause_button = ui.Button(label="Play", style=discord.ButtonStyle.blurple, custom_id="resume")
+        play_pause_button.callback = self.play_pause
+        self.add_item(play_pause_button)
+        
+        skip_button = ui.Button(label="Next", style=discord.ButtonStyle.grey, custom_id="skip", disabled=not next_enabled)
+        skip_button.callback = self.skip
+        self.add_item(skip_button)
+
+    async def prev_song(self, interaction: discord.Interaction):
+        idx = guild_current_index.get(self.ctx.guild.id, 0)
+        if idx > 0:
+            await interaction.response.defer()
+            # For previous song, set the index and directly call play_next
+            # We need to stop the current song WITHOUT triggering after_playing callback
+            guild_current_index[self.ctx.guild.id] = idx - 1
+            if self.ctx.voice_client and (self.ctx.voice_client.is_playing() or self.ctx.voice_client.is_paused()):
+                self.ctx.voice_client.stop()
+            await play_next(self.ctx)
+            return
+        await interaction.response.send_message("No previous song.", ephemeral=True)
+
+    async def play_pause(self, interaction: discord.Interaction):
+        vc = self.ctx.voice_client
+        if not vc:
+            await interaction.response.send_message("I'm not in a voice channel.", ephemeral=True)
+            return
+        
+        if vc.is_playing():
+            vc.pause()
+        elif vc.is_paused():
+            vc.resume()
         else:
             await interaction.response.send_message("Nothing is playing.", ephemeral=True)
+            return
 
-    @ui.button(label="▶️ Resume", style=discord.ButtonStyle.secondary, custom_id="resume")
-    async def resume(self, interaction: discord.Interaction, button: ui.Button):
-        if self.ctx.voice_client and self.ctx.voice_client.is_paused():
-            self.ctx.voice_client.resume()
-            await interaction.response.send_message("Resumed!", ephemeral=True)
-        else:
-            await interaction.response.send_message("Nothing is paused.", ephemeral=True)
+        self.update_buttons()
+        await interaction.response.edit_message(view=self)
 
-    @ui.button(label="⏭️ Skip", style=discord.ButtonStyle.primary, custom_id="skip")
-    async def skip(self, interaction: discord.Interaction, button: ui.Button):
-        if self.ctx.voice_client and self.ctx.voice_client.is_playing():
-            self.ctx.voice_client.stop()
-            await interaction.response.send_message("Skipped!", ephemeral=True)
-        else:
-            await interaction.response.send_message("Nothing is playing.", ephemeral=True)
+    async def skip(self, interaction: discord.Interaction):
+        queue = guild_queues.get(self.ctx.guild.id, [])
+        idx = guild_current_index.get(self.ctx.guild.id, 0)
+        if idx < len(queue) - 1:
+            await interaction.response.defer()
+            # For next song, just stop current song and let handle_next() do the work
+            if self.ctx.voice_client and self.ctx.voice_client.is_playing():
+                self.ctx.voice_client.stop()  # This will trigger after_playing -> handle_next()
+            else:
+                # If nothing is playing, manually advance and play
+                guild_current_index[self.ctx.guild.id] = idx + 1
+                await play_next(self.ctx)
+            return
+        await interaction.response.send_message("No next song.", ephemeral=True)
 
-    @ui.button(label="⏹️ Stop", style=discord.ButtonStyle.danger, custom_id="stop")
-    async def stop(self, interaction: discord.Interaction, button: ui.Button):
-        if self.ctx.voice_client and (self.ctx.voice_client.is_playing() or self.ctx.voice_client.is_paused()):
-            self.ctx.voice_client.stop()
-            guild_queues[self.ctx.guild.id] = []
-            await interaction.response.send_message("Stopped and queue cleared!", ephemeral=True)
-        else:
-            await interaction.response.send_message("Nothing is playing or paused.", ephemeral=True)
+class QueueView(ui.View):
+    def __init__(self, ctx, bot, songs, per_page=10):
+        super().__init__(timeout=180)
+        self.ctx = ctx
+        self.bot = bot
+        self.songs = songs
+        self.per_page = per_page
+        self.current_page = 0
+        self.total_pages = (len(self.songs) - 1) // self.per_page
+        self.update_buttons()
 
-    @ui.button(label="🔁 Repeat", style=discord.ButtonStyle.success, custom_id="repeat")
-    async def repeat(self, interaction: discord.Interaction, button: ui.Button):
-        flag = repeat_flags.get(self.ctx.guild.id, False)
-        repeat_flags[self.ctx.guild.id] = not flag
-        await interaction.response.send_message(f"Repeat is now {'ON' if not flag else 'OFF'}.", ephemeral=True)
+    def update_buttons(self):
+        self.clear_items()
+        prev_button = ui.Button(label="Prev", style=discord.ButtonStyle.grey, custom_id="prev_page", disabled=(self.current_page == 0))
+        prev_button.callback = self.prev_page
+        self.add_item(prev_button)
+
+        next_button = ui.Button(label="Next", style=discord.ButtonStyle.grey, custom_id="next_page", disabled=(self.current_page >= self.total_pages))
+        next_button.callback = self.next_page
+        self.add_item(next_button)
+
+    async def get_page_embed(self):
+        start_index = self.current_page * self.per_page
+        end_index = start_index + self.per_page
+        description_lines = []
+        idx = guild_current_index.get(self.ctx.guild.id, 0)
+        for i, song in enumerate(self.songs[start_index:end_index], start=start_index):
+            title = song.get('title', 'Unknown Title')
+            if len(title) > 55:
+                title = title[:52] + '...'
+            prefix = '▶️ ' if (i + 1) == (idx + 1) else ''
+            description_lines.append(f"{prefix}**{i + 1}.** {title}")
+        description = "\n".join(description_lines)
+        embed = Embed(title="Queue", description=description, color=0x2b2d31)
+        embed.set_footer(text=f"Page {self.current_page + 1}/{self.total_pages + 1}")
+        return embed
+
+    async def prev_page(self, interaction: discord.Interaction):
+        if self.current_page > 0:
+            self.current_page -= 1
+            self.update_buttons()
+            embed = await self.get_page_embed()
+            await interaction.response.edit_message(embed=embed, view=self)
+
+    async def next_page(self, interaction: discord.Interaction):
+        if self.current_page < self.total_pages:
+            self.current_page += 1
+            self.update_buttons()
+            embed = await self.get_page_embed()
+            await interaction.response.edit_message(embed=embed, view=self)
 
 # Set up error logging
 logging.basicConfig(filename='bot_errors.log', level=logging.ERROR, format='%(asctime)s %(levelname)s %(message)s')
@@ -229,12 +314,19 @@ def update_stats_on_queue(guild_id):
 async def play_next(ctx):
     try:
         queue = guild_queues.get(ctx.guild.id, [])
-        if not queue:
-            await ctx.send("Gaane khatam, ja rahi hu main. Disconnecting in 5 minutes if nothing is added.")
-            asyncio.create_task(auto_disconnect(ctx))
+        idx = guild_current_index.get(ctx.guild.id, 0)
+        
+        # Check if we've reached the end of the queue or queue is empty
+        if not queue or idx >= len(queue):
+            # Clear UI when queue is finished
+            ui_manager = UIManager(ctx)
+            await ui_manager.update_ui()
+            if not queue:
+                await ctx.send("Gaane khatam, ja rahi hu main. Disconnecting in 5 minutes if nothing is added.")
+                asyncio.create_task(auto_disconnect(ctx))
             return
 
-        song = queue[0]
+        song = queue[idx]
 
         # If it's a lazy-loaded song, resolve it now
         if song.get('is_lazy'):
@@ -288,23 +380,26 @@ async def play_next(ctx):
             if error:
                 print(f'Player error: {error}')
                 log_error('after_playing', error)
-            fut = asyncio.run_coroutine_threadsafe(handle_next(ctx), bot.loop)
-            try:
-                fut.result()
-            except Exception as e:
-                print(f'Error in after_playing: {e}')
-                log_error('after_playing_future', e)
-                
-        ctx.voice_client.play(source, after=after_playing)
-        
-        embed = Embed(title="Now Playing", description=f"[{format_duration(song.get('duration'))}] {song['title']}")
-        if song.get('webpage_url') and is_http_url(song.get('webpage_url')):
-            embed.url = song['webpage_url']
-        if 'thumbnail' in song:
-            embed.set_thumbnail(url=song['thumbnail'])
             
-        await ctx.send(embed=embed, view=NowPlayingView(ctx, bot))
+            # Check if the bot is still in a voice channel before proceeding
+            if ctx.voice_client:
+                fut = asyncio.run_coroutine_threadsafe(handle_next(ctx), bot.loop)
+                try:
+                    fut.result()
+                except Exception as e:
+                    print(f'Error in after_playing: {e}')
+                    log_error('after_playing_future', e)
+            else:
+                print("Bot is no longer in a voice channel. Can't play next song.")
+
+        if ctx.voice_client:
+            ctx.voice_client.play(source, after=after_playing)
+        else:
+            await ctx.send("I'm not in a voice channel anymore, so I can't play the song.")
+            return # Stop execution if not in a voice channel
         
+        ui_manager = UIManager(ctx)
+        await ui_manager.update_ui()
         update_stats_on_play(ctx.guild.id, song['title'])
     except Exception as e:
         log_error('play_next', e)
@@ -319,14 +414,77 @@ def remove_first_from_queue(guild_id):
     if guild_id in guild_queues and guild_queues[guild_id]:
         guild_queues[guild_id].pop(0)
 
+async def update_player_ui(ctx):
+    ui_manager = UIManager(ctx)
+    await ui_manager.update_ui()
+
+class UIManager:
+    def __init__(self, ctx):
+        self.ctx = ctx
+        self.guild_id = ctx.guild.id
+
+    async def update_ui(self):
+        queue = guild_queues.get(self.guild_id, [])
+        idx = guild_current_index.get(self.guild_id, 0)
+        now_playing_message = guild_ui_messages.get(self.guild_id, {}).get('now_playing')
+        queue_message = guild_ui_messages.get(self.guild_id, {}).get('queue')
+
+        # --- Always delete old Now Playing message ---
+        if now_playing_message:
+            try:
+                await now_playing_message.delete()
+            except discord.NotFound:
+                pass
+            guild_ui_messages.get(self.guild_id, {}).pop('now_playing', None)
+        now_playing_message = None
+
+        # --- Always delete old Queue message ---
+        if queue_message:
+            try:
+                await queue_message.delete()
+            except discord.NotFound:
+                pass
+            guild_ui_messages.get(self.guild_id, {}).pop('queue', None)
+        queue_message = None
+
+        # --- Now Playing Message ---
+        if queue and self.ctx.voice_client and (self.ctx.voice_client.is_playing() or self.ctx.voice_client.is_paused()):
+            song = queue[idx]
+            np_embed = Embed(title="Now Playing", description=song['title'], color=0x2b2d31)
+            if 'thumbnail' in song:
+                np_embed.set_thumbnail(url=song['thumbnail'])
+            view = NowPlayingView(self.ctx, bot)
+            now_playing_message = await self.ctx.send(embed=np_embed, view=view)
+            if self.guild_id not in guild_ui_messages:
+                guild_ui_messages[self.guild_id] = {}
+            guild_ui_messages[self.guild_id]['now_playing'] = now_playing_message
+
+        # --- Queue Message ---
+        if queue:
+            queue_view = QueueView(self.ctx, bot, queue)
+            q_embed = await queue_view.get_page_embed()
+            queue_message = await self.ctx.send(embed=q_embed, view=queue_view)
+            if self.guild_id not in guild_ui_messages:
+                guild_ui_messages[self.guild_id] = {}
+            guild_ui_messages[self.guild_id]['queue'] = queue_message
+
 async def handle_next(ctx):
     # Repeat logic
     if repeat_flags.get(ctx.guild.id, False):
-        # Don't remove, just replay
+        # Don't advance index, just replay current song
         await play_next(ctx)
     else:
-        remove_first_from_queue(ctx.guild.id)
-        await play_next(ctx)
+        # Advance to next song by incrementing current_index
+        queue = guild_queues.get(ctx.guild.id, [])
+        idx = guild_current_index.get(ctx.guild.id, 0)
+        if idx < len(queue) - 1:
+            guild_current_index[ctx.guild.id] = idx + 1
+            await play_next(ctx)
+        else:
+            # No more songs, clear the current index and stop
+            guild_current_index[ctx.guild.id] = 0
+            await ctx.send("Gaane khatam, ja rahi hu main. Disconnecting in 5 minutes if nothing is added.")
+            asyncio.create_task(auto_disconnect(ctx))
 
 @bot.command()
 async def join(ctx):
@@ -372,7 +530,7 @@ async def play(ctx, *, query):
             return
 
     else:
-        await ctx.send(f"Fetching audio for: {query}")
+        # await ctx.send(f"Fetching audio for: {query}")
         info = None
         try:
             ydl_opts = {
@@ -417,6 +575,10 @@ async def play(ctx, *, query):
 
     guild_queues[ctx.guild.id].extend(songs)
     
+    # Initialize current_index if this is the first song or if the queue was empty
+    if len(guild_queues[ctx.guild.id]) == len(songs):
+        guild_current_index[ctx.guild.id] = 0
+    
     if ctx.voice_client is None:
         if ctx.author.voice:
             await ctx.author.voice.channel.connect()
@@ -433,13 +595,25 @@ async def play(ctx, *, query):
         else:
             await ctx.send(f"Added `{songs[0]['title']}` to your queue.")
             
+    ui_manager = UIManager(ctx)
+    await ui_manager.update_ui()
     update_stats_on_queue(ctx.guild.id)
+
+@play.error
+async def play_error(ctx, error):
+    if isinstance(error, commands.MissingRequiredArgument):
+        await ctx.send("You need to provide a song name or URL! Usage: `!play <song name or URL>`")
+    else:
+        log_error('play_command', error)
+        await ctx.send(f"An error occurred in the play command: {error}")
 
 @bot.command()
 async def leave(ctx):
     if ctx.voice_client:
         await ctx.voice_client.disconnect()
         guild_queues.pop(ctx.guild.id, None)
+        ui_manager = UIManager(ctx)
+        await ui_manager.update_ui()
         await ctx.send("Disconnected!")
     else:
         await ctx.send("I'm not in a voice channel!")
@@ -466,8 +640,10 @@ async def resume(ctx):
 @bot.command()
 async def stop(ctx):
     if ctx.voice_client and (ctx.voice_client.is_playing() or ctx.voice_client.is_paused()):
-        ctx.voice_client.stop()
         guild_queues[ctx.guild.id] = []
+        ctx.voice_client.stop()
+        ui_manager = UIManager(ctx)
+        await ui_manager.update_ui()
         await ctx.send("Playback stopped and queue cleared.")
     else:
         await ctx.send("Nothing is playing or paused.")
@@ -477,7 +653,6 @@ async def stop(ctx):
 async def skip(ctx):
     if ctx.voice_client and ctx.voice_client.is_playing():
         ctx.voice_client.stop()
-        await ctx.send("Skipped to next song.")
     else:
         await ctx.send("Nothing is playing to skip.")
     update_stats_on_queue(ctx.guild.id)
@@ -495,7 +670,7 @@ async def volume(ctx, vol: float):
 
 # Lyrics command using lyrics.ovh
 @bot.command()
-async def lyrics(ctx, *, query=None):
+async def lyricslyrics(ctx, *, query=None):
     if not query:
         queue = guild_queues.get(ctx.guild.id, [])
         if not queue:
@@ -521,48 +696,8 @@ async def lyrics(ctx, *, query=None):
 # Update queue command to show duration
 @bot.command(aliases=["q"])
 async def queue(ctx):
-    queue_items = guild_queues.get(ctx.guild.id, [])
-    if not queue_items:
-        embed = Embed(title="The queue is empty", color=discord.Color.orange())
-        await ctx.send(embed=embed)
-        return
-
-    display_limit = 15
-    total_duration_seconds = 0
-    description_lines = []
-
-    for song in queue_items:
-        if song.get('duration'):
-            try:
-                total_duration_seconds += int(song['duration'])
-            except (ValueError, TypeError):
-                pass  # Ignore songs with invalid duration format
-
-    for i, song in enumerate(queue_items[:display_limit]):
-        dur = format_duration(song.get('duration'))
-        title = song.get('title', 'Unknown Title')
-        if len(title) > 55:
-            title = title[:52] + '...'
-        
-        if i == 0:
-            description_lines.append(f"**Now Playing:** `[{dur}]` {title}")
-        else:
-            description_lines.append(f"**{i+1}.** `[{dur}]` {title}")
-
-    description = "\n".join(description_lines)
-    
-    total_songs = len(queue_items)
-    if total_songs > display_limit:
-        description += f"\n\n... and {total_songs - display_limit} more."
-
-    embed = Embed(title="Current Queue", description=description, color=0x3498db) # Blue color
-    embed.set_author(name=ctx.bot.user.name, icon_url=ctx.bot.user.avatar.url if ctx.bot.user.avatar else None)
-    embed.timestamp = datetime.utcnow()
-
-    total_duration_formatted = format_duration(total_duration_seconds)
-    embed.set_footer(text=f"Total songs: {total_songs} | Total duration: {total_duration_formatted}")
-
-    await ctx.send(embed=embed)
+    ui_manager = UIManager(ctx)
+    await ui_manager.update_ui()
     update_stats_on_queue(ctx.guild.id)
 
 @bot.command()
@@ -574,6 +709,8 @@ async def shuffle(ctx):
         random.shuffle(queue)
         queue.insert(0, now_playing)
         await ctx.send("Queue shuffled!")
+        ui_manager = UIManager(ctx)
+        await ui_manager.update_ui()
     else:
         await ctx.send("Not enough songs in the queue to shuffle.")
     update_stats_on_queue(ctx.guild.id)

@@ -8006,3 +8006,2380 @@ discord.errors.NotFound: 404 Not Found (error code: 10062): Unknown interaction
 2025-07-24 23:33:36,583 INFO Starting voice handshake... (connection attempt 1)
 2025-07-24 23:33:37,769 INFO Voice handshake complete. Endpoint found: singapore11086.discord.media
 2025-07-24 23:33:38,580 INFO Voice connection complete.
+2025-07-24 23:36:48,766 WARNING Shard ID None voice heartbeat blocked for more than 10 seconds
+Loop thread traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Sandesh\bot.py", line 772, in <module>
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\client.py", line 906, in run
+    asyncio.run(runner())
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py", line 194, in run
+    return runner.run(main)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py", line 651, in run_until_complete
+    self.run_forever()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\windows_events.py", line 321, in run_forever
+    super().run_forever()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py", line 618, in run_forever
+    self._run_once()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py", line 1951, in _run_once
+    handle._run()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\events.py", line 84, in _run
+    self._context.run(self._callback, *self._args)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\client.py", line 481, in _run_event
+    await coro(*args, **kwargs)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\commands\bot.py", line 1411, in on_message
+    await self.process_commands(message)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\commands\bot.py", line 1408, in process_commands
+    await self.invoke(ctx)  # type: ignore
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\commands\bot.py", line 1366, in invoke
+    await ctx.command.invoke(ctx)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\commands\core.py", line 1029, in invoke
+    await injected(*ctx.args, **ctx.kwargs)  # type: ignore
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\commands\core.py", line 235, in wrapped
+    ret = await coro(*args, **kwargs)
+  File "C:\Users\amitk\Documents\Sandesh\bot.py", line 518, in lyrics
+    await ctx.send(f"Error fetching lyrics: {e}")
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\requests\api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\requests\api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\requests\sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\requests\sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\requests\adapters.py", line 486, in send
+    resp = conn.urlopen(
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\urllib3\connectionpool.py", line 793, in urlopen
+    response = self._make_request(
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\urllib3\connectionpool.py", line 537, in _make_request
+    response = conn.getresponse()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\urllib3\connection.py", line 466, in getresponse
+    httplib_response = super().getresponse()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\http\client.py", line 1411, in getresponse
+    response.begin()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\http\client.py", line 324, in begin
+    version, status, reason = self._read_status()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\http\client.py", line 285, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\socket.py", line 707, in readinto
+    return self._sock.recv_into(b)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\ssl.py", line 1249, in recv_into
+    return self.read(nbytes, buffer)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\ssl.py", line 1105, in read
+    return self._sslobj.read(len, buffer)
+
+2025-07-24 23:36:58,775 WARNING Shard ID None voice heartbeat blocked for more than 20 seconds
+Loop thread traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Sandesh\bot.py", line 772, in <module>
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\client.py", line 906, in run
+    asyncio.run(runner())
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py", line 194, in run
+    return runner.run(main)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py", line 651, in run_until_complete
+    self.run_forever()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\windows_events.py", line 321, in run_forever
+    super().run_forever()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py", line 618, in run_forever
+    self._run_once()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py", line 1951, in _run_once
+    handle._run()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\events.py", line 84, in _run
+    self._context.run(self._callback, *self._args)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\client.py", line 481, in _run_event
+    await coro(*args, **kwargs)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\commands\bot.py", line 1411, in on_message
+    await self.process_commands(message)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\commands\bot.py", line 1408, in process_commands
+    await self.invoke(ctx)  # type: ignore
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\commands\bot.py", line 1366, in invoke
+    await ctx.command.invoke(ctx)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\commands\core.py", line 1029, in invoke
+    await injected(*ctx.args, **ctx.kwargs)  # type: ignore
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\commands\core.py", line 235, in wrapped
+    ret = await coro(*args, **kwargs)
+  File "C:\Users\amitk\Documents\Sandesh\bot.py", line 518, in lyrics
+    await ctx.send(f"Error fetching lyrics: {e}")
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\requests\api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\requests\api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\requests\sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\requests\sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\requests\adapters.py", line 486, in send
+    resp = conn.urlopen(
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\urllib3\connectionpool.py", line 793, in urlopen
+    response = self._make_request(
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\urllib3\connectionpool.py", line 537, in _make_request
+    response = conn.getresponse()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\urllib3\connection.py", line 466, in getresponse
+    httplib_response = super().getresponse()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\http\client.py", line 1411, in getresponse
+    response.begin()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\http\client.py", line 324, in begin
+    version, status, reason = self._read_status()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\http\client.py", line 285, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\socket.py", line 707, in readinto
+    return self._sock.recv_into(b)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\ssl.py", line 1249, in recv_into
+    return self.read(nbytes, buffer)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\ssl.py", line 1105, in read
+    return self._sslobj.read(len, buffer)
+
+2025-07-24 23:37:03,976 WARNING Shard ID None heartbeat blocked for more than 10 seconds.
+Loop thread traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Sandesh\bot.py", line 772, in <module>
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\client.py", line 906, in run
+    asyncio.run(runner())
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py", line 194, in run
+    return runner.run(main)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py", line 651, in run_until_complete
+    self.run_forever()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\windows_events.py", line 321, in run_forever
+    super().run_forever()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py", line 618, in run_forever
+    self._run_once()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py", line 1951, in _run_once
+    handle._run()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\events.py", line 84, in _run
+    self._context.run(self._callback, *self._args)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\client.py", line 481, in _run_event
+    await coro(*args, **kwargs)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\commands\bot.py", line 1411, in on_message
+    await self.process_commands(message)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\commands\bot.py", line 1408, in process_commands
+    await self.invoke(ctx)  # type: ignore
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\commands\bot.py", line 1366, in invoke
+    await ctx.command.invoke(ctx)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\commands\core.py", line 1029, in invoke
+    await injected(*ctx.args, **ctx.kwargs)  # type: ignore
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\commands\core.py", line 235, in wrapped
+    ret = await coro(*args, **kwargs)
+  File "C:\Users\amitk\Documents\Sandesh\bot.py", line 518, in lyrics
+    await ctx.send(f"Error fetching lyrics: {e}")
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\requests\api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\requests\api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\requests\sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\requests\sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\requests\adapters.py", line 486, in send
+    resp = conn.urlopen(
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\urllib3\connectionpool.py", line 793, in urlopen
+    response = self._make_request(
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\urllib3\connectionpool.py", line 537, in _make_request
+    response = conn.getresponse()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\urllib3\connection.py", line 466, in getresponse
+    httplib_response = super().getresponse()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\http\client.py", line 1411, in getresponse
+    response.begin()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\http\client.py", line 324, in begin
+    version, status, reason = self._read_status()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\http\client.py", line 285, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\socket.py", line 707, in readinto
+    return self._sock.recv_into(b)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\ssl.py", line 1249, in recv_into
+    return self.read(nbytes, buffer)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\ssl.py", line 1105, in read
+    return self._sslobj.read(len, buffer)
+
+2025-07-24 23:37:08,787 WARNING Shard ID None voice heartbeat blocked for more than 30 seconds
+Loop thread traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Sandesh\bot.py", line 772, in <module>
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\client.py", line 906, in run
+    asyncio.run(runner())
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py", line 194, in run
+    return runner.run(main)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py", line 651, in run_until_complete
+    self.run_forever()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\windows_events.py", line 321, in run_forever
+    super().run_forever()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py", line 618, in run_forever
+    self._run_once()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py", line 1951, in _run_once
+    handle._run()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\events.py", line 84, in _run
+    self._context.run(self._callback, *self._args)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\client.py", line 481, in _run_event
+    await coro(*args, **kwargs)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\commands\bot.py", line 1411, in on_message
+    await self.process_commands(message)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\commands\bot.py", line 1408, in process_commands
+    await self.invoke(ctx)  # type: ignore
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\commands\bot.py", line 1366, in invoke
+    await ctx.command.invoke(ctx)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\commands\core.py", line 1029, in invoke
+    await injected(*ctx.args, **ctx.kwargs)  # type: ignore
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\commands\core.py", line 235, in wrapped
+    ret = await coro(*args, **kwargs)
+  File "C:\Users\amitk\Documents\Sandesh\bot.py", line 518, in lyrics
+    await ctx.send(f"Error fetching lyrics: {e}")
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\requests\api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\requests\api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\requests\sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\requests\sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\requests\adapters.py", line 486, in send
+    resp = conn.urlopen(
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\urllib3\connectionpool.py", line 793, in urlopen
+    response = self._make_request(
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\urllib3\connectionpool.py", line 537, in _make_request
+    response = conn.getresponse()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\urllib3\connection.py", line 466, in getresponse
+    httplib_response = super().getresponse()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\http\client.py", line 1411, in getresponse
+    response.begin()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\http\client.py", line 324, in begin
+    version, status, reason = self._read_status()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\http\client.py", line 285, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\socket.py", line 707, in readinto
+    return self._sock.recv_into(b)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\ssl.py", line 1249, in recv_into
+    return self.read(nbytes, buffer)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\ssl.py", line 1105, in read
+    return self._sslobj.read(len, buffer)
+
+2025-07-24 23:37:13,988 WARNING Shard ID None heartbeat blocked for more than 20 seconds.
+Loop thread traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Sandesh\bot.py", line 772, in <module>
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\client.py", line 906, in run
+    asyncio.run(runner())
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py", line 194, in run
+    return runner.run(main)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py", line 651, in run_until_complete
+    self.run_forever()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\windows_events.py", line 321, in run_forever
+    super().run_forever()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py", line 618, in run_forever
+    self._run_once()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py", line 1951, in _run_once
+    handle._run()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\events.py", line 84, in _run
+    self._context.run(self._callback, *self._args)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\client.py", line 481, in _run_event
+    await coro(*args, **kwargs)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\commands\bot.py", line 1411, in on_message
+    await self.process_commands(message)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\commands\bot.py", line 1408, in process_commands
+    await self.invoke(ctx)  # type: ignore
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\commands\bot.py", line 1366, in invoke
+    await ctx.command.invoke(ctx)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\commands\core.py", line 1029, in invoke
+    await injected(*ctx.args, **ctx.kwargs)  # type: ignore
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\commands\core.py", line 235, in wrapped
+    ret = await coro(*args, **kwargs)
+  File "C:\Users\amitk\Documents\Sandesh\bot.py", line 518, in lyrics
+    await ctx.send(f"Error fetching lyrics: {e}")
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\requests\api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\requests\api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\requests\sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\requests\sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\requests\adapters.py", line 486, in send
+    resp = conn.urlopen(
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\urllib3\connectionpool.py", line 793, in urlopen
+    response = self._make_request(
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\urllib3\connectionpool.py", line 537, in _make_request
+    response = conn.getresponse()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\urllib3\connection.py", line 466, in getresponse
+    httplib_response = super().getresponse()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\http\client.py", line 1411, in getresponse
+    response.begin()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\http\client.py", line 324, in begin
+    version, status, reason = self._read_status()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\http\client.py", line 285, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\socket.py", line 707, in readinto
+    return self._sock.recv_into(b)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\ssl.py", line 1249, in recv_into
+    return self.read(nbytes, buffer)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\ssl.py", line 1105, in read
+    return self._sslobj.read(len, buffer)
+
+2025-07-24 23:37:18,794 WARNING Shard ID None voice heartbeat blocked for more than 40 seconds
+Loop thread traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Sandesh\bot.py", line 772, in <module>
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\client.py", line 906, in run
+    asyncio.run(runner())
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py", line 194, in run
+    return runner.run(main)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py", line 651, in run_until_complete
+    self.run_forever()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\windows_events.py", line 321, in run_forever
+    super().run_forever()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py", line 618, in run_forever
+    self._run_once()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py", line 1951, in _run_once
+    handle._run()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\events.py", line 84, in _run
+    self._context.run(self._callback, *self._args)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\client.py", line 481, in _run_event
+    await coro(*args, **kwargs)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\commands\bot.py", line 1411, in on_message
+    await self.process_commands(message)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\commands\bot.py", line 1408, in process_commands
+    await self.invoke(ctx)  # type: ignore
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\commands\bot.py", line 1366, in invoke
+    await ctx.command.invoke(ctx)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\commands\core.py", line 1029, in invoke
+    await injected(*ctx.args, **ctx.kwargs)  # type: ignore
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\commands\core.py", line 235, in wrapped
+    ret = await coro(*args, **kwargs)
+  File "C:\Users\amitk\Documents\Sandesh\bot.py", line 518, in lyrics
+    await ctx.send(f"Error fetching lyrics: {e}")
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\requests\api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\requests\api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\requests\sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\requests\sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\requests\adapters.py", line 486, in send
+    resp = conn.urlopen(
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\urllib3\connectionpool.py", line 793, in urlopen
+    response = self._make_request(
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\urllib3\connectionpool.py", line 537, in _make_request
+    response = conn.getresponse()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\urllib3\connection.py", line 466, in getresponse
+    httplib_response = super().getresponse()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\http\client.py", line 1411, in getresponse
+    response.begin()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\http\client.py", line 324, in begin
+    version, status, reason = self._read_status()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\http\client.py", line 285, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\socket.py", line 707, in readinto
+    return self._sock.recv_into(b)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\ssl.py", line 1249, in recv_into
+    return self.read(nbytes, buffer)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\ssl.py", line 1105, in read
+    return self._sslobj.read(len, buffer)
+
+2025-07-24 23:37:23,998 WARNING Shard ID None heartbeat blocked for more than 30 seconds.
+Loop thread traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Sandesh\bot.py", line 772, in <module>
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\client.py", line 906, in run
+    asyncio.run(runner())
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py", line 194, in run
+    return runner.run(main)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py", line 651, in run_until_complete
+    self.run_forever()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\windows_events.py", line 321, in run_forever
+    super().run_forever()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py", line 618, in run_forever
+    self._run_once()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py", line 1951, in _run_once
+    handle._run()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\events.py", line 84, in _run
+    self._context.run(self._callback, *self._args)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\client.py", line 481, in _run_event
+    await coro(*args, **kwargs)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\commands\bot.py", line 1411, in on_message
+    await self.process_commands(message)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\commands\bot.py", line 1408, in process_commands
+    await self.invoke(ctx)  # type: ignore
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\commands\bot.py", line 1366, in invoke
+    await ctx.command.invoke(ctx)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\commands\core.py", line 1029, in invoke
+    await injected(*ctx.args, **ctx.kwargs)  # type: ignore
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\commands\core.py", line 235, in wrapped
+    ret = await coro(*args, **kwargs)
+  File "C:\Users\amitk\Documents\Sandesh\bot.py", line 518, in lyrics
+    await ctx.send(f"Error fetching lyrics: {e}")
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\requests\api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\requests\api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\requests\sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\requests\sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\requests\adapters.py", line 486, in send
+    resp = conn.urlopen(
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\urllib3\connectionpool.py", line 793, in urlopen
+    response = self._make_request(
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\urllib3\connectionpool.py", line 537, in _make_request
+    response = conn.getresponse()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\urllib3\connection.py", line 466, in getresponse
+    httplib_response = super().getresponse()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\http\client.py", line 1411, in getresponse
+    response.begin()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\http\client.py", line 324, in begin
+    version, status, reason = self._read_status()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\http\client.py", line 285, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\socket.py", line 707, in readinto
+    return self._sock.recv_into(b)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\ssl.py", line 1249, in recv_into
+    return self.read(nbytes, buffer)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\ssl.py", line 1105, in read
+    return self._sslobj.read(len, buffer)
+
+2025-07-24 23:37:28,807 WARNING Shard ID None voice heartbeat blocked for more than 50 seconds
+Loop thread traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Sandesh\bot.py", line 772, in <module>
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\client.py", line 906, in run
+    asyncio.run(runner())
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py", line 194, in run
+    return runner.run(main)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py", line 651, in run_until_complete
+    self.run_forever()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\windows_events.py", line 321, in run_forever
+    super().run_forever()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py", line 618, in run_forever
+    self._run_once()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py", line 1951, in _run_once
+    handle._run()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\events.py", line 84, in _run
+    self._context.run(self._callback, *self._args)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\client.py", line 481, in _run_event
+    await coro(*args, **kwargs)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\commands\bot.py", line 1411, in on_message
+    await self.process_commands(message)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\commands\bot.py", line 1408, in process_commands
+    await self.invoke(ctx)  # type: ignore
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\commands\bot.py", line 1366, in invoke
+    await ctx.command.invoke(ctx)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\commands\core.py", line 1029, in invoke
+    await injected(*ctx.args, **ctx.kwargs)  # type: ignore
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\commands\core.py", line 235, in wrapped
+    ret = await coro(*args, **kwargs)
+  File "C:\Users\amitk\Documents\Sandesh\bot.py", line 518, in lyrics
+    await ctx.send(f"Error fetching lyrics: {e}")
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\requests\api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\requests\api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\requests\sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\requests\sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\requests\adapters.py", line 486, in send
+    resp = conn.urlopen(
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\urllib3\connectionpool.py", line 793, in urlopen
+    response = self._make_request(
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\urllib3\connectionpool.py", line 537, in _make_request
+    response = conn.getresponse()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\urllib3\connection.py", line 466, in getresponse
+    httplib_response = super().getresponse()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\http\client.py", line 1411, in getresponse
+    response.begin()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\http\client.py", line 324, in begin
+    version, status, reason = self._read_status()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\http\client.py", line 285, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\socket.py", line 707, in readinto
+    return self._sock.recv_into(b)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\ssl.py", line 1249, in recv_into
+    return self.read(nbytes, buffer)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\ssl.py", line 1105, in read
+    return self._sslobj.read(len, buffer)
+
+2025-07-24 23:37:34,009 WARNING Shard ID None heartbeat blocked for more than 40 seconds.
+Loop thread traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Sandesh\bot.py", line 772, in <module>
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\client.py", line 906, in run
+    asyncio.run(runner())
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py", line 194, in run
+    return runner.run(main)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py", line 651, in run_until_complete
+    self.run_forever()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\windows_events.py", line 321, in run_forever
+    super().run_forever()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py", line 618, in run_forever
+    self._run_once()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py", line 1951, in _run_once
+    handle._run()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\events.py", line 84, in _run
+    self._context.run(self._callback, *self._args)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\client.py", line 481, in _run_event
+    await coro(*args, **kwargs)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\commands\bot.py", line 1411, in on_message
+    await self.process_commands(message)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\commands\bot.py", line 1408, in process_commands
+    await self.invoke(ctx)  # type: ignore
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\commands\bot.py", line 1366, in invoke
+    await ctx.command.invoke(ctx)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\commands\core.py", line 1029, in invoke
+    await injected(*ctx.args, **ctx.kwargs)  # type: ignore
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\commands\core.py", line 235, in wrapped
+    ret = await coro(*args, **kwargs)
+  File "C:\Users\amitk\Documents\Sandesh\bot.py", line 518, in lyrics
+    await ctx.send(f"Error fetching lyrics: {e}")
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\requests\api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\requests\api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\requests\sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\requests\sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\requests\adapters.py", line 486, in send
+    resp = conn.urlopen(
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\urllib3\connectionpool.py", line 793, in urlopen
+    response = self._make_request(
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\urllib3\connectionpool.py", line 537, in _make_request
+    response = conn.getresponse()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\urllib3\connection.py", line 466, in getresponse
+    httplib_response = super().getresponse()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\http\client.py", line 1411, in getresponse
+    response.begin()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\http\client.py", line 324, in begin
+    version, status, reason = self._read_status()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\http\client.py", line 285, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\socket.py", line 707, in readinto
+    return self._sock.recv_into(b)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\ssl.py", line 1249, in recv_into
+    return self.read(nbytes, buffer)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\ssl.py", line 1105, in read
+    return self._sslobj.read(len, buffer)
+
+2025-07-24 23:37:36,655 ERROR Disconnected from voice... Reconnecting in 1.10s.
+Traceback (most recent call last):
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\tasks.py", line 510, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\aiohttp\client_ws.py", line 244, in receive
+    msg = await self._reader.read()
+          ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\aiohttp\streams.py", line 663, in read
+    return await super().read()
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\aiohttp\streams.py", line 622, in read
+    await self._waiter
+asyncio.exceptions.CancelledError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_state.py", line 598, in _poll_voice_ws
+    await self.ws.poll_event()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\gateway.py", line 1031, in poll_event
+    msg = await asyncio.wait_for(self.ws.receive(), timeout=30.0)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\tasks.py", line 509, in wait_for
+    async with timeouts.timeout(timeout):
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\timeouts.py", line 111, in __aexit__
+    raise TimeoutError from exc_val
+TimeoutError
+2025-07-24 23:37:37,176 INFO ffmpeg process 732 successfully terminated with return code of 0.
+2025-07-24 23:37:37,404 INFO Shard ID None has successfully RESUMED session 6a86faf77153166c2771b7f4025108e5.
+2025-07-24 23:37:37,772 INFO The voice handshake is being terminated for Channel ID 1208701086949576717 (Guild ID 1208701086458847282)
+2025-07-24 23:37:37,772 INFO Connecting to voice...
+2025-07-24 23:37:37,773 INFO Starting voice handshake... (connection attempt 1)
+2025-07-24 23:37:37,776 ERROR Ignoring exception in view <NowPlayingView timeout=None children=5> for item <Button style=<ButtonStyle.danger: 4> url=None disabled=False label='\u23f9\ufe0f Stop' emoji=None row=None sku_id=None>
+Traceback (most recent call last):
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ui\view.py", line 435, in _scheduled_task
+    await item.callback(interaction)
+  File "C:\Users\amitk\Documents\Sandesh\bot.py", line 197, in stop
+    def log_error(context, error):
+                ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\interactions.py", line 1004, in send_message
+    response = await adapter.create_interaction_response(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\webhook\async_.py", line 224, in request
+    raise NotFound(response, data)
+discord.errors.NotFound: 404 Not Found (error code: 10062): Unknown interaction
+2025-07-24 23:37:37,788 ERROR Ignoring exception in view <NowPlayingView timeout=None children=5> for item <Button style=<ButtonStyle.danger: 4> url=None disabled=False label='\u23f9\ufe0f Stop' emoji=None row=None sku_id=None>
+Traceback (most recent call last):
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ui\view.py", line 435, in _scheduled_task
+    await item.callback(interaction)
+  File "C:\Users\amitk\Documents\Sandesh\bot.py", line 197, in stop
+    def log_error(context, error):
+                ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\interactions.py", line 1004, in send_message
+    response = await adapter.create_interaction_response(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\webhook\async_.py", line 224, in request
+    raise NotFound(response, data)
+discord.errors.NotFound: 404 Not Found (error code: 10062): Unknown interaction
+2025-07-24 23:37:38,518 INFO Voice handshake complete. Endpoint found: singapore11086.discord.media
+2025-07-24 23:37:39,260 INFO Voice connection complete.
+2025-07-24 23:39:07,743 INFO The voice handshake is being terminated for Channel ID 1208701086949576717 (Guild ID 1208701086458847282)
+2025-07-24 23:39:12,040 INFO logging in using static token
+2025-07-24 23:39:13,838 INFO Shard ID None has connected to Gateway (Session ID: 935a2d13eba4452fc30fb6f6e7605d16).
+2025-07-24 23:40:16,675 INFO logging in using static token
+2025-07-24 23:40:18,490 INFO Shard ID None has connected to Gateway (Session ID: c38480edef5f735526dbbc3d068f16f3).
+2025-07-24 23:41:20,954 INFO logging in using static token
+2025-07-24 23:41:22,743 INFO Shard ID None has connected to Gateway (Session ID: 1d7a714f37cc015e0d3c44eaa8dc1865).
+2025-07-24 23:41:32,669 INFO Connecting to voice...
+2025-07-24 23:41:32,669 INFO Starting voice handshake... (connection attempt 1)
+2025-07-24 23:41:33,212 INFO Voice handshake complete. Endpoint found: singapore11086.discord.media
+2025-07-24 23:41:33,980 INFO Voice connection complete.
+2025-07-24 23:41:40,818 INFO ffmpeg process 19304 has not terminated. Waiting to terminate...
+2025-07-24 23:41:40,821 INFO ffmpeg process 19304 should have terminated with a return code of 1.
+2025-07-24 23:42:02,785 ERROR Ignoring exception in command None
+discord.ext.commands.errors.CommandNotFound: Command "dc" is not found
+2025-07-24 23:42:30,619 ERROR Ignoring exception in command play
+Traceback (most recent call last):
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\commands\bot.py", line 1366, in invoke
+    await ctx.command.invoke(ctx)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\commands\core.py", line 1021, in invoke
+    await self.prepare(ctx)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\commands\core.py", line 938, in prepare
+    await self._parse_arguments(ctx)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\commands\core.py", line 853, in _parse_arguments
+    kwargs[name] = await self.transform(ctx, param, attachments)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\commands\core.py", line 697, in transform
+    raise MissingRequiredArgument(param)
+discord.ext.commands.errors.MissingRequiredArgument: query is a required argument that is missing.
+2025-07-24 23:43:23,457 ERROR Ignoring exception in command None
+discord.ext.commands.errors.CommandNotFound: Command "dc" is not found
+2025-07-24 23:45:27,395 INFO ffmpeg process 18448 has not terminated. Waiting to terminate...
+2025-07-24 23:45:27,397 INFO ffmpeg process 18448 should have terminated with a return code of 1.
+2025-07-24 23:45:35,544 ERROR Disconnected from voice... Reconnecting in 0.88s.
+Traceback (most recent call last):
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_state.py", line 598, in _poll_voice_ws
+    await self.ws.poll_event()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\gateway.py", line 1039, in poll_event
+    raise ConnectionClosed(self.ws, shard_id=None, code=self._close_code)
+discord.errors.ConnectionClosed: Shard ID None WebSocket closed with 1006
+2025-07-24 23:45:36,424 INFO The voice handshake is being terminated for Channel ID 1208701086949576717 (Guild ID 1208701086458847282)
+2025-07-24 23:45:36,424 INFO Connecting to voice...
+2025-07-24 23:45:36,424 INFO Starting voice handshake... (connection attempt 1)
+2025-07-24 23:45:37,182 INFO Voice handshake complete. Endpoint found: singapore11086.discord.media
+2025-07-24 23:45:38,002 INFO Voice connection complete.
+2025-07-24 23:46:40,834 INFO The voice handshake is being terminated for Channel ID 1208701086949576717 (Guild ID 1208701086458847282)
+2025-07-25 00:14:31,596 INFO logging in using static token
+2025-07-25 00:14:33,578 INFO Shard ID None has connected to Gateway (Session ID: 59b3658af0e0e037cc4ae6df2c2c1627).
+2025-07-25 00:15:09,736 INFO Connecting to voice...
+2025-07-25 00:15:09,736 INFO Starting voice handshake... (connection attempt 1)
+2025-07-25 00:15:10,284 INFO Voice handshake complete. Endpoint found: india10040.discord.media
+2025-07-25 00:15:10,598 INFO Voice connection complete.
+2025-07-25 00:16:06,077 INFO The voice handshake is being terminated for Channel ID 1053223116668665859 (Guild ID 1053223116085673985)
+2025-07-25 00:16:06,627 INFO ffmpeg process 19652 has not terminated. Waiting to terminate...
+2025-07-25 00:16:06,630 INFO ffmpeg process 19652 should have terminated with a return code of 1.
+2025-07-25 00:18:51,102 INFO logging in using static token
+2025-07-25 00:18:52,798 INFO Shard ID None has connected to Gateway (Session ID: 939d829941e1c145572de63613509df0).
+2025-07-25 00:19:12,271 INFO Connecting to voice...
+2025-07-25 00:19:12,271 INFO Starting voice handshake... (connection attempt 1)
+2025-07-25 00:19:12,813 INFO Voice handshake complete. Endpoint found: india10040.discord.media
+2025-07-25 00:19:13,147 INFO Voice connection complete.
+2025-07-25 00:21:24,466 ERROR Ignoring exception in view <NowPlayingView timeout=None children=3> for item <Button style=<ButtonStyle.secondary: 2> url=None disabled=False label='Next' emoji=None row=None sku_id=None>
+Traceback (most recent call last):
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ui\view.py", line 435, in _scheduled_task
+    await item.callback(interaction)
+  File "C:\Users\amitk\Documents\Sandesh\bot.py", line 196, in skip
+    await interaction.response.defer()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\interactions.py", line 844, in defer
+    response = await adapter.create_interaction_response(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\webhook\async_.py", line 224, in request
+    raise NotFound(response, data)
+discord.errors.NotFound: 404 Not Found (error code: 10062): Unknown interaction
+2025-07-25 00:21:24,949 INFO ffmpeg process 15316 has not terminated. Waiting to terminate...
+2025-07-25 00:21:24,952 INFO ffmpeg process 15316 should have terminated with a return code of 1.
+2025-07-25 00:21:42,759 INFO ffmpeg process 1172 has not terminated. Waiting to terminate...
+2025-07-25 00:21:42,761 INFO ffmpeg process 1172 should have terminated with a return code of 1.
+2025-07-25 00:22:19,410 INFO ffmpeg process 12196 has not terminated. Waiting to terminate...
+2025-07-25 00:22:19,412 INFO ffmpeg process 12196 should have terminated with a return code of 1.
+2025-07-25 00:25:04,514 INFO The voice handshake is being terminated for Channel ID 1053223116668665859 (Guild ID 1053223116085673985)
+2025-07-25 00:25:07,876 ERROR [play_next] Not connected to voice.
+2025-07-25 00:25:11,269 ERROR [play_next] Not connected to voice.
+2025-07-25 00:25:15,195 ERROR [play_next] Not connected to voice.
+2025-07-25 00:25:18,874 ERROR [play_next] Not connected to voice.
+2025-07-25 00:25:22,568 ERROR [play_next] Not connected to voice.
+2025-07-25 00:25:25,994 ERROR [play_next] Not connected to voice.
+2025-07-25 00:25:29,852 ERROR [play_next] Not connected to voice.
+2025-07-25 00:25:33,265 ERROR [play_next] Not connected to voice.
+2025-07-25 00:25:36,772 ERROR [play_next] Not connected to voice.
+2025-07-25 00:25:39,981 ERROR [play_next] Not connected to voice.
+2025-07-25 00:25:39,982 ERROR [after_playing_future] 
+2025-07-25 00:25:39,982 INFO ffmpeg process 8092 has not terminated. Waiting to terminate...
+2025-07-25 00:25:39,998 INFO ffmpeg process 5616 has not terminated. Waiting to terminate...
+2025-07-25 00:25:40,001 INFO ffmpeg process 5616 should have terminated with a return code of 1.
+2025-07-25 00:25:40,001 INFO ffmpeg process 16804 has not terminated. Waiting to terminate...
+2025-07-25 00:25:40,003 INFO ffmpeg process 16804 should have terminated with a return code of 1.
+2025-07-25 00:25:40,004 INFO ffmpeg process 21312 has not terminated. Waiting to terminate...
+2025-07-25 00:25:40,006 INFO ffmpeg process 21312 should have terminated with a return code of 1.
+2025-07-25 00:25:40,007 INFO ffmpeg process 20860 has not terminated. Waiting to terminate...
+2025-07-25 00:25:40,009 INFO ffmpeg process 20860 should have terminated with a return code of 1.
+2025-07-25 00:25:40,009 INFO ffmpeg process 12464 has not terminated. Waiting to terminate...
+2025-07-25 00:25:40,011 INFO ffmpeg process 12464 should have terminated with a return code of 1.
+2025-07-25 00:25:40,011 INFO ffmpeg process 18044 has not terminated. Waiting to terminate...
+2025-07-25 00:25:40,013 INFO ffmpeg process 18044 should have terminated with a return code of 1.
+2025-07-25 00:25:40,014 INFO ffmpeg process 9404 has not terminated. Waiting to terminate...
+2025-07-25 00:25:40,016 INFO ffmpeg process 9404 should have terminated with a return code of 1.
+2025-07-25 00:25:40,016 INFO ffmpeg process 2552 has not terminated. Waiting to terminate...
+2025-07-25 00:25:40,018 INFO ffmpeg process 2552 should have terminated with a return code of 1.
+2025-07-25 00:25:40,018 INFO ffmpeg process 4880 has not terminated. Waiting to terminate...
+2025-07-25 00:25:40,020 INFO ffmpeg process 4880 should have terminated with a return code of 1.
+2025-07-25 00:25:40,021 INFO ffmpeg process 5436 has not terminated. Waiting to terminate...
+2025-07-25 00:25:40,023 INFO ffmpeg process 5436 should have terminated with a return code of 1.
+2025-07-25 00:33:57,277 INFO logging in using static token
+2025-07-25 00:33:59,354 INFO Shard ID None has connected to Gateway (Session ID: 807f2198fb1bfce694c881c9ea1d8546).
+2025-07-25 00:34:31,728 INFO Connecting to voice...
+2025-07-25 00:34:31,728 INFO Starting voice handshake... (connection attempt 1)
+2025-07-25 00:34:32,311 INFO Voice handshake complete. Endpoint found: india10040.discord.media
+2025-07-25 00:34:32,672 INFO Voice connection complete.
+2025-07-25 00:34:49,222 INFO ffmpeg process 6164 has not terminated. Waiting to terminate...
+2025-07-25 00:34:49,225 INFO ffmpeg process 6164 should have terminated with a return code of 1.
+2025-07-25 00:35:11,801 INFO ffmpeg process 10104 has not terminated. Waiting to terminate...
+2025-07-25 00:35:11,804 INFO ffmpeg process 10104 should have terminated with a return code of 1.
+2025-07-25 00:35:20,001 INFO Connecting to voice...
+2025-07-25 00:35:20,001 INFO Starting voice handshake... (connection attempt 1)
+2025-07-25 00:35:20,539 INFO Voice handshake complete. Endpoint found: singapore11086.discord.media
+2025-07-25 00:35:21,342 INFO Voice connection complete.
+2025-07-25 00:36:05,540 WARNING Shard ID None voice heartbeat blocked for more than 10 seconds
+Loop thread traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Sandesh\bot.py", line 828, in <module>
+    bot.run(TOKEN)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\client.py", line 906, in run
+    asyncio.run(runner())
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py", line 194, in run
+    return runner.run(main)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py", line 651, in run_until_complete
+    self.run_forever()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\windows_events.py", line 321, in run_forever
+    super().run_forever()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py", line 618, in run_forever
+    self._run_once()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py", line 1951, in _run_once
+    handle._run()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\events.py", line 84, in _run
+    self._context.run(self._callback, *self._args)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\client.py", line 481, in _run_event
+    await coro(*args, **kwargs)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\commands\bot.py", line 1411, in on_message
+    await self.process_commands(message)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\commands\bot.py", line 1408, in process_commands
+    await self.invoke(ctx)  # type: ignore
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\commands\bot.py", line 1366, in invoke
+    await ctx.command.invoke(ctx)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\commands\core.py", line 1029, in invoke
+    await injected(*ctx.args, **ctx.kwargs)  # type: ignore
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\commands\core.py", line 235, in wrapped
+    ret = await coro(*args, **kwargs)
+  File "C:\Users\amitk\Documents\Sandesh\bot.py", line 492, in play
+    info = ydl.extract_info(query, download=False)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\YoutubeDL.py", line 1653, in extract_info
+    return self.__extract_info(url, self.get_info_extractor(key), download, extra_info, process)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\YoutubeDL.py", line 1664, in wrapper
+    return func(self, *args, **kwargs)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\YoutubeDL.py", line 1820, in __extract_info
+    return self.process_ie_result(ie_result, download, extra_info)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\YoutubeDL.py", line 1949, in process_ie_result
+    return self.__process_playlist(ie_result, download)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\YoutubeDL.py", line 2027, in __process_playlist
+    entries = resolved_entries = list(entries)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\utils\_utils.py", line 773, in _iter
+    for x in iterable:
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\utils\_utils.py", line 2456, in get_requested_items
+    for i, entry in self[index]:
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\utils\_utils.py", line 2518, in __getitem__
+    entry = self._getter(i)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\utils\_utils.py", line 2491, in get_entry
+    return type(self.ydl)._handle_extraction_exceptions(lambda _, i: self._entries[i])(self.ydl, i)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\YoutubeDL.py", line 1664, in wrapper
+    return func(self, *args, **kwargs)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\utils\_utils.py", line 2491, in <lambda>
+    return type(self.ydl)._handle_extraction_exceptions(lambda _, i: self._entries[i])(self.ydl, i)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\utils\_utils.py", line 2256, in __getitem__
+    self._cache.extend(itertools.islice(self._iterable, n))
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\extractor\youtube\_tab.py", line 779, in _extract_inline_playlist
+    response = self._extract_response(
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\extractor\youtube\_base.py", line 1203, in _extract_response
+    response = self._call_api(
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\extractor\youtube\_base.py", line 791, in _call_api
+    return self._download_json(
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\extractor\common.py", line 1149, in download_content
+    res = getattr(self, download_handle.__name__)(url_or_request, video_id, **kwargs)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\extractor\common.py", line 1107, in download_handle
+    res = self._download_webpage_handle(
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\extractor\common.py", line 972, in _download_webpage_handle
+    urlh = self._request_webpage(url_or_request, video_id, note, errnote, fatal, data=data,
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\extractor\youtube\_base.py", line 769, in _request_webpage
+    response = super()._request_webpage(*args, **kwargs)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\extractor\common.py", line 908, in _request_webpage
+    return self._downloader.urlopen(self._create_request(url_or_request, data, headers, query, extensions))
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\YoutubeDL.py", line 4236, in urlopen
+    return self._request_director.send(req)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\networking\common.py", line 117, in send
+    response = handler.send(request)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\networking\_helper.py", line 194, in wrapper
+    return func(self, *args, **kwargs)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\networking\common.py", line 359, in send
+    return self._send(request)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\networking\_urllib.py", line 399, in _send
+    res = opener.open(urllib_req, timeout=self._calculate_timeout(request))
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\urllib\request.py", line 515, in open
+    response = self._open(req, data)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\urllib\request.py", line 532, in _open
+    result = self._call_chain(self.handle_open, protocol, protocol +
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\urllib\request.py", line 492, in _call_chain
+    result = func(*args)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\networking\_urllib.py", line 100, in https_open
+    return self.do_open(
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\urllib\request.py", line 1348, in do_open
+    r = h.getresponse()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\http\client.py", line 1411, in getresponse
+    response.begin()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\http\client.py", line 324, in begin
+    version, status, reason = self._read_status()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\http\client.py", line 285, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\socket.py", line 707, in readinto
+    return self._sock.recv_into(b)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\ssl.py", line 1249, in recv_into
+    return self.read(nbytes, buffer)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\ssl.py", line 1105, in read
+    return self._sslobj.read(len, buffer)
+
+2025-07-25 00:36:06,070 WARNING Shard ID None voice heartbeat blocked for more than 10 seconds
+Loop thread traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Sandesh\bot.py", line 828, in <module>
+    bot.run(TOKEN)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\client.py", line 906, in run
+    asyncio.run(runner())
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py", line 194, in run
+    return runner.run(main)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py", line 651, in run_until_complete
+    self.run_forever()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\windows_events.py", line 321, in run_forever
+    super().run_forever()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py", line 618, in run_forever
+    self._run_once()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py", line 1951, in _run_once
+    handle._run()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\events.py", line 84, in _run
+    self._context.run(self._callback, *self._args)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\client.py", line 481, in _run_event
+    await coro(*args, **kwargs)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\commands\bot.py", line 1411, in on_message
+    await self.process_commands(message)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\commands\bot.py", line 1408, in process_commands
+    await self.invoke(ctx)  # type: ignore
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\commands\bot.py", line 1366, in invoke
+    await ctx.command.invoke(ctx)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\commands\core.py", line 1029, in invoke
+    await injected(*ctx.args, **ctx.kwargs)  # type: ignore
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\commands\core.py", line 235, in wrapped
+    ret = await coro(*args, **kwargs)
+  File "C:\Users\amitk\Documents\Sandesh\bot.py", line 492, in play
+    info = ydl.extract_info(query, download=False)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\YoutubeDL.py", line 1653, in extract_info
+    return self.__extract_info(url, self.get_info_extractor(key), download, extra_info, process)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\YoutubeDL.py", line 1664, in wrapper
+    return func(self, *args, **kwargs)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\YoutubeDL.py", line 1820, in __extract_info
+    return self.process_ie_result(ie_result, download, extra_info)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\YoutubeDL.py", line 1949, in process_ie_result
+    return self.__process_playlist(ie_result, download)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\YoutubeDL.py", line 2027, in __process_playlist
+    entries = resolved_entries = list(entries)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\utils\_utils.py", line 773, in _iter
+    for x in iterable:
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\utils\_utils.py", line 2456, in get_requested_items
+    for i, entry in self[index]:
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\utils\_utils.py", line 2518, in __getitem__
+    entry = self._getter(i)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\utils\_utils.py", line 2491, in get_entry
+    return type(self.ydl)._handle_extraction_exceptions(lambda _, i: self._entries[i])(self.ydl, i)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\YoutubeDL.py", line 1664, in wrapper
+    return func(self, *args, **kwargs)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\utils\_utils.py", line 2491, in <lambda>
+    return type(self.ydl)._handle_extraction_exceptions(lambda _, i: self._entries[i])(self.ydl, i)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\utils\_utils.py", line 2256, in __getitem__
+    self._cache.extend(itertools.islice(self._iterable, n))
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\extractor\youtube\_tab.py", line 779, in _extract_inline_playlist
+    response = self._extract_response(
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\extractor\youtube\_base.py", line 1203, in _extract_response
+    response = self._call_api(
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\extractor\youtube\_base.py", line 791, in _call_api
+    return self._download_json(
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\extractor\common.py", line 1149, in download_content
+    res = getattr(self, download_handle.__name__)(url_or_request, video_id, **kwargs)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\extractor\common.py", line 1107, in download_handle
+    res = self._download_webpage_handle(
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\extractor\common.py", line 972, in _download_webpage_handle
+    urlh = self._request_webpage(url_or_request, video_id, note, errnote, fatal, data=data,
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\extractor\youtube\_base.py", line 769, in _request_webpage
+    response = super()._request_webpage(*args, **kwargs)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\extractor\common.py", line 908, in _request_webpage
+    return self._downloader.urlopen(self._create_request(url_or_request, data, headers, query, extensions))
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\YoutubeDL.py", line 4236, in urlopen
+    return self._request_director.send(req)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\networking\common.py", line 117, in send
+    response = handler.send(request)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\networking\_helper.py", line 194, in wrapper
+    return func(self, *args, **kwargs)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\networking\common.py", line 359, in send
+    return self._send(request)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\networking\_urllib.py", line 399, in _send
+    res = opener.open(urllib_req, timeout=self._calculate_timeout(request))
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\urllib\request.py", line 515, in open
+    response = self._open(req, data)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\urllib\request.py", line 532, in _open
+    result = self._call_chain(self.handle_open, protocol, protocol +
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\urllib\request.py", line 492, in _call_chain
+    result = func(*args)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\networking\_urllib.py", line 100, in https_open
+    return self.do_open(
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\urllib\request.py", line 1348, in do_open
+    r = h.getresponse()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\http\client.py", line 1411, in getresponse
+    response.begin()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\http\client.py", line 324, in begin
+    version, status, reason = self._read_status()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\http\client.py", line 285, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\socket.py", line 707, in readinto
+    return self._sock.recv_into(b)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\ssl.py", line 1249, in recv_into
+    return self.read(nbytes, buffer)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\ssl.py", line 1105, in read
+    return self._sslobj.read(len, buffer)
+
+2025-07-25 00:36:11,440 INFO Disconnected from voice by force... potentially reconnecting.
+2025-07-25 00:36:11,441 INFO The voice handshake is being terminated for Channel ID 1053223116668665859 (Guild ID 1053223116085673985)
+2025-07-25 00:36:15,383 ERROR [play_next] 'NoneType' object has no attribute 'play'
+2025-07-25 00:36:19,919 ERROR [play_next] 'NoneType' object has no attribute 'play'
+2025-07-25 00:36:24,154 ERROR [play_next] 'NoneType' object has no attribute 'play'
+2025-07-25 00:36:28,527 ERROR [play_next] 'NoneType' object has no attribute 'play'
+2025-07-25 00:36:33,067 ERROR [play_next] 'NoneType' object has no attribute 'play'
+2025-07-25 00:36:37,887 ERROR [play_next] 'NoneType' object has no attribute 'play'
+2025-07-25 00:36:41,930 ERROR [play_next] 'NoneType' object has no attribute 'play'
+2025-07-25 00:36:41,931 INFO Reconnect was unsuccessful, disconnecting from voice normally...
+2025-07-25 00:36:46,460 ERROR [play_next] 'NoneType' object has no attribute 'play'
+2025-07-25 00:36:54,374 ERROR [play_next] 'NoneType' object has no attribute 'play'
+2025-07-25 00:36:59,320 ERROR [play_next] 'NoneType' object has no attribute 'play'
+2025-07-25 00:37:04,757 ERROR [play_next] 'NoneType' object has no attribute 'play'
+2025-07-25 00:37:04,763 INFO ffmpeg process 21936 has not terminated. Waiting to terminate...
+2025-07-25 00:37:04,765 INFO ffmpeg process 21936 should have terminated with a return code of 1.
+2025-07-25 00:37:09,156 ERROR [play_next] 'NoneType' object has no attribute 'play'
+2025-07-25 00:37:18,071 ERROR [play_next] 'NoneType' object has no attribute 'play'
+2025-07-25 00:37:22,782 ERROR [play_next] 'NoneType' object has no attribute 'play'
+2025-07-25 00:37:22,788 INFO ffmpeg process 22280 has not terminated. Waiting to terminate...
+2025-07-25 00:37:22,790 INFO ffmpeg process 22280 should have terminated with a return code of 1.
+2025-07-25 00:37:27,526 ERROR [play_next] 'NoneType' object has no attribute 'play'
+2025-07-25 00:37:32,127 ERROR [play_next] 'NoneType' object has no attribute 'play'
+2025-07-25 00:37:36,787 ERROR [play_next] 'NoneType' object has no attribute 'play'
+2025-07-25 00:37:44,133 ERROR [play_next] 'NoneType' object has no attribute 'play'
+2025-07-25 00:37:48,366 ERROR [play_next] 'NoneType' object has no attribute 'play'
+2025-07-25 00:37:48,816 INFO ffmpeg process 10780 has not terminated. Waiting to terminate...
+2025-07-25 00:37:48,818 INFO ffmpeg process 10780 should have terminated with a return code of 1.
+2025-07-25 00:37:52,975 ERROR [play_next] 'NoneType' object has no attribute 'play'
+2025-07-25 00:37:57,675 ERROR [play_next] 'NoneType' object has no attribute 'play'
+2025-07-25 00:38:02,033 ERROR [play_next] 'NoneType' object has no attribute 'play'
+2025-07-25 00:38:02,034 ERROR Ignoring exception in command play
+Traceback (most recent call last):
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\commands\bot.py", line 1366, in invoke
+    await ctx.command.invoke(ctx)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\commands\core.py", line 1021, in invoke
+    await self.prepare(ctx)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\commands\core.py", line 938, in prepare
+    await self._parse_arguments(ctx)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\commands\core.py", line 853, in _parse_arguments
+    kwargs[name] = await self.transform(ctx, param, attachments)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\commands\core.py", line 697, in transform
+    raise MissingRequiredArgument(param)
+discord.ext.commands.errors.MissingRequiredArgument: query is a required argument that is missing.
+2025-07-25 00:38:06,295 ERROR [play_next] 'NoneType' object has no attribute 'play'
+2025-07-25 00:38:11,173 ERROR [play_next] 'NoneType' object has no attribute 'play'
+2025-07-25 00:38:15,861 ERROR [play_next] 'NoneType' object has no attribute 'play'
+2025-07-25 00:38:20,183 ERROR [play_next] 'NoneType' object has no attribute 'play'
+2025-07-25 00:38:24,462 ERROR [play_next] 'NoneType' object has no attribute 'play'
+2025-07-25 00:38:27,745 ERROR [play_next] 'NoneType' object has no attribute 'play'
+2025-07-25 00:38:31,578 ERROR [play_next] 'NoneType' object has no attribute 'play'
+2025-07-25 00:38:35,558 ERROR [play_next] 'NoneType' object has no attribute 'play'
+2025-07-25 00:38:39,248 ERROR [play_next] 'NoneType' object has no attribute 'play'
+2025-07-25 00:38:43,073 ERROR [play_next] 'NoneType' object has no attribute 'play'
+2025-07-25 00:38:46,626 ERROR [play_next] 'NoneType' object has no attribute 'play'
+2025-07-25 00:38:50,228 ERROR [play_next] 'NoneType' object has no attribute 'play'
+2025-07-25 00:38:53,573 ERROR [play_next] 'NoneType' object has no attribute 'play'
+2025-07-25 00:38:58,431 ERROR [play_next] 'NoneType' object has no attribute 'play'
+2025-07-25 00:39:02,047 ERROR [play_next] 'NoneType' object has no attribute 'play'
+2025-07-25 00:39:05,733 ERROR [play_next] 'NoneType' object has no attribute 'play'
+2025-07-25 00:39:09,077 ERROR [play_next] 'NoneType' object has no attribute 'play'
+2025-07-25 00:39:12,766 ERROR [play_next] 'NoneType' object has no attribute 'play'
+2025-07-25 00:39:16,645 ERROR [play_next] 'NoneType' object has no attribute 'play'
+2025-07-25 00:39:21,252 ERROR [play_next] 'NoneType' object has no attribute 'play'
+2025-07-25 00:39:25,461 ERROR [play_next] 'NoneType' object has no attribute 'play'
+2025-07-25 00:39:29,233 ERROR [play_next] 'NoneType' object has no attribute 'play'
+2025-07-25 00:39:33,044 ERROR [play_next] 'NoneType' object has no attribute 'play'
+2025-07-25 00:39:36,858 ERROR [play_next] 'NoneType' object has no attribute 'play'
+2025-07-25 00:39:40,237 ERROR [play_next] 'NoneType' object has no attribute 'play'
+2025-07-25 00:39:43,789 ERROR [play_next] 'NoneType' object has no attribute 'play'
+2025-07-25 00:39:47,471 ERROR [play_next] 'NoneType' object has no attribute 'play'
+2025-07-25 00:39:50,957 ERROR [play_next] 'NoneType' object has no attribute 'play'
+2025-07-25 00:39:54,446 ERROR [play_next] 'NoneType' object has no attribute 'play'
+2025-07-25 00:39:58,209 ERROR [play_next] 'NoneType' object has no attribute 'play'
+2025-07-25 00:40:01,936 ERROR [play_next] 'NoneType' object has no attribute 'play'
+2025-07-25 00:40:05,726 ERROR [play_next] 'NoneType' object has no attribute 'play'
+2025-07-25 00:40:10,276 ERROR [play_next] 'NoneType' object has no attribute 'play'
+2025-07-25 00:40:13,909 ERROR [play_next] 'NoneType' object has no attribute 'play'
+2025-07-25 00:40:17,659 ERROR [play_next] 'NoneType' object has no attribute 'play'
+2025-07-25 00:40:21,636 ERROR [play_next] 'NoneType' object has no attribute 'play'
+2025-07-25 00:40:25,273 ERROR [play_next] 'NoneType' object has no attribute 'play'
+2025-07-25 00:40:29,016 ERROR [play_next] 'NoneType' object has no attribute 'play'
+2025-07-25 00:40:33,359 ERROR [play_next] 'NoneType' object has no attribute 'play'
+2025-07-25 00:40:36,800 ERROR [play_next] 'NoneType' object has no attribute 'play'
+2025-07-25 00:40:40,542 ERROR [play_next] 'NoneType' object has no attribute 'play'
+2025-07-25 00:40:43,733 INFO The voice handshake is being terminated for Channel ID 1208701086949576717 (Guild ID 1208701086458847282)
+2025-07-25 00:40:46,583 ERROR [play_next] Not connected to voice.
+2025-07-25 00:40:49,817 ERROR [play_next] 'NoneType' object has no attribute 'play'
+2025-07-25 00:40:53,322 ERROR [after_playing_future] 
+2025-07-25 00:40:53,323 INFO ffmpeg process 24668 has not terminated. Waiting to terminate...
+2025-07-25 00:40:53,323 ERROR [after_playing_future] 
+2025-07-25 00:40:53,324 INFO ffmpeg process 18932 successfully terminated with return code of 0.
+2025-07-25 00:41:10,828 INFO logging in using static token
+2025-07-25 00:41:12,493 INFO Shard ID None has connected to Gateway (Session ID: 31a930dcd1ca368eeb8165ebb7cca47c).
+2025-07-25 00:41:48,396 INFO Connecting to voice...
+2025-07-25 00:41:48,396 INFO Starting voice handshake... (connection attempt 1)
+2025-07-25 00:41:48,943 INFO Voice handshake complete. Endpoint found: india10040.discord.media
+2025-07-25 00:41:49,306 INFO Voice connection complete.
+2025-07-25 00:42:12,538 INFO ffmpeg process 17988 has not terminated. Waiting to terminate...
+2025-07-25 00:42:12,541 INFO ffmpeg process 17988 should have terminated with a return code of 1.
+2025-07-25 00:42:34,680 INFO Connecting to voice...
+2025-07-25 00:42:34,680 INFO Starting voice handshake... (connection attempt 1)
+2025-07-25 00:42:35,218 INFO Voice handshake complete. Endpoint found: singapore11086.discord.media
+2025-07-25 00:42:36,050 INFO Voice connection complete.
+2025-07-25 00:43:10,744 WARNING Shard ID None voice heartbeat blocked for more than 10 seconds
+Loop thread traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Sandesh\bot.py", line 856, in <module>
+    bot.run(TOKEN)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\client.py", line 906, in run
+    asyncio.run(runner())
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py", line 194, in run
+    return runner.run(main)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py", line 651, in run_until_complete
+    self.run_forever()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\windows_events.py", line 321, in run_forever
+    super().run_forever()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py", line 618, in run_forever
+    self._run_once()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py", line 1951, in _run_once
+    handle._run()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\events.py", line 84, in _run
+    self._context.run(self._callback, *self._args)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\client.py", line 481, in _run_event
+    await coro(*args, **kwargs)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\commands\bot.py", line 1411, in on_message
+    await self.process_commands(message)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\commands\bot.py", line 1408, in process_commands
+    await self.invoke(ctx)  # type: ignore
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\commands\bot.py", line 1366, in invoke
+    await ctx.command.invoke(ctx)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\commands\core.py", line 1029, in invoke
+    await injected(*ctx.args, **ctx.kwargs)  # type: ignore
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\commands\core.py", line 235, in wrapped
+    ret = await coro(*args, **kwargs)
+  File "C:\Users\amitk\Documents\Sandesh\bot.py", line 494, in play
+    info = ydl.extract_info(query, download=False)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\YoutubeDL.py", line 1653, in extract_info
+    return self.__extract_info(url, self.get_info_extractor(key), download, extra_info, process)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\YoutubeDL.py", line 1664, in wrapper
+    return func(self, *args, **kwargs)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\YoutubeDL.py", line 1820, in __extract_info
+    return self.process_ie_result(ie_result, download, extra_info)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\YoutubeDL.py", line 1949, in process_ie_result
+    return self.__process_playlist(ie_result, download)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\YoutubeDL.py", line 2027, in __process_playlist
+    entries = resolved_entries = list(entries)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\utils\_utils.py", line 773, in _iter
+    for x in iterable:
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\utils\_utils.py", line 2456, in get_requested_items
+    for i, entry in self[index]:
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\utils\_utils.py", line 2518, in __getitem__
+    entry = self._getter(i)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\utils\_utils.py", line 2491, in get_entry
+    return type(self.ydl)._handle_extraction_exceptions(lambda _, i: self._entries[i])(self.ydl, i)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\YoutubeDL.py", line 1664, in wrapper
+    return func(self, *args, **kwargs)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\utils\_utils.py", line 2491, in <lambda>
+    return type(self.ydl)._handle_extraction_exceptions(lambda _, i: self._entries[i])(self.ydl, i)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\utils\_utils.py", line 2256, in __getitem__
+    self._cache.extend(itertools.islice(self._iterable, n))
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\extractor\youtube\_tab.py", line 779, in _extract_inline_playlist
+    response = self._extract_response(
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\extractor\youtube\_base.py", line 1203, in _extract_response
+    response = self._call_api(
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\extractor\youtube\_base.py", line 791, in _call_api
+    return self._download_json(
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\extractor\common.py", line 1149, in download_content
+    res = getattr(self, download_handle.__name__)(url_or_request, video_id, **kwargs)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\extractor\common.py", line 1107, in download_handle
+    res = self._download_webpage_handle(
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\extractor\common.py", line 972, in _download_webpage_handle
+    urlh = self._request_webpage(url_or_request, video_id, note, errnote, fatal, data=data,
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\extractor\youtube\_base.py", line 769, in _request_webpage
+    response = super()._request_webpage(*args, **kwargs)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\extractor\common.py", line 908, in _request_webpage
+    return self._downloader.urlopen(self._create_request(url_or_request, data, headers, query, extensions))
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\YoutubeDL.py", line 4236, in urlopen
+    return self._request_director.send(req)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\networking\common.py", line 117, in send
+    response = handler.send(request)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\networking\_helper.py", line 194, in wrapper
+    return func(self, *args, **kwargs)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\networking\common.py", line 359, in send
+    return self._send(request)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\networking\_urllib.py", line 399, in _send
+    res = opener.open(urllib_req, timeout=self._calculate_timeout(request))
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\urllib\request.py", line 515, in open
+    response = self._open(req, data)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\urllib\request.py", line 532, in _open
+    result = self._call_chain(self.handle_open, protocol, protocol +
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\urllib\request.py", line 492, in _call_chain
+    result = func(*args)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\networking\_urllib.py", line 100, in https_open
+    return self.do_open(
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\urllib\request.py", line 1348, in do_open
+    r = h.getresponse()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\http\client.py", line 1411, in getresponse
+    response.begin()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\http\client.py", line 324, in begin
+    version, status, reason = self._read_status()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\http\client.py", line 285, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\socket.py", line 707, in readinto
+    return self._sock.recv_into(b)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\ssl.py", line 1249, in recv_into
+    return self.read(nbytes, buffer)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\ssl.py", line 1105, in read
+    return self._sslobj.read(len, buffer)
+
+2025-07-25 00:43:14,237 WARNING Shard ID None voice heartbeat blocked for more than 10 seconds
+Loop thread traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Sandesh\bot.py", line 856, in <module>
+    bot.run(TOKEN)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\client.py", line 906, in run
+    asyncio.run(runner())
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py", line 194, in run
+    return runner.run(main)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py", line 651, in run_until_complete
+    self.run_forever()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\windows_events.py", line 321, in run_forever
+    super().run_forever()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py", line 618, in run_forever
+    self._run_once()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py", line 1951, in _run_once
+    handle._run()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\events.py", line 84, in _run
+    self._context.run(self._callback, *self._args)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\client.py", line 481, in _run_event
+    await coro(*args, **kwargs)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\commands\bot.py", line 1411, in on_message
+    await self.process_commands(message)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\commands\bot.py", line 1408, in process_commands
+    await self.invoke(ctx)  # type: ignore
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\commands\bot.py", line 1366, in invoke
+    await ctx.command.invoke(ctx)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\commands\core.py", line 1029, in invoke
+    await injected(*ctx.args, **ctx.kwargs)  # type: ignore
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\commands\core.py", line 235, in wrapped
+    ret = await coro(*args, **kwargs)
+  File "C:\Users\amitk\Documents\Sandesh\bot.py", line 494, in play
+    info = ydl.extract_info(query, download=False)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\YoutubeDL.py", line 1653, in extract_info
+    return self.__extract_info(url, self.get_info_extractor(key), download, extra_info, process)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\YoutubeDL.py", line 1664, in wrapper
+    return func(self, *args, **kwargs)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\YoutubeDL.py", line 1820, in __extract_info
+    return self.process_ie_result(ie_result, download, extra_info)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\YoutubeDL.py", line 1949, in process_ie_result
+    return self.__process_playlist(ie_result, download)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\YoutubeDL.py", line 2027, in __process_playlist
+    entries = resolved_entries = list(entries)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\utils\_utils.py", line 773, in _iter
+    for x in iterable:
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\utils\_utils.py", line 2456, in get_requested_items
+    for i, entry in self[index]:
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\utils\_utils.py", line 2518, in __getitem__
+    entry = self._getter(i)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\utils\_utils.py", line 2491, in get_entry
+    return type(self.ydl)._handle_extraction_exceptions(lambda _, i: self._entries[i])(self.ydl, i)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\YoutubeDL.py", line 1664, in wrapper
+    return func(self, *args, **kwargs)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\utils\_utils.py", line 2491, in <lambda>
+    return type(self.ydl)._handle_extraction_exceptions(lambda _, i: self._entries[i])(self.ydl, i)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\utils\_utils.py", line 2256, in __getitem__
+    self._cache.extend(itertools.islice(self._iterable, n))
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\extractor\youtube\_tab.py", line 779, in _extract_inline_playlist
+    response = self._extract_response(
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\extractor\youtube\_base.py", line 1203, in _extract_response
+    response = self._call_api(
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\extractor\youtube\_base.py", line 791, in _call_api
+    return self._download_json(
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\extractor\common.py", line 1149, in download_content
+    res = getattr(self, download_handle.__name__)(url_or_request, video_id, **kwargs)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\extractor\common.py", line 1107, in download_handle
+    res = self._download_webpage_handle(
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\extractor\common.py", line 972, in _download_webpage_handle
+    urlh = self._request_webpage(url_or_request, video_id, note, errnote, fatal, data=data,
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\extractor\youtube\_base.py", line 769, in _request_webpage
+    response = super()._request_webpage(*args, **kwargs)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\extractor\common.py", line 908, in _request_webpage
+    return self._downloader.urlopen(self._create_request(url_or_request, data, headers, query, extensions))
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\YoutubeDL.py", line 4236, in urlopen
+    return self._request_director.send(req)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\networking\common.py", line 117, in send
+    response = handler.send(request)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\networking\_helper.py", line 194, in wrapper
+    return func(self, *args, **kwargs)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\networking\common.py", line 359, in send
+    return self._send(request)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\networking\_urllib.py", line 399, in _send
+    res = opener.open(urllib_req, timeout=self._calculate_timeout(request))
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\urllib\request.py", line 515, in open
+    response = self._open(req, data)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\urllib\request.py", line 532, in _open
+    result = self._call_chain(self.handle_open, protocol, protocol +
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\urllib\request.py", line 492, in _call_chain
+    result = func(*args)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\networking\_urllib.py", line 100, in https_open
+    return self.do_open(
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\urllib\request.py", line 1348, in do_open
+    r = h.getresponse()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\http\client.py", line 1411, in getresponse
+    response.begin()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\http\client.py", line 324, in begin
+    version, status, reason = self._read_status()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\http\client.py", line 285, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\socket.py", line 707, in readinto
+    return self._sock.recv_into(b)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\ssl.py", line 1249, in recv_into
+    return self.read(nbytes, buffer)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\ssl.py", line 1105, in read
+    return self._sslobj.read(len, buffer)
+
+2025-07-25 00:43:20,985 WARNING Shard ID None voice heartbeat blocked for more than 20 seconds
+Loop thread traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Sandesh\bot.py", line 856, in <module>
+    bot.run(TOKEN)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\client.py", line 906, in run
+    asyncio.run(runner())
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py", line 194, in run
+    return runner.run(main)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py", line 651, in run_until_complete
+    self.run_forever()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\windows_events.py", line 321, in run_forever
+    super().run_forever()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py", line 618, in run_forever
+    self._run_once()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py", line 1951, in _run_once
+    handle._run()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\events.py", line 84, in _run
+    self._context.run(self._callback, *self._args)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\client.py", line 481, in _run_event
+    await coro(*args, **kwargs)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\commands\bot.py", line 1411, in on_message
+    await self.process_commands(message)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\commands\bot.py", line 1408, in process_commands
+    await self.invoke(ctx)  # type: ignore
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\commands\bot.py", line 1366, in invoke
+    await ctx.command.invoke(ctx)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\commands\core.py", line 1029, in invoke
+    await injected(*ctx.args, **ctx.kwargs)  # type: ignore
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\commands\core.py", line 235, in wrapped
+    ret = await coro(*args, **kwargs)
+  File "C:\Users\amitk\Documents\Sandesh\bot.py", line 494, in play
+    info = ydl.extract_info(query, download=False)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\YoutubeDL.py", line 1653, in extract_info
+    return self.__extract_info(url, self.get_info_extractor(key), download, extra_info, process)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\YoutubeDL.py", line 1664, in wrapper
+    return func(self, *args, **kwargs)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\YoutubeDL.py", line 1820, in __extract_info
+    return self.process_ie_result(ie_result, download, extra_info)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\YoutubeDL.py", line 1949, in process_ie_result
+    return self.__process_playlist(ie_result, download)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\YoutubeDL.py", line 2027, in __process_playlist
+    entries = resolved_entries = list(entries)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\utils\_utils.py", line 773, in _iter
+    for x in iterable:
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\utils\_utils.py", line 2456, in get_requested_items
+    for i, entry in self[index]:
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\utils\_utils.py", line 2518, in __getitem__
+    entry = self._getter(i)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\utils\_utils.py", line 2491, in get_entry
+    return type(self.ydl)._handle_extraction_exceptions(lambda _, i: self._entries[i])(self.ydl, i)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\YoutubeDL.py", line 1664, in wrapper
+    return func(self, *args, **kwargs)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\utils\_utils.py", line 2491, in <lambda>
+    return type(self.ydl)._handle_extraction_exceptions(lambda _, i: self._entries[i])(self.ydl, i)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\utils\_utils.py", line 2256, in __getitem__
+    self._cache.extend(itertools.islice(self._iterable, n))
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\extractor\youtube\_tab.py", line 759, in _extract_inline_playlist
+    videos = list(self._playlist_entries(playlist))
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\extractor\youtube\_tab.py", line 314, in _playlist_entries
+    yield self._extract_video(renderer)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\extractor\youtube\_tab.py", line 84, in _extract_video
+    description = self._get_text(renderer, 'descriptionSnippet')
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\extractor\youtube\_base.py", line 1098, in _get_text
+    obj = traverse_obj(data, path, default=[])
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\utils\traversal.py", line 305, in traverse_obj
+    result = _traverse_obj(obj, path, is_last, True)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\utils\traversal.py", line 290, in _traverse_obj
+    def _traverse_obj(obj, path, allow_empty, test_type):
+
+2025-07-25 00:43:34,035 INFO ffmpeg process 22056 has not terminated. Waiting to terminate...
+2025-07-25 00:43:34,037 INFO ffmpeg process 22056 should have terminated with a return code of 1.
+2025-07-25 00:44:31,158 ERROR Ignoring exception in view <NowPlayingView timeout=None children=3> for item <Button style=<ButtonStyle.secondary: 2> url=None disabled=False label='Next' emoji=None row=None sku_id=None>
+Traceback (most recent call last):
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ui\view.py", line 435, in _scheduled_task
+    await item.callback(interaction)
+  File "C:\Users\amitk\Documents\Sandesh\bot.py", line 199, in skip
+    await interaction.response.defer()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\interactions.py", line 844, in defer
+    response = await adapter.create_interaction_response(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\webhook\async_.py", line 224, in request
+    raise NotFound(response, data)
+discord.errors.NotFound: 404 Not Found (error code: 10062): Unknown interaction
+2025-07-25 00:44:31,677 INFO ffmpeg process 25068 has not terminated. Waiting to terminate...
+2025-07-25 00:44:31,679 INFO ffmpeg process 25068 should have terminated with a return code of 1.
+2025-07-25 00:44:54,319 ERROR Ignoring exception in view <NowPlayingView timeout=None children=3> for item <Button style=<ButtonStyle.secondary: 2> url=None disabled=False label='Next' emoji=None row=None sku_id=None>
+Traceback (most recent call last):
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ui\view.py", line 435, in _scheduled_task
+    await item.callback(interaction)
+  File "C:\Users\amitk\Documents\Sandesh\bot.py", line 199, in skip
+    await interaction.response.defer()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\interactions.py", line 844, in defer
+    response = await adapter.create_interaction_response(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\webhook\async_.py", line 224, in request
+    raise NotFound(response, data)
+discord.errors.NotFound: 404 Not Found (error code: 10062): Unknown interaction
+2025-07-25 00:44:54,817 INFO ffmpeg process 22676 has not terminated. Waiting to terminate...
+2025-07-25 00:44:54,820 INFO ffmpeg process 22676 should have terminated with a return code of 1.
+2025-07-25 00:45:05,562 INFO The voice handshake is being terminated for Channel ID 1053223116668665859 (Guild ID 1053223116085673985)
+2025-07-25 00:45:08,861 ERROR [play_next] Not connected to voice.
+2025-07-25 00:45:09,753 INFO ffmpeg process 23540 has not terminated. Waiting to terminate...
+2025-07-25 00:45:09,757 INFO ffmpeg process 23540 should have terminated with a return code of 1.
+2025-07-25 00:49:29,747 INFO ffmpeg process 10000 successfully terminated with return code of 0.
+2025-07-25 00:51:38,458 INFO The voice handshake is being terminated for Channel ID 1208701086949576717 (Guild ID 1208701086458847282)
+2025-07-25 00:51:40,846 INFO ffmpeg process 22204 has not terminated. Waiting to terminate...
+2025-07-25 00:51:40,848 INFO ffmpeg process 22204 should have terminated with a return code of 1.
+2025-07-25 00:51:41,351 ERROR [play_next] Not connected to voice.
+2025-07-25 00:51:44,899 ERROR [play_next] Not connected to voice.
+2025-07-25 00:51:51,163 INFO logging in using static token
+2025-07-25 00:51:53,921 INFO Shard ID None has connected to Gateway (Session ID: 4889fc943e15eeb62d14c00cd650b4cd).
+2025-07-25 00:52:06,229 INFO Connecting to voice...
+2025-07-25 00:52:06,229 INFO Starting voice handshake... (connection attempt 1)
+2025-07-25 00:52:06,765 INFO Voice handshake complete. Endpoint found: singapore11086.discord.media
+2025-07-25 00:52:07,557 INFO Voice connection complete.
+2025-07-25 00:52:32,247 WARNING Shard ID None voice heartbeat blocked for more than 10 seconds
+Loop thread traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Sandesh\bot.py", line 876, in <module>
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\client.py", line 906, in run
+    asyncio.run(runner())
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py", line 194, in run
+    return runner.run(main)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py", line 651, in run_until_complete
+    self.run_forever()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\windows_events.py", line 321, in run_forever
+    super().run_forever()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py", line 618, in run_forever
+    self._run_once()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py", line 1951, in _run_once
+    handle._run()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\events.py", line 84, in _run
+    self._context.run(self._callback, *self._args)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\client.py", line 481, in _run_event
+    await coro(*args, **kwargs)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\commands\bot.py", line 1411, in on_message
+    await self.process_commands(message)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\commands\bot.py", line 1408, in process_commands
+    await self.invoke(ctx)  # type: ignore
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\commands\bot.py", line 1366, in invoke
+    await ctx.command.invoke(ctx)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\commands\core.py", line 1029, in invoke
+    await injected(*ctx.args, **ctx.kwargs)  # type: ignore
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\commands\core.py", line 235, in wrapped
+    ret = await coro(*args, **kwargs)
+  File "C:\Users\amitk\Documents\Sandesh\bot.py", line 548, in play
+    else:
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\YoutubeDL.py", line 1653, in extract_info
+    return self.__extract_info(url, self.get_info_extractor(key), download, extra_info, process)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\YoutubeDL.py", line 1664, in wrapper
+    return func(self, *args, **kwargs)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\YoutubeDL.py", line 1820, in __extract_info
+    return self.process_ie_result(ie_result, download, extra_info)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\YoutubeDL.py", line 1949, in process_ie_result
+    return self.__process_playlist(ie_result, download)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\YoutubeDL.py", line 2027, in __process_playlist
+    entries = resolved_entries = list(entries)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\utils\_utils.py", line 773, in _iter
+    for x in iterable:
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\utils\_utils.py", line 2456, in get_requested_items
+    for i, entry in self[index]:
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\utils\_utils.py", line 2518, in __getitem__
+    entry = self._getter(i)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\utils\_utils.py", line 2491, in get_entry
+    return type(self.ydl)._handle_extraction_exceptions(lambda _, i: self._entries[i])(self.ydl, i)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\YoutubeDL.py", line 1664, in wrapper
+    return func(self, *args, **kwargs)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\utils\_utils.py", line 2491, in <lambda>
+    return type(self.ydl)._handle_extraction_exceptions(lambda _, i: self._entries[i])(self.ydl, i)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\utils\_utils.py", line 2256, in __getitem__
+    self._cache.extend(itertools.islice(self._iterable, n))
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\extractor\youtube\_tab.py", line 779, in _extract_inline_playlist
+    response = self._extract_response(
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\extractor\youtube\_base.py", line 1203, in _extract_response
+    response = self._call_api(
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\extractor\youtube\_base.py", line 791, in _call_api
+    return self._download_json(
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\extractor\common.py", line 1149, in download_content
+    res = getattr(self, download_handle.__name__)(url_or_request, video_id, **kwargs)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\extractor\common.py", line 1107, in download_handle
+    res = self._download_webpage_handle(
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\extractor\common.py", line 972, in _download_webpage_handle
+    urlh = self._request_webpage(url_or_request, video_id, note, errnote, fatal, data=data,
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\extractor\youtube\_base.py", line 769, in _request_webpage
+    response = super()._request_webpage(*args, **kwargs)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\extractor\common.py", line 908, in _request_webpage
+    return self._downloader.urlopen(self._create_request(url_or_request, data, headers, query, extensions))
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\YoutubeDL.py", line 4236, in urlopen
+    return self._request_director.send(req)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\networking\common.py", line 117, in send
+    response = handler.send(request)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\networking\_helper.py", line 194, in wrapper
+    return func(self, *args, **kwargs)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\networking\common.py", line 359, in send
+    return self._send(request)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\networking\_urllib.py", line 399, in _send
+    res = opener.open(urllib_req, timeout=self._calculate_timeout(request))
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\urllib\request.py", line 515, in open
+    response = self._open(req, data)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\urllib\request.py", line 532, in _open
+    result = self._call_chain(self.handle_open, protocol, protocol +
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\urllib\request.py", line 492, in _call_chain
+    result = func(*args)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\networking\_urllib.py", line 100, in https_open
+    return self.do_open(
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\urllib\request.py", line 1348, in do_open
+    r = h.getresponse()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\http\client.py", line 1411, in getresponse
+    response.begin()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\http\client.py", line 324, in begin
+    version, status, reason = self._read_status()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\http\client.py", line 285, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\socket.py", line 707, in readinto
+    return self._sock.recv_into(b)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\ssl.py", line 1249, in recv_into
+    return self.read(nbytes, buffer)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\ssl.py", line 1105, in read
+    return self._sslobj.read(len, buffer)
+
+2025-07-25 00:52:41,317 INFO The voice handshake is being terminated for Channel ID 1208701086949576717 (Guild ID 1208701086458847282)
+2025-07-25 00:52:44,157 ERROR [play_next] Not connected to voice.
+2025-07-25 00:52:48,178 ERROR [play_next] Not connected to voice.
+2025-07-25 00:52:51,576 ERROR [play_next] Not connected to voice.
+2025-07-25 00:52:54,820 ERROR [play_next] Not connected to voice.
+2025-07-25 00:53:10,975 INFO logging in using static token
+2025-07-25 00:53:13,056 INFO Shard ID None has connected to Gateway (Session ID: 3107486133e720b484568bb56f203f25).
+2025-07-25 00:53:26,459 INFO Connecting to voice...
+2025-07-25 00:53:26,460 INFO Starting voice handshake... (connection attempt 1)
+2025-07-25 00:53:26,995 INFO Voice handshake complete. Endpoint found: singapore11086.discord.media
+2025-07-25 00:53:27,791 INFO Voice connection complete.
+2025-07-25 00:53:47,478 WARNING Shard ID None voice heartbeat blocked for more than 10 seconds
+Loop thread traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Sandesh\bot.py", line 842, in <module>
+    bot.run(TOKEN)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\client.py", line 906, in run
+    asyncio.run(runner())
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py", line 194, in run
+    return runner.run(main)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py", line 651, in run_until_complete
+    self.run_forever()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\windows_events.py", line 321, in run_forever
+    super().run_forever()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py", line 618, in run_forever
+    self._run_once()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py", line 1951, in _run_once
+    handle._run()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\events.py", line 84, in _run
+    self._context.run(self._callback, *self._args)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\client.py", line 481, in _run_event
+    await coro(*args, **kwargs)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\commands\bot.py", line 1411, in on_message
+    await self.process_commands(message)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\commands\bot.py", line 1408, in process_commands
+    await self.invoke(ctx)  # type: ignore
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\commands\bot.py", line 1366, in invoke
+    await ctx.command.invoke(ctx)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\commands\core.py", line 1029, in invoke
+    await injected(*ctx.args, **ctx.kwargs)  # type: ignore
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\commands\core.py", line 235, in wrapped
+    ret = await coro(*args, **kwargs)
+  File "C:\Users\amitk\Documents\Sandesh\bot.py", line 514, in play
+    info = ydl.extract_info(query, download=False)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\YoutubeDL.py", line 1653, in extract_info
+    return self.__extract_info(url, self.get_info_extractor(key), download, extra_info, process)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\YoutubeDL.py", line 1664, in wrapper
+    return func(self, *args, **kwargs)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\YoutubeDL.py", line 1820, in __extract_info
+    return self.process_ie_result(ie_result, download, extra_info)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\YoutubeDL.py", line 1949, in process_ie_result
+    return self.__process_playlist(ie_result, download)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\YoutubeDL.py", line 2027, in __process_playlist
+    entries = resolved_entries = list(entries)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\utils\_utils.py", line 773, in _iter
+    for x in iterable:
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\utils\_utils.py", line 2456, in get_requested_items
+    for i, entry in self[index]:
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\utils\_utils.py", line 2518, in __getitem__
+    entry = self._getter(i)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\utils\_utils.py", line 2491, in get_entry
+    return type(self.ydl)._handle_extraction_exceptions(lambda _, i: self._entries[i])(self.ydl, i)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\YoutubeDL.py", line 1664, in wrapper
+    return func(self, *args, **kwargs)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\utils\_utils.py", line 2491, in <lambda>
+    return type(self.ydl)._handle_extraction_exceptions(lambda _, i: self._entries[i])(self.ydl, i)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\utils\_utils.py", line 2256, in __getitem__
+    self._cache.extend(itertools.islice(self._iterable, n))
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\extractor\youtube\_tab.py", line 779, in _extract_inline_playlist
+    response = self._extract_response(
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\extractor\youtube\_base.py", line 1203, in _extract_response
+    response = self._call_api(
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\extractor\youtube\_base.py", line 791, in _call_api
+    return self._download_json(
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\extractor\common.py", line 1149, in download_content
+    res = getattr(self, download_handle.__name__)(url_or_request, video_id, **kwargs)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\extractor\common.py", line 1107, in download_handle
+    res = self._download_webpage_handle(
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\extractor\common.py", line 972, in _download_webpage_handle
+    urlh = self._request_webpage(url_or_request, video_id, note, errnote, fatal, data=data,
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\extractor\youtube\_base.py", line 769, in _request_webpage
+    response = super()._request_webpage(*args, **kwargs)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\extractor\common.py", line 908, in _request_webpage
+    return self._downloader.urlopen(self._create_request(url_or_request, data, headers, query, extensions))
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\YoutubeDL.py", line 4236, in urlopen
+    return self._request_director.send(req)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\networking\common.py", line 117, in send
+    response = handler.send(request)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\networking\_helper.py", line 194, in wrapper
+    return func(self, *args, **kwargs)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\networking\common.py", line 359, in send
+    return self._send(request)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\networking\_urllib.py", line 399, in _send
+    res = opener.open(urllib_req, timeout=self._calculate_timeout(request))
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\urllib\request.py", line 515, in open
+    response = self._open(req, data)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\urllib\request.py", line 532, in _open
+    result = self._call_chain(self.handle_open, protocol, protocol +
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\urllib\request.py", line 492, in _call_chain
+    result = func(*args)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\networking\_urllib.py", line 100, in https_open
+    return self.do_open(
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\urllib\request.py", line 1344, in do_open
+    h.request(req.get_method(), req.selector, req.data, headers,
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\http\client.py", line 1319, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\http\client.py", line 1365, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\http\client.py", line 1314, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\http\client.py", line 1074, in _send_output
+    self.send(msg)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\http\client.py", line 1018, in send
+    self.connect()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\http\client.py", line 1460, in connect
+    self.sock = self._context.wrap_socket(self.sock,
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\ssl.py", line 455, in wrap_socket
+    return self.sslsocket_class._create(
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\ssl.py", line 1046, in _create
+    self.do_handshake()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\ssl.py", line 1317, in do_handshake
+    self._sslobj.do_handshake()
+
+2025-07-25 00:53:57,607 WARNING Shard ID None voice heartbeat blocked for more than 20 seconds
+Loop thread traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Sandesh\bot.py", line 842, in <module>
+    bot.run(TOKEN)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\client.py", line 906, in run
+    asyncio.run(runner())
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py", line 194, in run
+    return runner.run(main)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py", line 651, in run_until_complete
+    self.run_forever()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\windows_events.py", line 321, in run_forever
+    super().run_forever()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py", line 618, in run_forever
+    self._run_once()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py", line 1951, in _run_once
+    handle._run()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\events.py", line 84, in _run
+    self._context.run(self._callback, *self._args)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\client.py", line 481, in _run_event
+    await coro(*args, **kwargs)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\commands\bot.py", line 1411, in on_message
+    await self.process_commands(message)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\commands\bot.py", line 1408, in process_commands
+    await self.invoke(ctx)  # type: ignore
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\commands\bot.py", line 1366, in invoke
+    await ctx.command.invoke(ctx)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\commands\core.py", line 1029, in invoke
+    await injected(*ctx.args, **ctx.kwargs)  # type: ignore
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\commands\core.py", line 235, in wrapped
+    ret = await coro(*args, **kwargs)
+  File "C:\Users\amitk\Documents\Sandesh\bot.py", line 514, in play
+    info = ydl.extract_info(query, download=False)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\YoutubeDL.py", line 1653, in extract_info
+    return self.__extract_info(url, self.get_info_extractor(key), download, extra_info, process)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\YoutubeDL.py", line 1664, in wrapper
+    return func(self, *args, **kwargs)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\YoutubeDL.py", line 1820, in __extract_info
+    return self.process_ie_result(ie_result, download, extra_info)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\YoutubeDL.py", line 1949, in process_ie_result
+    return self.__process_playlist(ie_result, download)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\YoutubeDL.py", line 2094, in __process_playlist
+    f'[download] Downloading item {self._format_screen(i + 1, self.Styles.ID)} '
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\YoutubeDL.py", line 1091, in _format_screen
+    return self._format_text(self._out_files.screen, self._allow_colors.screen, *args, **kwargs)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\YoutubeDL.py", line 1085, in _format_text
+    return format_text(text, f) if allow_colors is True else text if fallback is None else fallback
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\minicurses.py", line 72, in format_text
+    text = text.replace(CONTROL_SEQUENCES['RESET'], f'{fg_color}{bg_color}')
+
+2025-07-25 00:55:45,217 INFO ffmpeg process 25348 has not terminated. Waiting to terminate...
+2025-07-25 00:55:45,219 INFO ffmpeg process 25348 should have terminated with a return code of 1.
+2025-07-25 00:55:59,506 INFO The voice handshake is being terminated for Channel ID 1208701086949576717 (Guild ID 1208701086458847282)
+2025-07-25 00:56:03,814 ERROR [play_next] Not connected to voice.
+2025-07-25 00:56:04,232 INFO ffmpeg process 27552 has not terminated. Waiting to terminate...
+2025-07-25 00:56:04,234 INFO ffmpeg process 27552 should have terminated with a return code of 1.
+2025-07-25 00:56:07,269 ERROR [play_next] Not connected to voice.
+2025-07-25 00:56:11,393 ERROR [play_next] Not connected to voice.
+2025-07-25 00:56:15,319 ERROR [play_next] Not connected to voice.
+2025-07-25 00:56:18,660 ERROR [play_next] Not connected to voice.
+2025-07-25 00:56:22,380 ERROR [play_next] Not connected to voice.
+2025-07-25 00:56:33,494 INFO logging in using static token
+2025-07-25 00:56:36,393 INFO Shard ID None has connected to Gateway (Session ID: bd9abf8473307a394fb1ecd29adbe8e0).
+2025-07-25 00:56:44,849 INFO Connecting to voice...
+2025-07-25 00:56:44,849 INFO Starting voice handshake... (connection attempt 1)
+2025-07-25 00:56:45,387 INFO Voice handshake complete. Endpoint found: singapore11086.discord.media
+2025-07-25 00:56:46,244 INFO Voice connection complete.
+2025-07-25 00:56:50,328 ERROR [play_next] name 'update_player_ui' is not defined
+2025-07-25 00:56:51,461 ERROR [play_command] Command raised an exception: NameError: name 'update_player_ui' is not defined
+2025-07-25 00:58:09,295 INFO The voice handshake is being terminated for Channel ID 1208701086949576717 (Guild ID 1208701086458847282)
+2025-07-25 00:58:11,086 INFO ffmpeg process 20964 has not terminated. Waiting to terminate...
+2025-07-25 00:58:11,089 INFO ffmpeg process 20964 should have terminated with a return code of 1.
+2025-07-25 00:59:46,808 INFO logging in using static token
+2025-07-25 00:59:48,954 INFO Shard ID None has connected to Gateway (Session ID: 22fc9e7a59b1ac99ac0cfd27452aad67).
+2025-07-25 01:00:04,236 INFO Connecting to voice...
+2025-07-25 01:00:04,237 INFO Starting voice handshake... (connection attempt 1)
+2025-07-25 01:00:04,773 INFO Voice handshake complete. Endpoint found: india10040.discord.media
+2025-07-25 01:00:05,150 INFO Voice connection complete.
+2025-07-25 01:00:39,488 WARNING Shard ID None heartbeat blocked for more than 10 seconds.
+Loop thread traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Sandesh\bot.py", line 856, in <module>
+    bot.run(TOKEN)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\client.py", line 906, in run
+    asyncio.run(runner())
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py", line 194, in run
+    return runner.run(main)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py", line 651, in run_until_complete
+    self.run_forever()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\windows_events.py", line 321, in run_forever
+    super().run_forever()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py", line 618, in run_forever
+    self._run_once()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py", line 1951, in _run_once
+    handle._run()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\events.py", line 84, in _run
+    self._context.run(self._callback, *self._args)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\client.py", line 481, in _run_event
+    await coro(*args, **kwargs)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\commands\bot.py", line 1411, in on_message
+    await self.process_commands(message)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\commands\bot.py", line 1408, in process_commands
+    await self.invoke(ctx)  # type: ignore
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\commands\bot.py", line 1366, in invoke
+    await ctx.command.invoke(ctx)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\commands\core.py", line 1029, in invoke
+    await injected(*ctx.args, **ctx.kwargs)  # type: ignore
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\commands\core.py", line 235, in wrapped
+    ret = await coro(*args, **kwargs)
+  File "C:\Users\amitk\Documents\Sandesh\bot.py", line 523, in play
+    info = ydl.extract_info(query, download=False)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\YoutubeDL.py", line 1653, in extract_info
+    return self.__extract_info(url, self.get_info_extractor(key), download, extra_info, process)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\YoutubeDL.py", line 1664, in wrapper
+    return func(self, *args, **kwargs)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\YoutubeDL.py", line 1820, in __extract_info
+    return self.process_ie_result(ie_result, download, extra_info)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\YoutubeDL.py", line 1949, in process_ie_result
+    return self.__process_playlist(ie_result, download)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\YoutubeDL.py", line 2027, in __process_playlist
+    entries = resolved_entries = list(entries)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\utils\_utils.py", line 773, in _iter
+    for x in iterable:
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\utils\_utils.py", line 2456, in get_requested_items
+    for i, entry in self[index]:
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\utils\_utils.py", line 2518, in __getitem__
+    entry = self._getter(i)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\utils\_utils.py", line 2491, in get_entry
+    return type(self.ydl)._handle_extraction_exceptions(lambda _, i: self._entries[i])(self.ydl, i)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\YoutubeDL.py", line 1664, in wrapper
+    return func(self, *args, **kwargs)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\utils\_utils.py", line 2491, in <lambda>
+    return type(self.ydl)._handle_extraction_exceptions(lambda _, i: self._entries[i])(self.ydl, i)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\utils\_utils.py", line 2256, in __getitem__
+    self._cache.extend(itertools.islice(self._iterable, n))
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\extractor\youtube\_tab.py", line 759, in _extract_inline_playlist
+    videos = list(self._playlist_entries(playlist))
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\extractor\youtube\_tab.py", line 314, in _playlist_entries
+    yield self._extract_video(renderer)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\extractor\youtube\_tab.py", line 164, in _extract_video
+    needs_subscription=self._has_badge(badges, BadgeType.AVAILABILITY_SUBSCRIPTION) or None,
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\extractor\youtube\_base.py", line 1090, in _has_badge
+    return bool(traverse_obj(badges, lambda _, v: v['type'] == badge_type))
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\utils\traversal.py", line 305, in traverse_obj
+    result = _traverse_obj(obj, path, is_last, True)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\utils\traversal.py", line 291, in _traverse_obj
+    results, has_branched, is_dict = apply_path(obj, path, test_type)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\utils\traversal.py", line 275, in apply_path
+    inspect.signature(key).bind(None, None)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\inspect.py", line 3327, in signature
+    return Signature.from_callable(obj, follow_wrapped=follow_wrapped,
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\inspect.py", line 3071, in from_callable
+    return _signature_from_callable(obj, sigcls=cls,
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\inspect.py", line 2559, in _signature_from_callable
+    return _signature_from_function(sigcls, obj,
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\inspect.py", line 2415, in _signature_from_function
+    if posonly_left:
+
+2025-07-25 01:00:40,054 WARNING Shard ID None voice heartbeat blocked for more than 10 seconds
+Loop thread traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Sandesh\bot.py", line 856, in <module>
+    bot.run(TOKEN)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\client.py", line 906, in run
+    asyncio.run(runner())
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py", line 194, in run
+    return runner.run(main)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py", line 651, in run_until_complete
+    self.run_forever()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\windows_events.py", line 321, in run_forever
+    super().run_forever()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py", line 618, in run_forever
+    self._run_once()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py", line 1951, in _run_once
+    handle._run()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\events.py", line 84, in _run
+    self._context.run(self._callback, *self._args)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\client.py", line 481, in _run_event
+    await coro(*args, **kwargs)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\commands\bot.py", line 1411, in on_message
+    await self.process_commands(message)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\commands\bot.py", line 1408, in process_commands
+    await self.invoke(ctx)  # type: ignore
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\commands\bot.py", line 1366, in invoke
+    await ctx.command.invoke(ctx)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\commands\core.py", line 1029, in invoke
+    await injected(*ctx.args, **ctx.kwargs)  # type: ignore
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\commands\core.py", line 235, in wrapped
+    ret = await coro(*args, **kwargs)
+  File "C:\Users\amitk\Documents\Sandesh\bot.py", line 523, in play
+    info = ydl.extract_info(query, download=False)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\YoutubeDL.py", line 1653, in extract_info
+    return self.__extract_info(url, self.get_info_extractor(key), download, extra_info, process)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\YoutubeDL.py", line 1664, in wrapper
+    return func(self, *args, **kwargs)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\YoutubeDL.py", line 1820, in __extract_info
+    return self.process_ie_result(ie_result, download, extra_info)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\YoutubeDL.py", line 1949, in process_ie_result
+    return self.__process_playlist(ie_result, download)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\YoutubeDL.py", line 2027, in __process_playlist
+    entries = resolved_entries = list(entries)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\utils\_utils.py", line 773, in _iter
+    for x in iterable:
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\utils\_utils.py", line 2456, in get_requested_items
+    for i, entry in self[index]:
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\utils\_utils.py", line 2518, in __getitem__
+    entry = self._getter(i)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\utils\_utils.py", line 2491, in get_entry
+    return type(self.ydl)._handle_extraction_exceptions(lambda _, i: self._entries[i])(self.ydl, i)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\YoutubeDL.py", line 1664, in wrapper
+    return func(self, *args, **kwargs)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\utils\_utils.py", line 2491, in <lambda>
+    return type(self.ydl)._handle_extraction_exceptions(lambda _, i: self._entries[i])(self.ydl, i)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\utils\_utils.py", line 2256, in __getitem__
+    self._cache.extend(itertools.islice(self._iterable, n))
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\extractor\youtube\_tab.py", line 779, in _extract_inline_playlist
+    response = self._extract_response(
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\extractor\youtube\_base.py", line 1203, in _extract_response
+    response = self._call_api(
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\extractor\youtube\_base.py", line 791, in _call_api
+    return self._download_json(
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\extractor\common.py", line 1149, in download_content
+    res = getattr(self, download_handle.__name__)(url_or_request, video_id, **kwargs)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\extractor\common.py", line 1107, in download_handle
+    res = self._download_webpage_handle(
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\extractor\common.py", line 972, in _download_webpage_handle
+    urlh = self._request_webpage(url_or_request, video_id, note, errnote, fatal, data=data,
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\extractor\youtube\_base.py", line 769, in _request_webpage
+    response = super()._request_webpage(*args, **kwargs)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\extractor\common.py", line 908, in _request_webpage
+    return self._downloader.urlopen(self._create_request(url_or_request, data, headers, query, extensions))
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\YoutubeDL.py", line 4236, in urlopen
+    return self._request_director.send(req)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\networking\common.py", line 117, in send
+    response = handler.send(request)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\networking\_helper.py", line 194, in wrapper
+    return func(self, *args, **kwargs)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\networking\common.py", line 359, in send
+    return self._send(request)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\networking\_urllib.py", line 399, in _send
+    res = opener.open(urllib_req, timeout=self._calculate_timeout(request))
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\urllib\request.py", line 521, in open
+    response = meth(req, response)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\networking\_urllib.py", line 155, in http_response
+    decoded_response = self.gz(decoded_response or resp.read())
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\http\client.py", line 466, in read
+    return self._read_chunked(amt)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\http\client.py", line 594, in _read_chunked
+    value.append(self._safe_read(chunk_left))
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\http\client.py", line 633, in _safe_read
+    data = self.fp.read(amt)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\socket.py", line 707, in readinto
+    return self._sock.recv_into(b)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\ssl.py", line 1249, in recv_into
+    return self.read(nbytes, buffer)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\ssl.py", line 1105, in read
+    return self._sslobj.read(len, buffer)
+
+2025-07-25 01:01:04,110 INFO ffmpeg process 27016 has not terminated. Waiting to terminate...
+2025-07-25 01:01:04,113 INFO ffmpeg process 27016 should have terminated with a return code of 1.
+2025-07-25 01:01:50,176 INFO ffmpeg process 26388 has not terminated. Waiting to terminate...
+2025-07-25 01:01:50,178 INFO ffmpeg process 26388 should have terminated with a return code of 1.
+2025-07-25 01:02:05,468 INFO The voice handshake is being terminated for Channel ID 1053223116668665859 (Guild ID 1053223116085673985)
+2025-07-25 01:02:08,539 ERROR [play_next] Not connected to voice.
+2025-07-25 01:02:12,091 ERROR [play_next] Not connected to voice.
+2025-07-25 01:02:16,536 ERROR [play_next] Not connected to voice.
+2025-07-25 01:02:20,671 ERROR [play_next] Not connected to voice.
+2025-07-25 01:02:20,728 ERROR [after_playing_future] 
+2025-07-25 01:02:20,728 INFO ffmpeg process 25152 has not terminated. Waiting to terminate...
+2025-07-25 01:07:54,906 INFO logging in using static token
+2025-07-25 01:07:57,094 INFO Shard ID None has connected to Gateway (Session ID: c4e088fbe53de7a3c64b03fc7dd9af2d).
+2025-07-25 01:08:05,579 INFO Connecting to voice...
+2025-07-25 01:08:05,579 INFO Starting voice handshake... (connection attempt 1)
+2025-07-25 01:08:06,124 INFO Voice handshake complete. Endpoint found: india10040.discord.media
+2025-07-25 01:08:06,452 INFO Voice connection complete.
+2025-07-25 01:08:41,375 WARNING Shard ID None voice heartbeat blocked for more than 10 seconds
+Loop thread traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Sandesh\bot.py", line 848, in <module>
+    bot.run(TOKEN)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\client.py", line 906, in run
+    asyncio.run(runner())
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py", line 194, in run
+    return runner.run(main)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py", line 651, in run_until_complete
+    self.run_forever()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\windows_events.py", line 321, in run_forever
+    super().run_forever()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py", line 618, in run_forever
+    self._run_once()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py", line 1951, in _run_once
+    handle._run()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\events.py", line 84, in _run
+    self._context.run(self._callback, *self._args)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\client.py", line 481, in _run_event
+    await coro(*args, **kwargs)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\commands\bot.py", line 1411, in on_message
+    await self.process_commands(message)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\commands\bot.py", line 1408, in process_commands
+    await self.invoke(ctx)  # type: ignore
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\commands\bot.py", line 1366, in invoke
+    await ctx.command.invoke(ctx)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\commands\core.py", line 1029, in invoke
+    await injected(*ctx.args, **ctx.kwargs)  # type: ignore
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\commands\core.py", line 235, in wrapped
+    ret = await coro(*args, **kwargs)
+  File "C:\Users\amitk\Documents\Sandesh\bot.py", line 515, in play
+    info = ydl.extract_info(query, download=False)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\YoutubeDL.py", line 1653, in extract_info
+    return self.__extract_info(url, self.get_info_extractor(key), download, extra_info, process)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\YoutubeDL.py", line 1664, in wrapper
+    return func(self, *args, **kwargs)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\YoutubeDL.py", line 1820, in __extract_info
+    return self.process_ie_result(ie_result, download, extra_info)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\YoutubeDL.py", line 1949, in process_ie_result
+    return self.__process_playlist(ie_result, download)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\YoutubeDL.py", line 2027, in __process_playlist
+    entries = resolved_entries = list(entries)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\utils\_utils.py", line 773, in _iter
+    for x in iterable:
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\utils\_utils.py", line 2456, in get_requested_items
+    for i, entry in self[index]:
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\utils\_utils.py", line 2518, in __getitem__
+    entry = self._getter(i)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\utils\_utils.py", line 2491, in get_entry
+    return type(self.ydl)._handle_extraction_exceptions(lambda _, i: self._entries[i])(self.ydl, i)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\YoutubeDL.py", line 1664, in wrapper
+    return func(self, *args, **kwargs)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\utils\_utils.py", line 2491, in <lambda>
+    return type(self.ydl)._handle_extraction_exceptions(lambda _, i: self._entries[i])(self.ydl, i)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\utils\_utils.py", line 2256, in __getitem__
+    self._cache.extend(itertools.islice(self._iterable, n))
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\extractor\youtube\_tab.py", line 779, in _extract_inline_playlist
+    response = self._extract_response(
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\extractor\youtube\_base.py", line 1203, in _extract_response
+    response = self._call_api(
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\extractor\youtube\_base.py", line 791, in _call_api
+    return self._download_json(
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\extractor\common.py", line 1149, in download_content
+    res = getattr(self, download_handle.__name__)(url_or_request, video_id, **kwargs)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\extractor\common.py", line 1107, in download_handle
+    res = self._download_webpage_handle(
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\extractor\common.py", line 972, in _download_webpage_handle
+    urlh = self._request_webpage(url_or_request, video_id, note, errnote, fatal, data=data,
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\extractor\youtube\_base.py", line 769, in _request_webpage
+    response = super()._request_webpage(*args, **kwargs)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\extractor\common.py", line 908, in _request_webpage
+    return self._downloader.urlopen(self._create_request(url_or_request, data, headers, query, extensions))
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\YoutubeDL.py", line 4236, in urlopen
+    return self._request_director.send(req)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\networking\common.py", line 117, in send
+    response = handler.send(request)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\networking\_helper.py", line 194, in wrapper
+    return func(self, *args, **kwargs)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\networking\common.py", line 359, in send
+    return self._send(request)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\networking\_urllib.py", line 399, in _send
+    res = opener.open(urllib_req, timeout=self._calculate_timeout(request))
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\urllib\request.py", line 515, in open
+    response = self._open(req, data)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\urllib\request.py", line 532, in _open
+    result = self._call_chain(self.handle_open, protocol, protocol +
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\urllib\request.py", line 492, in _call_chain
+    result = func(*args)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\networking\_urllib.py", line 100, in https_open
+    return self.do_open(
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\urllib\request.py", line 1348, in do_open
+    r = h.getresponse()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\http\client.py", line 1411, in getresponse
+    response.begin()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\http\client.py", line 324, in begin
+    version, status, reason = self._read_status()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\http\client.py", line 285, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\socket.py", line 707, in readinto
+    return self._sock.recv_into(b)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\ssl.py", line 1249, in recv_into
+    return self.read(nbytes, buffer)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\ssl.py", line 1105, in read
+    return self._sslobj.read(len, buffer)
+
+2025-07-25 01:09:29,515 INFO Connecting to voice...
+2025-07-25 01:09:29,515 INFO Starting voice handshake... (connection attempt 1)
+2025-07-25 01:09:35,334 ERROR [play_next] Not connected to voice.
+2025-07-25 01:09:35,335 INFO Voice handshake complete. Endpoint found: singapore11086.discord.media
+2025-07-25 01:09:40,109 ERROR [play_next] Not connected to voice.
+2025-07-25 01:09:40,110 INFO Voice connection complete.
+2025-07-25 01:09:42,275 INFO ffmpeg process 4616 has not terminated. Waiting to terminate...
+2025-07-25 01:09:42,277 INFO ffmpeg process 4616 should have terminated with a return code of 1.
+2025-07-25 01:09:45,713 INFO The voice handshake is being terminated for Channel ID 1208701086949576717 (Guild ID 1208701086458847282)
+2025-07-25 01:09:46,215 INFO ffmpeg process 18408 has not terminated. Waiting to terminate...
+2025-07-25 01:09:46,217 INFO ffmpeg process 18408 should have terminated with a return code of 1.
+2025-07-25 01:09:54,804 INFO Connecting to voice...
+2025-07-25 01:09:54,804 INFO Starting voice handshake... (connection attempt 1)
+2025-07-25 01:09:55,343 INFO Voice handshake complete. Endpoint found: singapore11086.discord.media
+2025-07-25 01:09:56,118 INFO Voice connection complete.
+2025-07-25 01:09:59,185 INFO ffmpeg process 23572 has not terminated. Waiting to terminate...
+2025-07-25 01:09:59,187 INFO ffmpeg process 23572 should have terminated with a return code of 1.
+2025-07-25 01:10:37,095 INFO ffmpeg process 24708 has not terminated. Waiting to terminate...
+2025-07-25 01:10:37,098 INFO ffmpeg process 24708 should have terminated with a return code of 1.
+2025-07-25 01:10:51,933 INFO The voice handshake is being terminated for Channel ID 1053223116668665859 (Guild ID 1053223116085673985)
+2025-07-25 01:10:56,075 ERROR [play_next] Not connected to voice.
+2025-07-25 01:10:57,066 INFO ffmpeg process 21232 has not terminated. Waiting to terminate...
+2025-07-25 01:10:57,068 INFO ffmpeg process 21232 should have terminated with a return code of 1.
+2025-07-25 01:10:57,069 INFO ffmpeg process 21620 has not terminated. Waiting to terminate...
+2025-07-25 01:10:57,071 INFO ffmpeg process 21620 should have terminated with a return code of 1.
+2025-07-25 01:11:24,754 ERROR Ignoring exception in command None
+discord.ext.commands.errors.CommandNotFound: Command "quit" is not found
+2025-07-25 01:11:27,023 INFO ffmpeg process 10004 has not terminated. Waiting to terminate...
+2025-07-25 01:11:27,026 INFO ffmpeg process 10004 should have terminated with a return code of 1.
+2025-07-25 01:11:49,533 ERROR Ignoring exception in command None
+discord.ext.commands.errors.CommandNotFound: Command "quit" is not found
+2025-07-25 01:11:54,995 INFO The voice handshake is being terminated for Channel ID 1208701086949576717 (Guild ID 1208701086458847282)
+2025-07-25 01:11:59,045 ERROR [play_next] Not connected to voice.
+2025-07-25 01:12:00,143 INFO ffmpeg process 25508 has not terminated. Waiting to terminate...
+2025-07-25 01:12:00,146 INFO ffmpeg process 25508 should have terminated with a return code of 1.
+2025-07-25 01:12:00,147 INFO ffmpeg process 24928 has not terminated. Waiting to terminate...
+2025-07-25 01:12:00,149 INFO ffmpeg process 24928 should have terminated with a return code of 1.
+2025-07-25 01:12:18,762 INFO Connecting to voice...
+2025-07-25 01:12:18,763 INFO Starting voice handshake... (connection attempt 1)
+2025-07-25 01:12:19,300 INFO Voice handshake complete. Endpoint found: singapore11086.discord.media
+2025-07-25 01:12:20,368 INFO Voice connection complete.
+2025-07-25 01:14:57,601 INFO ffmpeg process 16496 successfully terminated with return code of 0.
+2025-07-25 01:17:20,633 INFO ffmpeg process 23508 successfully terminated with return code of 0.
+2025-07-25 01:22:20,638 INFO The voice handshake is being terminated for Channel ID 1208701086949576717 (Guild ID 1208701086458847282)
+2025-07-25 01:23:33,392 INFO Connecting to voice...
+2025-07-25 01:23:33,392 INFO Starting voice handshake... (connection attempt 1)
+2025-07-25 01:23:33,955 INFO Voice handshake complete. Endpoint found: india10040.discord.media
+2025-07-25 01:23:34,356 INFO Voice connection complete.
+2025-07-25 01:23:58,832 INFO The voice handshake is being terminated for Channel ID 1053223116668665859 (Guild ID 1053223116085673985)
+2025-07-25 01:24:03,773 INFO logging in using static token
+2025-07-25 01:24:05,632 INFO Shard ID None has connected to Gateway (Session ID: 0f6881f39c034ae78910f3319cb3c0ba).
+2025-07-25 01:24:14,447 INFO Connecting to voice...
+2025-07-25 01:24:14,448 INFO Starting voice handshake... (connection attempt 1)
+2025-07-25 01:24:14,994 INFO Voice handshake complete. Endpoint found: india10040.discord.media
+2025-07-25 01:24:15,344 INFO Voice connection complete.
+2025-07-25 01:24:44,218 INFO ffmpeg process 27364 has not terminated. Waiting to terminate...
+2025-07-25 01:24:44,221 INFO ffmpeg process 27364 should have terminated with a return code of 1.
+2025-07-25 01:27:26,007 INFO ffmpeg process 22000 successfully terminated with return code of 0.
+2025-07-25 01:29:18,100 INFO The voice handshake is being terminated for Channel ID 1053223116668665859 (Guild ID 1053223116085673985)
+2025-07-25 01:29:22,325 INFO logging in using static token
+2025-07-25 01:29:24,224 INFO Shard ID None has connected to Gateway (Session ID: d576e6388dee07d5cef59ba8b0c7bc23).
+2025-07-25 01:29:33,180 INFO Connecting to voice...
+2025-07-25 01:29:33,180 INFO Starting voice handshake... (connection attempt 1)
+2025-07-25 01:29:33,731 INFO Voice handshake complete. Endpoint found: india10040.discord.media
+2025-07-25 01:29:34,048 INFO Voice connection complete.
+2025-07-25 01:30:07,949 ERROR [play_next] Already playing audio.
+2025-07-25 01:30:09,603 INFO ffmpeg process 21600 has not terminated. Waiting to terminate...
+2025-07-25 01:30:09,606 INFO ffmpeg process 21600 should have terminated with a return code of 1.
+2025-07-25 01:30:09,984 ERROR Ignoring exception in view <NowPlayingView timeout=None children=3> for item <Button style=<ButtonStyle.secondary: 2> url=None disabled=False label='Next' emoji=None row=None sku_id=None>
+Traceback (most recent call last):
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ui\view.py", line 435, in _scheduled_task
+    await item.callback(interaction)
+  File "C:\Users\amitk\Documents\Sandesh\bot.py", line 215, in skip
+    await interaction.response.defer()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\interactions.py", line 844, in defer
+    response = await adapter.create_interaction_response(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\webhook\async_.py", line 224, in request
+    raise NotFound(response, data)
+discord.errors.NotFound: 404 Not Found (error code: 10062): Unknown interaction
+2025-07-25 01:32:01,905 INFO ffmpeg process 20512 successfully terminated with return code of 0.
+2025-07-25 01:32:12,967 INFO The voice handshake is being terminated for Channel ID 1053223116668665859 (Guild ID 1053223116085673985)
+2025-07-25 01:32:17,747 INFO logging in using static token
+2025-07-25 01:32:19,641 INFO Shard ID None has connected to Gateway (Session ID: 4549ad92458f5d641fe1ec5cb33ee99b).
+2025-07-25 01:32:35,294 INFO Connecting to voice...
+2025-07-25 01:32:35,294 INFO Starting voice handshake... (connection attempt 1)
+2025-07-25 01:32:35,831 INFO Voice handshake complete. Endpoint found: india10040.discord.media
+2025-07-25 01:32:36,147 INFO Voice connection complete.
+2025-07-25 01:33:36,135 ERROR [play_next] Already playing audio.
+2025-07-25 01:33:37,083 INFO ffmpeg process 24300 has not terminated. Waiting to terminate...
+2025-07-25 01:33:37,086 INFO ffmpeg process 24300 should have terminated with a return code of 1.
+2025-07-25 01:33:37,448 ERROR Ignoring exception in view <NowPlayingView timeout=None children=3> for item <Button style=<ButtonStyle.secondary: 2> url=None disabled=False label='Next' emoji=None row=None sku_id=None>
+Traceback (most recent call last):
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ui\view.py", line 435, in _scheduled_task
+    await item.callback(interaction)
+  File "C:\Users\amitk\Documents\Sandesh\bot.py", line 215, in skip
+    await interaction.response.defer()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\interactions.py", line 844, in defer
+    response = await adapter.create_interaction_response(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\webhook\async_.py", line 224, in request
+    raise NotFound(response, data)
+discord.errors.NotFound: 404 Not Found (error code: 10062): Unknown interaction
+2025-07-25 01:35:03,983 INFO ffmpeg process 27064 successfully terminated with return code of 0.
+2025-07-25 01:38:37,096 INFO The voice handshake is being terminated for Channel ID 1053223116668665859 (Guild ID 1053223116085673985)
+2025-07-25 01:40:17,154 INFO logging in using static token
+2025-07-25 01:40:19,382 INFO Shard ID None has connected to Gateway (Session ID: b051f9262adafad55978c694e18500a4).
+2025-07-25 01:40:28,243 INFO Connecting to voice...
+2025-07-25 01:40:28,243 INFO Starting voice handshake... (connection attempt 1)
+2025-07-25 01:40:28,818 INFO Voice handshake complete. Endpoint found: india10040.discord.media
+2025-07-25 01:40:29,152 INFO Voice connection complete.
+2025-07-25 01:41:02,273 ERROR [play_next] Already playing audio.
+2025-07-25 01:41:03,454 INFO ffmpeg process 26840 has not terminated. Waiting to terminate...
+2025-07-25 01:41:03,456 INFO ffmpeg process 26840 should have terminated with a return code of 1.
+2025-07-25 01:41:43,404 ERROR [play_next] Already playing audio.
+2025-07-25 01:41:44,705 INFO ffmpeg process 24968 has not terminated. Waiting to terminate...
+2025-07-25 01:41:44,707 INFO ffmpeg process 24968 should have terminated with a return code of 1.
+2025-07-25 01:41:48,495 ERROR [play_next] Already playing audio.
+2025-07-25 01:41:49,395 INFO ffmpeg process 18936 has not terminated. Waiting to terminate...
+2025-07-25 01:41:49,397 INFO ffmpeg process 18936 should have terminated with a return code of 1.
+2025-07-25 01:42:43,298 INFO The voice handshake is being terminated for Channel ID 1053223116668665859 (Guild ID 1053223116085673985)
+2025-07-25 01:42:43,309 ERROR [play_next] Not connected to voice.
+2025-07-25 01:42:43,699 ERROR [after_playing_future] 
+2025-07-25 01:42:43,700 INFO ffmpeg process 25656 has not terminated. Waiting to terminate...
+2025-07-25 01:42:47,120 INFO logging in using static token
+2025-07-25 01:42:49,321 INFO Shard ID None has connected to Gateway (Session ID: 71930aeb2c974525ebb627d673825b7f).
+2025-07-25 01:42:56,631 INFO Connecting to voice...
+2025-07-25 01:42:56,631 INFO Starting voice handshake... (connection attempt 1)
+2025-07-25 01:42:57,184 INFO Voice handshake complete. Endpoint found: india10040.discord.media
+2025-07-25 01:42:57,510 INFO Voice connection complete.
+2025-07-25 01:43:13,908 ERROR [play_next] Already playing audio.
+2025-07-25 01:43:15,409 INFO ffmpeg process 7072 has not terminated. Waiting to terminate...
+2025-07-25 01:43:15,412 INFO ffmpeg process 7072 should have terminated with a return code of 1.
+2025-07-25 01:43:23,389 ERROR [play_next] Already playing audio.
+2025-07-25 01:43:24,274 INFO ffmpeg process 22664 has not terminated. Waiting to terminate...
+2025-07-25 01:43:24,277 INFO ffmpeg process 22664 should have terminated with a return code of 1.
+2025-07-25 01:45:45,492 INFO ffmpeg process 20404 successfully terminated with return code of 0.
+2025-07-25 01:47:36,436 INFO The voice handshake is being terminated for Channel ID 1053223116668665859 (Guild ID 1053223116085673985)
+2025-07-25 01:47:36,683 ERROR [after_playing_future] 
+2025-07-25 01:47:36,683 INFO ffmpeg process 27452 has not terminated. Waiting to terminate...
+2025-07-25 20:00:36,248 INFO logging in using static token
+2025-07-25 20:00:38,429 INFO Shard ID None has connected to Gateway (Session ID: 20216857f0afb48b6cbea39f1af61263).
+2025-07-25 20:01:07,564 INFO Connecting to voice...
+2025-07-25 20:01:07,565 INFO Starting voice handshake... (connection attempt 1)
+2025-07-25 20:01:08,114 INFO Voice handshake complete. Endpoint found: india10018.discord.media
+2025-07-25 20:01:08,493 INFO Voice connection complete.
+2025-07-25 20:01:46,676 INFO ffmpeg process 7008 has not terminated. Waiting to terminate...
+2025-07-25 20:01:46,679 INFO ffmpeg process 7008 should have terminated with a return code of 1.
+2025-07-25 20:03:50,113 WARNING Shard ID None voice heartbeat blocked for more than 10 seconds
+Loop thread traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Sandesh\bot.py", line 894, in <module>
+    bot.run(TOKEN)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\client.py", line 906, in run
+    asyncio.run(runner())
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py", line 194, in run
+    return runner.run(main)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py", line 651, in run_until_complete
+    self.run_forever()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\windows_events.py", line 321, in run_forever
+    super().run_forever()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py", line 618, in run_forever
+    self._run_once()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py", line 1951, in _run_once
+    handle._run()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\events.py", line 84, in _run
+    self._context.run(self._callback, *self._args)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\client.py", line 481, in _run_event
+    await coro(*args, **kwargs)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\commands\bot.py", line 1411, in on_message
+    await self.process_commands(message)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\commands\bot.py", line 1408, in process_commands
+    await self.invoke(ctx)  # type: ignore
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\commands\bot.py", line 1366, in invoke
+    await ctx.command.invoke(ctx)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\commands\core.py", line 1029, in invoke
+    await injected(*ctx.args, **ctx.kwargs)  # type: ignore
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\commands\core.py", line 235, in wrapped
+    ret = await coro(*args, **kwargs)
+  File "C:\Users\amitk\Documents\Sandesh\bot.py", line 557, in play
+    info = ydl.extract_info(query, download=False)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\YoutubeDL.py", line 1653, in extract_info
+    return self.__extract_info(url, self.get_info_extractor(key), download, extra_info, process)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\YoutubeDL.py", line 1664, in wrapper
+    return func(self, *args, **kwargs)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\YoutubeDL.py", line 1820, in __extract_info
+    return self.process_ie_result(ie_result, download, extra_info)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\YoutubeDL.py", line 1949, in process_ie_result
+    return self.__process_playlist(ie_result, download)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\YoutubeDL.py", line 2027, in __process_playlist
+    entries = resolved_entries = list(entries)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\utils\_utils.py", line 773, in _iter
+    for x in iterable:
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\utils\_utils.py", line 2456, in get_requested_items
+    for i, entry in self[index]:
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\utils\_utils.py", line 2518, in __getitem__
+    entry = self._getter(i)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\utils\_utils.py", line 2491, in get_entry
+    return type(self.ydl)._handle_extraction_exceptions(lambda _, i: self._entries[i])(self.ydl, i)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\YoutubeDL.py", line 1664, in wrapper
+    return func(self, *args, **kwargs)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\utils\_utils.py", line 2491, in <lambda>
+    return type(self.ydl)._handle_extraction_exceptions(lambda _, i: self._entries[i])(self.ydl, i)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\utils\_utils.py", line 2256, in __getitem__
+    self._cache.extend(itertools.islice(self._iterable, n))
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\extractor\youtube\_tab.py", line 58, in <genexpr>
+    info_dict['entries'] = (_smuggle(i, smuggled_data.copy()) for i in info_dict['entries'])
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\extractor\youtube\_tab.py", line 779, in _extract_inline_playlist
+    response = self._extract_response(
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\extractor\youtube\_base.py", line 1203, in _extract_response
+    response = self._call_api(
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\extractor\youtube\_base.py", line 791, in _call_api
+    return self._download_json(
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\extractor\common.py", line 1149, in download_content
+    res = getattr(self, download_handle.__name__)(url_or_request, video_id, **kwargs)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\extractor\common.py", line 1107, in download_handle
+    res = self._download_webpage_handle(
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\extractor\common.py", line 972, in _download_webpage_handle
+    urlh = self._request_webpage(url_or_request, video_id, note, errnote, fatal, data=data,
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\extractor\youtube\_base.py", line 769, in _request_webpage
+    response = super()._request_webpage(*args, **kwargs)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\extractor\common.py", line 908, in _request_webpage
+    return self._downloader.urlopen(self._create_request(url_or_request, data, headers, query, extensions))
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\YoutubeDL.py", line 4236, in urlopen
+    return self._request_director.send(req)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\networking\common.py", line 117, in send
+    response = handler.send(request)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\networking\_helper.py", line 194, in wrapper
+    return func(self, *args, **kwargs)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\networking\common.py", line 359, in send
+    return self._send(request)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\networking\_urllib.py", line 399, in _send
+    res = opener.open(urllib_req, timeout=self._calculate_timeout(request))
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\urllib\request.py", line 515, in open
+    response = self._open(req, data)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\urllib\request.py", line 532, in _open
+    result = self._call_chain(self.handle_open, protocol, protocol +
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\urllib\request.py", line 492, in _call_chain
+    result = func(*args)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\yt_dlp\networking\_urllib.py", line 100, in https_open
+    return self.do_open(
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\urllib\request.py", line 1348, in do_open
+    r = h.getresponse()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\http\client.py", line 1411, in getresponse
+    response.begin()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\http\client.py", line 324, in begin
+    version, status, reason = self._read_status()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\http\client.py", line 285, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\socket.py", line 707, in readinto
+    return self._sock.recv_into(b)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\ssl.py", line 1249, in recv_into
+    return self.read(nbytes, buffer)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\ssl.py", line 1105, in read
+    return self._sslobj.read(len, buffer)
+
+2025-07-25 20:03:58,281 INFO Connecting to voice...
+2025-07-25 20:03:58,281 INFO Starting voice handshake... (connection attempt 1)
+2025-07-25 20:04:05,057 ERROR [play_next] Not connected to voice.
+2025-07-25 20:04:05,058 INFO Voice handshake complete. Endpoint found: india10019.discord.media
+2025-07-25 20:04:05,416 INFO Voice connection complete.
+2025-07-25 20:04:10,139 ERROR [play_next] Already playing audio.
+2025-07-25 20:04:15,999 ERROR [play_next] Already playing audio.
+2025-07-25 20:04:21,091 ERROR [play_next] Already playing audio.
+2025-07-25 20:04:26,133 ERROR [play_next] Already playing audio.
+2025-07-25 20:04:31,096 ERROR [play_next] Already playing audio.
+2025-07-25 20:04:31,547 INFO ffmpeg process 10784 successfully terminated with return code of 0.
+2025-07-25 20:04:36,055 ERROR [play_next] Already playing audio.
+2025-07-25 20:04:40,903 ERROR [play_next] Already playing audio.
+2025-07-25 20:04:46,345 ERROR [play_next] Already playing audio.
+2025-07-25 20:04:46,774 ERROR Ignoring exception in view <QueueView timeout=180 children=2> for item <Button style=<ButtonStyle.secondary: 2> url=None disabled=False label='Next' emoji=None row=None sku_id=None>
+Traceback (most recent call last):
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ui\view.py", line 435, in _scheduled_task
+    await item.callback(interaction)
+  File "C:\Users\amitk\Documents\Sandesh\bot.py", line 277, in next_page
+    await interaction.response.edit_message(embed=embed, view=self)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\interactions.py", line 1154, in edit_message
+    response = await adapter.create_interaction_response(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\webhook\async_.py", line 224, in request
+    raise NotFound(response, data)
+discord.errors.NotFound: 404 Not Found (error code: 10062): Unknown interaction
+2025-07-25 20:04:50,559 ERROR [play_next] Already playing audio.
+2025-07-25 20:04:54,164 ERROR [play_next] Already playing audio.
+2025-07-25 20:04:59,073 ERROR [play_next] Already playing audio.
+2025-07-25 20:05:03,985 ERROR [play_next] Already playing audio.
+2025-07-25 20:05:08,839 ERROR [play_next] Already playing audio.
+2025-07-25 20:05:08,840 INFO The voice handshake is being terminated for Channel ID 677137347246293004 (Guild ID 677137346818342964)
+2025-07-25 20:05:12,702 ERROR [play_next] Not connected to voice.
+2025-07-25 20:05:16,278 ERROR [play_next] Not connected to voice.
+2025-07-25 20:05:17,105 ERROR Ignoring exception in view <NowPlayingView timeout=None children=3> for item <Button style=<ButtonStyle.primary: 1> url=None disabled=False label='Pause' emoji=None row=None sku_id=None>
+Traceback (most recent call last):
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ui\view.py", line 435, in _scheduled_task
+    await item.callback(interaction)
+  File "C:\Users\amitk\Documents\Sandesh\bot.py", line 207, in play_pause
+    await interaction.response.send_message("Nothing is playing.", ephemeral=True)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\interactions.py", line 1004, in send_message
+    response = await adapter.create_interaction_response(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\webhook\async_.py", line 224, in request
+    raise NotFound(response, data)
+discord.errors.NotFound: 404 Not Found (error code: 10062): Unknown interaction
+2025-07-25 20:05:17,250 INFO ffmpeg process 3544 has not terminated. Waiting to terminate...
+2025-07-25 20:05:17,253 INFO ffmpeg process 3544 should have terminated with a return code of 1.
+2025-07-25 20:05:17,253 INFO ffmpeg process 21220 has not terminated. Waiting to terminate...
+2025-07-25 20:05:17,256 INFO ffmpeg process 21220 should have terminated with a return code of 1.
+2025-07-25 20:05:17,308 INFO ffmpeg process 1152 has not terminated. Waiting to terminate...
+2025-07-25 20:05:17,310 INFO ffmpeg process 1152 should have terminated with a return code of 1.
+2025-07-25 20:05:17,311 INFO ffmpeg process 2208 has not terminated. Waiting to terminate...
+2025-07-25 20:05:17,313 INFO ffmpeg process 2208 should have terminated with a return code of 1.
+2025-07-25 20:05:17,313 INFO ffmpeg process 15404 has not terminated. Waiting to terminate...
+2025-07-25 20:05:17,315 INFO ffmpeg process 15404 should have terminated with a return code of 1.
+2025-07-25 20:05:17,315 INFO ffmpeg process 13304 has not terminated. Waiting to terminate...
+2025-07-25 20:05:17,317 INFO ffmpeg process 13304 should have terminated with a return code of 1.
+2025-07-25 20:05:17,318 INFO ffmpeg process 20668 has not terminated. Waiting to terminate...
+2025-07-25 20:05:17,320 INFO ffmpeg process 20668 should have terminated with a return code of 1.
+2025-07-25 20:05:17,320 INFO ffmpeg process 8412 has not terminated. Waiting to terminate...
+2025-07-25 20:05:17,323 INFO ffmpeg process 8412 should have terminated with a return code of 1.
+2025-07-25 20:05:17,323 INFO ffmpeg process 13496 has not terminated. Waiting to terminate...
+2025-07-25 20:05:17,325 INFO ffmpeg process 13496 should have terminated with a return code of 1.
+2025-07-25 20:05:17,325 INFO ffmpeg process 19808 has not terminated. Waiting to terminate...
+2025-07-25 20:05:17,327 INFO ffmpeg process 19808 should have terminated with a return code of 1.
+2025-07-25 20:05:17,328 INFO ffmpeg process 13988 has not terminated. Waiting to terminate...
+2025-07-25 20:05:17,330 INFO ffmpeg process 13988 should have terminated with a return code of 1.
+2025-07-25 20:05:17,330 INFO ffmpeg process 21292 has not terminated. Waiting to terminate...
+2025-07-25 20:05:17,332 INFO ffmpeg process 21292 should have terminated with a return code of 1.
+2025-07-25 20:05:17,333 INFO ffmpeg process 4140 has not terminated. Waiting to terminate...
+2025-07-25 20:05:17,334 INFO ffmpeg process 4140 should have terminated with a return code of 1.
+2025-07-25 20:05:17,335 INFO ffmpeg process 5704 has not terminated. Waiting to terminate...
+2025-07-25 20:05:17,337 INFO ffmpeg process 5704 should have terminated with a return code of 1.
+2025-07-25 20:05:17,337 INFO ffmpeg process 5492 has not terminated. Waiting to terminate...
+2025-07-25 20:05:17,339 INFO ffmpeg process 5492 should have terminated with a return code of 1.
+2025-07-25 20:05:17,339 INFO ffmpeg process 5668 has not terminated. Waiting to terminate...
+2025-07-25 20:05:17,341 INFO ffmpeg process 5668 should have terminated with a return code of 1.
+2025-07-25 20:05:17,342 INFO ffmpeg process 14440 has not terminated. Waiting to terminate...
+2025-07-25 20:05:17,344 INFO ffmpeg process 14440 should have terminated with a return code of 1.
+2025-07-25 20:05:18,384 INFO The voice handshake is being terminated for Channel ID 1053223116668665859 (Guild ID 1053223116085673985)
+2025-07-25 20:05:23,041 INFO logging in using static token
+2025-07-25 20:05:25,829 INFO Shard ID None has connected to Gateway (Session ID: 51ae1ab0287a1cbdae97b1243adcbf8d).
+2025-07-25 20:05:34,290 INFO Connecting to voice...
+2025-07-25 20:05:34,291 INFO Starting voice handshake... (connection attempt 1)
+2025-07-25 20:05:40,338 ERROR [play_next] Not connected to voice.
+2025-07-25 20:05:40,340 INFO Voice handshake complete. Endpoint found: india10019.discord.media
+2025-07-25 20:05:40,683 INFO Voice connection complete.
+2025-07-25 20:05:45,175 ERROR [play_next] Already playing audio.
+2025-07-25 20:05:46,071 INFO ffmpeg process 20716 has not terminated. Waiting to terminate...
+2025-07-25 20:05:46,074 INFO ffmpeg process 20716 should have terminated with a return code of 1.
+2025-07-25 20:05:46,074 INFO ffmpeg process 20756 has not terminated. Waiting to terminate...
+2025-07-25 20:05:46,076 INFO ffmpeg process 20756 should have terminated with a return code of 1.
+2025-07-25 20:07:18,555 INFO ffmpeg process 20884 has not terminated. Waiting to terminate...
+2025-07-25 20:07:18,557 INFO ffmpeg process 20884 should have terminated with a return code of 1.
+2025-07-25 20:07:30,711 ERROR Ignoring exception in view <NowPlayingView timeout=None children=3> for item <Button style=<ButtonStyle.secondary: 2> url=None disabled=False label='Next' emoji=None row=None sku_id=None>
+Traceback (most recent call last):
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ui\view.py", line 435, in _scheduled_task
+    await item.callback(interaction)
+  File "C:\Users\amitk\Documents\Sandesh\bot.py", line 226, in skip
+    await interaction.response.send_message("No next song.", ephemeral=True)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\interactions.py", line 1004, in send_message
+    response = await adapter.create_interaction_response(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\webhook\async_.py", line 224, in request
+    raise NotFound(response, data)
+discord.errors.NotFound: 404 Not Found (error code: 10062): Unknown interaction
+2025-07-25 20:07:32,183 INFO ffmpeg process 14360 has not terminated. Waiting to terminate...
+2025-07-25 20:07:32,187 INFO ffmpeg process 14360 should have terminated with a return code of 1.
+2025-07-25 20:12:33,010 INFO ffmpeg process 10604 successfully terminated with return code of 0.
