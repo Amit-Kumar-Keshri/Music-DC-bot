@@ -10383,3 +10383,89 @@ discord.errors.NotFound: 404 Not Found (error code: 10062): Unknown interaction
 2025-07-25 20:07:32,183 INFO ffmpeg process 14360 has not terminated. Waiting to terminate...
 2025-07-25 20:07:32,187 INFO ffmpeg process 14360 should have terminated with a return code of 1.
 2025-07-25 20:12:33,010 INFO ffmpeg process 10604 successfully terminated with return code of 0.
+2025-07-25 20:15:33,846 INFO ffmpeg process 21408 successfully terminated with return code of 0.
+2025-07-25 20:18:20,752 INFO ffmpeg process 6748 successfully terminated with return code of 0.
+2025-07-25 20:20:38,410 ERROR Ignoring exception in command move
+Traceback (most recent call last):
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\commands\bot.py", line 1366, in invoke
+    await ctx.command.invoke(ctx)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\commands\core.py", line 1021, in invoke
+    await self.prepare(ctx)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\commands\core.py", line 938, in prepare
+    await self._parse_arguments(ctx)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\commands\core.py", line 845, in _parse_arguments
+    transformed = await self.transform(ctx, param, attachments)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\commands\core.py", line 697, in transform
+    raise MissingRequiredArgument(param)
+discord.ext.commands.errors.MissingRequiredArgument: to_idx is a required argument that is missing.
+2025-07-25 20:22:28,629 INFO ffmpeg process 6812 successfully terminated with return code of 0.
+2025-07-25 20:25:29,236 INFO ffmpeg process 1332 successfully terminated with return code of 0.
+2025-07-25 20:29:30,310 INFO ffmpeg process 15308 successfully terminated with return code of 0.
+2025-07-25 20:31:16,911 INFO ffmpeg process 5384 has not terminated. Waiting to terminate...
+2025-07-25 20:31:16,914 INFO ffmpeg process 5384 should have terminated with a return code of 1.
+2025-07-25 20:31:21,259 INFO ffmpeg process 4732 has not terminated. Waiting to terminate...
+2025-07-25 20:31:21,262 INFO ffmpeg process 4732 should have terminated with a return code of 1.
+2025-07-25 20:31:25,426 INFO ffmpeg process 2264 has not terminated. Waiting to terminate...
+2025-07-25 20:31:25,429 INFO ffmpeg process 2264 should have terminated with a return code of 1.
+2025-07-25 20:31:29,657 INFO ffmpeg process 21192 has not terminated. Waiting to terminate...
+2025-07-25 20:31:29,660 INFO ffmpeg process 21192 should have terminated with a return code of 1.
+2025-07-25 20:31:39,262 INFO ffmpeg process 8616 has not terminated. Waiting to terminate...
+2025-07-25 20:31:39,264 INFO ffmpeg process 8616 should have terminated with a return code of 1.
+2025-07-25 20:31:44,111 INFO ffmpeg process 19280 has not terminated. Waiting to terminate...
+2025-07-25 20:31:44,114 INFO ffmpeg process 19280 should have terminated with a return code of 1.
+2025-07-25 20:31:52,762 INFO ffmpeg process 4548 has not terminated. Waiting to terminate...
+2025-07-25 20:31:52,765 INFO ffmpeg process 4548 should have terminated with a return code of 1.
+2025-07-25 20:32:00,557 INFO ffmpeg process 3436 has not terminated. Waiting to terminate...
+2025-07-25 20:32:00,560 INFO ffmpeg process 3436 should have terminated with a return code of 1.
+2025-07-25 20:34:02,043 INFO ffmpeg process 9432 successfully terminated with return code of 0.
+2025-07-25 20:35:00,565 INFO ffmpeg process 10732 successfully terminated with return code of 0.
+2025-07-25 20:44:36,415 INFO ffmpeg process 18204 successfully terminated with return code of 0.
+2025-07-25 20:45:39,873 INFO ffmpeg process 13832 successfully terminated with return code of 0.
+2025-07-25 20:46:37,025 INFO ffmpeg process 3936 successfully terminated with return code of 0.
+2025-07-25 20:50:09,911 INFO ffmpeg process 6628 successfully terminated with return code of 0.
+2025-07-25 20:50:52,779 INFO ffmpeg process 2100 successfully terminated with return code of 0.
+2025-07-25 20:51:35,163 INFO ffmpeg process 18724 successfully terminated with return code of 0.
+2025-07-25 21:00:18,749 INFO ffmpeg process 7084 successfully terminated with return code of 0.
+2025-07-25 21:01:20,905 INFO ffmpeg process 2656 successfully terminated with return code of 0.
+2025-07-25 21:02:17,438 INFO ffmpeg process 13560 successfully terminated with return code of 0.
+2025-07-25 21:03:44,634 INFO Shard ID None has successfully RESUMED session 51ae1ab0287a1cbdae97b1243adcbf8d.
+2025-07-25 21:05:34,803 INFO ffmpeg process 17140 successfully terminated with return code of 0.
+2025-07-25 21:06:36,408 INFO ffmpeg process 2432 successfully terminated with return code of 0.
+2025-07-25 21:07:36,628 INFO ffmpeg process 2068 successfully terminated with return code of 0.
+2025-07-25 21:16:45,453 INFO ffmpeg process 5196 successfully terminated with return code of 0.
+2025-07-25 21:17:48,018 INFO ffmpeg process 11044 successfully terminated with return code of 0.
+2025-07-25 21:18:51,798 INFO ffmpeg process 7456 successfully terminated with return code of 0.
+2025-07-25 21:22:14,582 INFO ffmpeg process 17024 successfully terminated with return code of 0.
+2025-07-25 21:23:06,275 INFO ffmpeg process 5384 successfully terminated with return code of 0.
+2025-07-25 21:23:56,140 INFO ffmpeg process 10956 successfully terminated with return code of 0.
+2025-07-25 21:32:04,539 INFO ffmpeg process 17076 successfully terminated with return code of 0.
+2025-07-25 21:32:50,468 INFO ffmpeg process 11940 successfully terminated with return code of 0.
+2025-07-25 21:33:44,800 INFO ffmpeg process 12772 successfully terminated with return code of 0.
+2025-07-25 21:37:10,636 INFO ffmpeg process 9616 successfully terminated with return code of 0.
+2025-07-25 21:37:54,031 INFO ffmpeg process 14568 successfully terminated with return code of 0.
+2025-07-25 21:38:54,674 INFO ffmpeg process 4732 successfully terminated with return code of 0.
+2025-07-25 21:39:39,533 INFO ffmpeg process 5196 successfully terminated with return code of 0.
+2025-07-25 21:48:26,501 INFO ffmpeg process 17900 successfully terminated with return code of 0.
+2025-07-25 21:49:31,438 INFO ffmpeg process 15660 successfully terminated with return code of 0.
+2025-07-25 21:50:22,821 INFO ffmpeg process 14420 successfully terminated with return code of 0.
+2025-07-25 21:53:34,724 INFO ffmpeg process 21332 successfully terminated with return code of 0.
+2025-07-25 21:54:37,246 INFO ffmpeg process 17264 successfully terminated with return code of 0.
+2025-07-25 21:55:36,631 INFO ffmpeg process 20884 successfully terminated with return code of 0.
+2025-07-25 22:04:08,851 INFO ffmpeg process 11292 successfully terminated with return code of 0.
+2025-07-25 22:05:12,087 INFO ffmpeg process 2364 successfully terminated with return code of 0.
+2025-07-25 22:08:19,387 INFO ffmpeg process 14608 successfully terminated with return code of 0.
+2025-07-25 22:09:25,666 INFO ffmpeg process 7856 successfully terminated with return code of 0.
+2025-07-25 22:10:22,180 INFO ffmpeg process 20936 successfully terminated with return code of 0.
+2025-07-25 22:19:21,059 INFO ffmpeg process 10292 successfully terminated with return code of 0.
+2025-07-25 22:20:11,759 INFO ffmpeg process 13736 successfully terminated with return code of 0.
+2025-07-25 22:20:44,590 INFO ffmpeg process 18480 successfully terminated with return code of 0.
+2025-07-25 22:23:38,953 INFO ffmpeg process 13792 successfully terminated with return code of 0.
+2025-07-25 22:24:40,359 INFO ffmpeg process 2280 successfully terminated with return code of 0.
+2025-07-25 22:25:23,325 INFO ffmpeg process 16772 successfully terminated with return code of 0.
+2025-07-25 22:34:42,734 INFO ffmpeg process 21188 successfully terminated with return code of 0.
+2025-07-25 22:35:45,382 INFO ffmpeg process 12072 successfully terminated with return code of 0.
+2025-07-25 22:36:45,382 INFO ffmpeg process 1324 successfully terminated with return code of 0.
+2025-07-25 22:38:29,562 INFO The voice handshake is being terminated for Channel ID 677137347246293004 (Guild ID 677137346818342964)
+2025-07-25 22:38:35,823 INFO logging in using static token
+2025-07-25 22:38:37,590 INFO Shard ID None has connected to Gateway (Session ID: b645b81856fa735246915b745d72ea69).

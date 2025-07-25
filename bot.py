@@ -234,7 +234,18 @@ class QueueView(ui.View):
         self.per_page = per_page
         self.current_page = 0
         self.total_pages = (len(self.songs) - 1) // self.per_page
+        self.set_current_page_for_playing_song()
         self.update_buttons()
+
+    def set_current_page_for_playing_song(self):
+        """Set the current page to show the currently playing song"""
+        current_idx = guild_current_index.get(self.ctx.guild.id, 0)
+        if self.songs and 0 <= current_idx < len(self.songs):
+            # Calculate which page contains the currently playing song
+            self.current_page = current_idx // self.per_page
+            # Ensure we don't exceed total pages
+            if self.current_page > self.total_pages:
+                self.current_page = self.total_pages
 
     def update_buttons(self):
         self.clear_items()
@@ -255,7 +266,7 @@ class QueueView(ui.View):
             title = song.get('title', 'Unknown Title')
             if len(title) > 55:
                 title = title[:52] + '...'
-            prefix = '▶️ ' if (i + 1) == (idx + 1) else ''
+            prefix = '▶️ ' if i == idx else ''
             description_lines.append(f"{prefix}**{i + 1}.** {title}")
         description = "\n".join(description_lines)
         embed = Embed(title="Queue", description=description, color=0x2b2d31)
@@ -575,9 +586,18 @@ async def play(ctx, *, query):
 
     guild_queues[ctx.guild.id].extend(songs)
     
-    # Initialize current_index if this is the first song or if the queue was empty
-    if len(guild_queues[ctx.guild.id]) == len(songs):
+    # Handle current_index logic properly
+    queue_length_before = len(guild_queues[ctx.guild.id]) - len(songs)
+    current_idx = guild_current_index.get(ctx.guild.id, 0)
+    
+    if queue_length_before == 0:
+        # Queue was completely empty, start from beginning
         guild_current_index[ctx.guild.id] = 0
+    elif not ctx.voice_client or not ctx.voice_client.is_playing():
+        # Nothing is currently playing (queue finished or paused)
+        # Start playing the newly added songs
+        guild_current_index[ctx.guild.id] = queue_length_before
+    # If something is playing, don't change current_index (songs will be queued normally)
     
     if ctx.voice_client is None:
         if ctx.author.voice:
@@ -656,6 +676,46 @@ async def skip(ctx):
     else:
         await ctx.send("Nothing is playing to skip.")
     update_stats_on_queue(ctx.guild.id)
+
+@bot.command(aliases=['goto', 'jumpto'])
+async def jump(ctx, position: int):
+    """Jump to a specific song number in the queue"""
+    queue = guild_queues.get(ctx.guild.id, [])
+    
+    if not queue:
+        await ctx.send("The queue is empty!")
+        return
+    
+    # Convert to 0-based index (users input 1-based numbers)
+    target_index = position - 1
+    
+    if target_index < 0 or target_index >= len(queue):
+        await ctx.send(f"Invalid position! Please choose a number between 1 and {len(queue)}.")
+        return
+    
+    # Set the current index to the target position
+    guild_current_index[ctx.guild.id] = target_index
+    
+    # Stop current song if playing
+    if ctx.voice_client and (ctx.voice_client.is_playing() or ctx.voice_client.is_paused()):
+        ctx.voice_client.stop()
+    
+    # Play the selected song
+    await play_next(ctx)
+    
+    song_title = queue[target_index]['title']
+    await ctx.send(f"Jumped to song #{position}: `{song_title}`")
+    update_stats_on_queue(ctx.guild.id)
+
+@jump.error
+async def jump_error(ctx, error):
+    if isinstance(error, commands.MissingRequiredArgument):
+        await ctx.send("You need to specify a song number! Usage: `!jump <number>`\nExample: `!jump 3` to jump to song #3")
+    elif isinstance(error, commands.BadArgument):
+        await ctx.send("Please provide a valid number! Usage: `!jump <number>`\nExample: `!jump 3` to jump to song #3")
+    else:
+        log_error('jump_command', error)
+        await ctx.send(f"An error occurred in the jump command: {error}")
 
 @bot.command()
 async def volume(ctx, vol: float):
@@ -757,26 +817,66 @@ async def repeat(ctx):
 # Help command
 @bot.command()
 async def helpme(ctx):
-    msg = (
-        "**Music Bot Commands:**\n"
-        "!join — Join your voice channel\n"
-        "!play <song name or URL> — Play a song by name or URL, or a playlist\n"
-        "!pause — Pause playback\n"
-        "!resume — Resume playback\n"
-        "!stop — Stop and clear queue\n"
-        "!skip or !next — Skip to next song\n"
-        "!queue or !q — Show queue\n"
-        "!remove <n> — Remove song at position n (1 = now playing, 2 = next, etc.)\n"
-        "!move <from> <to> — Move song from one position to another (1 = now playing)\n"
-        "!shuffle — Shuffle the queue\n"
-        "!repeat — Toggle repeat for current song\n"
-        "!volume <0.1-2.0> — Set playback volume\n"
-        "!lyrics [song name] — Get lyrics for current or given song\n"
-        "!leave — Leave the voice channel\n"
-        "!find or !search <query or URL> - Find songs or list tracks from a URL\n"
-        "!helpme — Show this help message"
+    embed = discord.Embed(
+        title="🎵 Music Bot Commands",
+        description="Complete list of available commands",
+        color=0x2b2d31
     )
-    await ctx.send(msg)
+    
+    # Basic Controls
+    embed.add_field(
+        name="🎮 **Basic Controls**",
+        value=(
+            "`!join` — Join your voice channel\n"
+            "`!play <song/URL>` — Play a song or playlist\n"
+            "`!pause` — Pause playback\n"
+            "`!resume` — Resume playback\n"
+            "`!stop` — Stop and clear queue\n"
+            "`!leave` — Leave voice channel"
+        ),
+        inline=False
+    )
+    
+    # Navigation
+    embed.add_field(
+        name="⏭️ **Navigation**",
+        value=(
+            "`!skip` or `!next` — Skip to next song\n"
+            "`!jump <number>` — Jump to specific song\n"
+            "`!goto <number>` — Alias for jump\n"
+            "`!jumpto <number>` — Another jump alias"
+        ),
+        inline=False
+    )
+    
+    # Queue Management
+    embed.add_field(
+        name="📋 **Queue Management**",
+        value=(
+            "`!queue` or `!q` — Show queue\n"
+            "`!remove <n>` — Remove song at position n\n"
+            "`!move <from> <to>` — Move song position\n"
+            "`!shuffle` — Shuffle the queue\n"
+            "`!repeat` — Toggle repeat current song"
+        ),
+        inline=False
+    )
+    
+    # Other Features
+    embed.add_field(
+        name="🔧 **Other Features**",
+        value=(
+            "`!volume <0.1-2.0>` — Set playback volume\n"
+            "`!lyrics [song]` — Get lyrics\n"
+            "`!find <query>` — Search for songs\n"
+            "`!search <URL>` — List tracks from URL\n"
+            "`!helpme` — Show this help"
+        ),
+        inline=False
+    )
+    
+    embed.set_footer(text="💡 Tip: Use the interactive buttons on the player for quick controls!")
+    await ctx.send(embed=embed)
 
 # --- Song search and selection ---
 @bot.command(aliases=['search'])
