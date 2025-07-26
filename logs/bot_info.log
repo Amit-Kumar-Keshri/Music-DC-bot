@@ -1,0 +1,435 @@
+2025-07-27 00:06:03,488 - INFO - Starting Sandesh Music Bot...
+2025-07-27 00:06:04,664 - INFO - Starting bot setup...
+2025-07-27 00:06:04,682 - INFO - All command modules loaded successfully
+2025-07-27 00:06:04,682 - INFO - Bot setup completed successfully
+2025-07-27 00:06:07,778 - INFO - Bot is ready! Logged in as Neha (1397919621473894470)
+2025-07-27 00:06:07,778 - INFO - Connected to 4 guilds
+2025-07-27 00:06:07,778 - INFO - Serving 295 users
+2025-07-27 00:06:53,312 - INFO - Command used | Guild: funny server (1053223116085673985) | User: itsvirus07#0 (482482011571748864) | Command: play Args: that girl
+2025-07-27 00:07:02,576 - INFO - Audio event: song_resolved | Guild: 0 | Song: That Girl (Official Video) | Amrinder Gill | Dr Zeus | Raj Ranjodh | Judaa 3 | Chapter 2
+2025-07-27 00:07:03,827 - INFO - Audio event: song_started | Guild: 1053223116085673985 | Song: That Girl (Official Video) | Amrinder Gill | Dr Zeus | Raj Ranjodh | Judaa 3 | Chapter 2
+2025-07-27 00:07:06,353 - INFO - Audio event: songs_added | Guild: 1053223116085673985 | Song: 1 songs
+2025-07-27 00:09:28,779 - INFO - Audio event: queue_finished | Guild: 1053223116085673985
+2025-07-27 00:15:28,628 - INFO - Starting enhanced dashboard on http://127.0.0.1:5000
+2025-07-27 00:15:28,957 - INFO - Starting enhanced dashboard on http://127.0.0.1:5000
+2025-07-27 00:15:35,156 - INFO - Dashboard client connected. Total: 1
+2025-07-27 00:15:35,157 - INFO - Dashboard background updates started
+2025-07-27 00:16:25,166 - INFO - Dashboard background updates stopped
+2025-07-27 00:16:25,549 - INFO - Starting enhanced dashboard on http://127.0.0.1:5000
+2025-07-27 00:16:26,671 - INFO - Dashboard client connected. Total: 1
+2025-07-27 00:16:26,672 - INFO - Dashboard background updates started
+2025-07-27 00:16:31,739 - INFO - Dashboard background updates stopped
+2025-07-27 00:16:32,103 - INFO - Starting enhanced dashboard on http://127.0.0.1:5000
+2025-07-27 00:16:32,674 - INFO - Dashboard client connected. Total: 1
+2025-07-27 00:16:32,675 - INFO - Dashboard background updates started
+2025-07-27 00:17:21,650 - INFO - Dashboard client disconnected. Total: 0
+2025-07-27 00:17:21,779 - INFO - Dashboard client connected. Total: 1
+2025-07-27 00:17:22,692 - INFO - Dashboard background updates stopped
+2025-07-27 00:17:39,695 - INFO - Dashboard client disconnected. Total: 0
+2025-07-27 00:17:39,696 - INFO - Dashboard background updates stopped
+2025-07-27 00:17:39,742 - INFO - Dashboard client connected. Total: 1
+2025-07-27 00:17:39,743 - INFO - Dashboard background updates started
+2025-07-27 00:18:39,243 - INFO - Dashboard client disconnected. Total: 0
+2025-07-27 00:18:39,295 - INFO - Dashboard client connected. Total: 1
+2025-07-27 00:18:39,751 - INFO - Dashboard background updates stopped
+2025-07-27 00:19:18,445 - INFO - Dashboard client disconnected. Total: 0
+2025-07-27 00:19:18,445 - INFO - Dashboard background updates stopped
+2025-07-27 00:19:18,502 - INFO - Dashboard client connected. Total: 1
+2025-07-27 00:19:18,503 - INFO - Dashboard background updates started
+2025-07-27 00:21:27,522 - INFO - Command used | Guild: funny server (1053223116085673985) | User: itsvirus07#0 (482482011571748864) | Command: play Args: https://www.youtube.com/watch?v=0NXnRmoILSs&list=RD0NXnRmoILSs&start_radio=1
+2025-07-27 00:27:36,639 - INFO - Command used | Guild: funny server (1053223116085673985) | User: itsvirus07#0 (482482011571748864) | Command: play Args: https://www.youtube.com/watch?v=0NXnRmoILSs&list=RD0NXnRmoILSs&start_radio=1
+2025-07-27 00:28:06,359 - INFO - Bot stopped by user
+2025-07-27 00:28:24,418 - INFO - Dashboard background updates stopped
+2025-07-27 00:28:24,798 - INFO - Starting enhanced dashboard on http://127.0.0.1:5000
+2025-07-27 00:28:25,682 - INFO - Dashboard client connected. Total: 1
+2025-07-27 00:28:25,683 - INFO - Dashboard background updates started
+2025-07-27 00:28:41,549 - INFO - Dashboard background updates stopped
+2025-07-27 00:28:41,919 - INFO - Starting enhanced dashboard on http://127.0.0.1:5000
+2025-07-27 00:28:42,672 - INFO - Dashboard client connected. Total: 1
+2025-07-27 00:28:42,673 - INFO - Dashboard background updates started
+2025-07-27 00:28:52,314 - INFO - Dashboard background updates stopped
+2025-07-27 00:28:52,720 - INFO - Starting enhanced dashboard on http://127.0.0.1:5000
+2025-07-27 00:28:53,681 - INFO - Dashboard client connected. Total: 1
+2025-07-27 00:28:53,682 - INFO - Dashboard background updates started
+2025-07-27 00:29:31,872 - INFO - Starting Sandesh Music Bot...
+2025-07-27 00:29:33,170 - INFO - Starting bot setup...
+2025-07-27 00:29:33,176 - INFO - All command modules loaded successfully
+2025-07-27 00:29:33,176 - INFO - Bot setup completed successfully
+2025-07-27 00:29:36,234 - INFO - Bot is ready! Logged in as Neha (1397919621473894470)
+2025-07-27 00:29:36,234 - INFO - Connected to 4 guilds
+2025-07-27 00:29:36,234 - INFO - Serving 295 users
+2025-07-27 00:29:50,516 - INFO - Command used | Guild: funny server (1053223116085673985) | User: itsvirus07#0 (482482011571748864) | Command: play Args: https://www.youtube.com/watch?v=0NXnRmoILSs&list=RD0NXnRmoILSs&start_radio=1
+2025-07-27 00:31:33,711 - INFO - Dashboard background updates stopped
+2025-07-27 00:31:34,097 - INFO - Starting enhanced dashboard on http://127.0.0.1:5000
+2025-07-27 00:31:35,679 - INFO - Dashboard client connected. Total: 1
+2025-07-27 00:31:35,679 - INFO - Dashboard background updates started
+2025-07-27 00:31:45,692 - INFO - Dashboard background updates stopped
+2025-07-27 00:31:46,117 - INFO - Starting enhanced dashboard on http://127.0.0.1:5000
+2025-07-27 00:31:47,676 - INFO - Dashboard client connected. Total: 1
+2025-07-27 00:31:47,677 - INFO - Dashboard background updates started
+2025-07-27 00:32:17,627 - INFO - Dashboard background updates stopped
+2025-07-27 00:32:18,026 - INFO - Starting enhanced dashboard on http://127.0.0.1:5000
+2025-07-27 00:32:19,675 - INFO - Dashboard client connected. Total: 1
+2025-07-27 00:32:19,676 - INFO - Dashboard background updates started
+2025-07-27 00:32:58,131 - INFO - Command used | Guild: funny server (1053223116085673985) | User: itsvirus07#0 (482482011571748864) | Command: play Args: aje na ja
+2025-07-27 00:33:08,799 - INFO - Audio event: song_resolved | Guild: 0 | Song: Aje Na Jaa - Simran Choudhary | Official Video
+2025-07-27 00:33:08,804 - INFO - Recorded song play: Aje Na Jaa - Simran Choudhary | Official Video in guild 1053223116085673985
+2025-07-27 00:33:09,913 - INFO - Audio event: song_started | Guild: 1053223116085673985 | Song: Aje Na Jaa - Simran Choudhary | Official Video
+2025-07-27 00:33:12,415 - INFO - Audio event: songs_added | Guild: 1053223116085673985 | Song: 1 songs
+2025-07-27 00:33:46,110 - INFO - Command used | Guild: funny server (1053223116085673985) | User: itsvirus07#0 (482482011571748864) | Command: play Args: https://www.youtube.com/watch?v=0NXnRmoILSs&list=RD0NXnRmoILSs&start_radio=1
+2025-07-27 00:34:08,895 - INFO - Command used | Guild: funny server (1053223116085673985) | User: itsvirus07#0 (482482011571748864) | Command: play Args: !p https://www.youtube.com/watch?v=0NXnRmoILSs
+2025-07-27 00:34:18,919 - INFO - Command used | Guild: funny server (1053223116085673985) | User: itsvirus07#0 (482482011571748864) | Command: play Args: !p https://www.youtube.com/watch?v=0NXnRmoILSs
+2025-07-27 00:34:25,766 - INFO - Command used | Guild: funny server (1053223116085673985) | User: itsvirus07#0 (482482011571748864) | Command: play Args: https://www.youtube.com/watch?v=0NXnRmoILSs
+2025-07-27 00:34:34,798 - INFO - Audio event: songs_added | Guild: 1053223116085673985 | Song: 1 songs
+2025-07-27 00:34:39,776 - INFO - Command used | Guild: funny server (1053223116085673985) | User: itsvirus07#0 (482482011571748864) | Command: play Args: https://www.youtube.com/watch?v=0NXnRmoILSs&list=RD0NXnRmoILSs&start_radio=1
+2025-07-27 00:34:49,704 - INFO - Dashboard background updates stopped
+2025-07-27 00:34:50,101 - INFO - Starting enhanced dashboard on http://127.0.0.1:5000
+2025-07-27 00:34:50,674 - INFO - Dashboard client connected. Total: 1
+2025-07-27 00:34:50,675 - INFO - Dashboard background updates started
+2025-07-27 00:34:53,637 - INFO - Dashboard client disconnected. Total: 0
+2025-07-27 00:34:53,644 - ERROR - [dashboard_index] 'dict_items' object is not subscriptable
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Sandesh\dashboard_optimized.py", line 164, in index
+    return render_template('dashboard_enhanced.html', stats=stats)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\templating.py", line 151, in render_template
+    return _render(app, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\templating.py", line 132, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\environment.py", line 1295, in render
+    self.environment.handle_exception()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\environment.py", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "C:\Users\amitk\Documents\Sandesh\templates\dashboard_enhanced.html", line 152, in top-level template code
+    {% for song, count in stats.most_played.items()[:10] %}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: 'dict_items' object is not subscriptable
+2025-07-27 00:34:53,849 - INFO - Dashboard client connected. Total: 1
+2025-07-27 00:34:58,646 - INFO - Dashboard background updates stopped
+2025-07-27 00:35:59,869 - INFO - Audio event: song_resolved | Guild: 0 | Song: Lyrical | Humsafar Song | Saiyaara | Ahaan, Aneet | Sachet Tandon, Parampara Tandon, Irshad Kamil
+2025-07-27 00:36:00,529 - INFO - Recorded song play: Lyrical | Humsafar Song | Saiyaara | Ahaan, Aneet | Sachet Tandon, Parampara Tandon, Irshad Kamil in guild 1053223116085673985
+2025-07-27 00:36:03,833 - INFO - Audio event: song_started | Guild: 1053223116085673985 | Song: Lyrical | Humsafar Song | Saiyaara | Ahaan, Aneet | Sachet Tandon, Parampara Tandon, Irshad Kamil
+2025-07-27 00:40:52,074 - INFO - Starting Sandesh Music Bot...
+2025-07-27 00:40:53,064 - INFO - Starting bot setup...
+2025-07-27 00:40:53,077 - INFO - All command modules loaded successfully
+2025-07-27 00:40:53,077 - INFO - Bot setup completed successfully
+2025-07-27 00:40:56,303 - INFO - Bot is ready! Logged in as Neha (1397919621473894470)
+2025-07-27 00:40:56,303 - INFO - Connected to 4 guilds
+2025-07-27 00:40:56,303 - INFO - Serving 295 users
+2025-07-27 00:40:57,942 - INFO - Starting enhanced dashboard on http://127.0.0.1:5000
+2025-07-27 00:40:58,275 - INFO - Starting enhanced dashboard on http://127.0.0.1:5000
+2025-07-27 00:40:59,674 - INFO - Dashboard client connected. Total: 1
+2025-07-27 00:40:59,675 - INFO - Dashboard background updates started
+2025-07-27 00:41:14,570 - INFO - Command used | Guild: funny server (1053223116085673985) | User: itsvirus07#0 (482482011571748864) | Command: play Args: Metro…In Dino: Zamaana Lage
+2025-07-27 00:41:24,627 - INFO - Audio event: song_resolved | Guild: 0 | Song: Metro…In Dino: Zamaana Lage (Song) | Anurag Basu | Pritam | Arijit Singh, Shashwat S | Bhushan Kumar
+2025-07-27 00:41:24,633 - INFO - Recorded song play: Metro…In Dino: Zamaana Lage (Song) | Anurag Basu | Pritam | Arijit Singh, Shashwat S | Bhushan Kumar in guild 1053223116085673985
+2025-07-27 00:41:25,678 - INFO - Audio event: song_started | Guild: 1053223116085673985 | Song: Metro…In Dino: Zamaana Lage (Song) | Anurag Basu | Pritam | Arijit Singh, Shashwat S | Bhushan Kumar
+2025-07-27 00:41:27,987 - INFO - Audio event: songs_added | Guild: 1053223116085673985 | Song: 1 songs
+2025-07-27 00:41:48,557 - INFO - Command used | Guild: BhaluGang (1208701086458847282) | User: itsvirus07#0 (482482011571748864) | Command: play Args: Metro…In Dino: Zamaana Lage
+2025-07-27 00:41:58,375 - INFO - Audio event: song_resolved | Guild: 0 | Song: Metro…In Dino: Zamaana Lage (Song) | Anurag Basu | Pritam | Arijit Singh, Shashwat S | Bhushan Kumar
+2025-07-27 00:41:58,380 - INFO - Recorded song play: Metro…In Dino: Zamaana Lage (Song) | Anurag Basu | Pritam | Arijit Singh, Shashwat S | Bhushan Kumar in guild 1208701086458847282
+2025-07-27 00:41:59,348 - INFO - Audio event: song_started | Guild: 1208701086458847282 | Song: Metro…In Dino: Zamaana Lage (Song) | Anurag Basu | Pritam | Arijit Singh, Shashwat S | Bhushan Kumar
+2025-07-27 00:42:01,699 - INFO - Audio event: songs_added | Guild: 1208701086458847282 | Song: 1 songs
+2025-07-27 00:42:01,850 - INFO - Dashboard client disconnected. Total: 0
+2025-07-27 00:42:01,864 - ERROR - [dashboard_index] 'dict_items' object is not subscriptable
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\dashboard_optimized.py", line 164, in index
+    return render_template('dashboard_enhanced.html', stats=stats)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\templating.py", line 151, in render_template
+    return _render(app, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\templating.py", line 132, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\environment.py", line 1295, in render
+    self.environment.handle_exception()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\environment.py", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "C:\Users\amitk\Documents\Music Bot\templates\dashboard_enhanced.html", line 152, in top-level template code
+    {% for song, count in stats.most_played.items()[:10] %}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: 'dict_items' object is not subscriptable
+2025-07-27 00:42:01,956 - INFO - Dashboard client connected. Total: 1
+2025-07-27 00:42:06,854 - INFO - Dashboard background updates stopped
+2025-07-27 00:43:31,332 - INFO - Dashboard background updates stopped
+2025-07-27 00:43:31,713 - INFO - Starting enhanced dashboard on http://127.0.0.1:5000
+2025-07-27 00:43:32,679 - INFO - Dashboard client connected. Total: 1
+2025-07-27 00:43:32,680 - INFO - Dashboard background updates started
+2025-07-27 00:43:40,004 - INFO - Dashboard background updates stopped
+2025-07-27 00:43:40,371 - INFO - Starting enhanced dashboard on http://127.0.0.1:5000
+2025-07-27 00:43:41,682 - INFO - Dashboard client connected. Total: 1
+2025-07-27 00:43:41,683 - INFO - Dashboard background updates started
+2025-07-27 00:43:48,643 - INFO - Dashboard background updates stopped
+2025-07-27 00:43:49,010 - INFO - Starting enhanced dashboard on http://127.0.0.1:5000
+2025-07-27 00:43:50,680 - INFO - Dashboard client connected. Total: 1
+2025-07-27 00:43:50,681 - INFO - Dashboard background updates started
+2025-07-27 00:43:57,691 - INFO - Dashboard client disconnected. Total: 0
+2025-07-27 00:44:00,691 - INFO - Dashboard background updates stopped
+2025-07-27 00:44:00,691 - INFO - Dashboard background updates stopped
+2025-07-27 00:44:01,090 - INFO - Starting enhanced dashboard on http://127.0.0.1:5000
+2025-07-27 00:44:01,162 - ERROR - [dashboard_index] 'dict_items' object is not subscriptable
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\dashboard_optimized.py", line 164, in index
+    return render_template('dashboard_enhanced.html', stats=stats)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\templating.py", line 151, in render_template
+    return _render(app, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\templating.py", line 132, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\environment.py", line 1295, in render
+    self.environment.handle_exception()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\environment.py", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "C:\Users\amitk\Documents\Music Bot\templates\dashboard_enhanced.html", line 152, in top-level template code
+    {% for song, count in stats.most_played.items()[:10] %}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: 'dict_items' object is not subscriptable
+2025-07-27 00:44:01,227 - INFO - Dashboard client connected. Total: 1
+2025-07-27 00:44:01,229 - INFO - Dashboard background updates started
+2025-07-27 00:44:09,410 - INFO - Dashboard background updates stopped
+2025-07-27 00:44:09,797 - INFO - Starting enhanced dashboard on http://127.0.0.1:5000
+2025-07-27 00:44:11,681 - INFO - Dashboard client connected. Total: 1
+2025-07-27 00:44:11,686 - INFO - Dashboard background updates started
+2025-07-27 00:44:27,425 - INFO - Audio event: queue_finished | Guild: 1208701086458847282
+2025-07-27 00:44:31,697 - INFO - Dashboard background updates stopped
+2025-07-27 00:44:32,093 - INFO - Starting enhanced dashboard on http://127.0.0.1:5000
+2025-07-27 00:44:33,673 - INFO - Dashboard client connected. Total: 1
+2025-07-27 00:44:33,675 - INFO - Dashboard background updates started
+2025-07-27 00:44:40,371 - INFO - Dashboard background updates stopped
+2025-07-27 00:44:40,752 - INFO - Starting enhanced dashboard on http://127.0.0.1:5000
+2025-07-27 00:44:41,674 - INFO - Dashboard client connected. Total: 1
+2025-07-27 00:44:41,675 - INFO - Dashboard background updates started
+2025-07-27 00:44:43,834 - INFO - Command used | Guild: BhaluGang (1208701086458847282) | User: itsvirus07#0 (482482011571748864) | Command: play Args: dil ka kya
+2025-07-27 00:44:48,680 - INFO - Recorded song play: Metro…In Dino: Zamaana Lage (Song) | Anurag Basu | Pritam | Arijit Singh, Shashwat S | Bhushan Kumar in guild 1208701086458847282
+2025-07-27 00:44:49,036 - INFO - Dashboard background updates stopped
+2025-07-27 00:44:49,439 - INFO - Starting enhanced dashboard on http://127.0.0.1:5000
+2025-07-27 00:44:50,429 - INFO - Audio event: song_started | Guild: 1208701086458847282 | Song: Metro…In Dino: Zamaana Lage (Song) | Anurag Basu | Pritam | Arijit Singh, Shashwat S | Bhushan Kumar
+2025-07-27 00:44:50,672 - INFO - Dashboard client connected. Total: 1
+2025-07-27 00:44:50,673 - INFO - Dashboard background updates started
+2025-07-27 00:44:52,716 - INFO - Audio event: songs_added | Guild: 1208701086458847282 | Song: 1 songs
+2025-07-27 00:44:59,144 - INFO - Audio event: queue_finished | Guild: 1208701086458847282
+2025-07-27 00:45:08,670 - INFO - Dashboard background updates stopped
+2025-07-27 00:45:09,047 - INFO - Starting enhanced dashboard on http://127.0.0.1:5000
+2025-07-27 00:45:09,668 - INFO - Dashboard client connected. Total: 1
+2025-07-27 00:45:09,669 - INFO - Dashboard background updates started
+2025-07-27 00:45:17,334 - INFO - Dashboard background updates stopped
+2025-07-27 00:45:17,713 - INFO - Starting enhanced dashboard on http://127.0.0.1:5000
+2025-07-27 00:45:18,669 - INFO - Dashboard client connected. Total: 1
+2025-07-27 00:45:18,670 - INFO - Dashboard background updates started
+2025-07-27 00:45:38,682 - INFO - Dashboard background updates stopped
+2025-07-27 00:45:39,055 - INFO - Starting enhanced dashboard on http://127.0.0.1:5000
+2025-07-27 00:45:40,667 - INFO - Dashboard client connected. Total: 1
+2025-07-27 00:45:40,668 - INFO - Dashboard background updates started
+2025-07-27 00:45:42,028 - INFO - Command used | Guild: BhaluGang (1208701086458847282) | User: itsvirus07#0 (482482011571748864) | Command: skip
+2025-07-27 00:45:47,344 - INFO - Dashboard background updates stopped
+2025-07-27 00:45:47,730 - INFO - Starting enhanced dashboard on http://127.0.0.1:5000
+2025-07-27 00:45:49,673 - INFO - Dashboard client connected. Total: 1
+2025-07-27 00:45:49,674 - INFO - Dashboard background updates started
+2025-07-27 00:46:01,277 - INFO - Command used | Guild: BhaluGang (1208701086458847282) | User: itsvirus07#0 (482482011571748864) | Command: play Args: mann ye mera
+2025-07-27 00:46:07,923 - INFO - Audio event: song_resolved | Guild: 0 | Song: Metro…In Dino: Dil Ka Kya (Song) | Anurag Basu | Pritam, Raghav Chaitanya, Anurag S | Bhushan Kumar
+2025-07-27 00:46:07,927 - INFO - Recorded song play: Metro…In Dino: Dil Ka Kya (Song) | Anurag Basu | Pritam, Raghav Chaitanya, Anurag S | Bhushan Kumar in guild 1208701086458847282
+2025-07-27 00:46:09,506 - INFO - Audio event: song_started | Guild: 1208701086458847282 | Song: Metro…In Dino: Dil Ka Kya (Song) | Anurag Basu | Pritam, Raghav Chaitanya, Anurag S | Bhushan Kumar
+2025-07-27 00:46:11,809 - INFO - Audio event: songs_added | Guild: 1208701086458847282 | Song: 1 songs
+2025-07-27 00:46:48,835 - INFO - Dashboard background updates stopped
+2025-07-27 00:46:49,230 - INFO - Starting enhanced dashboard on http://127.0.0.1:5000
+2025-07-27 00:46:49,664 - INFO - Dashboard client connected. Total: 1
+2025-07-27 00:46:49,665 - INFO - Dashboard background updates started
+2025-07-27 00:48:49,010 - INFO - Audio event: song_resolved | Guild: 0 | Song: Mann Ye Mera (Full Video) | Vishal Mishra | Metro…In Dino | Pritam | Anurag Basu | Bhushan Kumar
+2025-07-27 00:48:49,015 - INFO - Recorded song play: Mann Ye Mera (Full Video) | Vishal Mishra | Metro…In Dino | Pritam | Anurag Basu | Bhushan Kumar in guild 1208701086458847282
+2025-07-27 00:48:50,914 - INFO - Audio event: song_started | Guild: 1208701086458847282 | Song: Mann Ye Mera (Full Video) | Vishal Mishra | Metro…In Dino | Pritam | Anurag Basu | Bhushan Kumar
+2025-07-27 00:52:19,721 - INFO - Dashboard background updates stopped
+2025-07-27 00:52:20,100 - INFO - Starting enhanced dashboard on http://127.0.0.1:5000
+2025-07-27 00:52:20,668 - INFO - Dashboard client connected. Total: 1
+2025-07-27 00:52:20,669 - INFO - Dashboard background updates started
+2025-07-27 00:52:40,683 - INFO - Dashboard background updates stopped
+2025-07-27 00:52:41,058 - INFO - Starting enhanced dashboard on http://127.0.0.1:5000
+2025-07-27 00:52:42,679 - INFO - Dashboard client connected. Total: 1
+2025-07-27 00:52:42,680 - INFO - Dashboard background updates started
+2025-07-27 00:53:01,799 - INFO - Audio event: queue_finished | Guild: 1208701086458847282
+2025-07-27 00:54:12,703 - INFO - Dashboard background updates stopped
+2025-07-27 00:54:13,091 - INFO - Starting enhanced dashboard on http://127.0.0.1:5000
+2025-07-27 00:54:13,671 - INFO - Dashboard client connected. Total: 1
+2025-07-27 00:54:13,672 - INFO - Dashboard background updates started
+2025-07-27 00:54:53,065 - INFO - Dashboard background updates stopped
+2025-07-27 00:54:53,121 - INFO - Dashboard background updates stopped
+2025-07-27 00:55:57,380 - INFO - Command used | Guild: BhaluGang (1208701086458847282) | User: itsvirus07#0 (482482011571748864) | Command: play Args: Mann ye mera
+2025-07-27 00:56:02,196 - INFO - Recorded song play: Mann Ye Mera (Full Video) | Vishal Mishra | Metro…In Dino | Pritam | Anurag Basu | Bhushan Kumar in guild 1208701086458847282
+2025-07-27 00:56:03,912 - INFO - Audio event: song_started | Guild: 1208701086458847282 | Song: Mann Ye Mera (Full Video) | Vishal Mishra | Metro…In Dino | Pritam | Anurag Basu | Bhushan Kumar
+2025-07-27 00:56:06,270 - INFO - Audio event: songs_added | Guild: 1208701086458847282 | Song: 1 songs
+2025-07-27 00:57:15,749 - INFO - Command used | Guild: BhaluGang (1208701086458847282) | User: itsvirus07#0 (482482011571748864) | Command: play Args: Zamaana Lage
+2025-07-27 00:57:23,209 - INFO - Audio event: songs_added | Guild: 1208701086458847282 | Song: 1 songs
+2025-07-27 00:57:38,133 - INFO - Command used | Guild: BhaluGang (1208701086458847282) | User: itsvirus07#0 (482482011571748864) | Command: play Args: Yaad
+2025-07-27 00:57:45,388 - INFO - Audio event: songs_added | Guild: 1208701086458847282 | Song: 1 songs
+2025-07-27 00:57:46,237 - INFO - Command used | Guild: BhaluGang (1208701086458847282) | User: itsvirus07#0 (482482011571748864) | Command: play Args: Qayde Se
+2025-07-27 00:57:53,292 - INFO - Audio event: songs_added | Guild: 1208701086458847282 | Song: 1 songs
+2025-07-27 00:57:53,785 - INFO - Command used | Guild: BhaluGang (1208701086458847282) | User: itsvirus07#0 (482482011571748864) | Command: play Args: Mausam
+2025-07-27 00:58:01,013 - INFO - Audio event: songs_added | Guild: 1208701086458847282 | Song: 1 songs
+2025-07-27 01:00:16,845 - INFO - Audio event: song_resolved | Guild: 0 | Song: Mann Ye Mera (Full Video) | Vishal Mishra | Metro…In Dino | Pritam | Anurag Basu | Bhushan Kumar
+2025-07-27 01:00:16,849 - INFO - Recorded song play: Mann Ye Mera (Full Video) | Vishal Mishra | Metro…In Dino | Pritam | Anurag Basu | Bhushan Kumar in guild 1208701086458847282
+2025-07-27 01:00:19,554 - INFO - Audio event: song_started | Guild: 1208701086458847282 | Song: Mann Ye Mera (Full Video) | Vishal Mishra | Metro…In Dino | Pritam | Anurag Basu | Bhushan Kumar
+2025-07-27 01:01:21,168 - INFO - Audio event: song_resolved | Guild: 0 | Song: Yaad (Lyrical Video): Papon | Metro...In Dino | Pritam | Anurag Basu | Momin Khan Momin | Bhushan K
+2025-07-27 01:01:21,173 - INFO - Recorded song play: Yaad (Lyrical Video): Papon | Metro...In Dino | Pritam | Anurag Basu | Momin Khan Momin | Bhushan K in guild 1208701086458847282
+2025-07-27 01:01:23,267 - INFO - Audio event: song_started | Guild: 1208701086458847282 | Song: Yaad (Lyrical Video): Papon | Metro...In Dino | Pritam | Anurag Basu | Momin Khan Momin | Bhushan K
+2025-07-27 01:01:41,890 - INFO - Recorded song play: Yaad (Lyrical Video): Papon | Metro...In Dino | Pritam | Anurag Basu | Momin Khan Momin | Bhushan K in guild 1208701086458847282
+2025-07-27 01:01:45,285 - INFO - Audio event: song_started | Guild: 1208701086458847282 | Song: Yaad (Lyrical Video): Papon | Metro...In Dino | Pritam | Anurag Basu | Momin Khan Momin | Bhushan K
+2025-07-27 01:01:45,890 - INFO - Audio event: song_resolved | Guild: 0 | Song: Zamaana Lage (Full Video) | Arijit Singh | Metro…In Dino | Pritam | Shashwat | Anurag B | Bhushan K
+2025-07-27 01:01:45,893 - ERROR - [play_current_song] Already playing audio. | Additional info: {'guild_id': 1208701086458847282}
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 454, in play_current_song
+    ctx.voice_client.play(source, after=after_playing)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 500, in play
+    raise ClientException('Already playing audio.')
+discord.errors.ClientException: Already playing audio.
+2025-07-27 01:01:50,141 - INFO - Audio event: song_resolved | Guild: 0 | Song: Qayde Se - Reprise (Full Video) | Shilpa Rao | Metro…In Dino | Pritam | Amitabh B | Bhushan Kumar
+2025-07-27 01:01:50,144 - ERROR - [play_current_song] Already playing audio. | Additional info: {'guild_id': 1208701086458847282}
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 454, in play_current_song
+    ctx.voice_client.play(source, after=after_playing)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 500, in play
+    raise ClientException('Already playing audio.')
+discord.errors.ClientException: Already playing audio.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 454, in play_current_song
+    ctx.voice_client.play(source, after=after_playing)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 500, in play
+    raise ClientException('Already playing audio.')
+discord.errors.ClientException: Already playing audio.
+2025-07-27 01:01:54,282 - INFO - Audio event: song_resolved | Guild: 0 | Song: Mausam (Full Video) | Arijit Singh | Metro...In Dino | Pritam | Anurag Basu | Sandeep S | Bhushan K
+2025-07-27 01:01:54,286 - ERROR - [play_current_song] Already playing audio. | Additional info: {'guild_id': 1208701086458847282}
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 454, in play_current_song
+    ctx.voice_client.play(source, after=after_playing)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 500, in play
+    raise ClientException('Already playing audio.')
+discord.errors.ClientException: Already playing audio.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 454, in play_current_song
+    ctx.voice_client.play(source, after=after_playing)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 500, in play
+    raise ClientException('Already playing audio.')
+discord.errors.ClientException: Already playing audio.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 454, in play_current_song
+    ctx.voice_client.play(source, after=after_playing)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 500, in play
+    raise ClientException('Already playing audio.')
+discord.errors.ClientException: Already playing audio.
+2025-07-27 01:01:56,968 - INFO - Audio event: queue_finished | Guild: 1208701086458847282
+2025-07-27 01:02:04,603 - INFO - Recorded song play: Qayde Se - Reprise (Full Video) | Shilpa Rao | Metro…In Dino | Pritam | Amitabh B | Bhushan Kumar in guild 1208701086458847282
+2025-07-27 01:02:04,612 - ERROR - [play_current_song] Already playing audio. | Additional info: {'guild_id': 1208701086458847282}
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 454, in play_current_song
+    ctx.voice_client.play(source, after=after_playing)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 500, in play
+    raise ClientException('Already playing audio.')
+discord.errors.ClientException: Already playing audio.
+2025-07-27 01:02:06,402 - INFO - Audio event: song_started | Guild: 1208701086458847282 | Song: Qayde Se - Reprise (Full Video) | Shilpa Rao | Metro…In Dino | Pritam | Amitabh B | Bhushan Kumar
+2025-07-27 01:02:07,529 - INFO - Audio event: queue_finished | Guild: 1208701086458847282
+2025-07-27 01:02:19,221 - INFO - Recorded song play: Qayde Se - Reprise (Full Video) | Shilpa Rao | Metro…In Dino | Pritam | Amitabh B | Bhushan Kumar in guild 1208701086458847282
+2025-07-27 01:02:19,224 - ERROR - [play_current_song] Already playing audio. | Additional info: {'guild_id': 1208701086458847282}
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 454, in play_current_song
+    ctx.voice_client.play(source, after=after_playing)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 500, in play
+    raise ClientException('Already playing audio.')
+discord.errors.ClientException: Already playing audio.
+2025-07-27 01:02:21,742 - INFO - Audio event: song_started | Guild: 1208701086458847282 | Song: Qayde Se - Reprise (Full Video) | Shilpa Rao | Metro…In Dino | Pritam | Amitabh B | Bhushan Kumar
+2025-07-27 01:02:25,693 - INFO - Audio event: queue_finished | Guild: 1208701086458847282
+2025-07-27 01:02:28,792 - INFO - Command used | Guild: BhaluGang (1208701086458847282) | User: itsvirus07#0 (482482011571748864) | Command: jump Args: 5
+2025-07-27 01:02:28,797 - INFO - Recorded song play: Zamaana Lage (Full Video) | Arijit Singh | Metro…In Dino | Pritam | Shashwat | Anurag B | Bhushan K in guild 1208701086458847282
+2025-07-27 01:02:28,802 - ERROR - [play_current_song] Already playing audio. | Additional info: {'guild_id': 1208701086458847282}
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 454, in play_current_song
+    ctx.voice_client.play(source, after=after_playing)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 500, in play
+    raise ClientException('Already playing audio.')
+discord.errors.ClientException: Already playing audio.
+2025-07-27 01:02:29,263 - ERROR - [play_current_song] Already playing audio. | Additional info: {'guild_id': 1208701086458847282}
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 454, in play_current_song
+    ctx.voice_client.play(source, after=after_playing)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 500, in play
+    raise ClientException('Already playing audio.')
+discord.errors.ClientException: Already playing audio.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 454, in play_current_song
+    ctx.voice_client.play(source, after=after_playing)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 500, in play
+    raise ClientException('Already playing audio.')
+discord.errors.ClientException: Already playing audio.
+2025-07-27 01:02:29,719 - ERROR - [play_current_song] Already playing audio. | Additional info: {'guild_id': 1208701086458847282}
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 454, in play_current_song
+    ctx.voice_client.play(source, after=after_playing)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 500, in play
+    raise ClientException('Already playing audio.')
+discord.errors.ClientException: Already playing audio.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 454, in play_current_song
+    ctx.voice_client.play(source, after=after_playing)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 500, in play
+    raise ClientException('Already playing audio.')
+discord.errors.ClientException: Already playing audio.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 454, in play_current_song
+    ctx.voice_client.play(source, after=after_playing)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 500, in play
+    raise ClientException('Already playing audio.')
+discord.errors.ClientException: Already playing audio.
+2025-07-27 01:02:30,651 - INFO - Audio event: song_started | Guild: 1208701086458847282 | Song: Zamaana Lage (Full Video) | Arijit Singh | Metro…In Dino | Pritam | Shashwat | Anurag B | Bhushan K
+2025-07-27 01:02:31,184 - INFO - Audio event: jumped_to_song | Guild: 1208701086458847282 | Song: Zamaana Lage (Full Video) | Arijit Singh | Metro…In Dino | Pritam | Shashwat | Anurag B | Bhushan K
+2025-07-27 01:02:35,679 - INFO - Audio event: queue_finished | Guild: 1208701086458847282
+2025-07-27 01:03:45,144 - INFO - Command used | Guild: BhaluGang (1208701086458847282) | User: bigbeesnase#0 (494299073487175690) | Command: skip
+2025-07-27 01:03:45,755 - INFO - Audio event: skipped | Guild: 1208701086458847282
+2025-07-27 01:03:47,123 - INFO - Audio event: queue_finished | Guild: 1208701086458847282
+2025-07-27 01:04:07,219 - INFO - Command used | Guild: BhaluGang (1208701086458847282) | User: bigbeesnase#0 (494299073487175690) | Command: jump Args: 6
+2025-07-27 01:04:07,224 - INFO - Recorded song play: Yaad (Lyrical Video): Papon | Metro...In Dino | Pritam | Anurag Basu | Momin Khan Momin | Bhushan K in guild 1208701086458847282
+2025-07-27 01:04:09,090 - INFO - Audio event: song_started | Guild: 1208701086458847282 | Song: Yaad (Lyrical Video): Papon | Metro...In Dino | Pritam | Anurag Basu | Momin Khan Momin | Bhushan K
+2025-07-27 01:04:09,562 - INFO - Audio event: jumped_to_song | Guild: 1208701086458847282 | Song: Yaad (Lyrical Video): Papon | Metro...In Dino | Pritam | Anurag Basu | Momin Khan Momin | Bhushan K
+2025-07-27 01:04:33,957 - INFO - Starting enhanced dashboard on http://127.0.0.1:5000
+2025-07-27 01:04:34,298 - INFO - Starting enhanced dashboard on http://127.0.0.1:5000
+2025-07-27 01:04:45,712 - ERROR - [dashboard_index] 'dict_items' object is not subscriptable
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\dashboard.py", line 164, in index
+    return render_template('dashboard_enhanced.html', stats=stats)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\templating.py", line 151, in render_template
+    return _render(app, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\templating.py", line 132, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\environment.py", line 1295, in render
+    self.environment.handle_exception()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\environment.py", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "C:\Users\amitk\Documents\Music Bot\templates\dashboard_enhanced.html", line 152, in top-level template code
+    {% for song, count in stats.most_played.items()[:10] %}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: 'dict_items' object is not subscriptable
+2025-07-27 01:04:45,911 - INFO - Dashboard client connected. Total: 1
+2025-07-27 01:04:45,913 - INFO - Dashboard background updates started
+2025-07-27 01:06:55,706 - INFO - Dashboard background updates stopped

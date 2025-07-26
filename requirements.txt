@@ -1,6 +1,35 @@
-discord.py[voice]
-yt-dlp
-python-dotenv
-Flask
-spotipy
-gunicorn 
+# Core Discord Bot Dependencies (Windows Compatible)
+# This version has uvloop removed for Windows compatibility
+discord.py[voice]>=2.3.0
+yt-dlp>=2023.7.6
+python-dotenv>=1.0.0
+
+# Audio Processing
+PyNaCl>=1.5.0
+
+# Music Service Integration
+spotipy>=2.22.1
+
+# Web Dashboard
+Flask>=2.3.2
+Flask-SocketIO>=5.3.4
+gunicorn>=21.2.0
+
+
+# System Monitoring (Optional)
+psutil>=5.9.5
+
+# Async Support (Built into Python 3.7+)
+# asyncio  # No need to install, built into Python
+
+# Data Processing
+requests>=2.31.0
+
+# Development & Testing (Optional)
+pytest>=7.4.0
+pytest-asyncio>=0.21.1
+black>=23.7.0
+flake8>=6.0.0
+
+# Production Deployment (Unix only)
+# uvloop>=0.17.0  # Better event loop for Unix systems (not supported on Windows) 

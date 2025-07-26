@@ -1,6 +1,6 @@
-# Sandesh Music Bot
+# Music Bot
 
-Sandesh is a feature-rich Discord music bot built with Python, `discord.py`, and `yt-dlp`. It provides an intuitive music experience with **persistent interactive UI**, advanced queue management, and seamless playback across multiple Discord servers simultaneously. The bot features modern UI controls, smart navigation, and comprehensive music management capabilities.
+Music Bot is a feature-rich Discord music bot built with Python, `discord.py`, and `yt-dlp`. It provides an intuitive music experience with **persistent interactive UI**, advanced queue management, and seamless playback across multiple Discord servers simultaneously. The bot features modern UI controls, smart navigation, and comprehensive music management capabilities.
 
 ## ✨ Key Features
 
@@ -110,7 +110,7 @@ Please refer to the official documentation for `FFmpeg` and `yt-dlp` installatio
 1.  **Clone the repository:**
     ```sh
     git clone https://github.com/Amit-Kumar-Keshri/Music-DC-bot.git
-    cd sandesh-music-bot
+    cd music-bot
     ```
 
 2.  **Install Python dependencies:**
@@ -260,4 +260,4 @@ This project is open source and available under the [MIT License](LICENSE).
 
 ## 🎵 Enjoy Your Music!
 
-Sandesh provides a premium Discord music experience with modern UI, intelligent controls, and seamless playback. Perfect for communities that love music! 🎶 
+Music Bot provides a premium Discord music experience with modern UI, intelligent controls, and seamless playback. Perfect for communities that love music! 🎶 

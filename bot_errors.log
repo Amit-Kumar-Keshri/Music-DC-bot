@@ -10469,3 +10469,623 @@ discord.ext.commands.errors.MissingRequiredArgument: to_idx is a required argume
 2025-07-25 22:38:29,562 INFO The voice handshake is being terminated for Channel ID 677137347246293004 (Guild ID 677137346818342964)
 2025-07-25 22:38:35,823 INFO logging in using static token
 2025-07-25 22:38:37,590 INFO Shard ID None has connected to Gateway (Session ID: b645b81856fa735246915b745d72ea69).
+2025-07-26 00:29:07,562 INFO Connecting to voice...
+2025-07-26 00:29:07,563 INFO Starting voice handshake... (connection attempt 1)
+2025-07-26 00:29:08,110 INFO Voice handshake complete. Endpoint found: singapore11147.discord.media
+2025-07-26 00:29:08,926 INFO Voice connection complete.
+2025-07-26 00:34:38,628 INFO ffmpeg process 14832 successfully terminated with return code of 0.
+2025-07-26 00:38:26,388 INFO ffmpeg process 348 successfully terminated with return code of 0.
+2025-07-26 00:42:04,800 INFO ffmpeg process 19832 has not terminated. Waiting to terminate...
+2025-07-26 00:42:04,802 INFO ffmpeg process 19832 should have terminated with a return code of 1.
+2025-07-26 00:43:48,318 INFO ffmpeg process 14236 has not terminated. Waiting to terminate...
+2025-07-26 00:43:48,320 INFO ffmpeg process 14236 should have terminated with a return code of 1.
+2025-07-26 00:45:49,388 INFO ffmpeg process 14348 has not terminated. Waiting to terminate...
+2025-07-26 00:45:49,391 INFO ffmpeg process 14348 should have terminated with a return code of 1.
+2025-07-26 00:47:04,906 INFO ffmpeg process 13208 has not terminated. Waiting to terminate...
+2025-07-26 00:47:04,909 INFO ffmpeg process 13208 should have terminated with a return code of 1.
+2025-07-26 00:50:41,805 INFO Shard ID None has successfully RESUMED session b645b81856fa735246915b745d72ea69.
+2025-07-26 00:51:09,722 INFO ffmpeg process 4596 successfully terminated with return code of 0.
+2025-07-26 00:56:20,492 INFO ffmpeg process 12540 successfully terminated with return code of 0.
+2025-07-26 01:00:43,173 INFO ffmpeg process 2336 successfully terminated with return code of 0.
+2025-07-26 01:04:59,493 INFO ffmpeg process 18148 successfully terminated with return code of 0.
+2025-07-26 01:09:02,607 INFO ffmpeg process 13980 successfully terminated with return code of 0.
+2025-07-26 01:13:52,023 INFO ffmpeg process 21240 successfully terminated with return code of 0.
+2025-07-26 01:18:55,132 INFO ffmpeg process 10284 successfully terminated with return code of 0.
+2025-07-26 01:23:20,573 INFO ffmpeg process 6132 successfully terminated with return code of 0.
+2025-07-26 01:26:49,077 INFO ffmpeg process 684 successfully terminated with return code of 0.
+2025-07-26 01:32:05,712 INFO ffmpeg process 19820 successfully terminated with return code of 0.
+2025-07-26 01:36:22,993 INFO ffmpeg process 14476 successfully terminated with return code of 0.
+2025-07-26 01:41:57,303 INFO ffmpeg process 20344 successfully terminated with return code of 0.
+2025-07-26 01:47:34,750 INFO ffmpeg process 20920 successfully terminated with return code of 0.
+2025-07-26 01:51:37,270 INFO ffmpeg process 10908 successfully terminated with return code of 0.
+2025-07-26 01:55:52,991 INFO ffmpeg process 19416 successfully terminated with return code of 0.
+2025-07-26 02:01:50,943 INFO ffmpeg process 20148 successfully terminated with return code of 0.
+2025-07-26 02:05:25,672 INFO ffmpeg process 18708 successfully terminated with return code of 0.
+2025-07-26 02:10:08,530 INFO ffmpeg process 21376 successfully terminated with return code of 0.
+2025-07-26 02:16:12,199 INFO ffmpeg process 1420 successfully terminated with return code of 0.
+2025-07-26 02:21:37,366 INFO ffmpeg process 18624 successfully terminated with return code of 0.
+2025-07-26 02:26:48,540 INFO Shard ID None has successfully RESUMED session b645b81856fa735246915b745d72ea69.
+2025-07-26 02:26:50,373 INFO ffmpeg process 12684 successfully terminated with return code of 0.
+2025-07-26 02:32:28,546 INFO ffmpeg process 20628 successfully terminated with return code of 0.
+2025-07-26 02:36:30,647 INFO ffmpeg process 1324 successfully terminated with return code of 0.
+2025-07-26 02:41:04,458 INFO ffmpeg process 2648 successfully terminated with return code of 0.
+2025-07-26 02:47:36,624 INFO ffmpeg process 14488 has not terminated. Waiting to terminate...
+2025-07-26 02:47:36,627 INFO ffmpeg process 14488 should have terminated with a return code of 1.
+2025-07-26 02:49:36,396 ERROR Disconnected from voice... Reconnecting in 1.38s.
+Traceback (most recent call last):
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_state.py", line 598, in _poll_voice_ws
+    await self.ws.poll_event()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\gateway.py", line 1039, in poll_event
+    raise ConnectionClosed(self.ws, shard_id=None, code=self._close_code)
+discord.errors.ConnectionClosed: Shard ID None WebSocket closed with 1006
+2025-07-26 02:49:37,793 INFO The voice handshake is being terminated for Channel ID 1208701086949576717 (Guild ID 1208701086458847282)
+2025-07-26 02:49:37,793 INFO Connecting to voice...
+2025-07-26 02:49:37,793 INFO Starting voice handshake... (connection attempt 1)
+2025-07-26 02:49:45,564 INFO Shard ID None has successfully RESUMED session b645b81856fa735246915b745d72ea69.
+2025-07-26 02:50:12,117 ERROR [play_next] Not connected to voice.
+2025-07-26 02:50:12,117 WARNING Could not connect to voice... Retrying...
+2025-07-26 02:50:17,998 ERROR [play_next] Not connected to voice.
+2025-07-26 02:50:23,016 ERROR [play_next] Not connected to voice.
+2025-07-26 02:50:27,889 ERROR [play_next] Not connected to voice.
+2025-07-26 02:50:32,842 ERROR [play_next] Not connected to voice.
+2025-07-26 02:50:37,633 ERROR [play_next] Not connected to voice.
+2025-07-26 02:50:42,319 ERROR [play_next] Not connected to voice.
+2025-07-26 02:50:47,247 ERROR [play_next] Not connected to voice.
+2025-07-26 02:50:52,381 ERROR [play_next] Not connected to voice.
+2025-07-26 02:50:56,969 ERROR [play_next] Not connected to voice.
+2025-07-26 02:51:01,707 ERROR [play_next] Not connected to voice.
+2025-07-26 02:51:07,433 ERROR [play_next] Not connected to voice.
+2025-07-26 02:51:12,243 ERROR [play_next] Not connected to voice.
+2025-07-26 02:51:16,834 ERROR [play_next] Not connected to voice.
+2025-07-26 02:51:21,314 ERROR [play_next] Not connected to voice.
+2025-07-26 02:51:25,797 ERROR [play_next] Not connected to voice.
+2025-07-26 02:51:30,357 ERROR [play_next] Not connected to voice.
+2025-07-26 02:51:35,085 ERROR [play_next] Not connected to voice.
+2025-07-26 02:51:39,868 ERROR [play_next] Not connected to voice.
+2025-07-26 02:51:44,619 ERROR [play_next] Not connected to voice.
+2025-07-26 02:51:49,172 ERROR [play_next] Not connected to voice.
+2025-07-26 02:51:54,063 ERROR [play_next] Not connected to voice.
+2025-07-26 02:51:59,090 ERROR [play_next] Not connected to voice.
+2025-07-26 02:52:03,518 ERROR [play_next] Not connected to voice.
+2025-07-26 02:52:08,186 ERROR [play_next] Not connected to voice.
+2025-07-26 02:52:12,795 ERROR [play_next] Not connected to voice.
+2025-07-26 02:52:17,571 ERROR [play_next] Not connected to voice.
+2025-07-26 02:52:22,504 ERROR [play_next] Not connected to voice.
+2025-07-26 02:52:27,346 ERROR [play_next] Not connected to voice.
+2025-07-26 02:52:31,887 ERROR [play_next] Not connected to voice.
+2025-07-26 02:52:36,747 ERROR [play_next] Not connected to voice.
+2025-07-26 02:52:41,577 ERROR [play_next] Not connected to voice.
+2025-07-26 02:52:46,568 ERROR [play_next] Not connected to voice.
+2025-07-26 02:52:51,447 ERROR [play_next] Not connected to voice.
+2025-07-26 02:52:55,976 ERROR [play_next] Not connected to voice.
+2025-07-26 02:53:00,910 ERROR [play_next] Not connected to voice.
+2025-07-26 02:53:05,717 ERROR [play_next] Not connected to voice.
+2025-07-26 02:53:10,654 ERROR [play_next] Not connected to voice.
+2025-07-26 02:53:15,413 ERROR [play_next] Not connected to voice.
+2025-07-26 02:53:20,454 ERROR [play_next] Not connected to voice.
+2025-07-26 02:53:25,533 ERROR [play_next] Not connected to voice.
+2025-07-26 02:53:30,594 ERROR [play_next] Not connected to voice.
+2025-07-26 02:53:35,571 ERROR [play_next] Not connected to voice.
+2025-07-26 02:53:40,490 ERROR [play_next] Not connected to voice.
+2025-07-26 02:53:45,187 ERROR [play_next] Not connected to voice.
+2025-07-26 02:53:50,177 ERROR [play_next] Not connected to voice.
+2025-07-26 02:53:54,762 ERROR [play_next] Not connected to voice.
+2025-07-26 02:53:59,910 ERROR [play_next] Not connected to voice.
+2025-07-26 02:54:05,059 ERROR [play_next] Not connected to voice.
+2025-07-26 02:54:09,681 ERROR [play_next] Not connected to voice.
+2025-07-26 02:54:15,699 ERROR [play_next] Not connected to voice.
+2025-07-26 02:54:20,343 ERROR [play_next] Not connected to voice.
+2025-07-26 02:54:25,433 ERROR [play_next] Not connected to voice.
+2025-07-26 02:54:30,407 ERROR [play_next] Not connected to voice.
+2025-07-26 02:54:35,222 ERROR [play_next] Not connected to voice.
+2025-07-26 02:54:40,346 ERROR [play_next] Not connected to voice.
+2025-07-26 02:54:45,219 ERROR [play_next] Not connected to voice.
+2025-07-26 02:54:50,090 ERROR [play_next] Not connected to voice.
+2025-07-26 02:54:54,792 ERROR [play_next] Not connected to voice.
+2025-07-26 02:54:59,515 ERROR [play_next] Not connected to voice.
+2025-07-26 02:55:04,063 ERROR [play_next] Not connected to voice.
+2025-07-26 02:55:08,994 ERROR [play_next] Not connected to voice.
+2025-07-26 02:55:13,573 ERROR [play_next] Not connected to voice.
+2025-07-26 02:55:18,095 ERROR [play_next] Not connected to voice.
+2025-07-26 02:55:22,602 ERROR [play_next] Not connected to voice.
+2025-07-26 02:55:27,139 ERROR [play_next] Not connected to voice.
+2025-07-26 02:55:32,032 ERROR [play_next] Not connected to voice.
+2025-07-26 02:55:37,293 ERROR [play_next] Not connected to voice.
+2025-07-26 02:55:41,901 ERROR [play_next] Not connected to voice.
+2025-07-26 02:55:46,485 ERROR [play_next] Not connected to voice.
+2025-07-26 02:55:51,296 ERROR [play_next] Not connected to voice.
+2025-07-26 02:55:55,906 ERROR [play_next] Not connected to voice.
+2025-07-26 02:56:00,827 ERROR [play_next] Not connected to voice.
+2025-07-26 02:56:05,730 ERROR [play_next] Not connected to voice.
+2025-07-26 02:56:11,350 ERROR [play_next] Not connected to voice.
+2025-07-26 02:56:16,209 ERROR [play_next] Not connected to voice.
+2025-07-26 02:56:22,550 ERROR [play_next] Not connected to voice.
+2025-07-26 02:56:27,057 ERROR [play_next] Not connected to voice.
+2025-07-26 02:56:32,071 ERROR [play_next] Not connected to voice.
+2025-07-26 02:56:36,561 ERROR [play_next] Not connected to voice.
+2025-07-26 02:56:41,304 ERROR [play_next] Not connected to voice.
+2025-07-26 02:56:46,233 ERROR [play_next] Not connected to voice.
+2025-07-26 02:56:51,332 ERROR [play_next] Not connected to voice.
+2025-07-26 02:56:56,701 ERROR [play_next] Not connected to voice.
+2025-07-26 02:57:01,757 ERROR [play_next] Not connected to voice.
+2025-07-26 02:57:05,701 ERROR [play_next] Not connected to voice.
+2025-07-26 02:57:09,895 ERROR [play_next] Not connected to voice.
+2025-07-26 02:57:13,970 ERROR [play_next] Not connected to voice.
+2025-07-26 02:57:17,666 ERROR [play_next] Not connected to voice.
+2025-07-26 02:57:21,489 ERROR [play_next] Not connected to voice.
+2025-07-26 02:57:21,872 INFO The voice handshake is being terminated for Channel ID 1208701086949576717 (Guild ID 1208701086458847282)
+2025-07-26 19:00:30,837 INFO logging in using static token
+2025-07-26 19:00:34,071 INFO Shard ID None has connected to Gateway (Session ID: d38578173541870e5cb845d1db8ceea0).
+2025-07-26 19:17:42,044 INFO logging in using static token
+2025-07-26 19:17:43,969 INFO Shard ID None has connected to Gateway (Session ID: f937d2a8161f02d84a10dc845f0ede1a).
+2025-07-26 21:38:07,951 INFO Shard ID None has successfully RESUMED session f937d2a8161f02d84a10dc845f0ede1a.
+2025-07-26 22:45:08,739 ERROR Attempting a reconnect in 0.87s
+Traceback (most recent call last):
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\aiohttp\connector.py", line 1173, in _create_direct_connection
+    hosts = await asyncio.shield(host_resolved)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\aiohttp\connector.py", line 884, in _resolve_host
+    addrs = await self._resolver.resolve(host, port, family=self._family)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\aiohttp\resolver.py", line 33, in resolve
+    infos = await self._loop.getaddrinfo(
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py", line 878, in getaddrinfo
+    return await self.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\concurrent\futures\thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\socket.py", line 963, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+socket.gaierror: [Errno 11004] getaddrinfo failed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\client.py", line 701, in connect
+    self.ws = await asyncio.wait_for(coro, timeout=60.0)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\tasks.py", line 510, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\gateway.py", line 375, in from_client
+    socket = await client.http.ws_connect(str(url))
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\http.py", line 554, in ws_connect
+    return await self.__session.ws_connect(url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\aiohttp\client.py", line 832, in _ws_connect
+    resp = await self.request(
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\aiohttp\client.py", line 578, in _request
+    conn = await self._connector.connect(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\aiohttp\connector.py", line 544, in connect
+    proto = await self._create_connection(req, traces, timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\aiohttp\connector.py", line 911, in _create_connection
+    _, proto = await self._create_direct_connection(req, traces, timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\aiohttp\connector.py", line 1187, in _create_direct_connection
+    raise ClientConnectorError(req.connection_key, exc) from exc
+aiohttp.client_exceptions.ClientConnectorError: Cannot connect to host gateway-us-east1-b.discord.gg:443 ssl:default [getaddrinfo failed]
+2025-07-26 22:45:09,626 ERROR Attempting a reconnect in 1.12s
+Traceback (most recent call last):
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\aiohttp\connector.py", line 1173, in _create_direct_connection
+    hosts = await asyncio.shield(host_resolved)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\aiohttp\connector.py", line 884, in _resolve_host
+    addrs = await self._resolver.resolve(host, port, family=self._family)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\aiohttp\resolver.py", line 33, in resolve
+    infos = await self._loop.getaddrinfo(
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py", line 878, in getaddrinfo
+    return await self.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\concurrent\futures\thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\socket.py", line 963, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+socket.gaierror: [Errno 11004] getaddrinfo failed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\client.py", line 701, in connect
+    self.ws = await asyncio.wait_for(coro, timeout=60.0)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\tasks.py", line 510, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\gateway.py", line 375, in from_client
+    socket = await client.http.ws_connect(str(url))
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\http.py", line 554, in ws_connect
+    return await self.__session.ws_connect(url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\aiohttp\client.py", line 832, in _ws_connect
+    resp = await self.request(
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\aiohttp\client.py", line 578, in _request
+    conn = await self._connector.connect(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\aiohttp\connector.py", line 544, in connect
+    proto = await self._create_connection(req, traces, timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\aiohttp\connector.py", line 911, in _create_connection
+    _, proto = await self._create_direct_connection(req, traces, timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\aiohttp\connector.py", line 1187, in _create_direct_connection
+    raise ClientConnectorError(req.connection_key, exc) from exc
+aiohttp.client_exceptions.ClientConnectorError: Cannot connect to host gateway-us-east1-b.discord.gg:443 ssl:default [getaddrinfo failed]
+2025-07-26 22:45:10,765 ERROR Attempting a reconnect in 2.98s
+Traceback (most recent call last):
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\aiohttp\connector.py", line 1173, in _create_direct_connection
+    hosts = await asyncio.shield(host_resolved)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\aiohttp\connector.py", line 884, in _resolve_host
+    addrs = await self._resolver.resolve(host, port, family=self._family)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\aiohttp\resolver.py", line 33, in resolve
+    infos = await self._loop.getaddrinfo(
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py", line 878, in getaddrinfo
+    return await self.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\concurrent\futures\thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\socket.py", line 963, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+socket.gaierror: [Errno 11004] getaddrinfo failed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\client.py", line 701, in connect
+    self.ws = await asyncio.wait_for(coro, timeout=60.0)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\tasks.py", line 510, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\gateway.py", line 375, in from_client
+    socket = await client.http.ws_connect(str(url))
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\http.py", line 554, in ws_connect
+    return await self.__session.ws_connect(url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\aiohttp\client.py", line 832, in _ws_connect
+    resp = await self.request(
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\aiohttp\client.py", line 578, in _request
+    conn = await self._connector.connect(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\aiohttp\connector.py", line 544, in connect
+    proto = await self._create_connection(req, traces, timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\aiohttp\connector.py", line 911, in _create_connection
+    _, proto = await self._create_direct_connection(req, traces, timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\aiohttp\connector.py", line 1187, in _create_direct_connection
+    raise ClientConnectorError(req.connection_key, exc) from exc
+aiohttp.client_exceptions.ClientConnectorError: Cannot connect to host gateway-us-east1-b.discord.gg:443 ssl:default [getaddrinfo failed]
+2025-07-26 22:45:13,762 ERROR Attempting a reconnect in 4.63s
+Traceback (most recent call last):
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\aiohttp\connector.py", line 1173, in _create_direct_connection
+    hosts = await asyncio.shield(host_resolved)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\aiohttp\connector.py", line 884, in _resolve_host
+    addrs = await self._resolver.resolve(host, port, family=self._family)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\aiohttp\resolver.py", line 33, in resolve
+    infos = await self._loop.getaddrinfo(
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py", line 878, in getaddrinfo
+    return await self.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\concurrent\futures\thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\socket.py", line 963, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+socket.gaierror: [Errno 11004] getaddrinfo failed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\client.py", line 701, in connect
+    self.ws = await asyncio.wait_for(coro, timeout=60.0)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\tasks.py", line 510, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\gateway.py", line 375, in from_client
+    socket = await client.http.ws_connect(str(url))
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\http.py", line 554, in ws_connect
+    return await self.__session.ws_connect(url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\aiohttp\client.py", line 832, in _ws_connect
+    resp = await self.request(
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\aiohttp\client.py", line 578, in _request
+    conn = await self._connector.connect(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\aiohttp\connector.py", line 544, in connect
+    proto = await self._create_connection(req, traces, timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\aiohttp\connector.py", line 911, in _create_connection
+    _, proto = await self._create_direct_connection(req, traces, timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\aiohttp\connector.py", line 1187, in _create_direct_connection
+    raise ClientConnectorError(req.connection_key, exc) from exc
+aiohttp.client_exceptions.ClientConnectorError: Cannot connect to host gateway-us-east1-b.discord.gg:443 ssl:default [getaddrinfo failed]
+2025-07-26 22:45:18,401 ERROR Attempting a reconnect in 13.20s
+Traceback (most recent call last):
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\aiohttp\connector.py", line 1173, in _create_direct_connection
+    hosts = await asyncio.shield(host_resolved)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\aiohttp\connector.py", line 884, in _resolve_host
+    addrs = await self._resolver.resolve(host, port, family=self._family)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\aiohttp\resolver.py", line 33, in resolve
+    infos = await self._loop.getaddrinfo(
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py", line 878, in getaddrinfo
+    return await self.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\concurrent\futures\thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\socket.py", line 963, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+socket.gaierror: [Errno 11004] getaddrinfo failed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\client.py", line 701, in connect
+    self.ws = await asyncio.wait_for(coro, timeout=60.0)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\tasks.py", line 510, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\gateway.py", line 375, in from_client
+    socket = await client.http.ws_connect(str(url))
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\http.py", line 554, in ws_connect
+    return await self.__session.ws_connect(url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\aiohttp\client.py", line 832, in _ws_connect
+    resp = await self.request(
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\aiohttp\client.py", line 578, in _request
+    conn = await self._connector.connect(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\aiohttp\connector.py", line 544, in connect
+    proto = await self._create_connection(req, traces, timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\aiohttp\connector.py", line 911, in _create_connection
+    _, proto = await self._create_direct_connection(req, traces, timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\aiohttp\connector.py", line 1187, in _create_direct_connection
+    raise ClientConnectorError(req.connection_key, exc) from exc
+aiohttp.client_exceptions.ClientConnectorError: Cannot connect to host gateway-us-east1-b.discord.gg:443 ssl:default [getaddrinfo failed]
+2025-07-26 22:45:31,620 ERROR Attempting a reconnect in 33.29s
+Traceback (most recent call last):
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\aiohttp\connector.py", line 1173, in _create_direct_connection
+    hosts = await asyncio.shield(host_resolved)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\aiohttp\connector.py", line 884, in _resolve_host
+    addrs = await self._resolver.resolve(host, port, family=self._family)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\aiohttp\resolver.py", line 33, in resolve
+    infos = await self._loop.getaddrinfo(
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py", line 878, in getaddrinfo
+    return await self.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\concurrent\futures\thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\socket.py", line 963, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+socket.gaierror: [Errno 11004] getaddrinfo failed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\client.py", line 701, in connect
+    self.ws = await asyncio.wait_for(coro, timeout=60.0)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\tasks.py", line 510, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\gateway.py", line 375, in from_client
+    socket = await client.http.ws_connect(str(url))
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\http.py", line 554, in ws_connect
+    return await self.__session.ws_connect(url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\aiohttp\client.py", line 832, in _ws_connect
+    resp = await self.request(
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\aiohttp\client.py", line 578, in _request
+    conn = await self._connector.connect(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\aiohttp\connector.py", line 544, in connect
+    proto = await self._create_connection(req, traces, timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\aiohttp\connector.py", line 911, in _create_connection
+    _, proto = await self._create_direct_connection(req, traces, timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\aiohttp\connector.py", line 1187, in _create_direct_connection
+    raise ClientConnectorError(req.connection_key, exc) from exc
+aiohttp.client_exceptions.ClientConnectorError: Cannot connect to host gateway-us-east1-b.discord.gg:443 ssl:default [getaddrinfo failed]
+2025-07-26 22:46:04,929 ERROR Attempting a reconnect in 88.69s
+Traceback (most recent call last):
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\aiohttp\connector.py", line 1173, in _create_direct_connection
+    hosts = await asyncio.shield(host_resolved)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\aiohttp\connector.py", line 884, in _resolve_host
+    addrs = await self._resolver.resolve(host, port, family=self._family)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\aiohttp\resolver.py", line 33, in resolve
+    infos = await self._loop.getaddrinfo(
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py", line 878, in getaddrinfo
+    return await self.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\concurrent\futures\thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\socket.py", line 963, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+socket.gaierror: [Errno 11004] getaddrinfo failed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\client.py", line 701, in connect
+    self.ws = await asyncio.wait_for(coro, timeout=60.0)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\tasks.py", line 510, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\gateway.py", line 375, in from_client
+    socket = await client.http.ws_connect(str(url))
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\http.py", line 554, in ws_connect
+    return await self.__session.ws_connect(url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\aiohttp\client.py", line 832, in _ws_connect
+    resp = await self.request(
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\aiohttp\client.py", line 578, in _request
+    conn = await self._connector.connect(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\aiohttp\connector.py", line 544, in connect
+    proto = await self._create_connection(req, traces, timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\aiohttp\connector.py", line 911, in _create_connection
+    _, proto = await self._create_direct_connection(req, traces, timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\aiohttp\connector.py", line 1187, in _create_direct_connection
+    raise ClientConnectorError(req.connection_key, exc) from exc
+aiohttp.client_exceptions.ClientConnectorError: Cannot connect to host gateway-us-east1-b.discord.gg:443 ssl:default [getaddrinfo failed]
+2025-07-26 22:47:33,630 ERROR Attempting a reconnect in 187.96s
+Traceback (most recent call last):
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\aiohttp\connector.py", line 1173, in _create_direct_connection
+    hosts = await asyncio.shield(host_resolved)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\aiohttp\connector.py", line 884, in _resolve_host
+    addrs = await self._resolver.resolve(host, port, family=self._family)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\aiohttp\resolver.py", line 33, in resolve
+    infos = await self._loop.getaddrinfo(
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py", line 878, in getaddrinfo
+    return await self.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\concurrent\futures\thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\socket.py", line 963, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+socket.gaierror: [Errno 11004] getaddrinfo failed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\client.py", line 701, in connect
+    self.ws = await asyncio.wait_for(coro, timeout=60.0)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\tasks.py", line 510, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\gateway.py", line 375, in from_client
+    socket = await client.http.ws_connect(str(url))
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\http.py", line 554, in ws_connect
+    return await self.__session.ws_connect(url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\aiohttp\client.py", line 832, in _ws_connect
+    resp = await self.request(
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\aiohttp\client.py", line 578, in _request
+    conn = await self._connector.connect(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\aiohttp\connector.py", line 544, in connect
+    proto = await self._create_connection(req, traces, timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\aiohttp\connector.py", line 911, in _create_connection
+    _, proto = await self._create_direct_connection(req, traces, timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\aiohttp\connector.py", line 1187, in _create_direct_connection
+    raise ClientConnectorError(req.connection_key, exc) from exc
+aiohttp.client_exceptions.ClientConnectorError: Cannot connect to host gateway-us-east1-b.discord.gg:443 ssl:default [getaddrinfo failed]
+2025-07-26 22:50:41,612 ERROR Attempting a reconnect in 86.18s
+Traceback (most recent call last):
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\aiohttp\connector.py", line 1173, in _create_direct_connection
+    hosts = await asyncio.shield(host_resolved)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\aiohttp\connector.py", line 884, in _resolve_host
+    addrs = await self._resolver.resolve(host, port, family=self._family)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\aiohttp\resolver.py", line 33, in resolve
+    infos = await self._loop.getaddrinfo(
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py", line 878, in getaddrinfo
+    return await self.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\concurrent\futures\thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\socket.py", line 963, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+socket.gaierror: [Errno 11004] getaddrinfo failed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\client.py", line 701, in connect
+    self.ws = await asyncio.wait_for(coro, timeout=60.0)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\tasks.py", line 510, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\gateway.py", line 375, in from_client
+    socket = await client.http.ws_connect(str(url))
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\http.py", line 554, in ws_connect
+    return await self.__session.ws_connect(url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\aiohttp\client.py", line 832, in _ws_connect
+    resp = await self.request(
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\aiohttp\client.py", line 578, in _request
+    conn = await self._connector.connect(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\aiohttp\connector.py", line 544, in connect
+    proto = await self._create_connection(req, traces, timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\aiohttp\connector.py", line 911, in _create_connection
+    _, proto = await self._create_direct_connection(req, traces, timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\aiohttp\connector.py", line 1187, in _create_direct_connection
+    raise ClientConnectorError(req.connection_key, exc) from exc
+aiohttp.client_exceptions.ClientConnectorError: Cannot connect to host gateway-us-east1-b.discord.gg:443 ssl:default [getaddrinfo failed]
+2025-07-26 22:51:51,379 INFO logging in using static token
+2025-07-26 22:51:53,261 INFO Shard ID None has connected to Gateway (Session ID: 09978e36f8974bf179d5037858fcc7d9).

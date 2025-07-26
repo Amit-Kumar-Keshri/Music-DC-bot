@@ -1,0 +1,186 @@
+2025-07-27 00:34:53,644 - SandeshBot - ERROR - error:69 - [dashboard_index] 'dict_items' object is not subscriptable
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Sandesh\dashboard_optimized.py", line 164, in index
+    return render_template('dashboard_enhanced.html', stats=stats)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\templating.py", line 151, in render_template
+    return _render(app, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\templating.py", line 132, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\environment.py", line 1295, in render
+    self.environment.handle_exception()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\environment.py", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "C:\Users\amitk\Documents\Sandesh\templates\dashboard_enhanced.html", line 152, in top-level template code
+    {% for song, count in stats.most_played.items()[:10] %}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: 'dict_items' object is not subscriptable
+2025-07-27 00:42:01,864 - SandeshBot - ERROR - error:69 - [dashboard_index] 'dict_items' object is not subscriptable
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\dashboard_optimized.py", line 164, in index
+    return render_template('dashboard_enhanced.html', stats=stats)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\templating.py", line 151, in render_template
+    return _render(app, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\templating.py", line 132, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\environment.py", line 1295, in render
+    self.environment.handle_exception()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\environment.py", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "C:\Users\amitk\Documents\Music Bot\templates\dashboard_enhanced.html", line 152, in top-level template code
+    {% for song, count in stats.most_played.items()[:10] %}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: 'dict_items' object is not subscriptable
+2025-07-27 00:44:01,162 - MusicBot - ERROR - error:69 - [dashboard_index] 'dict_items' object is not subscriptable
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\dashboard_optimized.py", line 164, in index
+    return render_template('dashboard_enhanced.html', stats=stats)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\templating.py", line 151, in render_template
+    return _render(app, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\templating.py", line 132, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\environment.py", line 1295, in render
+    self.environment.handle_exception()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\environment.py", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "C:\Users\amitk\Documents\Music Bot\templates\dashboard_enhanced.html", line 152, in top-level template code
+    {% for song, count in stats.most_played.items()[:10] %}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: 'dict_items' object is not subscriptable
+2025-07-27 01:01:45,893 - SandeshBot - ERROR - error:69 - [play_current_song] Already playing audio. | Additional info: {'guild_id': 1208701086458847282}
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 454, in play_current_song
+    ctx.voice_client.play(source, after=after_playing)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 500, in play
+    raise ClientException('Already playing audio.')
+discord.errors.ClientException: Already playing audio.
+2025-07-27 01:01:50,144 - SandeshBot - ERROR - error:69 - [play_current_song] Already playing audio. | Additional info: {'guild_id': 1208701086458847282}
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 454, in play_current_song
+    ctx.voice_client.play(source, after=after_playing)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 500, in play
+    raise ClientException('Already playing audio.')
+discord.errors.ClientException: Already playing audio.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 454, in play_current_song
+    ctx.voice_client.play(source, after=after_playing)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 500, in play
+    raise ClientException('Already playing audio.')
+discord.errors.ClientException: Already playing audio.
+2025-07-27 01:01:54,286 - SandeshBot - ERROR - error:69 - [play_current_song] Already playing audio. | Additional info: {'guild_id': 1208701086458847282}
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 454, in play_current_song
+    ctx.voice_client.play(source, after=after_playing)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 500, in play
+    raise ClientException('Already playing audio.')
+discord.errors.ClientException: Already playing audio.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 454, in play_current_song
+    ctx.voice_client.play(source, after=after_playing)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 500, in play
+    raise ClientException('Already playing audio.')
+discord.errors.ClientException: Already playing audio.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 454, in play_current_song
+    ctx.voice_client.play(source, after=after_playing)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 500, in play
+    raise ClientException('Already playing audio.')
+discord.errors.ClientException: Already playing audio.
+2025-07-27 01:02:04,612 - SandeshBot - ERROR - error:69 - [play_current_song] Already playing audio. | Additional info: {'guild_id': 1208701086458847282}
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 454, in play_current_song
+    ctx.voice_client.play(source, after=after_playing)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 500, in play
+    raise ClientException('Already playing audio.')
+discord.errors.ClientException: Already playing audio.
+2025-07-27 01:02:19,224 - SandeshBot - ERROR - error:69 - [play_current_song] Already playing audio. | Additional info: {'guild_id': 1208701086458847282}
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 454, in play_current_song
+    ctx.voice_client.play(source, after=after_playing)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 500, in play
+    raise ClientException('Already playing audio.')
+discord.errors.ClientException: Already playing audio.
+2025-07-27 01:02:28,802 - SandeshBot - ERROR - error:69 - [play_current_song] Already playing audio. | Additional info: {'guild_id': 1208701086458847282}
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 454, in play_current_song
+    ctx.voice_client.play(source, after=after_playing)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 500, in play
+    raise ClientException('Already playing audio.')
+discord.errors.ClientException: Already playing audio.
+2025-07-27 01:02:29,263 - SandeshBot - ERROR - error:69 - [play_current_song] Already playing audio. | Additional info: {'guild_id': 1208701086458847282}
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 454, in play_current_song
+    ctx.voice_client.play(source, after=after_playing)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 500, in play
+    raise ClientException('Already playing audio.')
+discord.errors.ClientException: Already playing audio.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 454, in play_current_song
+    ctx.voice_client.play(source, after=after_playing)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 500, in play
+    raise ClientException('Already playing audio.')
+discord.errors.ClientException: Already playing audio.
+2025-07-27 01:02:29,719 - SandeshBot - ERROR - error:69 - [play_current_song] Already playing audio. | Additional info: {'guild_id': 1208701086458847282}
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 454, in play_current_song
+    ctx.voice_client.play(source, after=after_playing)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 500, in play
+    raise ClientException('Already playing audio.')
+discord.errors.ClientException: Already playing audio.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 454, in play_current_song
+    ctx.voice_client.play(source, after=after_playing)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 500, in play
+    raise ClientException('Already playing audio.')
+discord.errors.ClientException: Already playing audio.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 454, in play_current_song
+    ctx.voice_client.play(source, after=after_playing)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 500, in play
+    raise ClientException('Already playing audio.')
+discord.errors.ClientException: Already playing audio.
+2025-07-27 01:04:45,712 - MusicBot - ERROR - error:69 - [dashboard_index] 'dict_items' object is not subscriptable
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\dashboard.py", line 164, in index
+    return render_template('dashboard_enhanced.html', stats=stats)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\templating.py", line 151, in render_template
+    return _render(app, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\templating.py", line 132, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\environment.py", line 1295, in render
+    self.environment.handle_exception()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\environment.py", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "C:\Users\amitk\Documents\Music Bot\templates\dashboard_enhanced.html", line 152, in top-level template code
+    {% for song, count in stats.most_played.items()[:10] %}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: 'dict_items' object is not subscriptable

@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Bot - Enhanced Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='dashboard_enhanced.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.0/socket.io.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="dashboard">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <div class="header-left">
+                    <h1><i class="fas fa-music"></i> Music Bot</h1>
+                                                <span class="version">Enhanced Dashboard v2.1 (JSON Stats)</span>
+                </div>
+                <div class="header-right">
+                    <div class="status-indicator" id="connectionStatus">
+                        <i class="fas fa-circle"></i>
+                        <span>Connecting...</span>
+                    </div>
+                    <button class="refresh-btn" id="refreshBtn" onclick="refreshStats()">
+                        <i class="fas fa-sync-alt"></i>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Overview Cards -->
+            <section class="overview-section">
+                <div class="card-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-play-circle"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3>Total Plays</h3>
+                            <p class="stat-number" id="totalPlays">{{ stats.get('total_plays', 0) | int }}</p>
+                            <span class="stat-change">+<span id="recentPlays">{{ stats.get('recent_plays', 0) }}</span> today</span>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-server"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3>Active Servers</h3>
+                            <p class="stat-number" id="activeGuilds">{{ stats.get('active_guilds', 0) }}</p>
+                            <span class="stat-change">Serving music</span>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3>Uptime</h3>
+                            <p class="stat-number" id="uptime">Online</p>
+                            <span class="stat-change">Last updated: <span id="lastUpdate">now</span></span>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-memory"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3>Memory Usage</h3>
+                            <p class="stat-number" id="memoryUsage">-</p>
+                            <span class="stat-change">System resources</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Charts and Details -->
+            <section class="details-section">
+                <div class="details-grid">
+                    <!-- System Info -->
+                    <div class="detail-card">
+                        <div class="card-header">
+                            <h2><i class="fas fa-info-circle"></i> System Information</h2>
+                            <div class="card-actions">
+                                <button class="action-btn" onclick="toggleCard('systemInfo')">
+                                    <i class="fas fa-chevron-up"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="card-content" id="systemInfo">
+                            <div class="info-grid">
+                                <div class="info-item">
+                                    <span class="info-label">Cache Status:</span>
+                                    <span class="info-value" id="cacheStatus">Active</span>
+                                </div>
+                                <div class="info-item">
+                                    <span class="info-label">Last Cache Update:</span>
+                                    <span class="info-value" id="cacheUpdate">-</span>
+                                </div>
+                                <div class="info-item">
+                                    <span class="info-label">Connected Clients:</span>
+                                    <span class="info-value" id="connectedClients">1</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Real-time Logs -->
+                    <div class="detail-card">
+                        <div class="card-header">
+                            <h2><i class="fas fa-terminal"></i> Live Activity</h2>
+                            <div class="card-actions">
+                                <button class="action-btn" onclick="clearLogs()">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                                <button class="action-btn" onclick="toggleCard('liveActivity')">
+                                    <i class="fas fa-chevron-up"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="card-content" id="liveActivity">
+                            <div class="logs-container" id="logsContainer">
+                                <div class="log-entry">
+                                    <span class="log-timestamp">{{ stats.get('timestamp', 'Now') }}</span>
+                                    <span class="log-message">Dashboard initialized with song tracking</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Most Played Songs -->
+                    <div class="detail-card">
+                        <div class="card-header">
+                            <h2><i class="fas fa-trophy"></i> Top Songs</h2>
+                            <div class="card-actions">
+                                <button class="action-btn" onclick="toggleCard('topSongs')">
+                                    <i class="fas fa-chevron-up"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="card-content" id="topSongs">
+                            <div class="songs-list" id="songsList">
+                                {% if stats.get('most_played') %}
+                                    {% for song, count in stats.most_played.items()[:10] %}
+                                    <div class="song-item">
+                                        <div class="song-rank">{{ loop.index }}</div>
+                                        <div class="song-info">
+                                            <div class="song-title">{{ song }}</div>
+                                            <div class="song-plays">{{ count }} plays</div>
+                                        </div>
+                                        <div class="song-bar">
+                                            <div class="song-progress" style="width: {{ (count / stats.most_played.values() | list | max * 100) | round(1) }}%"></div>
+                                        </div>
+                                    </div>
+                                    {% endfor %}
+                                {% else %}
+                                    <div class="empty-state">
+                                        <i class="fas fa-music"></i>
+                                        <p>No songs played yet</p>
+                                    </div>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-left">
+                    <p>&copy; 2025 Music Bot</p>
+                </div>
+                <div class="footer-right">
+                    <p>Real-time monitoring powered by WebSockets</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // Global variables
+        let socket;
+        let isConnected = false;
+
+        // Initialize dashboard
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeSocket();
+            updateConnectionStatus('connecting');
+        });
+
+        // Socket.IO initialization
+        function initializeSocket() {
+            socket = io();
+
+            socket.on('connect', function() {
+                isConnected = true;
+                updateConnectionStatus('connected');
+                addLogEntry('Connected to dashboard server');
+            });
+
+            socket.on('disconnect', function() {
+                isConnected = false;
+                updateConnectionStatus('disconnected');
+                addLogEntry('Disconnected from dashboard server');
+            });
+
+            socket.on('stats_update', function(data) {
+                updateStats(data.stats);
+                updateTimestamp(data.timestamp);
+                addLogEntry('Statistics updated');
+            });
+
+            socket.on('error', function(data) {
+                addLogEntry('Error: ' + data.message, 'error');
+            });
+        }
+
+        // Update statistics on the page
+        function updateStats(stats) {
+            // Update overview cards
+            document.getElementById('totalPlays').textContent = stats.total_plays?.toLocaleString() || '0';
+            document.getElementById('activeGuilds').textContent = stats.active_guilds || '0';
+            document.getElementById('recentPlays').textContent = stats.recent_plays || '0';
+
+            // Update memory usage
+            if (stats.memory_usage && stats.memory_usage.rss_mb) {
+                document.getElementById('memoryUsage').textContent = stats.memory_usage.rss_mb + ' MB';
+            }
+
+            // Update most played songs
+            updateSongsList(stats.most_played || {});
+
+            // Update cache info
+            if (stats.cache_info) {
+                if (stats.cache_info.cached_at) {
+                    const cacheTime = new Date(stats.cache_info.cached_at);
+                    document.getElementById('cacheUpdate').textContent = cacheTime.toLocaleTimeString();
+                }
+            }
+        }
+
+        // Update connection status
+        function updateConnectionStatus(status) {
+            const statusElement = document.getElementById('connectionStatus');
+            const statusMap = {
+                'connecting': { icon: 'fa-circle-notch fa-spin', text: 'Connecting...', class: 'status-connecting' },
+                'connected': { icon: 'fa-circle', text: 'Connected', class: 'status-connected' },
+                'disconnected': { icon: 'fa-circle', text: 'Disconnected', class: 'status-disconnected' }
+            };
+
+            const config = statusMap[status];
+            statusElement.className = `status-indicator ${config.class}`;
+            statusElement.innerHTML = `<i class="fas ${config.icon}"></i><span>${config.text}</span>`;
+        }
+
+        // Update timestamp
+        function updateTimestamp(timestamp) {
+            const date = new Date(timestamp);
+            document.getElementById('lastUpdate').textContent = date.toLocaleTimeString();
+        }
+
+        // Add log entry
+        function addLogEntry(message, type = 'info') {
+            const logsContainer = document.getElementById('logsContainer');
+            const timestamp = new Date().toLocaleTimeString();
+            
+            const logEntry = document.createElement('div');
+            logEntry.className = `log-entry log-${type}`;
+            logEntry.innerHTML = `
+                <span class="log-timestamp">${timestamp}</span>
+                <span class="log-message">${message}</span>
+            `;
+
+            logsContainer.insertBefore(logEntry, logsContainer.firstChild);
+
+            // Keep only last 20 entries
+            const entries = logsContainer.children;
+            if (entries.length > 20) {
+                logsContainer.removeChild(entries[entries.length - 1]);
+            }
+        }
+
+        // Utility functions
+        function refreshStats() {
+            if (isConnected) {
+                socket.emit('request_stats');
+                addLogEntry('Manual refresh requested');
+                
+                // Animate refresh button
+                const btn = document.getElementById('refreshBtn');
+                btn.style.transform = 'rotate(360deg)';
+                setTimeout(() => btn.style.transform = '', 500);
+            }
+        }
+
+        function toggleCard(cardId) {
+            const card = document.getElementById(cardId);
+            const button = card.parentElement.querySelector('.action-btn i');
+            
+            if (card.style.display === 'none') {
+                card.style.display = 'block';
+                button.className = 'fas fa-chevron-up';
+            } else {
+                card.style.display = 'none';
+                button.className = 'fas fa-chevron-down';
+            }
+        }
+
+        function clearLogs() {
+            document.getElementById('logsContainer').innerHTML = '';
+            addLogEntry('Logs cleared');
+        }
+
+        // Update songs list
+        function updateSongsList(mostPlayed) {
+            const songsList = document.getElementById('songsList');
+            if (!songsList) return;
+
+            if (Object.keys(mostPlayed).length === 0) {
+                songsList.innerHTML = `
+                    <div class="empty-state">
+                        <i class="fas fa-music"></i>
+                        <p>No songs played yet</p>
+                    </div>
+                `;
+                return;
+            }
+
+            // Convert to array and sort
+            const songs = Object.entries(mostPlayed)
+                .sort((a, b) => b[1] - a[1])
+                .slice(0, 10);
+
+            const maxPlays = songs.length > 0 ? songs[0][1] : 1;
+
+            songsList.innerHTML = songs.map((song, index) => `
+                <div class="song-item">
+                    <div class="song-rank">${index + 1}</div>
+                    <div class="song-info">
+                        <div class="song-title">${song[0]}</div>
+                        <div class="song-plays">${song[1]} plays</div>
+                    </div>
+                    <div class="song-bar">
+                        <div class="song-progress" style="width: ${(song[1] / maxPlays * 100).toFixed(1)}%"></div>
+                    </div>
+                </div>
+            `).join('');
+        }
+    </script>
+    
+    <style>
+        .info-notice {
+            background: #2d3748;
+            border-left: 4px solid #4299e1;
+            padding: 1rem;
+            border-radius: 4px;
+            margin: 1rem 0;
+        }
+        
+        .info-notice p {
+            margin: 0.5rem 0;
+            color: #e2e8f0;
+        }
+        
+        .info-notice ul {
+            margin: 0.5rem 0;
+            padding-left: 1.5rem;
+            color: #cbd5e0;
+        }
+        
+        .info-notice li {
+            margin: 0.25rem 0;
+        }
+    </style>
+</body>
+</html> 
