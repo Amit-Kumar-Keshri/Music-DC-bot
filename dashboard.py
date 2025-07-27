@@ -56,6 +56,9 @@ class DashboardManager:
                     # Get fresh stats
                     stats = self.get_cached_stats(force_refresh=True)
                     
+                    # Add real-time connection info
+                    stats['connected_clients'] = self.connected_clients
+                    
                     # Emit to all connected clients
                     socketio.emit('stats_update', {
                         'stats': stats,
@@ -107,6 +110,7 @@ class DashboardManager:
                 'most_played': global_stats['most_played'],
                 'active_guilds': global_stats['active_guilds'],
                 'recent_plays': global_stats['recent_plays'],
+                'servers': global_stats['servers'],  # Include server data
                 'timestamp': datetime.now().isoformat(),
                 'uptime': self._calculate_uptime(),
                 'memory_usage': self._get_memory_usage(),
@@ -125,6 +129,7 @@ class DashboardManager:
                 'most_played': {},
                 'active_guilds': 0,
                 'recent_plays': 0,
+                'servers': [],
                 'error': str(e)
             }
     
@@ -169,7 +174,8 @@ def index():
             'total_plays': 0,
             'most_played': {},
             'active_guilds': 0,
-            'recent_plays': 0
+            'recent_plays': 0,
+            'servers': []
         })
 
 
@@ -206,6 +212,12 @@ def handle_connect():
     dashboard_manager.connected_clients += 1
     logger.info(f"Dashboard client connected. Total: {dashboard_manager.connected_clients}")
     
+    # Immediately broadcast updated count to all clients
+    socketio.emit('stats_update', {
+        'stats': {'connected_clients': dashboard_manager.connected_clients},
+        'timestamp': datetime.now().isoformat()
+    })
+    
     # Start background updates if this is the first client
     if dashboard_manager.connected_clients == 1:
         dashboard_manager.start_background_updates()
@@ -223,6 +235,13 @@ def handle_disconnect():
     """Handle client disconnection"""
     dashboard_manager.connected_clients = max(0, dashboard_manager.connected_clients - 1)
     logger.info(f"Dashboard client disconnected. Total: {dashboard_manager.connected_clients}")
+    
+    # Immediately broadcast updated count to remaining clients
+    if dashboard_manager.connected_clients > 0:
+        socketio.emit('stats_update', {
+            'stats': {'connected_clients': dashboard_manager.connected_clients},
+            'timestamp': datetime.now().isoformat()
+        })
     
     # Stop background updates if no clients are connected
     if dashboard_manager.connected_clients == 0:

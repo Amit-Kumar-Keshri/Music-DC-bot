@@ -184,3 +184,2004 @@ Traceback (most recent call last):
     {% for song, count in stats.most_played.items()[:10] %}
     ^^^^^^^^^^^^^^^^^^^^^^^^^
 TypeError: 'dict_items' object is not subscriptable
+2025-07-27 01:10:49,569 - MusicBot - ERROR - error:69 - [dashboard_index] 'dict_items' object is not subscriptable
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\dashboard.py", line 164, in index
+    return render_template('dashboard_enhanced.html', stats=stats)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\templating.py", line 151, in render_template
+    return _render(app, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\templating.py", line 132, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\environment.py", line 1295, in render
+    self.environment.handle_exception()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\environment.py", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "C:\Users\amitk\Documents\Music Bot\templates\dashboard_enhanced.html", line 152, in top-level template code
+    {% for song, count in stats.most_played.items()[:10] %}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: 'dict_items' object is not subscriptable
+2025-07-27 01:16:17,549 - SandeshBot - ERROR - error:69 - [skip_button] [WinError 121] The semaphore timeout period has expired | Additional info: {'guild_id': 1208701086458847282}
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\ui\views.py", line 127, in skip
+    await interaction.response.defer()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\interactions.py", line 844, in defer
+    response = await adapter.create_interaction_response(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\webhook\async_.py", line 182, in request
+    async with session.request(
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\aiohttp\client.py", line 1194, in __aenter__
+    self._resp = await self._coro
+                 ^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\aiohttp\client.py", line 605, in _request
+    await resp.start(conn)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\aiohttp\client_reqrep.py", line 966, in start
+    message, payload = await protocol.read()  # type: ignore[union-attr]
+                       ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\aiohttp\streams.py", line 622, in read
+    await self._waiter
+aiohttp.client_exceptions.ClientOSError: [WinError 121] The semaphore timeout period has expired
+2025-07-27 01:31:34,764 - MusicBot - ERROR - error:69 - [dashboard_index] 'dict_items' object is not subscriptable
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\dashboard.py", line 164, in index
+    return render_template('dashboard_enhanced.html', stats=stats)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\templating.py", line 151, in render_template
+    return _render(app, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\templating.py", line 132, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\environment.py", line 1295, in render
+    self.environment.handle_exception()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\environment.py", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "C:\Users\amitk\Documents\Music Bot\templates\dashboard_enhanced.html", line 152, in top-level template code
+    {% for song, count in stats.most_played.items()[:10] %}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: 'dict_items' object is not subscriptable
+2025-07-27 01:37:40,686 - MusicBot - ERROR - error:69 - [play_current_song] Already playing audio. | Additional info: {'guild_id': 1208701086458847282}
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 479, in play_current_song
+    ctx.voice_client.play(source, after=after_playing)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 500, in play
+    raise ClientException('Already playing audio.')
+discord.errors.ClientException: Already playing audio.
+2025-07-27 01:37:44,837 - MusicBot - ERROR - error:69 - [play_current_song] Already playing audio. | Additional info: {'guild_id': 1208701086458847282}
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 479, in play_current_song
+    ctx.voice_client.play(source, after=after_playing)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 500, in play
+    raise ClientException('Already playing audio.')
+discord.errors.ClientException: Already playing audio.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 479, in play_current_song
+    ctx.voice_client.play(source, after=after_playing)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 500, in play
+    raise ClientException('Already playing audio.')
+discord.errors.ClientException: Already playing audio.
+2025-07-27 01:37:48,335 - MusicBot - ERROR - error:69 - [play_current_song] Already playing audio. | Additional info: {'guild_id': 1208701086458847282}
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 479, in play_current_song
+    ctx.voice_client.play(source, after=after_playing)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 500, in play
+    raise ClientException('Already playing audio.')
+discord.errors.ClientException: Already playing audio.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 479, in play_current_song
+    ctx.voice_client.play(source, after=after_playing)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 500, in play
+    raise ClientException('Already playing audio.')
+discord.errors.ClientException: Already playing audio.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 479, in play_current_song
+    ctx.voice_client.play(source, after=after_playing)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 500, in play
+    raise ClientException('Already playing audio.')
+discord.errors.ClientException: Already playing audio.
+2025-07-27 01:37:51,746 - MusicBot - ERROR - error:69 - [play_current_song] Already playing audio. | Additional info: {'guild_id': 1208701086458847282}
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 479, in play_current_song
+    ctx.voice_client.play(source, after=after_playing)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 500, in play
+    raise ClientException('Already playing audio.')
+discord.errors.ClientException: Already playing audio.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 479, in play_current_song
+    ctx.voice_client.play(source, after=after_playing)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 500, in play
+    raise ClientException('Already playing audio.')
+discord.errors.ClientException: Already playing audio.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 479, in play_current_song
+    ctx.voice_client.play(source, after=after_playing)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 500, in play
+    raise ClientException('Already playing audio.')
+discord.errors.ClientException: Already playing audio.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 479, in play_current_song
+    ctx.voice_client.play(source, after=after_playing)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 500, in play
+    raise ClientException('Already playing audio.')
+discord.errors.ClientException: Already playing audio.
+2025-07-27 01:37:55,003 - MusicBot - ERROR - error:69 - [play_current_song] Already playing audio. | Additional info: {'guild_id': 1208701086458847282}
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 479, in play_current_song
+    ctx.voice_client.play(source, after=after_playing)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 500, in play
+    raise ClientException('Already playing audio.')
+discord.errors.ClientException: Already playing audio.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 479, in play_current_song
+    ctx.voice_client.play(source, after=after_playing)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 500, in play
+    raise ClientException('Already playing audio.')
+discord.errors.ClientException: Already playing audio.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 479, in play_current_song
+    ctx.voice_client.play(source, after=after_playing)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 500, in play
+    raise ClientException('Already playing audio.')
+discord.errors.ClientException: Already playing audio.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 479, in play_current_song
+    ctx.voice_client.play(source, after=after_playing)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 500, in play
+    raise ClientException('Already playing audio.')
+discord.errors.ClientException: Already playing audio.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 479, in play_current_song
+    ctx.voice_client.play(source, after=after_playing)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 500, in play
+    raise ClientException('Already playing audio.')
+discord.errors.ClientException: Already playing audio.
+2025-07-27 01:37:58,583 - MusicBot - ERROR - error:69 - [play_current_song] Already playing audio. | Additional info: {'guild_id': 1208701086458847282}
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 479, in play_current_song
+    ctx.voice_client.play(source, after=after_playing)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 500, in play
+    raise ClientException('Already playing audio.')
+discord.errors.ClientException: Already playing audio.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 479, in play_current_song
+    ctx.voice_client.play(source, after=after_playing)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 500, in play
+    raise ClientException('Already playing audio.')
+discord.errors.ClientException: Already playing audio.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 479, in play_current_song
+    ctx.voice_client.play(source, after=after_playing)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 500, in play
+    raise ClientException('Already playing audio.')
+discord.errors.ClientException: Already playing audio.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 479, in play_current_song
+    ctx.voice_client.play(source, after=after_playing)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 500, in play
+    raise ClientException('Already playing audio.')
+discord.errors.ClientException: Already playing audio.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 479, in play_current_song
+    ctx.voice_client.play(source, after=after_playing)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 500, in play
+    raise ClientException('Already playing audio.')
+discord.errors.ClientException: Already playing audio.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 479, in play_current_song
+    ctx.voice_client.play(source, after=after_playing)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 500, in play
+    raise ClientException('Already playing audio.')
+discord.errors.ClientException: Already playing audio.
+2025-07-27 01:38:01,971 - MusicBot - ERROR - error:69 - [play_current_song] Already playing audio. | Additional info: {'guild_id': 1208701086458847282}
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 479, in play_current_song
+    ctx.voice_client.play(source, after=after_playing)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 500, in play
+    raise ClientException('Already playing audio.')
+discord.errors.ClientException: Already playing audio.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 479, in play_current_song
+    ctx.voice_client.play(source, after=after_playing)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 500, in play
+    raise ClientException('Already playing audio.')
+discord.errors.ClientException: Already playing audio.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 479, in play_current_song
+    ctx.voice_client.play(source, after=after_playing)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 500, in play
+    raise ClientException('Already playing audio.')
+discord.errors.ClientException: Already playing audio.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 479, in play_current_song
+    ctx.voice_client.play(source, after=after_playing)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 500, in play
+    raise ClientException('Already playing audio.')
+discord.errors.ClientException: Already playing audio.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 479, in play_current_song
+    ctx.voice_client.play(source, after=after_playing)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 500, in play
+    raise ClientException('Already playing audio.')
+discord.errors.ClientException: Already playing audio.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 479, in play_current_song
+    ctx.voice_client.play(source, after=after_playing)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 500, in play
+    raise ClientException('Already playing audio.')
+discord.errors.ClientException: Already playing audio.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 479, in play_current_song
+    ctx.voice_client.play(source, after=after_playing)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 500, in play
+    raise ClientException('Already playing audio.')
+discord.errors.ClientException: Already playing audio.
+2025-07-27 01:38:06,089 - MusicBot - ERROR - error:69 - [play_current_song] Already playing audio. | Additional info: {'guild_id': 1208701086458847282}
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 479, in play_current_song
+    ctx.voice_client.play(source, after=after_playing)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 500, in play
+    raise ClientException('Already playing audio.')
+discord.errors.ClientException: Already playing audio.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 479, in play_current_song
+    ctx.voice_client.play(source, after=after_playing)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 500, in play
+    raise ClientException('Already playing audio.')
+discord.errors.ClientException: Already playing audio.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 479, in play_current_song
+    ctx.voice_client.play(source, after=after_playing)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 500, in play
+    raise ClientException('Already playing audio.')
+discord.errors.ClientException: Already playing audio.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 479, in play_current_song
+    ctx.voice_client.play(source, after=after_playing)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 500, in play
+    raise ClientException('Already playing audio.')
+discord.errors.ClientException: Already playing audio.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 479, in play_current_song
+    ctx.voice_client.play(source, after=after_playing)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 500, in play
+    raise ClientException('Already playing audio.')
+discord.errors.ClientException: Already playing audio.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 479, in play_current_song
+    ctx.voice_client.play(source, after=after_playing)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 500, in play
+    raise ClientException('Already playing audio.')
+discord.errors.ClientException: Already playing audio.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 479, in play_current_song
+    ctx.voice_client.play(source, after=after_playing)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 500, in play
+    raise ClientException('Already playing audio.')
+discord.errors.ClientException: Already playing audio.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 479, in play_current_song
+    ctx.voice_client.play(source, after=after_playing)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 500, in play
+    raise ClientException('Already playing audio.')
+discord.errors.ClientException: Already playing audio.
+2025-07-27 01:38:11,181 - MusicBot - ERROR - error:69 - [play_current_song] Already playing audio. | Additional info: {'guild_id': 1208701086458847282}
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 479, in play_current_song
+    ctx.voice_client.play(source, after=after_playing)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 500, in play
+    raise ClientException('Already playing audio.')
+discord.errors.ClientException: Already playing audio.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 479, in play_current_song
+    ctx.voice_client.play(source, after=after_playing)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 500, in play
+    raise ClientException('Already playing audio.')
+discord.errors.ClientException: Already playing audio.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 479, in play_current_song
+    ctx.voice_client.play(source, after=after_playing)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 500, in play
+    raise ClientException('Already playing audio.')
+discord.errors.ClientException: Already playing audio.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 479, in play_current_song
+    ctx.voice_client.play(source, after=after_playing)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 500, in play
+    raise ClientException('Already playing audio.')
+discord.errors.ClientException: Already playing audio.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 479, in play_current_song
+    ctx.voice_client.play(source, after=after_playing)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 500, in play
+    raise ClientException('Already playing audio.')
+discord.errors.ClientException: Already playing audio.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 479, in play_current_song
+    ctx.voice_client.play(source, after=after_playing)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 500, in play
+    raise ClientException('Already playing audio.')
+discord.errors.ClientException: Already playing audio.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 479, in play_current_song
+    ctx.voice_client.play(source, after=after_playing)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 500, in play
+    raise ClientException('Already playing audio.')
+discord.errors.ClientException: Already playing audio.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 479, in play_current_song
+    ctx.voice_client.play(source, after=after_playing)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 500, in play
+    raise ClientException('Already playing audio.')
+discord.errors.ClientException: Already playing audio.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 479, in play_current_song
+    ctx.voice_client.play(source, after=after_playing)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 500, in play
+    raise ClientException('Already playing audio.')
+discord.errors.ClientException: Already playing audio.
+2025-07-27 01:38:15,300 - MusicBot - ERROR - error:69 - [play_current_song] Already playing audio. | Additional info: {'guild_id': 1208701086458847282}
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 479, in play_current_song
+    ctx.voice_client.play(source, after=after_playing)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 500, in play
+    raise ClientException('Already playing audio.')
+discord.errors.ClientException: Already playing audio.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 479, in play_current_song
+    ctx.voice_client.play(source, after=after_playing)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 500, in play
+    raise ClientException('Already playing audio.')
+discord.errors.ClientException: Already playing audio.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 479, in play_current_song
+    ctx.voice_client.play(source, after=after_playing)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 500, in play
+    raise ClientException('Already playing audio.')
+discord.errors.ClientException: Already playing audio.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 479, in play_current_song
+    ctx.voice_client.play(source, after=after_playing)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 500, in play
+    raise ClientException('Already playing audio.')
+discord.errors.ClientException: Already playing audio.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 479, in play_current_song
+    ctx.voice_client.play(source, after=after_playing)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 500, in play
+    raise ClientException('Already playing audio.')
+discord.errors.ClientException: Already playing audio.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 479, in play_current_song
+    ctx.voice_client.play(source, after=after_playing)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 500, in play
+    raise ClientException('Already playing audio.')
+discord.errors.ClientException: Already playing audio.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 479, in play_current_song
+    ctx.voice_client.play(source, after=after_playing)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 500, in play
+    raise ClientException('Already playing audio.')
+discord.errors.ClientException: Already playing audio.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 479, in play_current_song
+    ctx.voice_client.play(source, after=after_playing)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 500, in play
+    raise ClientException('Already playing audio.')
+discord.errors.ClientException: Already playing audio.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 479, in play_current_song
+    ctx.voice_client.play(source, after=after_playing)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 500, in play
+    raise ClientException('Already playing audio.')
+discord.errors.ClientException: Already playing audio.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 479, in play_current_song
+    ctx.voice_client.play(source, after=after_playing)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 500, in play
+    raise ClientException('Already playing audio.')
+discord.errors.ClientException: Already playing audio.
+2025-07-27 01:38:19,458 - MusicBot - ERROR - error:69 - [play_current_song] Already playing audio. | Additional info: {'guild_id': 1208701086458847282}
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 479, in play_current_song
+    ctx.voice_client.play(source, after=after_playing)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 500, in play
+    raise ClientException('Already playing audio.')
+discord.errors.ClientException: Already playing audio.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 479, in play_current_song
+    ctx.voice_client.play(source, after=after_playing)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 500, in play
+    raise ClientException('Already playing audio.')
+discord.errors.ClientException: Already playing audio.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 479, in play_current_song
+    ctx.voice_client.play(source, after=after_playing)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 500, in play
+    raise ClientException('Already playing audio.')
+discord.errors.ClientException: Already playing audio.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 479, in play_current_song
+    ctx.voice_client.play(source, after=after_playing)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 500, in play
+    raise ClientException('Already playing audio.')
+discord.errors.ClientException: Already playing audio.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 479, in play_current_song
+    ctx.voice_client.play(source, after=after_playing)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 500, in play
+    raise ClientException('Already playing audio.')
+discord.errors.ClientException: Already playing audio.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 479, in play_current_song
+    ctx.voice_client.play(source, after=after_playing)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 500, in play
+    raise ClientException('Already playing audio.')
+discord.errors.ClientException: Already playing audio.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 479, in play_current_song
+    ctx.voice_client.play(source, after=after_playing)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 500, in play
+    raise ClientException('Already playing audio.')
+discord.errors.ClientException: Already playing audio.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 479, in play_current_song
+    ctx.voice_client.play(source, after=after_playing)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 500, in play
+    raise ClientException('Already playing audio.')
+discord.errors.ClientException: Already playing audio.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 479, in play_current_song
+    ctx.voice_client.play(source, after=after_playing)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 500, in play
+    raise ClientException('Already playing audio.')
+discord.errors.ClientException: Already playing audio.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 479, in play_current_song
+    ctx.voice_client.play(source, after=after_playing)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 500, in play
+    raise ClientException('Already playing audio.')
+discord.errors.ClientException: Already playing audio.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 479, in play_current_song
+    ctx.voice_client.play(source, after=after_playing)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 500, in play
+    raise ClientException('Already playing audio.')
+discord.errors.ClientException: Already playing audio.
+2025-07-27 01:38:23,635 - MusicBot - ERROR - error:69 - [play_current_song] Already playing audio. | Additional info: {'guild_id': 1208701086458847282}
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 479, in play_current_song
+    ctx.voice_client.play(source, after=after_playing)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 500, in play
+    raise ClientException('Already playing audio.')
+discord.errors.ClientException: Already playing audio.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 479, in play_current_song
+    ctx.voice_client.play(source, after=after_playing)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 500, in play
+    raise ClientException('Already playing audio.')
+discord.errors.ClientException: Already playing audio.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 479, in play_current_song
+    ctx.voice_client.play(source, after=after_playing)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 500, in play
+    raise ClientException('Already playing audio.')
+discord.errors.ClientException: Already playing audio.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 479, in play_current_song
+    ctx.voice_client.play(source, after=after_playing)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 500, in play
+    raise ClientException('Already playing audio.')
+discord.errors.ClientException: Already playing audio.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 479, in play_current_song
+    ctx.voice_client.play(source, after=after_playing)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 500, in play
+    raise ClientException('Already playing audio.')
+discord.errors.ClientException: Already playing audio.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 479, in play_current_song
+    ctx.voice_client.play(source, after=after_playing)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 500, in play
+    raise ClientException('Already playing audio.')
+discord.errors.ClientException: Already playing audio.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 479, in play_current_song
+    ctx.voice_client.play(source, after=after_playing)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 500, in play
+    raise ClientException('Already playing audio.')
+discord.errors.ClientException: Already playing audio.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 479, in play_current_song
+    ctx.voice_client.play(source, after=after_playing)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 500, in play
+    raise ClientException('Already playing audio.')
+discord.errors.ClientException: Already playing audio.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 479, in play_current_song
+    ctx.voice_client.play(source, after=after_playing)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 500, in play
+    raise ClientException('Already playing audio.')
+discord.errors.ClientException: Already playing audio.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 479, in play_current_song
+    ctx.voice_client.play(source, after=after_playing)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 500, in play
+    raise ClientException('Already playing audio.')
+discord.errors.ClientException: Already playing audio.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 479, in play_current_song
+    ctx.voice_client.play(source, after=after_playing)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 500, in play
+    raise ClientException('Already playing audio.')
+discord.errors.ClientException: Already playing audio.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 479, in play_current_song
+    ctx.voice_client.play(source, after=after_playing)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 500, in play
+    raise ClientException('Already playing audio.')
+discord.errors.ClientException: Already playing audio.
+2025-07-27 01:38:30,036 - MusicBot - ERROR - error:69 - [play_current_song] Already playing audio. | Additional info: {'guild_id': 1208701086458847282}
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 479, in play_current_song
+    ctx.voice_client.play(source, after=after_playing)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 500, in play
+    raise ClientException('Already playing audio.')
+discord.errors.ClientException: Already playing audio.
+2025-07-27 01:38:34,001 - MusicBot - ERROR - error:69 - [play_current_song] Already playing audio. | Additional info: {'guild_id': 1208701086458847282}
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 479, in play_current_song
+    ctx.voice_client.play(source, after=after_playing)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 500, in play
+    raise ClientException('Already playing audio.')
+discord.errors.ClientException: Already playing audio.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 479, in play_current_song
+    ctx.voice_client.play(source, after=after_playing)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 500, in play
+    raise ClientException('Already playing audio.')
+discord.errors.ClientException: Already playing audio.
+2025-07-27 01:38:37,395 - MusicBot - ERROR - error:69 - [play_current_song] Already playing audio. | Additional info: {'guild_id': 1208701086458847282}
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 479, in play_current_song
+    ctx.voice_client.play(source, after=after_playing)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 500, in play
+    raise ClientException('Already playing audio.')
+discord.errors.ClientException: Already playing audio.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 479, in play_current_song
+    ctx.voice_client.play(source, after=after_playing)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 500, in play
+    raise ClientException('Already playing audio.')
+discord.errors.ClientException: Already playing audio.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 479, in play_current_song
+    ctx.voice_client.play(source, after=after_playing)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 500, in play
+    raise ClientException('Already playing audio.')
+discord.errors.ClientException: Already playing audio.
+2025-07-27 01:38:40,826 - MusicBot - ERROR - error:69 - [play_current_song] Already playing audio. | Additional info: {'guild_id': 1208701086458847282}
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 479, in play_current_song
+    ctx.voice_client.play(source, after=after_playing)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 500, in play
+    raise ClientException('Already playing audio.')
+discord.errors.ClientException: Already playing audio.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 479, in play_current_song
+    ctx.voice_client.play(source, after=after_playing)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 500, in play
+    raise ClientException('Already playing audio.')
+discord.errors.ClientException: Already playing audio.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 479, in play_current_song
+    ctx.voice_client.play(source, after=after_playing)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 500, in play
+    raise ClientException('Already playing audio.')
+discord.errors.ClientException: Already playing audio.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 479, in play_current_song
+    ctx.voice_client.play(source, after=after_playing)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 500, in play
+    raise ClientException('Already playing audio.')
+discord.errors.ClientException: Already playing audio.
+2025-07-27 01:38:44,104 - MusicBot - ERROR - error:69 - [play_current_song] Already playing audio. | Additional info: {'guild_id': 1208701086458847282}
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 479, in play_current_song
+    ctx.voice_client.play(source, after=after_playing)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 500, in play
+    raise ClientException('Already playing audio.')
+discord.errors.ClientException: Already playing audio.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 479, in play_current_song
+    ctx.voice_client.play(source, after=after_playing)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 500, in play
+    raise ClientException('Already playing audio.')
+discord.errors.ClientException: Already playing audio.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 479, in play_current_song
+    ctx.voice_client.play(source, after=after_playing)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 500, in play
+    raise ClientException('Already playing audio.')
+discord.errors.ClientException: Already playing audio.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 479, in play_current_song
+    ctx.voice_client.play(source, after=after_playing)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 500, in play
+    raise ClientException('Already playing audio.')
+discord.errors.ClientException: Already playing audio.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 479, in play_current_song
+    ctx.voice_client.play(source, after=after_playing)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 500, in play
+    raise ClientException('Already playing audio.')
+discord.errors.ClientException: Already playing audio.
+2025-07-27 01:38:47,373 - MusicBot - ERROR - error:69 - [play_current_song] Already playing audio. | Additional info: {'guild_id': 1208701086458847282}
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 479, in play_current_song
+    ctx.voice_client.play(source, after=after_playing)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 500, in play
+    raise ClientException('Already playing audio.')
+discord.errors.ClientException: Already playing audio.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 479, in play_current_song
+    ctx.voice_client.play(source, after=after_playing)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 500, in play
+    raise ClientException('Already playing audio.')
+discord.errors.ClientException: Already playing audio.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 479, in play_current_song
+    ctx.voice_client.play(source, after=after_playing)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 500, in play
+    raise ClientException('Already playing audio.')
+discord.errors.ClientException: Already playing audio.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 479, in play_current_song
+    ctx.voice_client.play(source, after=after_playing)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 500, in play
+    raise ClientException('Already playing audio.')
+discord.errors.ClientException: Already playing audio.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 479, in play_current_song
+    ctx.voice_client.play(source, after=after_playing)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 500, in play
+    raise ClientException('Already playing audio.')
+discord.errors.ClientException: Already playing audio.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 479, in play_current_song
+    ctx.voice_client.play(source, after=after_playing)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 500, in play
+    raise ClientException('Already playing audio.')
+discord.errors.ClientException: Already playing audio.
+2025-07-27 01:38:50,936 - MusicBot - ERROR - error:69 - [play_current_song] Already playing audio. | Additional info: {'guild_id': 1208701086458847282}
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 479, in play_current_song
+    ctx.voice_client.play(source, after=after_playing)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 500, in play
+    raise ClientException('Already playing audio.')
+discord.errors.ClientException: Already playing audio.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 479, in play_current_song
+    ctx.voice_client.play(source, after=after_playing)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 500, in play
+    raise ClientException('Already playing audio.')
+discord.errors.ClientException: Already playing audio.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 479, in play_current_song
+    ctx.voice_client.play(source, after=after_playing)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 500, in play
+    raise ClientException('Already playing audio.')
+discord.errors.ClientException: Already playing audio.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 479, in play_current_song
+    ctx.voice_client.play(source, after=after_playing)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 500, in play
+    raise ClientException('Already playing audio.')
+discord.errors.ClientException: Already playing audio.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 479, in play_current_song
+    ctx.voice_client.play(source, after=after_playing)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 500, in play
+    raise ClientException('Already playing audio.')
+discord.errors.ClientException: Already playing audio.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 479, in play_current_song
+    ctx.voice_client.play(source, after=after_playing)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 500, in play
+    raise ClientException('Already playing audio.')
+discord.errors.ClientException: Already playing audio.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 479, in play_current_song
+    ctx.voice_client.play(source, after=after_playing)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 500, in play
+    raise ClientException('Already playing audio.')
+discord.errors.ClientException: Already playing audio.
+2025-07-27 01:38:54,595 - MusicBot - ERROR - error:69 - [play_current_song] Already playing audio. | Additional info: {'guild_id': 1208701086458847282}
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 479, in play_current_song
+    ctx.voice_client.play(source, after=after_playing)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 500, in play
+    raise ClientException('Already playing audio.')
+discord.errors.ClientException: Already playing audio.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 479, in play_current_song
+    ctx.voice_client.play(source, after=after_playing)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 500, in play
+    raise ClientException('Already playing audio.')
+discord.errors.ClientException: Already playing audio.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 479, in play_current_song
+    ctx.voice_client.play(source, after=after_playing)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 500, in play
+    raise ClientException('Already playing audio.')
+discord.errors.ClientException: Already playing audio.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 479, in play_current_song
+    ctx.voice_client.play(source, after=after_playing)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 500, in play
+    raise ClientException('Already playing audio.')
+discord.errors.ClientException: Already playing audio.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 479, in play_current_song
+    ctx.voice_client.play(source, after=after_playing)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 500, in play
+    raise ClientException('Already playing audio.')
+discord.errors.ClientException: Already playing audio.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 479, in play_current_song
+    ctx.voice_client.play(source, after=after_playing)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 500, in play
+    raise ClientException('Already playing audio.')
+discord.errors.ClientException: Already playing audio.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 479, in play_current_song
+    ctx.voice_client.play(source, after=after_playing)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 500, in play
+    raise ClientException('Already playing audio.')
+discord.errors.ClientException: Already playing audio.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 479, in play_current_song
+    ctx.voice_client.play(source, after=after_playing)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 500, in play
+    raise ClientException('Already playing audio.')
+discord.errors.ClientException: Already playing audio.
+2025-07-27 01:38:58,130 - MusicBot - ERROR - error:69 - [play_current_song] Already playing audio. | Additional info: {'guild_id': 1208701086458847282}
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 479, in play_current_song
+    ctx.voice_client.play(source, after=after_playing)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 500, in play
+    raise ClientException('Already playing audio.')
+discord.errors.ClientException: Already playing audio.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 479, in play_current_song
+    ctx.voice_client.play(source, after=after_playing)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 500, in play
+    raise ClientException('Already playing audio.')
+discord.errors.ClientException: Already playing audio.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 479, in play_current_song
+    ctx.voice_client.play(source, after=after_playing)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 500, in play
+    raise ClientException('Already playing audio.')
+discord.errors.ClientException: Already playing audio.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 479, in play_current_song
+    ctx.voice_client.play(source, after=after_playing)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 500, in play
+    raise ClientException('Already playing audio.')
+discord.errors.ClientException: Already playing audio.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 479, in play_current_song
+    ctx.voice_client.play(source, after=after_playing)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 500, in play
+    raise ClientException('Already playing audio.')
+discord.errors.ClientException: Already playing audio.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 479, in play_current_song
+    ctx.voice_client.play(source, after=after_playing)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 500, in play
+    raise ClientException('Already playing audio.')
+discord.errors.ClientException: Already playing audio.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 479, in play_current_song
+    ctx.voice_client.play(source, after=after_playing)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 500, in play
+    raise ClientException('Already playing audio.')
+discord.errors.ClientException: Already playing audio.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 479, in play_current_song
+    ctx.voice_client.play(source, after=after_playing)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 500, in play
+    raise ClientException('Already playing audio.')
+discord.errors.ClientException: Already playing audio.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 479, in play_current_song
+    ctx.voice_client.play(source, after=after_playing)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 500, in play
+    raise ClientException('Already playing audio.')
+discord.errors.ClientException: Already playing audio.
+2025-07-27 01:39:01,807 - MusicBot - ERROR - error:69 - [play_current_song] Already playing audio. | Additional info: {'guild_id': 1208701086458847282}
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 479, in play_current_song
+    ctx.voice_client.play(source, after=after_playing)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 500, in play
+    raise ClientException('Already playing audio.')
+discord.errors.ClientException: Already playing audio.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 479, in play_current_song
+    ctx.voice_client.play(source, after=after_playing)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 500, in play
+    raise ClientException('Already playing audio.')
+discord.errors.ClientException: Already playing audio.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 479, in play_current_song
+    ctx.voice_client.play(source, after=after_playing)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 500, in play
+    raise ClientException('Already playing audio.')
+discord.errors.ClientException: Already playing audio.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 479, in play_current_song
+    ctx.voice_client.play(source, after=after_playing)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 500, in play
+    raise ClientException('Already playing audio.')
+discord.errors.ClientException: Already playing audio.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 479, in play_current_song
+    ctx.voice_client.play(source, after=after_playing)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 500, in play
+    raise ClientException('Already playing audio.')
+discord.errors.ClientException: Already playing audio.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 479, in play_current_song
+    ctx.voice_client.play(source, after=after_playing)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 500, in play
+    raise ClientException('Already playing audio.')
+discord.errors.ClientException: Already playing audio.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 479, in play_current_song
+    ctx.voice_client.play(source, after=after_playing)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 500, in play
+    raise ClientException('Already playing audio.')
+discord.errors.ClientException: Already playing audio.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 479, in play_current_song
+    ctx.voice_client.play(source, after=after_playing)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 500, in play
+    raise ClientException('Already playing audio.')
+discord.errors.ClientException: Already playing audio.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 479, in play_current_song
+    ctx.voice_client.play(source, after=after_playing)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 500, in play
+    raise ClientException('Already playing audio.')
+discord.errors.ClientException: Already playing audio.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 479, in play_current_song
+    ctx.voice_client.play(source, after=after_playing)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 500, in play
+    raise ClientException('Already playing audio.')
+discord.errors.ClientException: Already playing audio.
+2025-07-27 01:39:05,496 - MusicBot - ERROR - error:69 - [play_current_song] Already playing audio. | Additional info: {'guild_id': 1208701086458847282}
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 479, in play_current_song
+    ctx.voice_client.play(source, after=after_playing)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 500, in play
+    raise ClientException('Already playing audio.')
+discord.errors.ClientException: Already playing audio.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 479, in play_current_song
+    ctx.voice_client.play(source, after=after_playing)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 500, in play
+    raise ClientException('Already playing audio.')
+discord.errors.ClientException: Already playing audio.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 479, in play_current_song
+    ctx.voice_client.play(source, after=after_playing)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 500, in play
+    raise ClientException('Already playing audio.')
+discord.errors.ClientException: Already playing audio.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 479, in play_current_song
+    ctx.voice_client.play(source, after=after_playing)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 500, in play
+    raise ClientException('Already playing audio.')
+discord.errors.ClientException: Already playing audio.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 479, in play_current_song
+    ctx.voice_client.play(source, after=after_playing)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 500, in play
+    raise ClientException('Already playing audio.')
+discord.errors.ClientException: Already playing audio.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 479, in play_current_song
+    ctx.voice_client.play(source, after=after_playing)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 500, in play
+    raise ClientException('Already playing audio.')
+discord.errors.ClientException: Already playing audio.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 479, in play_current_song
+    ctx.voice_client.play(source, after=after_playing)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 500, in play
+    raise ClientException('Already playing audio.')
+discord.errors.ClientException: Already playing audio.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 479, in play_current_song
+    ctx.voice_client.play(source, after=after_playing)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 500, in play
+    raise ClientException('Already playing audio.')
+discord.errors.ClientException: Already playing audio.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 479, in play_current_song
+    ctx.voice_client.play(source, after=after_playing)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 500, in play
+    raise ClientException('Already playing audio.')
+discord.errors.ClientException: Already playing audio.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 479, in play_current_song
+    ctx.voice_client.play(source, after=after_playing)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 500, in play
+    raise ClientException('Already playing audio.')
+discord.errors.ClientException: Already playing audio.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 479, in play_current_song
+    ctx.voice_client.play(source, after=after_playing)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 500, in play
+    raise ClientException('Already playing audio.')
+discord.errors.ClientException: Already playing audio.
+2025-07-27 01:39:09,810 - MusicBot - ERROR - error:69 - [play_current_song] Already playing audio. | Additional info: {'guild_id': 1208701086458847282}
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 479, in play_current_song
+    ctx.voice_client.play(source, after=after_playing)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 500, in play
+    raise ClientException('Already playing audio.')
+discord.errors.ClientException: Already playing audio.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 479, in play_current_song
+    ctx.voice_client.play(source, after=after_playing)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 500, in play
+    raise ClientException('Already playing audio.')
+discord.errors.ClientException: Already playing audio.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 479, in play_current_song
+    ctx.voice_client.play(source, after=after_playing)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 500, in play
+    raise ClientException('Already playing audio.')
+discord.errors.ClientException: Already playing audio.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 479, in play_current_song
+    ctx.voice_client.play(source, after=after_playing)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 500, in play
+    raise ClientException('Already playing audio.')
+discord.errors.ClientException: Already playing audio.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 479, in play_current_song
+    ctx.voice_client.play(source, after=after_playing)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 500, in play
+    raise ClientException('Already playing audio.')
+discord.errors.ClientException: Already playing audio.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 479, in play_current_song
+    ctx.voice_client.play(source, after=after_playing)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 500, in play
+    raise ClientException('Already playing audio.')
+discord.errors.ClientException: Already playing audio.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 479, in play_current_song
+    ctx.voice_client.play(source, after=after_playing)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 500, in play
+    raise ClientException('Already playing audio.')
+discord.errors.ClientException: Already playing audio.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 479, in play_current_song
+    ctx.voice_client.play(source, after=after_playing)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 500, in play
+    raise ClientException('Already playing audio.')
+discord.errors.ClientException: Already playing audio.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 479, in play_current_song
+    ctx.voice_client.play(source, after=after_playing)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 500, in play
+    raise ClientException('Already playing audio.')
+discord.errors.ClientException: Already playing audio.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 479, in play_current_song
+    ctx.voice_client.play(source, after=after_playing)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 500, in play
+    raise ClientException('Already playing audio.')
+discord.errors.ClientException: Already playing audio.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 479, in play_current_song
+    ctx.voice_client.play(source, after=after_playing)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 500, in play
+    raise ClientException('Already playing audio.')
+discord.errors.ClientException: Already playing audio.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 479, in play_current_song
+    ctx.voice_client.play(source, after=after_playing)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 500, in play
+    raise ClientException('Already playing audio.')
+discord.errors.ClientException: Already playing audio.
+2025-07-27 01:39:12,938 - MusicBot - ERROR - error:69 - [after_playing_future]  | Additional info: {'guild_id': 1208701086458847282}
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 474, in after_playing
+    fut.result()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\concurrent\futures\_base.py", line 454, in result
+    raise CancelledError()
+concurrent.futures._base.CancelledError
+2025-07-27 02:22:06,163 - MusicBot - ERROR - error:69 - [dashboard_index] 'dict_items' object is not subscriptable
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\dashboard.py", line 164, in index
+    return render_template('dashboard_enhanced.html', stats=stats)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\templating.py", line 151, in render_template
+    return _render(app, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\templating.py", line 132, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\environment.py", line 1295, in render
+    self.environment.handle_exception()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\environment.py", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "C:\Users\amitk\Documents\Music Bot\templates\dashboard_enhanced.html", line 152, in top-level template code
+    {% for song, count in stats.most_played.items()[:10] %}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: 'dict_items' object is not subscriptable
+2025-07-27 02:27:33,492 - MusicBot - ERROR - error:69 - [dashboard_index] 'dict_items' object is not subscriptable
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\dashboard.py", line 167, in index
+    return render_template('dashboard_enhanced.html', stats=stats)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\templating.py", line 151, in render_template
+    return _render(app, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\templating.py", line 132, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\environment.py", line 1295, in render
+    self.environment.handle_exception()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\environment.py", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "C:\Users\amitk\Documents\Music Bot\templates\dashboard_enhanced.html", line 152, in top-level template code
+    {% for song, count in stats.most_played.items()[:10] %}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: 'dict_items' object is not subscriptable
+2025-07-27 02:28:06,573 - MusicBot - ERROR - error:69 - [dashboard_index] 'dict_items' object is not subscriptable
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\dashboard.py", line 167, in index
+    return render_template('dashboard_enhanced.html', stats=stats)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\templating.py", line 151, in render_template
+    return _render(app, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\templating.py", line 132, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\environment.py", line 1295, in render
+    self.environment.handle_exception()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\environment.py", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "C:\Users\amitk\Documents\Music Bot\templates\dashboard_enhanced.html", line 152, in top-level template code
+    {% for song, count in stats.most_played.items()[:10] %}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: 'dict_items' object is not subscriptable
+2025-07-27 02:37:13,571 - MusicBot - ERROR - error:69 - [dashboard_index] 'dict_items' object is not subscriptable
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\dashboard.py", line 167, in index
+    return render_template('dashboard_enhanced.html', stats=stats)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\templating.py", line 151, in render_template
+    return _render(app, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\templating.py", line 132, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\environment.py", line 1295, in render
+    self.environment.handle_exception()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\environment.py", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "C:\Users\amitk\Documents\Music Bot\templates\dashboard_enhanced.html", line 152, in top-level template code
+    {% for song, count in stats.most_played.items()[:10] %}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: 'dict_items' object is not subscriptable
+2025-07-27 02:46:19,225 - MusicBot - ERROR - error:69 - [dashboard_index] 'dict_items' object is not subscriptable
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\dashboard.py", line 167, in index
+    return render_template('dashboard_enhanced.html', stats=stats)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\templating.py", line 151, in render_template
+    return _render(app, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\templating.py", line 132, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\environment.py", line 1295, in render
+    self.environment.handle_exception()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\environment.py", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "C:\Users\amitk\Documents\Music Bot\templates\dashboard_enhanced.html", line 193, in top-level template code
+    {% for song, count in stats.most_played.items()[:10] %}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: 'dict_items' object is not subscriptable
+2025-07-27 02:47:42,302 - MusicBot - ERROR - error:69 - [dashboard_index] 'dict_items' object is not subscriptable
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\dashboard.py", line 167, in index
+    return render_template('dashboard_enhanced.html', stats=stats)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\templating.py", line 151, in render_template
+    return _render(app, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\templating.py", line 132, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\environment.py", line 1295, in render
+    self.environment.handle_exception()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\environment.py", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "C:\Users\amitk\Documents\Music Bot\templates\dashboard_enhanced.html", line 193, in top-level template code
+    {% for song, count in stats.most_played.items()[:10] %}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: 'dict_items' object is not subscriptable
+2025-07-27 02:47:46,205 - MusicBot - ERROR - error:69 - [dashboard_index] 'dict_items' object is not subscriptable
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\dashboard.py", line 167, in index
+    return render_template('dashboard_enhanced.html', stats=stats)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\templating.py", line 151, in render_template
+    return _render(app, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\templating.py", line 132, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\environment.py", line 1295, in render
+    self.environment.handle_exception()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\environment.py", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "C:\Users\amitk\Documents\Music Bot\templates\dashboard_enhanced.html", line 193, in top-level template code
+    {% for song, count in stats.most_played.items()[:10] %}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: 'dict_items' object is not subscriptable
+2025-07-27 02:47:46,827 - MusicBot - ERROR - error:69 - [dashboard_index] 'dict_items' object is not subscriptable
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\dashboard.py", line 167, in index
+    return render_template('dashboard_enhanced.html', stats=stats)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\templating.py", line 151, in render_template
+    return _render(app, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\templating.py", line 132, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\environment.py", line 1295, in render
+    self.environment.handle_exception()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\environment.py", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "C:\Users\amitk\Documents\Music Bot\templates\dashboard_enhanced.html", line 193, in top-level template code
+    {% for song, count in stats.most_played.items()[:10] %}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: 'dict_items' object is not subscriptable
+2025-07-27 02:47:47,025 - MusicBot - ERROR - error:69 - [dashboard_index] 'dict_items' object is not subscriptable
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\dashboard.py", line 167, in index
+    return render_template('dashboard_enhanced.html', stats=stats)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\templating.py", line 151, in render_template
+    return _render(app, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\templating.py", line 132, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\environment.py", line 1295, in render
+    self.environment.handle_exception()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\environment.py", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "C:\Users\amitk\Documents\Music Bot\templates\dashboard_enhanced.html", line 193, in top-level template code
+    {% for song, count in stats.most_played.items()[:10] %}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: 'dict_items' object is not subscriptable
+2025-07-27 02:48:00,427 - MusicBot - ERROR - error:69 - [dashboard_index] 'dict_items' object is not subscriptable
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\dashboard.py", line 167, in index
+    return render_template('dashboard_enhanced.html', stats=stats)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\templating.py", line 151, in render_template
+    return _render(app, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\templating.py", line 132, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\environment.py", line 1295, in render
+    self.environment.handle_exception()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\environment.py", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "C:\Users\amitk\Documents\Music Bot\templates\dashboard_enhanced.html", line 193, in top-level template code
+    {% for song, count in stats.most_played.items()[:10] %}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: 'dict_items' object is not subscriptable
+2025-07-27 02:48:01,232 - MusicBot - ERROR - error:69 - [dashboard_index] 'dict_items' object is not subscriptable
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\dashboard.py", line 167, in index
+    return render_template('dashboard_enhanced.html', stats=stats)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\templating.py", line 151, in render_template
+    return _render(app, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\templating.py", line 132, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\environment.py", line 1295, in render
+    self.environment.handle_exception()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\environment.py", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "C:\Users\amitk\Documents\Music Bot\templates\dashboard_enhanced.html", line 193, in top-level template code
+    {% for song, count in stats.most_played.items()[:10] %}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: 'dict_items' object is not subscriptable
+2025-07-27 02:48:01,458 - MusicBot - ERROR - error:69 - [dashboard_index] 'dict_items' object is not subscriptable
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\dashboard.py", line 167, in index
+    return render_template('dashboard_enhanced.html', stats=stats)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\templating.py", line 151, in render_template
+    return _render(app, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\templating.py", line 132, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\environment.py", line 1295, in render
+    self.environment.handle_exception()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\environment.py", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "C:\Users\amitk\Documents\Music Bot\templates\dashboard_enhanced.html", line 193, in top-level template code
+    {% for song, count in stats.most_played.items()[:10] %}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: 'dict_items' object is not subscriptable
+2025-07-27 02:48:01,657 - MusicBot - ERROR - error:69 - [dashboard_index] 'dict_items' object is not subscriptable
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\dashboard.py", line 167, in index
+    return render_template('dashboard_enhanced.html', stats=stats)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\templating.py", line 151, in render_template
+    return _render(app, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\templating.py", line 132, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\environment.py", line 1295, in render
+    self.environment.handle_exception()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\environment.py", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "C:\Users\amitk\Documents\Music Bot\templates\dashboard_enhanced.html", line 193, in top-level template code
+    {% for song, count in stats.most_played.items()[:10] %}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: 'dict_items' object is not subscriptable
+2025-07-27 02:48:01,841 - MusicBot - ERROR - error:69 - [dashboard_index] 'dict_items' object is not subscriptable
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\dashboard.py", line 167, in index
+    return render_template('dashboard_enhanced.html', stats=stats)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\templating.py", line 151, in render_template
+    return _render(app, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\templating.py", line 132, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\environment.py", line 1295, in render
+    self.environment.handle_exception()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\environment.py", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "C:\Users\amitk\Documents\Music Bot\templates\dashboard_enhanced.html", line 193, in top-level template code
+    {% for song, count in stats.most_played.items()[:10] %}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: 'dict_items' object is not subscriptable
+2025-07-27 02:48:02,035 - MusicBot - ERROR - error:69 - [dashboard_index] 'dict_items' object is not subscriptable
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\dashboard.py", line 167, in index
+    return render_template('dashboard_enhanced.html', stats=stats)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\templating.py", line 151, in render_template
+    return _render(app, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\templating.py", line 132, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\environment.py", line 1295, in render
+    self.environment.handle_exception()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\environment.py", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "C:\Users\amitk\Documents\Music Bot\templates\dashboard_enhanced.html", line 193, in top-level template code
+    {% for song, count in stats.most_played.items()[:10] %}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: 'dict_items' object is not subscriptable
+2025-07-27 02:48:02,364 - MusicBot - ERROR - error:69 - [dashboard_index] 'dict_items' object is not subscriptable
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\dashboard.py", line 167, in index
+    return render_template('dashboard_enhanced.html', stats=stats)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\templating.py", line 151, in render_template
+    return _render(app, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\templating.py", line 132, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\environment.py", line 1295, in render
+    self.environment.handle_exception()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\environment.py", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "C:\Users\amitk\Documents\Music Bot\templates\dashboard_enhanced.html", line 193, in top-level template code
+    {% for song, count in stats.most_played.items()[:10] %}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: 'dict_items' object is not subscriptable
+2025-07-27 02:48:02,561 - MusicBot - ERROR - error:69 - [dashboard_index] 'dict_items' object is not subscriptable
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\dashboard.py", line 167, in index
+    return render_template('dashboard_enhanced.html', stats=stats)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\templating.py", line 151, in render_template
+    return _render(app, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\templating.py", line 132, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\environment.py", line 1295, in render
+    self.environment.handle_exception()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\environment.py", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "C:\Users\amitk\Documents\Music Bot\templates\dashboard_enhanced.html", line 193, in top-level template code
+    {% for song, count in stats.most_played.items()[:10] %}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: 'dict_items' object is not subscriptable
+2025-07-27 02:48:02,708 - MusicBot - ERROR - error:69 - [dashboard_index] 'dict_items' object is not subscriptable
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\dashboard.py", line 167, in index
+    return render_template('dashboard_enhanced.html', stats=stats)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\templating.py", line 151, in render_template
+    return _render(app, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\templating.py", line 132, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\environment.py", line 1295, in render
+    self.environment.handle_exception()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\environment.py", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "C:\Users\amitk\Documents\Music Bot\templates\dashboard_enhanced.html", line 193, in top-level template code
+    {% for song, count in stats.most_played.items()[:10] %}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: 'dict_items' object is not subscriptable
+2025-07-27 02:48:02,961 - MusicBot - ERROR - error:69 - [dashboard_index] 'dict_items' object is not subscriptable
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\dashboard.py", line 167, in index
+    return render_template('dashboard_enhanced.html', stats=stats)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\templating.py", line 151, in render_template
+    return _render(app, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\templating.py", line 132, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\environment.py", line 1295, in render
+    self.environment.handle_exception()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\environment.py", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "C:\Users\amitk\Documents\Music Bot\templates\dashboard_enhanced.html", line 193, in top-level template code
+    {% for song, count in stats.most_played.items()[:10] %}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: 'dict_items' object is not subscriptable
+2025-07-27 02:48:03,137 - MusicBot - ERROR - error:69 - [dashboard_index] 'dict_items' object is not subscriptable
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\dashboard.py", line 167, in index
+    return render_template('dashboard_enhanced.html', stats=stats)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\templating.py", line 151, in render_template
+    return _render(app, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\templating.py", line 132, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\environment.py", line 1295, in render
+    self.environment.handle_exception()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\environment.py", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "C:\Users\amitk\Documents\Music Bot\templates\dashboard_enhanced.html", line 193, in top-level template code
+    {% for song, count in stats.most_played.items()[:10] %}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: 'dict_items' object is not subscriptable
+2025-07-27 02:48:03,336 - MusicBot - ERROR - error:69 - [dashboard_index] 'dict_items' object is not subscriptable
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\dashboard.py", line 167, in index
+    return render_template('dashboard_enhanced.html', stats=stats)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\templating.py", line 151, in render_template
+    return _render(app, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\templating.py", line 132, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\environment.py", line 1295, in render
+    self.environment.handle_exception()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\environment.py", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "C:\Users\amitk\Documents\Music Bot\templates\dashboard_enhanced.html", line 193, in top-level template code
+    {% for song, count in stats.most_played.items()[:10] %}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: 'dict_items' object is not subscriptable
+2025-07-27 02:48:03,541 - MusicBot - ERROR - error:69 - [dashboard_index] 'dict_items' object is not subscriptable
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\dashboard.py", line 167, in index
+    return render_template('dashboard_enhanced.html', stats=stats)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\templating.py", line 151, in render_template
+    return _render(app, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\templating.py", line 132, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\environment.py", line 1295, in render
+    self.environment.handle_exception()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\environment.py", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "C:\Users\amitk\Documents\Music Bot\templates\dashboard_enhanced.html", line 193, in top-level template code
+    {% for song, count in stats.most_played.items()[:10] %}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: 'dict_items' object is not subscriptable
+2025-07-27 02:48:48,118 - MusicBot - ERROR - error:69 - [dashboard_index] 'dict_items' object is not subscriptable
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\dashboard.py", line 167, in index
+    return render_template('dashboard_enhanced.html', stats=stats)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\templating.py", line 151, in render_template
+    return _render(app, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\templating.py", line 132, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\environment.py", line 1295, in render
+    self.environment.handle_exception()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\environment.py", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "C:\Users\amitk\Documents\Music Bot\templates\dashboard_enhanced.html", line 193, in top-level template code
+    {% for song, count in stats.most_played.items()[:10] %}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: 'dict_items' object is not subscriptable
+2025-07-27 02:50:08,065 - MusicBot - ERROR - error:69 - [dashboard_index] 'dict_items' object is not subscriptable
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\dashboard.py", line 167, in index
+    return render_template('dashboard_enhanced.html', stats=stats)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\templating.py", line 151, in render_template
+    return _render(app, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\templating.py", line 132, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\environment.py", line 1295, in render
+    self.environment.handle_exception()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\environment.py", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "C:\Users\amitk\Documents\Music Bot\templates\dashboard_enhanced.html", line 193, in top-level template code
+    {% for song, count in stats.most_played.items()[:10] %}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: 'dict_items' object is not subscriptable
+2025-07-27 03:50:43,884 - MusicBot - ERROR - error:69 - [alone_timer] 403 Forbidden (error code: 50013): Missing Permissions | Additional info: {'guild_id': 677137346818342964}
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\audio\manager.py", line 424, in alone_timer
+    await text_channel.send(
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\abc.py", line 1644, in send
+    data = await state.http.send_message(channel.id, params=params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\http.py", line 756, in request
+    raise Forbidden(response, data)
+discord.errors.Forbidden: 403 Forbidden (error code: 50013): Missing Permissions
+2025-07-27 03:54:22,674 - MusicBot - ERROR - error:69 - [dashboard_index] 'dict_items' object is not subscriptable
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\dashboard.py", line 167, in index
+    return render_template('dashboard_enhanced.html', stats=stats)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\templating.py", line 151, in render_template
+    return _render(app, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\templating.py", line 132, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\environment.py", line 1295, in render
+    self.environment.handle_exception()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\environment.py", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "C:\Users\amitk\Documents\Music Bot\templates\dashboard_enhanced.html", line 193, in top-level template code
+    {% for song, count in stats.most_played.items()[:10] %}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: 'dict_items' object is not subscriptable
+2025-07-27 16:35:39,957 - MusicBot - ERROR - error:69 - [dashboard_index] 'dict_items' object is not subscriptable
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\dashboard.py", line 167, in index
+    return render_template('dashboard_enhanced.html', stats=stats)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\templating.py", line 151, in render_template
+    return _render(app, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\templating.py", line 132, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\environment.py", line 1295, in render
+    self.environment.handle_exception()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\environment.py", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "C:\Users\amitk\Documents\Music Bot\templates\dashboard_enhanced.html", line 193, in top-level template code
+    {% for song, count in stats.most_played.items()[:10] %}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: 'dict_items' object is not subscriptable
+2025-07-27 17:33:20,992 - MusicBot - ERROR - error:69 - [dashboard_index] 'dict_items' object is not subscriptable
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\dashboard.py", line 167, in index
+    return render_template('dashboard_enhanced.html', stats=stats)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\templating.py", line 151, in render_template
+    return _render(app, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\templating.py", line 132, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\environment.py", line 1295, in render
+    self.environment.handle_exception()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\environment.py", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "C:\Users\amitk\Documents\Music Bot\templates\dashboard_enhanced.html", line 193, in top-level template code
+    {% for song, count in stats.most_played.items()[:10] %}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: 'dict_items' object is not subscriptable
+2025-07-27 18:45:07,020 - MusicBot - ERROR - error:69 - [dashboard_index] 'dict_items' object is not subscriptable
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\dashboard.py", line 167, in index
+    return render_template('dashboard_enhanced.html', stats=stats)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\templating.py", line 151, in render_template
+    return _render(app, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\templating.py", line 132, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\environment.py", line 1295, in render
+    self.environment.handle_exception()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\environment.py", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "C:\Users\amitk\Documents\Music Bot\templates\dashboard_enhanced.html", line 193, in top-level template code
+    {% for song, count in stats.most_played.items()[:10] %}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: 'dict_items' object is not subscriptable
+2025-07-27 19:09:56,647 - MusicBot - ERROR - error:69 - [dashboard_index] 'dict_items' object is not subscriptable
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\dashboard.py", line 167, in index
+    return render_template('dashboard_enhanced.html', stats=stats)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\templating.py", line 151, in render_template
+    return _render(app, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\templating.py", line 132, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\environment.py", line 1295, in render
+    self.environment.handle_exception()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\environment.py", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "C:\Users\amitk\Documents\Music Bot\templates\dashboard_enhanced.html", line 193, in top-level template code
+    {% for song, count in stats.most_played.items()[:10] %}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: 'dict_items' object is not subscriptable
+2025-07-27 19:13:15,867 - MusicBot - ERROR - error:69 - [dashboard_index] 'dict_items' object is not subscriptable
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\dashboard.py", line 169, in index
+    return render_template('dashboard_enhanced.html', stats=stats)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\templating.py", line 151, in render_template
+    return _render(app, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\templating.py", line 132, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\environment.py", line 1295, in render
+    self.environment.handle_exception()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\environment.py", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "C:\Users\amitk\Documents\Music Bot\templates\dashboard_enhanced.html", line 193, in top-level template code
+    {% for song, count in stats.most_played.items()[:10] %}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: 'dict_items' object is not subscriptable

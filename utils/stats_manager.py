@@ -24,6 +24,7 @@ class SongPlay:
 class ServerStats:
     """Stats for a specific server"""
     guild_id: int
+    guild_name: str = "Unknown Server"
     total_plays: int = 0
     most_played: Dict[str, int] = None
     recent_plays: int = 0  # Last 24 hours
@@ -50,7 +51,7 @@ class StatsManager:
         if not os.path.exists(self.stats_dir):
             os.makedirs(self.stats_dir)
     
-    async def record_song_play(self, guild_id: int, title: str, requester_id: int, duration: int = None):
+    async def record_song_play(self, guild_id: int, title: str, requester_id: int, duration: int = None, guild_name: str = None):
         """Record a song play"""
         async with self._lock:
             try:
@@ -67,9 +68,9 @@ class StatsManager:
                 await self._append_song_play(play)
                 
                 # Update server stats
-                await self._update_server_stats(guild_id, title)
+                await self._update_server_stats(guild_id, title, guild_name)
                 
-                logger.info(f"Recorded song play: {title} in guild {guild_id}")
+                logger.info(f"Recorded song play: {title} in guild {guild_id} ({guild_name})")
                 
             except Exception as e:
                 logger.error("record_song_play", e, guild_id=guild_id)
@@ -93,9 +94,13 @@ class StatsManager:
         with open(self.plays_file, 'w', encoding='utf-8') as f:
             json.dump(plays, f, indent=2, ensure_ascii=False)
     
-    async def _update_server_stats(self, guild_id: int, title: str):
+    async def _update_server_stats(self, guild_id: int, title: str, guild_name: str = None):
         """Update aggregated server statistics"""
         server_stats = await self.get_server_stats(guild_id)
+        
+        # Update guild name if provided
+        if guild_name and guild_name != "Unknown Server":
+            server_stats.guild_name = guild_name
         
         # Update total plays
         server_stats.total_plays += 1
@@ -124,6 +129,9 @@ class StatsManager:
                     
                 if str(guild_id) in all_stats:
                     stats_dict = all_stats[str(guild_id)]
+                    # Ensure guild_name exists for backwards compatibility
+                    if 'guild_name' not in stats_dict:
+                        stats_dict['guild_name'] = "Unknown Server"
                     return ServerStats(**stats_dict)
             
             # Return empty stats if not found
@@ -173,6 +181,35 @@ class StatsManager:
             logger.error("count_recent_plays", e, guild_id=guild_id)
             return 0
     
+    async def get_all_servers(self) -> List[Dict]:
+        """Get information about all servers"""
+        try:
+            servers = []
+            
+            if os.path.exists(self.server_stats_file):
+                with open(self.server_stats_file, 'r', encoding='utf-8') as f:
+                    all_stats = json.load(f)
+                
+                for guild_id, stats in all_stats.items():
+                    # Ensure guild_name exists for backwards compatibility
+                    guild_name = stats.get('guild_name', 'Unknown Server')
+                    
+                    servers.append({
+                        'guild_id': int(guild_id),
+                        'guild_name': guild_name,
+                        'total_plays': stats.get('total_plays', 0),
+                        'recent_plays': stats.get('recent_plays', 0),
+                        'last_updated': stats.get('last_updated', '')
+                    })
+            
+            # Sort by total plays (most active first)
+            servers.sort(key=lambda x: x['total_plays'], reverse=True)
+            return servers
+            
+        except Exception as e:
+            logger.error("get_all_servers", e)
+            return []
+
     async def get_global_stats(self) -> Dict:
         """Get combined stats across all servers"""
         try:
@@ -197,12 +234,16 @@ class StatsManager:
                         else:
                             combined_most_played[song] = count
             
+            # Get server information
+            servers = await self.get_all_servers()
+            
             return {
                 'total_plays': total_plays,
                 'active_guilds': total_guilds,
                 'recent_plays': total_recent,
                 'most_played': dict(sorted(combined_most_played.items(), 
-                                         key=lambda x: x[1], reverse=True)[:20])
+                                         key=lambda x: x[1], reverse=True)[:20]),
+                'servers': servers
             }
             
         except Exception as e:
@@ -211,7 +252,8 @@ class StatsManager:
                 'total_plays': 0,
                 'active_guilds': 0,
                 'recent_plays': 0,
-                'most_played': {}
+                'most_played': {},
+                'servers': []
             }
     
     async def get_server_top_songs(self, guild_id: int, limit: int = 10) -> List[Tuple[str, int]]:

@@ -26,20 +26,20 @@ class MusicCog(commands.Cog):
         log_command_usage(ctx, "join")
         
         if not ctx.author.voice:
-            await ctx.send("❌ You need to be in a voice channel for me to join!")
+            await ctx.send("❌ Arre, pehle voice channel join karo na!")
             return
         
         if ctx.voice_client:
             if ctx.voice_client.channel == ctx.author.voice.channel:
-                await ctx.send("✅ I'm already in your voice channel!")
+                await ctx.send("✅ Main toh yahin hoon, enjoy karo!")
                 return
             else:
                 await ctx.voice_client.move_to(ctx.author.voice.channel)
-                await ctx.send(f"🔄 Moved to {ctx.author.voice.channel.name}")
+                await ctx.send(f"🔄 Okay, aa gayi {ctx.author.voice.channel.name} mein")
         else:
             channel = ctx.author.voice.channel
             await channel.connect()
-            await ctx.send(f"✅ Joined {channel.name}")
+            await ctx.send(f"✅ Aa gayi main {channel.name} mein, music shuru karein?")
         
         # Check if bot is alone and start timer if needed
         if audio_manager.is_bot_alone_in_vc(ctx.guild):
@@ -68,37 +68,53 @@ class MusicCog(commands.Cog):
                 await audio_manager.start_alone_timer(ctx.guild)
         
         try:
-            songs = await self._process_query(query, ctx.author.id)
+            # Show processing message for potential playlists
+            is_potential_playlist = ('list=' in query or 'playlist' in query.lower() or 
+                                   audio_manager._is_spotify_url(query))
             
-            if not songs:
-                await ctx.send("❌ Couldn't find anything to play with that query.")
-                return
+            processing_msg = None
+            if is_potential_playlist:
+                processing_msg = await ctx.send("🔄 Processing playlist... This may take a moment.")
             
-            # Add songs to queue
-            queue_position = audio_manager.add_songs(ctx.guild.id, songs)
-            
-            # Start playing if nothing is currently playing
-            if not ctx.voice_client.is_playing() and not ctx.voice_client.is_paused():
-                await play_current_song(ctx)
-            
-            # Send feedback to user
-            if len(songs) == 1:
+            # For playlists, use batch processing
+            if is_potential_playlist:
+                await self._process_playlist_batch(ctx, query, processing_msg)
+            else:
+                # Single song processing (fast)
+                songs = await self._process_query(query, ctx.author.id)
+                
+                if not songs:
+                    await ctx.send("❌ Couldn't find anything to play with that query.")
+                    return
+                
+                # Add songs to queue
+                queue_position = audio_manager.add_songs(ctx.guild.id, songs)
+                
+                # Start playing if nothing is currently playing
+                if not ctx.voice_client.is_playing() and not ctx.voice_client.is_paused():
+                    await play_current_song(ctx)
+                
+                # Send feedback to user
                 song = songs[0]
                 if queue_position == 0:
-                    await ctx.send(f"🎵 Now playing: **{song.title}**")
+                    await ctx.send(f"🎵 Lo, suno: **{song.title}**")
                 else:
-                    await ctx.send(f"➕ Added to queue: **{song.title}**")
-            else:
-                await ctx.send(f"➕ Added **{len(songs)}** songs to the queue")
-            
-            # Update UI
-            await ui_manager.update_all_ui(ctx)
-            
-            log_audio_event(ctx.guild.id, "songs_added", f"{len(songs)} songs")
+                    await ctx.send(f"➕ Iske baad ye bajega: **{song.title}**")
+                
+                # Update UI
+                await ui_manager.update_all_ui(ctx)
+                
+                log_audio_event(ctx.guild.id, "songs_added", f"{len(songs)} songs")
             
         except Exception as e:
             logger.error("play_command", e, guild_id=ctx.guild.id, user_id=ctx.author.id)
-            await ctx.send(f"❌ An error occurred while processing your request: {str(e)}")
+            error_msg = str(e)
+            if "Spotify support is not configured" in error_msg:
+                await ctx.send("❌ Spotify integration is not configured. Please set up SPOTIFY_CLIENT_ID and SPOTIPY_CLIENT_SECRET environment variables.")
+            elif "playlist" in error_msg.lower():
+                await ctx.send(f"❌ Error processing playlist: {error_msg}")
+            else:
+                await ctx.send(f"❌ An error occurred while processing your request: {error_msg}")
     
     async def _process_query(self, query: str, user_id: int) -> List[Song]:
         """Process user query and return list of songs"""
@@ -125,12 +141,16 @@ class MusicCog(commands.Cog):
         
         if audio_manager._is_http_url(query):
             # It's a URL - check if it's a playlist
-            if 'list=' in query:
+            if 'list=' in query or 'playlist' in query.lower():
                 ydl_opts['noplaylist'] = False
+                ydl_opts['extract_flat'] = False
+                # Remove any single search constraints for playlists
+                if 'default_search' in ydl_opts:
+                    del ydl_opts['default_search']
             else:
                 ydl_opts['noplaylist'] = True
         else:
-            # It's a search query
+            # It's a search query - single video only
             ydl_opts['default_search'] = 'ytsearch1'
             ydl_opts['noplaylist'] = True
         
@@ -159,6 +179,83 @@ class MusicCog(commands.Cog):
         
         return songs
     
+    async def _process_playlist_batch(self, ctx, query: str, processing_msg):
+        """Process playlists in batches with progress updates"""
+        try:
+            # First, get playlist info quickly
+            songs = await self._process_query(query, ctx.author.id)
+            
+            if not songs:
+                await processing_msg.edit(content="❌ Couldn't find anything to play with that query.")
+                return
+            
+            total_songs = len(songs)
+            playlist_type = "Spotify" if audio_manager._is_spotify_url(query) else "YouTube"
+            
+            # If it's a small playlist, process normally
+            if total_songs <= 5:
+                queue_position = audio_manager.add_songs(ctx.guild.id, songs)
+                
+                # Start playing if nothing is currently playing
+                if not ctx.voice_client.is_playing() and not ctx.voice_client.is_paused():
+                    await play_current_song(ctx)
+                
+                await processing_msg.edit(
+                    content=f"✅ Added **{total_songs}** songs from {playlist_type} playlist to the queue"
+                )
+                await ui_manager.update_all_ui(ctx)
+                log_audio_event(ctx.guild.id, "songs_added", f"{total_songs} songs")
+                return
+            
+            # For large playlists, process in batches
+            batch_size = 5
+            added_count = 0
+            
+            # Add first batch immediately
+            first_batch = songs[:batch_size]
+            queue_position = audio_manager.add_songs(ctx.guild.id, first_batch)
+            added_count += len(first_batch)
+            
+            # Start playing if nothing is currently playing
+            if not ctx.voice_client.is_playing() and not ctx.voice_client.is_paused():
+                await play_current_song(ctx)
+            
+            # Update progress
+            await processing_msg.edit(
+                content=f"🎵 Playing first song! Adding remaining **{total_songs - added_count}** songs in background..."
+            )
+            await ui_manager.update_all_ui(ctx)
+            
+            # Process remaining songs in background
+            remaining_songs = songs[batch_size:]
+            asyncio.create_task(self._background_playlist_add(ctx, remaining_songs, total_songs, playlist_type))
+            
+        except Exception as e:
+            logger.error("process_playlist_batch", e, guild_id=ctx.guild.id)
+            await processing_msg.edit(content="❌ Error processing playlist. Please try again.")
+    
+    async def _background_playlist_add(self, ctx, remaining_songs: List[Song], total_songs: int, playlist_type: str):
+        """Add remaining playlist songs in background"""
+        try:
+            batch_size = 10
+            added_count = total_songs - len(remaining_songs)  # Already added first batch
+            
+            for i in range(0, len(remaining_songs), batch_size):
+                batch = remaining_songs[i:i + batch_size]
+                audio_manager.add_songs(ctx.guild.id, batch)
+                added_count += len(batch)
+                
+                # Small delay to prevent overwhelming
+                await asyncio.sleep(0.5)
+            
+            # Final update
+            await ctx.send(f"✅ Finished adding all **{total_songs}** songs from {playlist_type} playlist!")
+            await ui_manager.update_queue(ctx)  # Update queue UI
+            log_audio_event(ctx.guild.id, "playlist_completed", f"{total_songs} songs")
+            
+        except Exception as e:
+            logger.error("background_playlist_add", e, guild_id=ctx.guild.id)
+    
     @commands.command(aliases=['q'])
     async def queue(self, ctx):
         """Show the current queue"""
@@ -171,15 +268,15 @@ class MusicCog(commands.Cog):
         log_command_usage(ctx, "pause")
         
         if not ctx.voice_client:
-            await ctx.send("❌ I'm not in a voice channel!")
+            await ctx.send("❌ Main voice channel mein nahi hoon!")
             return
         
         if ctx.voice_client.is_playing():
             ctx.voice_client.pause()
-            await ctx.send("⏸️ Playback paused")
+            await ctx.send("⏸️ Gaana pause ho gaya. `!resume` se wapas chalu karna.")
             log_audio_event(ctx.guild.id, "paused")
         else:
-            await ctx.send("❌ Nothing is currently playing!")
+            await ctx.send("❌ Kuch baj hi nahi raha hai, kya pause karun?")
     
     @commands.command()
     async def resume(self, ctx):
@@ -187,15 +284,15 @@ class MusicCog(commands.Cog):
         log_command_usage(ctx, "resume")
         
         if not ctx.voice_client:
-            await ctx.send("❌ I'm not in a voice channel!")
+            await ctx.send("❌ Main voice channel mein nahi hoon!")
             return
         
         if ctx.voice_client.is_paused():
             ctx.voice_client.resume()
-            await ctx.send("▶️ Playback resumed")
+            await ctx.send("▶️ Chalo, music wapas on!")
             log_audio_event(ctx.guild.id, "resumed")
         else:
-            await ctx.send("❌ Nothing is currently paused!")
+            await ctx.send("❌ Gaana toh pehle se hi chal raha hai, dear!")
     
     @commands.command(aliases=['next'])
     async def skip(self, ctx):
@@ -219,7 +316,7 @@ class MusicCog(commands.Cog):
         log_command_usage(ctx, "stop")
         
         if not ctx.voice_client:
-            await ctx.send("❌ I'm not in a voice channel!")
+            await ctx.send("❌ Arre, main toh kisi voice channel mein hi nahi hoon!")
             return
         
         audio_manager.clear_queue(ctx.guild.id)
@@ -227,7 +324,7 @@ class MusicCog(commands.Cog):
         if ctx.voice_client.is_playing() or ctx.voice_client.is_paused():
             ctx.voice_client.stop()
         
-        await ctx.send("⏹️ Stopped playback and cleared queue")
+        await ctx.send("⏹️ Music band aur queue bhi clear kar di!")
         await ui_manager.update_all_ui(ctx)
         log_audio_event(ctx.guild.id, "stopped")
     
@@ -246,7 +343,7 @@ class MusicCog(commands.Cog):
         await ui_manager.cleanup_all_messages(ctx.guild.id)
         
         await ctx.voice_client.disconnect()
-        await ctx.send("👋 Disconnected from voice channel")
+        await ctx.send("👋 Okay, main chali. Phir milte hain!")
         log_audio_event(ctx.guild.id, "left_voice_channel")
     
     @commands.command(aliases=['goto', 'jumpto'])
@@ -390,6 +487,28 @@ class MusicCog(commands.Cog):
         await ctx.send(f"🔊 Volume set to **{vol}** (session only)")
         log_audio_event(ctx.guild.id, "volume_changed", str(vol))
     
+    @commands.command(aliases=['cleanup', 'clean'])
+    async def cleanqueue(self, ctx):
+        """Remove invalid/broken songs from the queue"""
+        log_command_usage(ctx, "cleanqueue")
+        
+        queue = audio_manager.get_queue(ctx.guild.id)
+        
+        if not queue:
+            await ctx.send("❌ The queue is empty!")
+            return
+        
+        initial_count = len(queue)
+        removed_count = await audio_manager.validate_queue_songs(ctx.guild.id, max_check=50)
+        
+        if removed_count > 0:
+            await ctx.send(f"🧹 Cleaned queue: Removed **{removed_count}** invalid songs")
+            await ui_manager.update_queue(ctx)
+        else:
+            await ctx.send("✅ Queue looks clean - no invalid songs found")
+        
+        log_audio_event(ctx.guild.id, "queue_cleaned", f"{removed_count} songs removed")
+    
     # Error handlers
     @play.error
     async def play_error(self, ctx, error):
@@ -421,55 +540,88 @@ class MusicCog(commands.Cog):
 
 
 async def play_current_song(ctx):
-    """Play the current song in the queue"""
+    """Play the current song in the queue with improved error handling"""
     guild_id = ctx.guild.id
-    current_song = audio_manager.get_current_song(guild_id)
+    max_retries = 5  # Maximum number of songs to try before giving up
+    retry_count = 0
     
-    if not current_song:
-        await ctx.send("❌ No song to play!")
-        await ui_manager.update_all_ui(ctx)
-        return
-    
-    if not ctx.voice_client:
-        await ctx.send("❌ I'm not in a voice channel!")
-        return
-    
-    try:
-        # Create audio source
-        source = await audio_manager.create_audio_source(current_song, guild_id)
+    while retry_count < max_retries:
+        current_song = audio_manager.get_current_song(guild_id)
         
-        def after_playing(error):
-            if error:
-                logger.error("audio_playback", Exception(str(error)), guild_id=guild_id)
+        if not current_song:
+            await ctx.send("❌ No more songs to play!")
+            await ui_manager.update_all_ui(ctx)
+            return
+        
+        if not ctx.voice_client:
+            await ctx.send("❌ I'm not in a voice channel!")
+            return
+        
+        try:
+            # Create audio source
+            source = await audio_manager.create_audio_source(current_song, guild_id)
             
-            # Schedule next song
-            if ctx.voice_client:
-                fut = asyncio.run_coroutine_threadsafe(handle_song_end(ctx), ctx.bot.loop)
-                try:
-                    fut.result()
-                except Exception as e:
-                    logger.error("after_playing_future", e, guild_id=guild_id)
-        
-        # Start playback
-        ctx.voice_client.play(source, after=after_playing)
-        
-        # Record song play in stats
-        await stats_manager.record_song_play(
-            guild_id=guild_id,
-            title=current_song.title,
-            requester_id=current_song.requester_id,
-            duration=current_song.duration
-        )
-        
-        # Update UI
-        await ui_manager.update_all_ui(ctx)
-        
-        log_audio_event(guild_id, "song_started", current_song.title)
-        
-    except Exception as e:
-        logger.error("play_current_song", e, guild_id=guild_id)
-        await ctx.send(f"❌ Failed to play song: {current_song.title}. Skipping to next.")
-        await handle_song_end(ctx)
+            def after_playing(error):
+                if error:
+                    logger.error("audio_playback", Exception(str(error)), guild_id=guild_id)
+                
+                # Schedule next song
+                if ctx.voice_client:
+                    fut = asyncio.run_coroutine_threadsafe(handle_song_end(ctx), ctx.bot.loop)
+                    try:
+                        fut.result()
+                    except Exception as e:
+                        logger.error("after_playing_future", e, guild_id=guild_id)
+            
+            # Start playback
+            ctx.voice_client.play(source, after=after_playing)
+            
+            # Record song play in stats
+            await stats_manager.record_song_play(
+                guild_id=guild_id,
+                title=current_song.title,
+                requester_id=current_song.requester_id,
+                duration=current_song.duration,
+                guild_name=ctx.guild.name
+            )
+            
+            # Update UI
+            await ui_manager.update_all_ui(ctx)
+            
+            log_audio_event(guild_id, "song_started", current_song.title)
+            return  # Successfully started playing
+            
+        except Exception as e:
+            retry_count += 1
+            logger.error("play_current_song", e, guild_id=guild_id, song_title=current_song.title)
+            
+            # Remove the failed song from queue to prevent infinite loop
+            current_idx = audio_manager.guild_current_index.get(guild_id, 0)
+            audio_manager.remove_song(guild_id, current_idx)
+            
+            # Send error message (but less spammy for multiple failures)
+            if retry_count == 1:
+                await ctx.send(f"❌ Failed to play: **{current_song.title}**. Trying next song...")
+            elif retry_count <= 3:
+                await ctx.send(f"❌ Skipping unplayable song: **{current_song.title}**")
+            elif retry_count == 4:
+                await ctx.send("⚠️ Multiple songs failed to play. Checking remaining queue...")
+            
+            # Small delay to prevent rapid failures
+            await asyncio.sleep(0.5)
+            
+            # Continue to next song without incrementing the index (since we removed the failed song)
+            continue
+    
+    # If we get here, we've failed to play multiple songs
+    await ctx.send(
+        "❌ **Multiple songs failed to play.** This might be due to:\n"
+        "• Region-blocked content\n"
+        "• Deleted/unavailable videos\n"
+        "• Playlist issues\n\n"
+        "🔧 Try adding individual songs or different playlists."
+    )
+    await ui_manager.update_all_ui(ctx)
 
 
 async def handle_song_end(ctx):

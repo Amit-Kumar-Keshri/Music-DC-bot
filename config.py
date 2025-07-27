@@ -52,9 +52,15 @@ class BotConfig:
                 'format': 'bestaudio[ext=webm][acodec=opus]/bestaudio[ext=m4a]/bestaudio/best',
                 'quiet': True,
                 'extract_flat': False,
-                'noplaylist': True,
+                'noplaylist': True,  # Default to single video, will be overridden for playlists
                 'default_search': 'ytsearch',
                 'source_address': '0.0.0.0',
+                'ignoreerrors': True,  # Continue processing if some videos fail
+                'playlistend': 20,  # Limit playlist size for faster initial load
+                'skip_unavailable_fragments': True,  # Skip fragments that fail to download
+                'retries': 3,  # Retry failed downloads
+                'fragment_retries': 3,  # Retry failed fragments
+                'no_warnings': True,  # Reduce console spam
             }
 
 

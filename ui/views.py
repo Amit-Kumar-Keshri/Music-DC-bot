@@ -80,28 +80,36 @@ class NowPlayingView(ui.View):
     async def prev_song(self, interaction: discord.Interaction):
         """Handle previous song button"""
         try:
-            await interaction.response.defer()
+            if not audio_manager.previous_song(self.guild_id):
+                await interaction.response.send_message("❌ No previous song available.", ephemeral=True)
+                return
             
-            if audio_manager.previous_song(self.guild_id):
-                if self.ctx.voice_client and (self.ctx.voice_client.is_playing() or self.ctx.voice_client.is_paused()):
-                    self.ctx.voice_client.stop()
-                
-                # Import here to avoid circular imports
-                from commands.music import play_current_song
-                await play_current_song(self.ctx)
-            else:
-                await interaction.followup.send("No previous song available.", ephemeral=True)
+            # Stop current song to trigger automatic next song play
+            if self.ctx.voice_client and (self.ctx.voice_client.is_playing() or self.ctx.voice_client.is_paused()):
+                self.ctx.voice_client.stop()
+            
+            await interaction.response.send_message("⏮️ Going to previous song", ephemeral=True)
+            
+            # Update button states
+            self.update_buttons()
+            try:
+                await interaction.edit_original_response(view=self)
+            except:
+                pass  # Message might be ephemeral
                 
         except Exception as e:
             logger.error("prev_song_button", e, guild_id=self.guild_id)
-            await interaction.followup.send("An error occurred while going to previous song.", ephemeral=True)
+            try:
+                await interaction.response.send_message("❌ An error occurred while going to previous song.", ephemeral=True)
+            except:
+                await interaction.followup.send("❌ An error occurred while going to previous song.", ephemeral=True)
     
     async def play_pause(self, interaction: discord.Interaction):
         """Handle play/pause button"""
         try:
             vc = self.ctx.voice_client
             if not vc:
-                await interaction.response.send_message("I'm not in a voice channel.", ephemeral=True)
+                await interaction.response.send_message("❌ I'm not in a voice channel.", ephemeral=True)
                 return
             
             if vc.is_playing():
@@ -111,34 +119,57 @@ class NowPlayingView(ui.View):
                 vc.resume()
                 await interaction.response.send_message("▶️ Resumed", ephemeral=True)
             else:
-                await interaction.response.send_message("Nothing is playing.", ephemeral=True)
+                await interaction.response.send_message("❌ Nothing is playing.", ephemeral=True)
                 return
             
+            # Update button states
             self.update_buttons()
-            await interaction.edit_original_response(view=self)
+            
+            # Update the parent message with new buttons
+            try:
+                # Get the message from the UI manager
+                from ui.views import ui_manager
+                await ui_manager.update_now_playing_buttons(self.ctx, self)
+            except:
+                pass  # Fallback: don't update if there's an issue
             
         except Exception as e:
             logger.error("play_pause_button", e, guild_id=self.guild_id)
-            await interaction.response.send_message("An error occurred.", ephemeral=True)
+            try:
+                await interaction.response.send_message("❌ An error occurred.", ephemeral=True)
+            except:
+                await interaction.followup.send("❌ An error occurred.", ephemeral=True)
     
     async def skip(self, interaction: discord.Interaction):
         """Handle skip button"""
         try:
-            await interaction.response.defer()
+            queue = audio_manager.get_queue(self.guild_id)
+            current_idx = audio_manager.guild_current_index.get(self.guild_id, 0)
             
-            if audio_manager.next_song(self.guild_id):
-                if self.ctx.voice_client and self.ctx.voice_client.is_playing():
-                    self.ctx.voice_client.stop()
-                else:
-                    # Import here to avoid circular imports
+            if not queue or current_idx >= len(queue) - 1:
+                await interaction.response.send_message("❌ No next song available.", ephemeral=True)
+                return
+            
+            # Stop current song to trigger automatic next song play
+            if self.ctx.voice_client and (self.ctx.voice_client.is_playing() or self.ctx.voice_client.is_paused()):
+                self.ctx.voice_client.stop()
+            else:
+                # If nothing is playing, manually advance to next song
+                if audio_manager.next_song(self.guild_id):
                     from commands.music import play_current_song
                     await play_current_song(self.ctx)
-            else:
-                await interaction.followup.send("No next song available.", ephemeral=True)
-                
+            
+            await interaction.response.send_message("⏭️ Skipped to next song", ephemeral=True)
+            
+            # Update button states
+            self.update_buttons()
+            
         except Exception as e:
             logger.error("skip_button", e, guild_id=self.guild_id)
-            await interaction.followup.send("An error occurred while skipping.", ephemeral=True)
+            try:
+                await interaction.response.send_message("❌ An error occurred while skipping.", ephemeral=True)
+            except:
+                await interaction.followup.send("❌ An error occurred while skipping.", ephemeral=True)
     
     async def stop(self, interaction: discord.Interaction):
         """Handle stop button"""
@@ -162,14 +193,25 @@ class NowPlayingView(ui.View):
             audio_manager.set_repeat(self.guild_id, new_repeat)
             
             status = "ON" if new_repeat else "OFF"
-            await interaction.response.send_message(f"🔁 Repeat is now {status}", ephemeral=True)
+            emoji = "🔂" if new_repeat else "🔁"
+            await interaction.response.send_message(f"{emoji} Repeat is now **{status}**", ephemeral=True)
             
+            # Update button states
             self.update_buttons()
-            await interaction.edit_original_response(view=self)
+            
+            # Update the parent message with new buttons
+            try:
+                from ui.views import ui_manager
+                await ui_manager.update_now_playing_buttons(self.ctx, self)
+            except:
+                pass  # Fallback: don't update if there's an issue
             
         except Exception as e:
             logger.error("repeat_button", e, guild_id=self.guild_id)
-            await interaction.response.send_message("An error occurred.", ephemeral=True)
+            try:
+                await interaction.response.send_message("❌ An error occurred.", ephemeral=True)
+            except:
+                await interaction.followup.send("❌ An error occurred.", ephemeral=True)
 
 
 class QueueView(ui.View):
@@ -377,6 +419,17 @@ class UIManager:
         """Update both now playing and queue UI"""
         await self.update_now_playing(ctx)
         await self.update_queue(ctx)
+    
+    async def update_now_playing_buttons(self, ctx, view: NowPlayingView):
+        """Update only the buttons of the now playing message"""
+        try:
+            guild_id = ctx.guild.id
+            if guild_id in self.ui_messages and 'now_playing' in self.ui_messages[guild_id]:
+                message = self.ui_messages[guild_id]['now_playing']
+                view.update_buttons()
+                await message.edit(view=view)
+        except Exception as e:
+            logger.error("update_now_playing_buttons", e, guild_id=ctx.guild.id)
     
     async def _cleanup_message(self, guild_id: int, message_type: str):
         """Clean up old UI message"""

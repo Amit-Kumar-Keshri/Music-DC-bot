@@ -211,45 +211,86 @@ class AudioManager:
         return False
     
     async def resolve_lazy_song(self, song: Song) -> Song:
-        """Resolve a lazy-loaded song to get actual audio URL"""
+        """Resolve a lazy-loaded song to get actual audio URL with improved error handling"""
         if not song.is_lazy:
             return song
         
-        try:
-            ydl_opts = config.ydl_options.copy()
-            search_query = song.webpage_url or song.title
-            
-            if not self._is_http_url(search_query):
-                ydl_opts['default_search'] = 'ytsearch1'
-            
-            def _extract_info():
-                with yt_dlp.YoutubeDL(ydl_opts) as ydl:
-                    info = ydl.extract_info(search_query, download=False)
-                    if 'entries' in info and info['entries']:
-                        info = info['entries'][0]
-                    return info
-            
-            # Run in executor to avoid blocking
-            loop = asyncio.get_event_loop()
-            info = await loop.run_in_executor(None, _extract_info)
-            
-            # Update song with resolved information
-            song.url = info['url']
-            song.title = info.get('title', song.title)
-            song.duration = info.get('duration', song.duration)
-            song.thumbnail = info.get('thumbnail', song.thumbnail)
-            
-            if not song.webpage_url or not song.webpage_url.startswith('http'):
-                song.webpage_url = info.get('webpage_url', song.webpage_url)
-            
-            song.is_lazy = False
-            
-            log_audio_event(0, "song_resolved", song.title)
-            return song
-            
-        except Exception as e:
-            logger.error("resolve_lazy_song", e, song_title=song.title)
-            raise
+        # Try multiple search strategies
+        search_attempts = []
+        
+        # If we have a direct URL, try that first
+        if song.webpage_url and self._is_http_url(song.webpage_url):
+            search_attempts.append(song.webpage_url)
+        
+        # Add various search query formats for better success rate
+        title_clean = song.title.replace(" - ", " ").replace("(", "").replace(")", "")
+        search_attempts.extend([
+            f"{title_clean} audio",
+            f"{title_clean} official",
+            f"{title_clean}",
+            song.title  # Original title as fallback
+        ])
+        
+        last_error = None
+        
+        for attempt, search_query in enumerate(search_attempts):
+            try:
+                ydl_opts = config.ydl_options.copy()
+                ydl_opts['quiet'] = True  # Reduce noise in logs
+                
+                # Configure search method
+                if self._is_http_url(search_query):
+                    ydl_opts['noplaylist'] = True
+                else:
+                    ydl_opts['default_search'] = 'ytsearch1'
+                    ydl_opts['noplaylist'] = True
+                
+                def _extract_info():
+                    with yt_dlp.YoutubeDL(ydl_opts) as ydl:
+                        info = ydl.extract_info(search_query, download=False)
+                        if 'entries' in info and info['entries']:
+                            # Get the first valid entry
+                            for entry in info['entries']:
+                                if entry and entry.get('url'):
+                                    return entry
+                            return None
+                        elif info and info.get('url'):
+                            return info
+                        return None
+                
+                # Run in executor to avoid blocking
+                loop = asyncio.get_event_loop()
+                info = await loop.run_in_executor(None, _extract_info)
+                
+                if info and info.get('url'):
+                    # Successfully resolved! Update song with resolved information
+                    song.url = info['url']
+                    song.title = info.get('title', song.title)
+                    song.duration = info.get('duration', song.duration)
+                    song.thumbnail = info.get('thumbnail', song.thumbnail)
+                    
+                    if not song.webpage_url or not song.webpage_url.startswith('http'):
+                        song.webpage_url = info.get('webpage_url', song.webpage_url)
+                    
+                    song.is_lazy = False
+                    
+                    log_audio_event(0, "song_resolved", f"{song.title} (attempt {attempt + 1})")
+                    return song
+                else:
+                    logger.warning(f"No valid URL found for: {search_query}")
+                    
+            except Exception as e:
+                last_error = e
+                logger.warning(f"Resolution attempt {attempt + 1} failed for '{search_query}': {str(e)}")
+                continue
+        
+        # All attempts failed
+        error_msg = f"Failed to resolve song after {len(search_attempts)} attempts: {song.title}"
+        if last_error:
+            error_msg += f" (Last error: {str(last_error)})"
+        
+        logger.error("resolve_lazy_song_all_attempts_failed", Exception(error_msg), song_title=song.title)
+        raise ValueError(error_msg)
     
     async def get_spotify_tracks(self, url: str) -> List[Song]:
         """Extract tracks from Spotify URL"""
@@ -270,28 +311,47 @@ class AudioManager:
                 ))
                 
             elif 'playlist' in url:
-                results = self.spotify_client.playlist_tracks(url)
-                for item in results['items']:
-                    track = item['track']
-                    if track:
-                        search_query = f"{track['name']} {track['artists'][0]['name']} official audio"
-                        tracks.append(Song(
-                            title=f"{track['name']} - {track['artists'][0]['name']}",
-                            webpage_url=search_query,
-                            duration=track.get('duration_ms', 0) // 1000,
-                            is_lazy=True
-                        ))
+                # Handle paginated playlist results
+                results = self.spotify_client.playlist_tracks(url, limit=50)
+                
+                while results:
+                    for item in results['items']:
+                        track = item.get('track')
+                        if track and track.get('name'):  # Ensure track exists and has a name
+                            search_query = f"{track['name']} {track['artists'][0]['name']} official audio"
+                            tracks.append(Song(
+                                title=f"{track['name']} - {track['artists'][0]['name']}",
+                                webpage_url=search_query,
+                                duration=track.get('duration_ms', 0) // 1000,
+                                is_lazy=True
+                            ))
+                    
+                    # Get next page if available (limit to 100 songs to prevent overwhelming)
+                    if results['next'] and len(tracks) < 100:
+                        results = self.spotify_client.next(results)
+                    else:
+                        break
                         
             elif 'album' in url:
-                results = self.spotify_client.album_tracks(url)
-                for track in results['items']:
-                    search_query = f"{track['name']} {track['artists'][0]['name']} official audio"
-                    tracks.append(Song(
-                        title=f"{track['name']} - {track['artists'][0]['name']}",
-                        webpage_url=search_query,
-                        duration=track.get('duration_ms', 0) // 1000,
-                        is_lazy=True
-                    ))
+                # Handle paginated album results
+                results = self.spotify_client.album_tracks(url, limit=50)
+                
+                while results:
+                    for track in results['items']:
+                        if track and track.get('name'):  # Ensure track exists and has a name
+                            search_query = f"{track['name']} {track['artists'][0]['name']} official audio"
+                            tracks.append(Song(
+                                title=f"{track['name']} - {track['artists'][0]['name']}",
+                                webpage_url=search_query,
+                                duration=track.get('duration_ms', 0) // 1000,
+                                is_lazy=True
+                            ))
+                    
+                    # Get next page if available (limit to 100 songs to prevent overwhelming)
+                    if results['next'] and len(tracks) < 100:
+                        results = self.spotify_client.next(results)
+                    else:
+                        break
                     
         except Exception as e:
             logger.error("get_spotify_tracks", e)
@@ -382,6 +442,38 @@ class AudioManager:
         if guild_id in self.alone_timers:
             self.alone_timers[guild_id].cancel()
             self.alone_timers.pop(guild_id, None)
+    
+    async def validate_queue_songs(self, guild_id: int, max_check: int = 10) -> int:
+        """Validate and clean up queue songs, return number of songs removed"""
+        queue = self.get_queue(guild_id)
+        if not queue:
+            return 0
+        
+        removed_count = 0
+        current_idx = self.guild_current_index.get(guild_id, 0)
+        
+        # Check a limited number of songs to avoid blocking
+        check_count = min(max_check, len(queue))
+        songs_to_remove = []
+        
+        for i in range(check_count):
+            if i < len(queue):
+                song = queue[i]
+                # Skip currently playing song
+                if i == current_idx:
+                    continue
+                
+                # Check for obvious invalid songs
+                if (not song.title or song.title.lower() in ['deleted video', 'private video', 'unavailable'] or
+                    'deleted' in song.title.lower() or 'private' in song.title.lower()):
+                    songs_to_remove.append(i)
+        
+        # Remove invalid songs (in reverse order to maintain indices)
+        for idx in reversed(songs_to_remove):
+            self.remove_song(guild_id, idx)
+            removed_count += 1
+        
+        return removed_count
 
 
 # Global audio manager instance

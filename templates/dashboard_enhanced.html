@@ -136,6 +136,47 @@
                         </div>
                     </div>
 
+                    <!-- Active Servers -->
+                    <div class="detail-card">
+                        <div class="card-header">
+                            <h2><i class="fas fa-server"></i> Active Servers</h2>
+                            <div class="card-actions">
+                                <button class="action-btn" onclick="toggleCard('activeServers')">
+                                    <i class="fas fa-chevron-up"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="card-content" id="activeServers">
+                            <div class="servers-list" id="serversList">
+                                {% if stats.get('servers') %}
+                                    {% for server in stats.servers %}
+                                    <div class="server-item">
+                                        <div class="server-icon">
+                                            <i class="fas fa-server"></i>
+                                        </div>
+                                        <div class="server-info">
+                                            <div class="server-name">{{ server.guild_name }}</div>
+                                            <div class="server-id">ID: {{ server.guild_id }}</div>
+                                            <div class="server-stats">
+                                                <span class="stat-badge">{{ server.total_plays }} plays</span>
+                                                <span class="stat-badge">{{ server.recent_plays }} recent</span>
+                                            </div>
+                                        </div>
+                                        <div class="server-status">
+                                            <i class="fas fa-circle online"></i>
+                                        </div>
+                                    </div>
+                                    {% endfor %}
+                                {% else %}
+                                    <div class="empty-state">
+                                        <i class="fas fa-server"></i>
+                                        <p>No active servers</p>
+                                    </div>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+
                     <!-- Most Played Songs -->
                     <div class="detail-card">
                         <div class="card-header">
@@ -149,7 +190,7 @@
                         <div class="card-content" id="topSongs">
                             <div class="songs-list" id="songsList">
                                 {% if stats.get('most_played') %}
-                                    {% for song, count in stats.most_played.items()[:10] %}
+                                    {% for song, count in stats.most_played.items() %}
                                     <div class="song-item">
                                         <div class="song-rank">{{ loop.index }}</div>
                                         <div class="song-info">
@@ -240,12 +281,20 @@
             // Update most played songs
             updateSongsList(stats.most_played || {});
 
+            // Update servers list
+            updateServersList(stats.servers || []);
+
             // Update cache info
             if (stats.cache_info) {
                 if (stats.cache_info.cached_at) {
                     const cacheTime = new Date(stats.cache_info.cached_at);
                     document.getElementById('cacheUpdate').textContent = cacheTime.toLocaleTimeString();
                 }
+            }
+
+            // Update connected clients count
+            if (stats.connected_clients !== undefined) {
+                document.getElementById('connectedClients').textContent = stats.connected_clients;
             }
         }
 
@@ -321,6 +370,41 @@
             addLogEntry('Logs cleared');
         }
 
+        // Update servers list
+        function updateServersList(servers) {
+            const serversList = document.getElementById('serversList');
+            if (!serversList) return;
+
+            if (servers.length === 0) {
+                serversList.innerHTML = `
+                    <div class="empty-state">
+                        <i class="fas fa-server"></i>
+                        <p>No active servers</p>
+                    </div>
+                `;
+                return;
+            }
+
+            serversList.innerHTML = servers.map(server => `
+                <div class="server-item">
+                    <div class="server-icon">
+                        <i class="fas fa-server"></i>
+                    </div>
+                    <div class="server-info">
+                        <div class="server-name">${server.guild_name}</div>
+                        <div class="server-id">ID: ${server.guild_id}</div>
+                        <div class="server-stats">
+                            <span class="stat-badge">${server.total_plays} plays</span>
+                            <span class="stat-badge">${server.recent_plays} recent</span>
+                        </div>
+                    </div>
+                    <div class="server-status">
+                        <i class="fas fa-circle online"></i>
+                    </div>
+                </div>
+            `).join('');
+        }
+
         // Update songs list
         function updateSongsList(mostPlayed) {
             const songsList = document.getElementById('songsList');
@@ -336,10 +420,9 @@
                 return;
             }
 
-            // Convert to array and sort
+            // Convert to array and sort - show ALL songs now
             const songs = Object.entries(mostPlayed)
-                .sort((a, b) => b[1] - a[1])
-                .slice(0, 10);
+                .sort((a, b) => b[1] - a[1]);
 
             const maxPlays = songs.length > 0 ? songs[0][1] : 1;
 
@@ -380,6 +463,76 @@
         
         .info-notice li {
             margin: 0.25rem 0;
+        }
+
+        /* Server List Styles */
+        .servers-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .server-item {
+            display: flex;
+            align-items: center;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .server-item:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .server-icon {
+            margin-right: 1rem;
+            color: #4299e1;
+            font-size: 1.25rem;
+        }
+
+        .server-info {
+            flex: 1;
+        }
+
+        .server-name {
+            font-weight: 600;
+            font-size: 1rem;
+            color: #e2e8f0;
+            margin-bottom: 0.25rem;
+        }
+
+        .server-id {
+            font-size: 0.8rem;
+            color: #a0aec0;
+            margin-bottom: 0.5rem;
+            font-family: 'Courier New', monospace;
+        }
+
+        .server-stats {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .stat-badge {
+            background: rgba(66, 153, 225, 0.2);
+            color: #4299e1;
+            padding: 0.2rem 0.5rem;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        .server-status {
+            margin-left: 1rem;
+        }
+
+        .server-status .fa-circle.online {
+            color: #48bb78;
+            font-size: 0.75rem;
         }
     </style>
 </body>
