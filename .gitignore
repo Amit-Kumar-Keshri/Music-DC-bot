@@ -1,4 +1,20 @@
 .env
 .cache
 stats.json
-bot_error.log
+
+# Logs
+logs/
+*.log
+
+# Audio cache and temporary files
+audio_cache/
+temp/
+temp_stats.json
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+
+

@@ -142,10 +142,10 @@ class AdminCog(commands.Cog):
             await ctx.send("❌ An error occurred while forcing leave")
 
     @commands.command()
-    @commands.has_permissions(administrator=True)
+    #@commands.has_permissions(administrator=True)
     async def clearqueue(self, ctx):
         """Clear the entire music queue"""
-        log_command_usage(ctx, "clearqueue")
+        log_command_usage(ctx, "clear")
         
         try:
             queue_size = len(audio_manager.get_queue(ctx.guild.id))

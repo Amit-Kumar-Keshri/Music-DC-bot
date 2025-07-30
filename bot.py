@@ -220,7 +220,8 @@ async def help_command(ctx):
             "`shuffle` — Shuffle the queue\n"
             "`repeat` — Toggle repeat current song\n"
             "`remove <number>` — Remove song from queue\n"
-            "`move <from> <to>` — Move song position"
+            "`move <from> <to>` — Move song position\n"
+            "`clear` — Clear entire queue"
         ),
         inline=False
     )
@@ -232,7 +233,6 @@ async def help_command(ctx):
             "`volume <0.1-2.0>` — Set playback volume\n"
             "`stats` — Show server song statistics (Admin)\n"
             "`forceleave` — Force disconnect (Admin)\n"
-            "`clearqueue` — Clear entire queue (Admin)"
         ),
         inline=False
     )

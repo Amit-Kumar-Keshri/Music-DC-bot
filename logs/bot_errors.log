@@ -2185,3 +2185,618 @@ Traceback (most recent call last):
     {% for song, count in stats.most_played.items()[:10] %}
     ^^^^^^^^^^^^^^^^^^^^^^^^^
 TypeError: 'dict_items' object is not subscriptable
+2025-07-28 01:52:28,590 - MusicBot - ERROR - error:69 - [command_error] query is a required argument that is missing. | Additional info: {'guild_id': 1208701086458847282}
+NoneType: None
+2025-07-28 17:07:47,878 - MusicBot - ERROR - error:69 - [cleanup_message_now_playing] [WinError 121] The semaphore timeout period has expired | Additional info: {'guild_id': 1053223116085673985}
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\ui\views.py", line 439, in _cleanup_message
+    await old_message.delete()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\message.py", line 1304, in delete
+    await self._state.http.delete_message(self.channel.id, self.id)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\http.py", line 642, in request
+    async with self.__session.request(method, url, **kwargs) as response:
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\aiohttp\client.py", line 1194, in __aenter__
+    self._resp = await self._coro
+                 ^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\aiohttp\client.py", line 605, in _request
+    await resp.start(conn)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\aiohttp\client_reqrep.py", line 966, in start
+    message, payload = await protocol.read()  # type: ignore[union-attr]
+                       ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\aiohttp\streams.py", line 622, in read
+    await self._waiter
+aiohttp.client_exceptions.ClientOSError: [WinError 121] The semaphore timeout period has expired
+2025-07-30 00:14:19,048 - MusicBot - ERROR - error:69 - [play_command_error] Command raised an exception: TimeoutError:  | Additional info: {'guild_id': 1208701086458847282, 'user_id': 482482011571748864}
+Traceback (most recent call last):
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_state.py", line 413, in _inner_connect
+    await self._handshake_websocket()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_state.py", line 583, in _handshake_websocket
+    await self.ws.poll_event()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\gateway.py", line 1039, in poll_event
+    raise ConnectionClosed(self.ws, shard_id=None, code=self._close_code)
+discord.errors.ConnectionClosed: Shard ID None WebSocket closed with 4006
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\tasks.py", line 510, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_state.py", line 420, in _inner_connect
+    await asyncio.sleep(wait)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\tasks.py", line 655, in sleep
+    return await future
+           ^^^^^^^^^^^^
+asyncio.exceptions.CancelledError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\commands\core.py", line 235, in wrapped
+    ret = await coro(*args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 64, in play
+    await ctx.author.voice.channel.connect()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\abc.py", line 1992, in connect
+    await voice.connect(timeout=timeout, reconnect=reconnect, self_deaf=self_deaf, self_mute=self_mute)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 306, in connect
+    await self._connection.connect(
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_state.py", line 380, in connect
+    await self._connector
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_state.py", line 384, in _wrap_connect
+    await self._connect(*args)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_state.py", line 429, in _connect
+    await asyncio.wait_for(
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\tasks.py", line 509, in wait_for
+    async with timeouts.timeout(timeout):
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\timeouts.py", line 111, in __aexit__
+    raise TimeoutError from exc_val
+TimeoutError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\commands\bot.py", line 1366, in invoke
+    await ctx.command.invoke(ctx)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\commands\core.py", line 1029, in invoke
+    await injected(*ctx.args, **ctx.kwargs)  # type: ignore
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\commands\core.py", line 244, in wrapped
+    raise CommandInvokeError(exc) from exc
+discord.ext.commands.errors.CommandInvokeError: Command raised an exception: TimeoutError: 
+2025-07-30 00:16:37,457 - MusicBot - ERROR - error:69 - [command_error] Command raised an exception: TimeoutError:  | Additional info: {'guild_id': 1208701086458847282}
+NoneType: None
+2025-07-30 00:17:18,383 - MusicBot - ERROR - error:69 - [command_error] Command raised an exception: TimeoutError:  | Additional info: {'guild_id': 1208701086458847282}
+NoneType: None
+2025-07-30 00:20:03,146 - MusicBot - ERROR - error:69 - [play_command_error] Command raised an exception: TimeoutError:  | Additional info: {'guild_id': 1208701086458847282, 'user_id': 482482011571748864}
+Traceback (most recent call last):
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\tasks.py", line 510, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_state.py", line 407, in _inner_connect
+    await self._wait_for_state(ConnectionFlowState.got_both_voice_updates)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_state.py", line 559, in _wait_for_state
+    await sane_wait_for([self._state_event.wait()], timeout=timeout)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\utils.py", line 735, in sane_wait_for
+    done, pending = await asyncio.wait(ensured, timeout=timeout, return_when=asyncio.ALL_COMPLETED)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\tasks.py", line 454, in wait
+    return await _wait(fs, timeout, return_when, loop)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\tasks.py", line 540, in _wait
+    await waiter
+asyncio.exceptions.CancelledError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\commands\core.py", line 235, in wrapped
+    ret = await coro(*args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 64, in play
+    await ctx.author.voice.channel.connect()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\abc.py", line 1992, in connect
+    await voice.connect(timeout=timeout, reconnect=reconnect, self_deaf=self_deaf, self_mute=self_mute)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 306, in connect
+    await self._connection.connect(
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_state.py", line 380, in connect
+    await self._connector
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_state.py", line 384, in _wrap_connect
+    await self._connect(*args)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_state.py", line 429, in _connect
+    await asyncio.wait_for(
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\tasks.py", line 509, in wait_for
+    async with timeouts.timeout(timeout):
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\timeouts.py", line 111, in __aexit__
+    raise TimeoutError from exc_val
+TimeoutError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\commands\bot.py", line 1366, in invoke
+    await ctx.command.invoke(ctx)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\commands\core.py", line 1029, in invoke
+    await injected(*ctx.args, **ctx.kwargs)  # type: ignore
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\commands\core.py", line 244, in wrapped
+    raise CommandInvokeError(exc) from exc
+discord.ext.commands.errors.CommandInvokeError: Command raised an exception: TimeoutError: 
+2025-07-30 00:20:03,162 - MusicBot - ERROR - error:69 - [play_command_error] Command raised an exception: TimeoutError:  | Additional info: {'guild_id': 1208701086458847282, 'user_id': 482482011571748864}
+Traceback (most recent call last):
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_state.py", line 413, in _inner_connect
+    await self._handshake_websocket()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_state.py", line 583, in _handshake_websocket
+    await self.ws.poll_event()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\gateway.py", line 1039, in poll_event
+    raise ConnectionClosed(self.ws, shard_id=None, code=self._close_code)
+discord.errors.ConnectionClosed: Shard ID None WebSocket closed with 4006
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\tasks.py", line 510, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_state.py", line 420, in _inner_connect
+    await asyncio.sleep(wait)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\tasks.py", line 655, in sleep
+    return await future
+           ^^^^^^^^^^^^
+asyncio.exceptions.CancelledError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\commands\core.py", line 235, in wrapped
+    ret = await coro(*args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 64, in play
+    await ctx.author.voice.channel.connect()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\abc.py", line 1992, in connect
+    await voice.connect(timeout=timeout, reconnect=reconnect, self_deaf=self_deaf, self_mute=self_mute)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 306, in connect
+    await self._connection.connect(
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_state.py", line 380, in connect
+    await self._connector
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_state.py", line 384, in _wrap_connect
+    await self._connect(*args)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_state.py", line 429, in _connect
+    await asyncio.wait_for(
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\tasks.py", line 509, in wait_for
+    async with timeouts.timeout(timeout):
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\timeouts.py", line 111, in __aexit__
+    raise TimeoutError from exc_val
+TimeoutError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\commands\bot.py", line 1366, in invoke
+    await ctx.command.invoke(ctx)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\commands\core.py", line 1029, in invoke
+    await injected(*ctx.args, **ctx.kwargs)  # type: ignore
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\commands\core.py", line 244, in wrapped
+    raise CommandInvokeError(exc) from exc
+discord.ext.commands.errors.CommandInvokeError: Command raised an exception: TimeoutError: 
+2025-07-30 00:20:03,162 - MusicBot - ERROR - error:69 - [play_command_error] Command raised an exception: TimeoutError:  | Additional info: {'guild_id': 1208701086458847282, 'user_id': 482482011571748864}
+Traceback (most recent call last):
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\tasks.py", line 510, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_state.py", line 407, in _inner_connect
+    await self._wait_for_state(ConnectionFlowState.got_both_voice_updates)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_state.py", line 559, in _wait_for_state
+    await sane_wait_for([self._state_event.wait()], timeout=timeout)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\utils.py", line 735, in sane_wait_for
+    done, pending = await asyncio.wait(ensured, timeout=timeout, return_when=asyncio.ALL_COMPLETED)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\tasks.py", line 454, in wait
+    return await _wait(fs, timeout, return_when, loop)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\tasks.py", line 540, in _wait
+    await waiter
+asyncio.exceptions.CancelledError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\commands\core.py", line 235, in wrapped
+    ret = await coro(*args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 64, in play
+    await ctx.author.voice.channel.connect()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\abc.py", line 1992, in connect
+    await voice.connect(timeout=timeout, reconnect=reconnect, self_deaf=self_deaf, self_mute=self_mute)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 306, in connect
+    await self._connection.connect(
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_state.py", line 380, in connect
+    await self._connector
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_state.py", line 384, in _wrap_connect
+    await self._connect(*args)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_state.py", line 429, in _connect
+    await asyncio.wait_for(
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\tasks.py", line 509, in wait_for
+    async with timeouts.timeout(timeout):
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\timeouts.py", line 111, in __aexit__
+    raise TimeoutError from exc_val
+TimeoutError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\commands\bot.py", line 1366, in invoke
+    await ctx.command.invoke(ctx)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\commands\core.py", line 1029, in invoke
+    await injected(*ctx.args, **ctx.kwargs)  # type: ignore
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\commands\core.py", line 244, in wrapped
+    raise CommandInvokeError(exc) from exc
+discord.ext.commands.errors.CommandInvokeError: Command raised an exception: TimeoutError: 
+2025-07-30 00:20:04,356 - MusicBot - ERROR - error:69 - [command_error] Command raised an exception: TimeoutError:  | Additional info: {'guild_id': 1208701086458847282}
+NoneType: None
+2025-07-30 00:20:04,461 - MusicBot - ERROR - error:69 - [command_error] Command raised an exception: TimeoutError:  | Additional info: {'guild_id': 1208701086458847282}
+NoneType: None
+2025-07-30 00:20:09,715 - MusicBot - ERROR - error:69 - [command_error] Command raised an exception: TimeoutError:  | Additional info: {'guild_id': 1208701086458847282}
+NoneType: None
+2025-07-30 00:20:17,707 - MusicBot - ERROR - error:69 - [dashboard_index] expected token 'end of statement block', got '['
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\dashboard.py", line 169, in index
+    return render_template('dashboard_enhanced.html', stats=stats)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\templating.py", line 150, in render_template
+    template = app.jinja_env.get_or_select_template(template_name_or_list)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\environment.py", line 1087, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\environment.py", line 1016, in get_template
+    return self._load_template(name, globals)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\environment.py", line 975, in _load_template
+    template = self.loader.load(self, name, self.make_globals(globals))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\loaders.py", line 138, in load
+    code = environment.compile(source, name, filename)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\environment.py", line 771, in compile
+    self.handle_exception(source=source_hint)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\environment.py", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "C:\Users\amitk\Documents\Music Bot\templates\dashboard_enhanced.html", line 193, in template
+    {% for song, count in stats.most_played.items() | list[:10] %}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+jinja2.exceptions.TemplateSyntaxError: expected token 'end of statement block', got '['
+2025-07-30 00:22:31,451 - MusicBot - ERROR - error:69 - [play_command_error] Command raised an exception: TimeoutError:  | Additional info: {'guild_id': 1053223116085673985, 'user_id': 482482011571748864}
+Traceback (most recent call last):
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\tasks.py", line 510, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_state.py", line 407, in _inner_connect
+    await self._wait_for_state(ConnectionFlowState.got_both_voice_updates)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_state.py", line 559, in _wait_for_state
+    await sane_wait_for([self._state_event.wait()], timeout=timeout)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\utils.py", line 735, in sane_wait_for
+    done, pending = await asyncio.wait(ensured, timeout=timeout, return_when=asyncio.ALL_COMPLETED)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\tasks.py", line 454, in wait
+    return await _wait(fs, timeout, return_when, loop)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\tasks.py", line 540, in _wait
+    await waiter
+asyncio.exceptions.CancelledError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\commands\core.py", line 235, in wrapped
+    ret = await coro(*args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 64, in play
+    await ctx.author.voice.channel.connect()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\abc.py", line 1992, in connect
+    await voice.connect(timeout=timeout, reconnect=reconnect, self_deaf=self_deaf, self_mute=self_mute)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 306, in connect
+    await self._connection.connect(
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_state.py", line 380, in connect
+    await self._connector
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_state.py", line 384, in _wrap_connect
+    await self._connect(*args)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_state.py", line 429, in _connect
+    await asyncio.wait_for(
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\tasks.py", line 509, in wait_for
+    async with timeouts.timeout(timeout):
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\timeouts.py", line 111, in __aexit__
+    raise TimeoutError from exc_val
+TimeoutError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\commands\bot.py", line 1366, in invoke
+    await ctx.command.invoke(ctx)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\commands\core.py", line 1029, in invoke
+    await injected(*ctx.args, **ctx.kwargs)  # type: ignore
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\commands\core.py", line 244, in wrapped
+    raise CommandInvokeError(exc) from exc
+discord.ext.commands.errors.CommandInvokeError: Command raised an exception: TimeoutError: 
+2025-07-30 00:22:31,466 - MusicBot - ERROR - error:69 - [play_command_error] Command raised an exception: TimeoutError:  | Additional info: {'guild_id': 1053223116085673985, 'user_id': 482482011571748864}
+Traceback (most recent call last):
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\tasks.py", line 510, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_state.py", line 407, in _inner_connect
+    await self._wait_for_state(ConnectionFlowState.got_both_voice_updates)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_state.py", line 559, in _wait_for_state
+    await sane_wait_for([self._state_event.wait()], timeout=timeout)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\utils.py", line 735, in sane_wait_for
+    done, pending = await asyncio.wait(ensured, timeout=timeout, return_when=asyncio.ALL_COMPLETED)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\tasks.py", line 454, in wait
+    return await _wait(fs, timeout, return_when, loop)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\tasks.py", line 540, in _wait
+    await waiter
+asyncio.exceptions.CancelledError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\commands\core.py", line 235, in wrapped
+    ret = await coro(*args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 64, in play
+    await ctx.author.voice.channel.connect()
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\abc.py", line 1992, in connect
+    await voice.connect(timeout=timeout, reconnect=reconnect, self_deaf=self_deaf, self_mute=self_mute)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 306, in connect
+    await self._connection.connect(
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_state.py", line 380, in connect
+    await self._connector
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_state.py", line 384, in _wrap_connect
+    await self._connect(*args)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_state.py", line 429, in _connect
+    await asyncio.wait_for(
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\tasks.py", line 509, in wait_for
+    async with timeouts.timeout(timeout):
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\timeouts.py", line 111, in __aexit__
+    raise TimeoutError from exc_val
+TimeoutError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\commands\bot.py", line 1366, in invoke
+    await ctx.command.invoke(ctx)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\commands\core.py", line 1029, in invoke
+    await injected(*ctx.args, **ctx.kwargs)  # type: ignore
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\commands\core.py", line 244, in wrapped
+    raise CommandInvokeError(exc) from exc
+discord.ext.commands.errors.CommandInvokeError: Command raised an exception: TimeoutError: 
+2025-07-30 00:22:32,379 - MusicBot - ERROR - error:69 - [command_error] Command raised an exception: TimeoutError:  | Additional info: {'guild_id': 1053223116085673985}
+NoneType: None
+2025-07-30 00:22:36,628 - MusicBot - ERROR - error:69 - [command_error] Command raised an exception: TimeoutError:  | Additional info: {'guild_id': 1053223116085673985}
+NoneType: None
+2025-07-30 00:25:38,622 - MusicBot - ERROR - error:69 - [play_command_error] Command raised an exception: TimeoutError:  | Additional info: {'guild_id': 1208701086458847282, 'user_id': 482482011571748864}
+Traceback (most recent call last):
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\tasks.py", line 510, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_state.py", line 407, in _inner_connect
+    await self._wait_for_state(ConnectionFlowState.got_both_voice_updates)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_state.py", line 559, in _wait_for_state
+    await sane_wait_for([self._state_event.wait()], timeout=timeout)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\utils.py", line 735, in sane_wait_for
+    done, pending = await asyncio.wait(ensured, timeout=timeout, return_when=asyncio.ALL_COMPLETED)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\tasks.py", line 454, in wait
+    return await _wait(fs, timeout, return_when, loop)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\tasks.py", line 540, in _wait
+    await waiter
+asyncio.exceptions.CancelledError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\commands\core.py", line 235, in wrapped
+    ret = await coro(*args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 64, in play
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\abc.py", line 1992, in connect
+    await voice.connect(timeout=timeout, reconnect=reconnect, self_deaf=self_deaf, self_mute=self_mute)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 306, in connect
+    await self._connection.connect(
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_state.py", line 380, in connect
+    await self._connector
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_state.py", line 384, in _wrap_connect
+    await self._connect(*args)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_state.py", line 429, in _connect
+    await asyncio.wait_for(
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\tasks.py", line 509, in wait_for
+    async with timeouts.timeout(timeout):
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\timeouts.py", line 111, in __aexit__
+    raise TimeoutError from exc_val
+TimeoutError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\commands\bot.py", line 1366, in invoke
+    await ctx.command.invoke(ctx)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\commands\core.py", line 1029, in invoke
+    await injected(*ctx.args, **ctx.kwargs)  # type: ignore
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\commands\core.py", line 244, in wrapped
+    raise CommandInvokeError(exc) from exc
+discord.ext.commands.errors.CommandInvokeError: Command raised an exception: TimeoutError: 
+2025-07-30 00:25:38,622 - MusicBot - ERROR - error:69 - [play_command_error] Command raised an exception: TimeoutError:  | Additional info: {'guild_id': 1208701086458847282, 'user_id': 482482011571748864}
+Traceback (most recent call last):
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\tasks.py", line 510, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_state.py", line 407, in _inner_connect
+    await self._wait_for_state(ConnectionFlowState.got_both_voice_updates)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_state.py", line 559, in _wait_for_state
+    await sane_wait_for([self._state_event.wait()], timeout=timeout)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\utils.py", line 735, in sane_wait_for
+    done, pending = await asyncio.wait(ensured, timeout=timeout, return_when=asyncio.ALL_COMPLETED)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\tasks.py", line 454, in wait
+    return await _wait(fs, timeout, return_when, loop)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\tasks.py", line 540, in _wait
+    await waiter
+asyncio.exceptions.CancelledError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\commands\core.py", line 235, in wrapped
+    ret = await coro(*args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\Documents\Music Bot\commands\music.py", line 64, in play
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\abc.py", line 1992, in connect
+    await voice.connect(timeout=timeout, reconnect=reconnect, self_deaf=self_deaf, self_mute=self_mute)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_client.py", line 306, in connect
+    await self._connection.connect(
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_state.py", line 380, in connect
+    await self._connector
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_state.py", line 384, in _wrap_connect
+    await self._connect(*args)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\voice_state.py", line 429, in _connect
+    await asyncio.wait_for(
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\tasks.py", line 509, in wait_for
+    async with timeouts.timeout(timeout):
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\timeouts.py", line 111, in __aexit__
+    raise TimeoutError from exc_val
+TimeoutError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\commands\bot.py", line 1366, in invoke
+    await ctx.command.invoke(ctx)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\commands\core.py", line 1029, in invoke
+    await injected(*ctx.args, **ctx.kwargs)  # type: ignore
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\commands\core.py", line 244, in wrapped
+    raise CommandInvokeError(exc) from exc
+discord.ext.commands.errors.CommandInvokeError: Command raised an exception: TimeoutError: 
+2025-07-30 00:25:39,740 - MusicBot - ERROR - error:69 - [command_error] Command raised an exception: TimeoutError:  | Additional info: {'guild_id': 1208701086458847282}
+NoneType: None
+2025-07-30 00:25:40,249 - MusicBot - ERROR - error:69 - [command_error] Command raised an exception: TimeoutError:  | Additional info: {'guild_id': 1208701086458847282}
+NoneType: None
+2025-07-31 01:15:31,845 - MusicBot - ERROR - error:69 - [setup_hook] Extension 'commands.admin' raised an error: CommandRegistrationError: The command clearqueue is already an existing command or alias.
+Traceback (most recent call last):
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\commands\bot.py", line 963, in _load_from_module_spec
+    await setup(self)
+  File "C:\Users\amitk\Documents\Music Bot\commands\admin.py", line 215, in setup
+    await bot.add_cog(AdminCog(bot))
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\commands\bot.py", line 799, in add_cog
+    cog = await cog._inject(self, override=override, guild=guild, guilds=guilds)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\commands\cog.py", line 725, in _inject
+    raise e
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\commands\cog.py", line 716, in _inject
+    bot.add_command(command)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\commands\bot.py", line 253, in add_command
+    super().add_command(command)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\commands\core.py", line 1356, in add_command
+    raise CommandRegistrationError(command.name)
+discord.ext.commands.errors.CommandRegistrationError: The command clearqueue is already an existing command or alias.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\bot.py", line 38, in setup_hook
+    await self.load_extension('commands.admin')
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\commands\bot.py", line 1029, in load_extension
+    await self._load_from_module_spec(spec, name)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\commands\bot.py", line 968, in _load_from_module_spec
+    raise errors.ExtensionFailed(key, e) from e
+discord.ext.commands.errors.ExtensionFailed: Extension 'commands.admin' raised an error: CommandRegistrationError: The command clearqueue is already an existing command or alias.
+2025-07-31 01:15:31,847 - MusicBot - ERROR - error:69 - [bot_startup] Extension 'commands.admin' raised an error: CommandRegistrationError: The command clearqueue is already an existing command or alias.
+Traceback (most recent call last):
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\commands\bot.py", line 963, in _load_from_module_spec
+    await setup(self)
+  File "C:\Users\amitk\Documents\Music Bot\commands\admin.py", line 215, in setup
+    await bot.add_cog(AdminCog(bot))
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\commands\bot.py", line 799, in add_cog
+    cog = await cog._inject(self, override=override, guild=guild, guilds=guilds)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\commands\cog.py", line 725, in _inject
+    raise e
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\commands\cog.py", line 716, in _inject
+    bot.add_command(command)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\commands\bot.py", line 253, in add_command
+    super().add_command(command)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\commands\core.py", line 1356, in add_command
+    raise CommandRegistrationError(command.name)
+discord.ext.commands.errors.CommandRegistrationError: The command clearqueue is already an existing command or alias.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\bot.py", line 271, in main
+    await bot.start(config.discord_token)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\client.py", line 823, in start
+    await self.login(token)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\client.py", line 666, in login
+    await self.setup_hook()
+  File "C:\Users\amitk\Documents\Music Bot\bot.py", line 38, in setup_hook
+    await self.load_extension('commands.admin')
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\commands\bot.py", line 1029, in load_extension
+    await self._load_from_module_spec(spec, name)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\commands\bot.py", line 968, in _load_from_module_spec
+    raise errors.ExtensionFailed(key, e) from e
+discord.ext.commands.errors.ExtensionFailed: Extension 'commands.admin' raised an error: CommandRegistrationError: The command clearqueue is already an existing command or alias.
+2025-07-31 01:15:31,848 - MusicBot - ERROR - error:69 - [main_execution] Extension 'commands.admin' raised an error: CommandRegistrationError: The command clearqueue is already an existing command or alias.
+Traceback (most recent call last):
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\commands\bot.py", line 963, in _load_from_module_spec
+    await setup(self)
+  File "C:\Users\amitk\Documents\Music Bot\commands\admin.py", line 215, in setup
+    await bot.add_cog(AdminCog(bot))
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\commands\bot.py", line 799, in add_cog
+    cog = await cog._inject(self, override=override, guild=guild, guilds=guilds)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\commands\cog.py", line 725, in _inject
+    raise e
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\commands\cog.py", line 716, in _inject
+    bot.add_command(command)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\commands\bot.py", line 253, in add_command
+    super().add_command(command)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\commands\core.py", line 1356, in add_command
+    raise CommandRegistrationError(command.name)
+discord.ext.commands.errors.CommandRegistrationError: The command clearqueue is already an existing command or alias.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\amitk\Documents\Music Bot\bot.py", line 280, in <module>
+    asyncio.run(main())
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py", line 194, in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py", line 664, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "C:\Users\amitk\Documents\Music Bot\bot.py", line 271, in main
+    await bot.start(config.discord_token)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\client.py", line 823, in start
+    await self.login(token)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\client.py", line 666, in login
+    await self.setup_hook()
+  File "C:\Users\amitk\Documents\Music Bot\bot.py", line 38, in setup_hook
+    await self.load_extension('commands.admin')
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\commands\bot.py", line 1029, in load_extension
+    await self._load_from_module_spec(spec, name)
+  File "C:\Users\amitk\AppData\Local\Programs\Python\Python312\Lib\site-packages\discord\ext\commands\bot.py", line 968, in _load_from_module_spec
+    raise errors.ExtensionFailed(key, e) from e
+discord.ext.commands.errors.ExtensionFailed: Extension 'commands.admin' raised an error: CommandRegistrationError: The command clearqueue is already an existing command or alias.

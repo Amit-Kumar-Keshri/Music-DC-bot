@@ -557,6 +557,11 @@ async def play_current_song(ctx):
             await ctx.send("❌ I'm not in a voice channel!")
             return
         
+        # Check if already playing to avoid "Already playing audio" error
+        if ctx.voice_client.is_playing() or ctx.voice_client.is_paused():
+            logger.warning("play_current_song called while already playing", guild_id=guild_id)
+            return
+        
         try:
             # Create audio source
             source = await audio_manager.create_audio_source(current_song, guild_id)
